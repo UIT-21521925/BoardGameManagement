@@ -1,0 +1,32 @@
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\bin\Debug\QuanLyBoardGame.exe.config
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\bin\Debug\QuanLyBoardGame.exe
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\bin\Debug\QuanLyBoardGame.pdb
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.AssemblyReference.cache
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.SuggestedBindingRedirects.cache
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.Properties.Resources.resources
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.GenerateResource.cache
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.exe
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.pdb
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.FThemKH.resources
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.DangNhap.resources
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.Admin.resources
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemHoaDon.resources
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemBoardGame.resources
+C:\Users\ADMIN\Desktop\New folder\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemUuDai.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.AssemblyReference.cache
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.SuggestedBindingRedirects.cache
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.DangNhap.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.Admin.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemHoaDon.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.FThemKH.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemBoardGame.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemUuDai.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.GenerateResource.cache
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.exe
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.pdb
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\bin\Debug\QuanLyBoardGame.exe.config
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\bin\Debug\QuanLyBoardGame.exe
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\bin\Debug\QuanLyBoardGame.pdb
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.Properties.Resources.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.CoreCompileInputs.cache
