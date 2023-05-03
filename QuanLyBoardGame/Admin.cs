@@ -32,36 +32,30 @@ namespace QuanLyBoardGame
        
         private void bDanhMuc_Click(object sender, EventArgs e)
         {
-            this.mouseClick(sender, e);
             tabManage.SelectedIndex = 0;
         }
 
         private void bKhachHang_Click(object sender, EventArgs e)
         {
-            this.mouseClick(sender, e);
             tabManage.SelectedIndex = 1;
         }
 
         private void bHoaDon_Click(object sender, EventArgs e)
         {
-            this.mouseClick(sender, e);
             tabManage.SelectedIndex = 2;
         }
 
         private void bThue_Click(object sender, EventArgs e)
         {
-            this.mouseClick(sender, e);
             tabManage.SelectedIndex = 3;
         }
 
         private void bBaoCao_Click(object sender, EventArgs e)
         {
-            this.mouseClick(sender, e);
             tabManage.SelectedIndex = 4;
         }
         private void bUuDai_Click(object sender, EventArgs e)
         {
-            this.mouseClick(sender, e);
             tabManage.SelectedIndex = 5;
         }
 
