@@ -24,7 +24,7 @@ namespace QuanLyBoardGame
             this.BackColor = Color.Teal;
             labelText.Text = btn.Text;
         }
-        private void buttonAddMember_Click(object sender, EventArgs e)
+        private void bThemKhachHang_Click(object sender, EventArgs e)
         {
             FThemKH fMember = new FThemKH();
             fMember.ShowDialog();
@@ -59,7 +59,7 @@ namespace QuanLyBoardGame
             tabManage.SelectedIndex = 5;
         }
 
-        private void bAddBG_Click(object sender, EventArgs e)
+        private void bThemBoarGame_Click(object sender, EventArgs e)
         {
             ThemBoardGame themBoardGame = new ThemBoardGame();
             themBoardGame.ShowDialog();
