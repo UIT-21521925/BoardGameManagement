@@ -115,6 +115,7 @@
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(99, 26);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(241, 20);
             this.textBoxPassword.TabIndex = 2;
             // 
@@ -154,14 +155,14 @@
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Tên đăng nhập";
             // 
-            // Form1
+            // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 294);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelColor);
-            this.Name = "Form1";
+            this.Name = "DangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.panelLogin.ResumeLayout(false);

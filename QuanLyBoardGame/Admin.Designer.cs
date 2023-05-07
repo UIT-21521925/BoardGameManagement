@@ -31,34 +31,54 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.panelTab = new System.Windows.Forms.Panel();
             this.panelChoose = new System.Windows.Forms.Panel();
+            this.bKhuyenMai = new System.Windows.Forms.Button();
+            this.bBaoCao = new System.Windows.Forms.Button();
+            this.bThue = new System.Windows.Forms.Button();
+            this.bHoaDon = new System.Windows.Forms.Button();
+            this.bKhachHang = new System.Windows.Forms.Button();
+            this.bDanhMuc = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelView = new System.Windows.Forms.Panel();
             this.tabManage = new System.Windows.Forms.TabControl();
             this.tpDanhMuc = new System.Windows.Forms.TabPage();
             this.pBG = new System.Windows.Forms.Panel();
+            this.bThemBoardGame = new System.Windows.Forms.Button();
             this.cbLoaiBG = new System.Windows.Forms.ComboBox();
+            this.bReBG = new System.Windows.Forms.Button();
+            this.bTimBG = new System.Windows.Forms.Button();
             this.txBG = new System.Windows.Forms.TextBox();
             this.dataBG = new System.Windows.Forms.DataGridView();
             this.pTTBoardGame = new System.Windows.Forms.Panel();
             this.labelTTBoardGame = new System.Windows.Forms.Label();
+            this.bAddTTBoardGame = new System.Windows.Forms.Button();
             this.cbTTBoardGame = new System.Windows.Forms.ComboBox();
+            this.bReTTBoardGame = new System.Windows.Forms.Button();
+            this.bTimTTBoardGame = new System.Windows.Forms.Button();
             this.tbTTBoardGame = new System.Windows.Forms.TextBox();
             this.dataTTBoardGame = new System.Windows.Forms.DataGridView();
             this.tpKhachHang = new System.Windows.Forms.TabPage();
+            this.bThemKhachHang = new System.Windows.Forms.Button();
             this.cbLoaiKhachHang = new System.Windows.Forms.ComboBox();
             this.tbKhachHang = new System.Windows.Forms.TextBox();
             this.pSLKhachHang = new System.Windows.Forms.Panel();
             this.nSLKhachHang = new System.Windows.Forms.Label();
             this.lSLKhachHang = new System.Windows.Forms.Label();
             this.dataKhachHang = new System.Windows.Forms.DataGridView();
+            this.bReKhachHang = new System.Windows.Forms.Button();
+            this.bTimKhachHang = new System.Windows.Forms.Button();
             this.tpHoaDon = new System.Windows.Forms.TabPage();
+            this.bThemHoaDon = new System.Windows.Forms.Button();
             this.cbLoaiHoaDon = new System.Windows.Forms.ComboBox();
             this.tbHoaDon = new System.Windows.Forms.TextBox();
             this.dataHoaDon = new System.Windows.Forms.DataGridView();
+            this.bReHoaDon = new System.Windows.Forms.Button();
+            this.bTimHoaDon = new System.Windows.Forms.Button();
             this.tpDonHang = new System.Windows.Forms.TabPage();
             this.cbLoaiDonHang = new System.Windows.Forms.ComboBox();
             this.txDonHang = new System.Windows.Forms.TextBox();
             this.dataDonHang = new System.Windows.Forms.DataGridView();
+            this.bReDonhang = new System.Windows.Forms.Button();
+            this.bTimDonHang = new System.Windows.Forms.Button();
             this.tpBaoCao = new System.Windows.Forms.TabPage();
             this.dateKetThuc = new System.Windows.Forms.DateTimePicker();
             this.dateBatDau = new System.Windows.Forms.DateTimePicker();
@@ -67,46 +87,26 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.lTTUuDai = new System.Windows.Forms.Label();
             this.cbLoaiTTUuDai = new System.Windows.Forms.ComboBox();
+            this.bReTTUuDai = new System.Windows.Forms.Button();
+            this.bTimTTUuDai = new System.Windows.Forms.Button();
             this.tbTTUuDai = new System.Windows.Forms.TextBox();
             this.dataTTUuDai = new System.Windows.Forms.DataGridView();
             this.pUuDai = new System.Windows.Forms.Panel();
+            this.bThemUuDai = new System.Windows.Forms.Button();
             this.cbLoaiUuDai = new System.Windows.Forms.ComboBox();
+            this.bReUuDai = new System.Windows.Forms.Button();
+            this.bTimUudai = new System.Windows.Forms.Button();
             this.tbUuDai = new System.Windows.Forms.TextBox();
             this.dataUuDai = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pDeMuc = new System.Windows.Forms.Panel();
+            this.pColor = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.labelText = new System.Windows.Forms.Label();
             this.panelColor = new System.Windows.Forms.Panel();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.bKhuyenMai = new System.Windows.Forms.Button();
-            this.bBaoCao = new System.Windows.Forms.Button();
-            this.bThue = new System.Windows.Forms.Button();
-            this.bHoaDon = new System.Windows.Forms.Button();
-            this.bKhachHang = new System.Windows.Forms.Button();
-            this.bDanhMuc = new System.Windows.Forms.Button();
-            this.bAddBG = new System.Windows.Forms.Button();
-            this.bReBG = new System.Windows.Forms.Button();
-            this.bTimBG = new System.Windows.Forms.Button();
-            this.bAddTTBoardGame = new System.Windows.Forms.Button();
-            this.bReTTBoardGame = new System.Windows.Forms.Button();
-            this.bTimTTBoardGame = new System.Windows.Forms.Button();
-            this.bThemKhachHang = new System.Windows.Forms.Button();
-            this.bReKhachHang = new System.Windows.Forms.Button();
-            this.bTimKhachHang = new System.Windows.Forms.Button();
-            this.bThemHoaDon = new System.Windows.Forms.Button();
-            this.bReHoaDon = new System.Windows.Forms.Button();
-            this.bTimHoaDon = new System.Windows.Forms.Button();
-            this.bReDonhang = new System.Windows.Forms.Button();
-            this.bTimDonHang = new System.Windows.Forms.Button();
-            this.bReTTUuDai = new System.Windows.Forms.Button();
-            this.bTimTTUuDai = new System.Windows.Forms.Button();
-            this.bThemUuDai = new System.Windows.Forms.Button();
-            this.bReUuDai = new System.Windows.Forms.Button();
-            this.bTimUudai = new System.Windows.Forms.Button();
             this.bAcc = new System.Windows.Forms.Button();
             this.bLogOut = new System.Windows.Forms.Button();
             this.bSecurity = new System.Windows.Forms.Button();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.panelTab.SuspendLayout();
             this.panelChoose.SuspendLayout();
             this.panelView.SuspendLayout();
@@ -130,13 +130,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataTTUuDai)).BeginInit();
             this.pUuDai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataUuDai)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pDeMuc.SuspendLayout();
+            this.pColor.SuspendLayout();
             this.panelColor.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTab
             // 
+            this.panelTab.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panelTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panelTab.Controls.Add(this.panelChoose);
             this.panelTab.Controls.Add(this.panelLogo);
@@ -157,477 +159,6 @@
             this.panelChoose.Name = "panelChoose";
             this.panelChoose.Size = new System.Drawing.Size(144, 319);
             this.panelChoose.TabIndex = 1;
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.panelLogo.Location = new System.Drawing.Point(10, 12);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(144, 123);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // panelView
-            // 
-            this.panelView.BackColor = System.Drawing.Color.White;
-            this.panelView.Controls.Add(this.tabManage);
-            this.panelView.Controls.Add(this.panel1);
-            this.panelView.Location = new System.Drawing.Point(191, 0);
-            this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(801, 520);
-            this.panelView.TabIndex = 5;
-            // 
-            // tabManage
-            // 
-            this.tabManage.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.tabManage.Controls.Add(this.tpDanhMuc);
-            this.tabManage.Controls.Add(this.tpKhachHang);
-            this.tabManage.Controls.Add(this.tpHoaDon);
-            this.tabManage.Controls.Add(this.tpDonHang);
-            this.tabManage.Controls.Add(this.tpBaoCao);
-            this.tabManage.Controls.Add(this.tpUuDai);
-            this.tabManage.Location = new System.Drawing.Point(15, 41);
-            this.tabManage.Name = "tabManage";
-            this.tabManage.SelectedIndex = 0;
-            this.tabManage.Size = new System.Drawing.Size(783, 479);
-            this.tabManage.TabIndex = 2;
-            // 
-            // tpDanhMuc
-            // 
-            this.tpDanhMuc.Controls.Add(this.pBG);
-            this.tpDanhMuc.Controls.Add(this.pTTBoardGame);
-            this.tpDanhMuc.Location = new System.Drawing.Point(4, 4);
-            this.tpDanhMuc.Name = "tpDanhMuc";
-            this.tpDanhMuc.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDanhMuc.Size = new System.Drawing.Size(775, 453);
-            this.tpDanhMuc.TabIndex = 1;
-            this.tpDanhMuc.Text = "DanhMuc";
-            this.tpDanhMuc.UseVisualStyleBackColor = true;
-            // 
-            // pBG
-            // 
-            this.pBG.Controls.Add(this.bAddBG);
-            this.pBG.Controls.Add(this.cbLoaiBG);
-            this.pBG.Controls.Add(this.bReBG);
-            this.pBG.Controls.Add(this.bTimBG);
-            this.pBG.Controls.Add(this.txBG);
-            this.pBG.Controls.Add(this.dataBG);
-            this.pBG.Location = new System.Drawing.Point(3, 6);
-            this.pBG.Name = "pBG";
-            this.pBG.Size = new System.Drawing.Size(766, 200);
-            this.pBG.TabIndex = 15;
-            // 
-            // cbLoaiBG
-            // 
-            this.cbLoaiBG.FormattingEnabled = true;
-            this.cbLoaiBG.Location = new System.Drawing.Point(306, 4);
-            this.cbLoaiBG.Name = "cbLoaiBG";
-            this.cbLoaiBG.Size = new System.Drawing.Size(121, 21);
-            this.cbLoaiBG.TabIndex = 31;
-            this.cbLoaiBG.Text = "Thể loại";
-            // 
-            // txBG
-            // 
-            this.txBG.Location = new System.Drawing.Point(4, 4);
-            this.txBG.Name = "txBG";
-            this.txBG.Size = new System.Drawing.Size(226, 20);
-            this.txBG.TabIndex = 28;
-            // 
-            // dataBG
-            // 
-            this.dataBG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataBG.Location = new System.Drawing.Point(4, 30);
-            this.dataBG.Name = "dataBG";
-            this.dataBG.Size = new System.Drawing.Size(758, 170);
-            this.dataBG.TabIndex = 27;
-            // 
-            // pTTBoardGame
-            // 
-            this.pTTBoardGame.Controls.Add(this.labelTTBoardGame);
-            this.pTTBoardGame.Controls.Add(this.bAddTTBoardGame);
-            this.pTTBoardGame.Controls.Add(this.cbTTBoardGame);
-            this.pTTBoardGame.Controls.Add(this.bReTTBoardGame);
-            this.pTTBoardGame.Controls.Add(this.bTimTTBoardGame);
-            this.pTTBoardGame.Controls.Add(this.tbTTBoardGame);
-            this.pTTBoardGame.Controls.Add(this.dataTTBoardGame);
-            this.pTTBoardGame.Location = new System.Drawing.Point(1, 212);
-            this.pTTBoardGame.Name = "pTTBoardGame";
-            this.pTTBoardGame.Size = new System.Drawing.Size(769, 241);
-            this.pTTBoardGame.TabIndex = 0;
-            // 
-            // labelTTBoardGame
-            // 
-            this.labelTTBoardGame.AutoSize = true;
-            this.labelTTBoardGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTTBoardGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelTTBoardGame.Location = new System.Drawing.Point(5, 11);
-            this.labelTTBoardGame.Name = "labelTTBoardGame";
-            this.labelTTBoardGame.Size = new System.Drawing.Size(168, 16);
-            this.labelTTBoardGame.TabIndex = 27;
-            this.labelTTBoardGame.Text = "Thông Tin Board Game";
-            // 
-            // cbTTBoardGame
-            // 
-            this.cbTTBoardGame.FormattingEnabled = true;
-            this.cbTTBoardGame.Location = new System.Drawing.Point(308, 34);
-            this.cbTTBoardGame.Name = "cbTTBoardGame";
-            this.cbTTBoardGame.Size = new System.Drawing.Size(121, 21);
-            this.cbTTBoardGame.TabIndex = 25;
-            this.cbTTBoardGame.Text = "Thể loại";
-            // 
-            // tbTTBoardGame
-            // 
-            this.tbTTBoardGame.Location = new System.Drawing.Point(6, 33);
-            this.tbTTBoardGame.Name = "tbTTBoardGame";
-            this.tbTTBoardGame.Size = new System.Drawing.Size(226, 20);
-            this.tbTTBoardGame.TabIndex = 22;
-            // 
-            // dataTTBoardGame
-            // 
-            this.dataTTBoardGame.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataTTBoardGame.Location = new System.Drawing.Point(4, 65);
-            this.dataTTBoardGame.Name = "dataTTBoardGame";
-            this.dataTTBoardGame.Size = new System.Drawing.Size(758, 170);
-            this.dataTTBoardGame.TabIndex = 21;
-            // 
-            // tpKhachHang
-            // 
-            this.tpKhachHang.Controls.Add(this.bThemKhachHang);
-            this.tpKhachHang.Controls.Add(this.cbLoaiKhachHang);
-            this.tpKhachHang.Controls.Add(this.tbKhachHang);
-            this.tpKhachHang.Controls.Add(this.pSLKhachHang);
-            this.tpKhachHang.Controls.Add(this.dataKhachHang);
-            this.tpKhachHang.Controls.Add(this.bReKhachHang);
-            this.tpKhachHang.Controls.Add(this.bTimKhachHang);
-            this.tpKhachHang.Location = new System.Drawing.Point(4, 4);
-            this.tpKhachHang.Name = "tpKhachHang";
-            this.tpKhachHang.Padding = new System.Windows.Forms.Padding(3);
-            this.tpKhachHang.Size = new System.Drawing.Size(775, 453);
-            this.tpKhachHang.TabIndex = 0;
-            this.tpKhachHang.Text = "KhachHang";
-            this.tpKhachHang.UseVisualStyleBackColor = true;
-            // 
-            // cbLoaiKhachHang
-            // 
-            this.cbLoaiKhachHang.FormattingEnabled = true;
-            this.cbLoaiKhachHang.Location = new System.Drawing.Point(312, 70);
-            this.cbLoaiKhachHang.Name = "cbLoaiKhachHang";
-            this.cbLoaiKhachHang.Size = new System.Drawing.Size(121, 21);
-            this.cbLoaiKhachHang.TabIndex = 19;
-            this.cbLoaiKhachHang.Text = "Thể loại";
-            // 
-            // tbKhachHang
-            // 
-            this.tbKhachHang.Location = new System.Drawing.Point(8, 70);
-            this.tbKhachHang.Name = "tbKhachHang";
-            this.tbKhachHang.Size = new System.Drawing.Size(226, 20);
-            this.tbKhachHang.TabIndex = 16;
-            // 
-            // pSLKhachHang
-            // 
-            this.pSLKhachHang.Controls.Add(this.nSLKhachHang);
-            this.pSLKhachHang.Controls.Add(this.lSLKhachHang);
-            this.pSLKhachHang.Location = new System.Drawing.Point(677, 3);
-            this.pSLKhachHang.Name = "pSLKhachHang";
-            this.pSLKhachHang.Size = new System.Drawing.Size(89, 59);
-            this.pSLKhachHang.TabIndex = 12;
-            // 
-            // nSLKhachHang
-            // 
-            this.nSLKhachHang.AutoSize = true;
-            this.nSLKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nSLKhachHang.Location = new System.Drawing.Point(37, 28);
-            this.nSLKhachHang.Name = "nSLKhachHang";
-            this.nSLKhachHang.Size = new System.Drawing.Size(19, 20);
-            this.nSLKhachHang.TabIndex = 1;
-            this.nSLKhachHang.Text = "0";
-            // 
-            // lSLKhachHang
-            // 
-            this.lSLKhachHang.AutoSize = true;
-            this.lSLKhachHang.BackColor = System.Drawing.Color.Transparent;
-            this.lSLKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSLKhachHang.Location = new System.Drawing.Point(3, 3);
-            this.lSLKhachHang.Name = "lSLKhachHang";
-            this.lSLKhachHang.Size = new System.Drawing.Size(80, 16);
-            this.lSLKhachHang.TabIndex = 0;
-            this.lSLKhachHang.Text = "Khách Hàng";
-            // 
-            // dataKhachHang
-            // 
-            this.dataKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataKhachHang.Location = new System.Drawing.Point(8, 101);
-            this.dataKhachHang.Name = "dataKhachHang";
-            this.dataKhachHang.Size = new System.Drawing.Size(758, 347);
-            this.dataKhachHang.TabIndex = 11;
-            // 
-            // tpHoaDon
-            // 
-            this.tpHoaDon.Controls.Add(this.bThemHoaDon);
-            this.tpHoaDon.Controls.Add(this.cbLoaiHoaDon);
-            this.tpHoaDon.Controls.Add(this.tbHoaDon);
-            this.tpHoaDon.Controls.Add(this.dataHoaDon);
-            this.tpHoaDon.Controls.Add(this.bReHoaDon);
-            this.tpHoaDon.Controls.Add(this.bTimHoaDon);
-            this.tpHoaDon.Location = new System.Drawing.Point(4, 4);
-            this.tpHoaDon.Name = "tpHoaDon";
-            this.tpHoaDon.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHoaDon.Size = new System.Drawing.Size(775, 453);
-            this.tpHoaDon.TabIndex = 2;
-            this.tpHoaDon.Text = "Hóa đơn";
-            this.tpHoaDon.UseVisualStyleBackColor = true;
-            // 
-            // cbLoaiHoaDon
-            // 
-            this.cbLoaiHoaDon.FormattingEnabled = true;
-            this.cbLoaiHoaDon.Location = new System.Drawing.Point(305, 6);
-            this.cbLoaiHoaDon.Name = "cbLoaiHoaDon";
-            this.cbLoaiHoaDon.Size = new System.Drawing.Size(121, 21);
-            this.cbLoaiHoaDon.TabIndex = 37;
-            this.cbLoaiHoaDon.Text = "Thể loại";
-            // 
-            // tbHoaDon
-            // 
-            this.tbHoaDon.Location = new System.Drawing.Point(3, 6);
-            this.tbHoaDon.Name = "tbHoaDon";
-            this.tbHoaDon.Size = new System.Drawing.Size(226, 20);
-            this.tbHoaDon.TabIndex = 34;
-            // 
-            // dataHoaDon
-            // 
-            this.dataHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataHoaDon.Location = new System.Drawing.Point(3, 32);
-            this.dataHoaDon.Name = "dataHoaDon";
-            this.dataHoaDon.Size = new System.Drawing.Size(758, 418);
-            this.dataHoaDon.TabIndex = 33;
-            // 
-            // tpDonHang
-            // 
-            this.tpDonHang.CausesValidation = false;
-            this.tpDonHang.Controls.Add(this.cbLoaiDonHang);
-            this.tpDonHang.Controls.Add(this.txDonHang);
-            this.tpDonHang.Controls.Add(this.dataDonHang);
-            this.tpDonHang.Controls.Add(this.bReDonhang);
-            this.tpDonHang.Controls.Add(this.bTimDonHang);
-            this.tpDonHang.Location = new System.Drawing.Point(4, 4);
-            this.tpDonHang.Name = "tpDonHang";
-            this.tpDonHang.Size = new System.Drawing.Size(775, 453);
-            this.tpDonHang.TabIndex = 3;
-            this.tpDonHang.Text = "Đơn hàng";
-            this.tpDonHang.UseVisualStyleBackColor = true;
-            // 
-            // cbLoaiDonHang
-            // 
-            this.cbLoaiDonHang.FormattingEnabled = true;
-            this.cbLoaiDonHang.Location = new System.Drawing.Point(310, 4);
-            this.cbLoaiDonHang.Name = "cbLoaiDonHang";
-            this.cbLoaiDonHang.Size = new System.Drawing.Size(121, 21);
-            this.cbLoaiDonHang.TabIndex = 43;
-            this.cbLoaiDonHang.Text = "Thể loại";
-            // 
-            // txDonHang
-            // 
-            this.txDonHang.Location = new System.Drawing.Point(8, 5);
-            this.txDonHang.Name = "txDonHang";
-            this.txDonHang.Size = new System.Drawing.Size(226, 20);
-            this.txDonHang.TabIndex = 40;
-            // 
-            // dataDonHang
-            // 
-            this.dataDonHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataDonHang.Location = new System.Drawing.Point(8, 31);
-            this.dataDonHang.Name = "dataDonHang";
-            this.dataDonHang.Size = new System.Drawing.Size(758, 421);
-            this.dataDonHang.TabIndex = 39;
-            // 
-            // tpBaoCao
-            // 
-            this.tpBaoCao.Controls.Add(this.dateKetThuc);
-            this.tpBaoCao.Controls.Add(this.dateBatDau);
-            this.tpBaoCao.Controls.Add(this.dataBaoCao);
-            this.tpBaoCao.Location = new System.Drawing.Point(4, 4);
-            this.tpBaoCao.Name = "tpBaoCao";
-            this.tpBaoCao.Size = new System.Drawing.Size(775, 453);
-            this.tpBaoCao.TabIndex = 4;
-            this.tpBaoCao.Text = "BaoCao";
-            this.tpBaoCao.UseVisualStyleBackColor = true;
-            // 
-            // dateKetThuc
-            // 
-            this.dateKetThuc.Location = new System.Drawing.Point(408, 3);
-            this.dateKetThuc.Name = "dateKetThuc";
-            this.dateKetThuc.Size = new System.Drawing.Size(200, 20);
-            this.dateKetThuc.TabIndex = 38;
-            // 
-            // dateBatDau
-            // 
-            this.dateBatDau.Location = new System.Drawing.Point(82, 3);
-            this.dateBatDau.Name = "dateBatDau";
-            this.dateBatDau.Size = new System.Drawing.Size(200, 20);
-            this.dateBatDau.TabIndex = 37;
-            // 
-            // dataBaoCao
-            // 
-            this.dataBaoCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataBaoCao.Location = new System.Drawing.Point(3, 29);
-            this.dataBaoCao.Name = "dataBaoCao";
-            this.dataBaoCao.Size = new System.Drawing.Size(758, 470);
-            this.dataBaoCao.TabIndex = 33;
-            // 
-            // tpUuDai
-            // 
-            this.tpUuDai.Controls.Add(this.panel4);
-            this.tpUuDai.Controls.Add(this.pUuDai);
-            this.tpUuDai.Location = new System.Drawing.Point(4, 4);
-            this.tpUuDai.Name = "tpUuDai";
-            this.tpUuDai.Padding = new System.Windows.Forms.Padding(3);
-            this.tpUuDai.Size = new System.Drawing.Size(775, 453);
-            this.tpUuDai.TabIndex = 5;
-            this.tpUuDai.Text = "UuDai";
-            this.tpUuDai.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.lTTUuDai);
-            this.panel4.Controls.Add(this.cbLoaiTTUuDai);
-            this.panel4.Controls.Add(this.bReTTUuDai);
-            this.panel4.Controls.Add(this.bTimTTUuDai);
-            this.panel4.Controls.Add(this.tbTTUuDai);
-            this.panel4.Controls.Add(this.dataTTUuDai);
-            this.panel4.Location = new System.Drawing.Point(3, 222);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(766, 228);
-            this.panel4.TabIndex = 17;
-            // 
-            // lTTUuDai
-            // 
-            this.lTTUuDai.AutoSize = true;
-            this.lTTUuDai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTTUuDai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lTTUuDai.Location = new System.Drawing.Point(3, 4);
-            this.lTTUuDai.Name = "lTTUuDai";
-            this.lTTUuDai.Size = new System.Drawing.Size(159, 16);
-            this.lTTUuDai.TabIndex = 33;
-            this.lTTUuDai.Text = "Thông Tin Thành Viên";
-            // 
-            // cbLoaiTTUuDai
-            // 
-            this.cbLoaiTTUuDai.FormattingEnabled = true;
-            this.cbLoaiTTUuDai.Location = new System.Drawing.Point(306, 22);
-            this.cbLoaiTTUuDai.Name = "cbLoaiTTUuDai";
-            this.cbLoaiTTUuDai.Size = new System.Drawing.Size(121, 21);
-            this.cbLoaiTTUuDai.TabIndex = 31;
-            this.cbLoaiTTUuDai.Text = "Thể loại";
-            // 
-            // tbTTUuDai
-            // 
-            this.tbTTUuDai.Location = new System.Drawing.Point(4, 23);
-            this.tbTTUuDai.Name = "tbTTUuDai";
-            this.tbTTUuDai.Size = new System.Drawing.Size(226, 20);
-            this.tbTTUuDai.TabIndex = 28;
-            // 
-            // dataTTUuDai
-            // 
-            this.dataTTUuDai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataTTUuDai.Location = new System.Drawing.Point(3, 49);
-            this.dataTTUuDai.Name = "dataTTUuDai";
-            this.dataTTUuDai.Size = new System.Drawing.Size(758, 176);
-            this.dataTTUuDai.TabIndex = 27;
-            // 
-            // pUuDai
-            // 
-            this.pUuDai.Controls.Add(this.bThemUuDai);
-            this.pUuDai.Controls.Add(this.cbLoaiUuDai);
-            this.pUuDai.Controls.Add(this.bReUuDai);
-            this.pUuDai.Controls.Add(this.bTimUudai);
-            this.pUuDai.Controls.Add(this.tbUuDai);
-            this.pUuDai.Controls.Add(this.dataUuDai);
-            this.pUuDai.Location = new System.Drawing.Point(3, 3);
-            this.pUuDai.Name = "pUuDai";
-            this.pUuDai.Size = new System.Drawing.Size(766, 213);
-            this.pUuDai.TabIndex = 16;
-            // 
-            // cbLoaiUuDai
-            // 
-            this.cbLoaiUuDai.FormattingEnabled = true;
-            this.cbLoaiUuDai.Location = new System.Drawing.Point(306, 5);
-            this.cbLoaiUuDai.Name = "cbLoaiUuDai";
-            this.cbLoaiUuDai.Size = new System.Drawing.Size(121, 21);
-            this.cbLoaiUuDai.TabIndex = 31;
-            this.cbLoaiUuDai.Text = "Thể loại";
-            // 
-            // tbUuDai
-            // 
-            this.tbUuDai.Location = new System.Drawing.Point(4, 4);
-            this.tbUuDai.Name = "tbUuDai";
-            this.tbUuDai.Size = new System.Drawing.Size(226, 20);
-            this.tbUuDai.TabIndex = 28;
-            // 
-            // dataUuDai
-            // 
-            this.dataUuDai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataUuDai.Location = new System.Drawing.Point(5, 30);
-            this.dataUuDai.Name = "dataUuDai";
-            this.dataUuDai.Size = new System.Drawing.Size(758, 176);
-            this.dataUuDai.TabIndex = 27;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.labelText);
-            this.panel1.Location = new System.Drawing.Point(15, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(783, 32);
-            this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Teal;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(3, 28);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(776, 10);
-            this.panel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(14, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(14, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = " ";
-            // 
-            // labelText
-            // 
-            this.labelText.AutoSize = true;
-            this.labelText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelText.Location = new System.Drawing.Point(3, 9);
-            this.labelText.Name = "labelText";
-            this.labelText.Size = new System.Drawing.Size(0, 20);
-            this.labelText.TabIndex = 1;
-            // 
-            // panelColor
-            // 
-            this.panelColor.BackColor = System.Drawing.Color.Teal;
-            this.panelColor.Controls.Add(this.bAcc);
-            this.panelColor.Controls.Add(this.bLogOut);
-            this.panelColor.Controls.Add(this.bSecurity);
-            this.panelColor.Controls.Add(this.panelMenu);
-            this.panelColor.Location = new System.Drawing.Point(0, 0);
-            this.panelColor.Name = "panelColor";
-            this.panelColor.Size = new System.Drawing.Size(35, 527);
-            this.panelColor.TabIndex = 6;
-            // 
-            // panelMenu
-            // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelMenu.Location = new System.Drawing.Point(31, 0);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(94, 463);
-            this.panelMenu.TabIndex = 1;
             // 
             // bKhuyenMai
             // 
@@ -756,15 +287,92 @@
             this.bDanhMuc.UseVisualStyleBackColor = false;
             this.bDanhMuc.Click += new System.EventHandler(this.bDanhMuc_Click);
             // 
-            // bAddBG
+            // panelLogo
             // 
-            this.bAddBG.Image = ((System.Drawing.Image)(resources.GetObject("bAddBG.Image")));
-            this.bAddBG.Location = new System.Drawing.Point(721, 2);
-            this.bAddBG.Name = "bAddBG";
-            this.bAddBG.Size = new System.Drawing.Size(39, 27);
-            this.bAddBG.TabIndex = 32;
-            this.bAddBG.UseVisualStyleBackColor = true;
-            this.bAddBG.Click += new System.EventHandler(this.bAddBG_Click);
+            this.panelLogo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.panelLogo.Location = new System.Drawing.Point(10, 12);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(144, 123);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // panelView
+            // 
+            this.panelView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelView.BackColor = System.Drawing.Color.White;
+            this.panelView.Controls.Add(this.tabManage);
+            this.panelView.Controls.Add(this.pDeMuc);
+            this.panelView.Location = new System.Drawing.Point(191, 0);
+            this.panelView.Name = "panelView";
+            this.panelView.Size = new System.Drawing.Size(801, 520);
+            this.panelView.TabIndex = 5;
+            // 
+            // tabManage
+            // 
+            this.tabManage.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabManage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabManage.Controls.Add(this.tpDanhMuc);
+            this.tabManage.Controls.Add(this.tpKhachHang);
+            this.tabManage.Controls.Add(this.tpHoaDon);
+            this.tabManage.Controls.Add(this.tpDonHang);
+            this.tabManage.Controls.Add(this.tpBaoCao);
+            this.tabManage.Controls.Add(this.tpUuDai);
+            this.tabManage.Location = new System.Drawing.Point(15, 41);
+            this.tabManage.Name = "tabManage";
+            this.tabManage.SelectedIndex = 0;
+            this.tabManage.Size = new System.Drawing.Size(783, 479);
+            this.tabManage.TabIndex = 2;
+            // 
+            // tpDanhMuc
+            // 
+            this.tpDanhMuc.Controls.Add(this.pBG);
+            this.tpDanhMuc.Controls.Add(this.pTTBoardGame);
+            this.tpDanhMuc.Location = new System.Drawing.Point(4, 4);
+            this.tpDanhMuc.Name = "tpDanhMuc";
+            this.tpDanhMuc.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDanhMuc.Size = new System.Drawing.Size(775, 453);
+            this.tpDanhMuc.TabIndex = 1;
+            this.tpDanhMuc.Text = "DanhMuc";
+            this.tpDanhMuc.UseVisualStyleBackColor = true;
+            // 
+            // pBG
+            // 
+            this.pBG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pBG.Controls.Add(this.bThemBoardGame);
+            this.pBG.Controls.Add(this.cbLoaiBG);
+            this.pBG.Controls.Add(this.bReBG);
+            this.pBG.Controls.Add(this.bTimBG);
+            this.pBG.Controls.Add(this.txBG);
+            this.pBG.Controls.Add(this.dataBG);
+            this.pBG.Location = new System.Drawing.Point(3, 6);
+            this.pBG.Name = "pBG";
+            this.pBG.Size = new System.Drawing.Size(766, 200);
+            this.pBG.TabIndex = 15;
+            // 
+            // bThemBoardGame
+            // 
+            this.bThemBoardGame.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bThemBoardGame.Image = ((System.Drawing.Image)(resources.GetObject("bThemBoardGame.Image")));
+            this.bThemBoardGame.Location = new System.Drawing.Point(721, 2);
+            this.bThemBoardGame.Name = "bThemBoardGame";
+            this.bThemBoardGame.Size = new System.Drawing.Size(39, 27);
+            this.bThemBoardGame.TabIndex = 32;
+            this.bThemBoardGame.UseVisualStyleBackColor = true;
+            this.bThemBoardGame.Click += new System.EventHandler(this.bThemBoardGame_Click);
+            // 
+            // cbLoaiBG
+            // 
+            this.cbLoaiBG.FormattingEnabled = true;
+            this.cbLoaiBG.Location = new System.Drawing.Point(306, 4);
+            this.cbLoaiBG.Name = "cbLoaiBG";
+            this.cbLoaiBG.Size = new System.Drawing.Size(121, 21);
+            this.cbLoaiBG.TabIndex = 31;
+            this.cbLoaiBG.Text = "Thể loại";
             // 
             // bReBG
             // 
@@ -784,14 +392,69 @@
             this.bTimBG.TabIndex = 29;
             this.bTimBG.UseVisualStyleBackColor = true;
             // 
+            // txBG
+            // 
+            this.txBG.Location = new System.Drawing.Point(4, 4);
+            this.txBG.Name = "txBG";
+            this.txBG.Size = new System.Drawing.Size(226, 20);
+            this.txBG.TabIndex = 28;
+            // 
+            // dataBG
+            // 
+            this.dataBG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataBG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataBG.Location = new System.Drawing.Point(4, 30);
+            this.dataBG.Name = "dataBG";
+            this.dataBG.Size = new System.Drawing.Size(758, 170);
+            this.dataBG.TabIndex = 27;
+            // 
+            // pTTBoardGame
+            // 
+            this.pTTBoardGame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pTTBoardGame.Controls.Add(this.labelTTBoardGame);
+            this.pTTBoardGame.Controls.Add(this.bAddTTBoardGame);
+            this.pTTBoardGame.Controls.Add(this.cbTTBoardGame);
+            this.pTTBoardGame.Controls.Add(this.bReTTBoardGame);
+            this.pTTBoardGame.Controls.Add(this.bTimTTBoardGame);
+            this.pTTBoardGame.Controls.Add(this.tbTTBoardGame);
+            this.pTTBoardGame.Controls.Add(this.dataTTBoardGame);
+            this.pTTBoardGame.Location = new System.Drawing.Point(1, 212);
+            this.pTTBoardGame.Name = "pTTBoardGame";
+            this.pTTBoardGame.Size = new System.Drawing.Size(769, 241);
+            this.pTTBoardGame.TabIndex = 0;
+            // 
+            // labelTTBoardGame
+            // 
+            this.labelTTBoardGame.AutoSize = true;
+            this.labelTTBoardGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTTBoardGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelTTBoardGame.Location = new System.Drawing.Point(5, 11);
+            this.labelTTBoardGame.Name = "labelTTBoardGame";
+            this.labelTTBoardGame.Size = new System.Drawing.Size(168, 16);
+            this.labelTTBoardGame.TabIndex = 27;
+            this.labelTTBoardGame.Text = "Thông Tin Board Game";
+            // 
             // bAddTTBoardGame
             // 
+            this.bAddTTBoardGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bAddTTBoardGame.Image = ((System.Drawing.Image)(resources.GetObject("bAddTTBoardGame.Image")));
             this.bAddTTBoardGame.Location = new System.Drawing.Point(719, 33);
             this.bAddTTBoardGame.Name = "bAddTTBoardGame";
             this.bAddTTBoardGame.Size = new System.Drawing.Size(39, 27);
             this.bAddTTBoardGame.TabIndex = 26;
             this.bAddTTBoardGame.UseVisualStyleBackColor = true;
+            // 
+            // cbTTBoardGame
+            // 
+            this.cbTTBoardGame.FormattingEnabled = true;
+            this.cbTTBoardGame.Location = new System.Drawing.Point(308, 34);
+            this.cbTTBoardGame.Name = "cbTTBoardGame";
+            this.cbTTBoardGame.Size = new System.Drawing.Size(121, 21);
+            this.cbTTBoardGame.TabIndex = 25;
+            this.cbTTBoardGame.Text = "Thể loại";
             // 
             // bReTTBoardGame
             // 
@@ -811,15 +474,108 @@
             this.bTimTTBoardGame.TabIndex = 23;
             this.bTimTTBoardGame.UseVisualStyleBackColor = true;
             // 
+            // tbTTBoardGame
+            // 
+            this.tbTTBoardGame.Location = new System.Drawing.Point(6, 33);
+            this.tbTTBoardGame.Name = "tbTTBoardGame";
+            this.tbTTBoardGame.Size = new System.Drawing.Size(226, 20);
+            this.tbTTBoardGame.TabIndex = 22;
+            // 
+            // dataTTBoardGame
+            // 
+            this.dataTTBoardGame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataTTBoardGame.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataTTBoardGame.Location = new System.Drawing.Point(4, 65);
+            this.dataTTBoardGame.Name = "dataTTBoardGame";
+            this.dataTTBoardGame.Size = new System.Drawing.Size(758, 170);
+            this.dataTTBoardGame.TabIndex = 21;
+            // 
+            // tpKhachHang
+            // 
+            this.tpKhachHang.Controls.Add(this.bThemKhachHang);
+            this.tpKhachHang.Controls.Add(this.cbLoaiKhachHang);
+            this.tpKhachHang.Controls.Add(this.tbKhachHang);
+            this.tpKhachHang.Controls.Add(this.pSLKhachHang);
+            this.tpKhachHang.Controls.Add(this.dataKhachHang);
+            this.tpKhachHang.Controls.Add(this.bReKhachHang);
+            this.tpKhachHang.Controls.Add(this.bTimKhachHang);
+            this.tpKhachHang.Location = new System.Drawing.Point(4, 4);
+            this.tpKhachHang.Name = "tpKhachHang";
+            this.tpKhachHang.Padding = new System.Windows.Forms.Padding(3);
+            this.tpKhachHang.Size = new System.Drawing.Size(775, 453);
+            this.tpKhachHang.TabIndex = 0;
+            this.tpKhachHang.Text = "KhachHang";
+            this.tpKhachHang.UseVisualStyleBackColor = true;
+            // 
             // bThemKhachHang
             // 
+            this.bThemKhachHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bThemKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("bThemKhachHang.Image")));
-            this.bThemKhachHang.Location = new System.Drawing.Point(736, 70);
+            this.bThemKhachHang.Location = new System.Drawing.Point(727, 70);
             this.bThemKhachHang.Name = "bThemKhachHang";
             this.bThemKhachHang.Size = new System.Drawing.Size(39, 27);
             this.bThemKhachHang.TabIndex = 20;
             this.bThemKhachHang.UseVisualStyleBackColor = true;
-            this.bThemKhachHang.Click += new System.EventHandler(this.buttonAddMember_Click);
+            this.bThemKhachHang.Click += new System.EventHandler(this.bThemKhachHang_Click);
+            // 
+            // cbLoaiKhachHang
+            // 
+            this.cbLoaiKhachHang.FormattingEnabled = true;
+            this.cbLoaiKhachHang.Location = new System.Drawing.Point(312, 70);
+            this.cbLoaiKhachHang.Name = "cbLoaiKhachHang";
+            this.cbLoaiKhachHang.Size = new System.Drawing.Size(121, 21);
+            this.cbLoaiKhachHang.TabIndex = 19;
+            this.cbLoaiKhachHang.Text = "Thể loại";
+            // 
+            // tbKhachHang
+            // 
+            this.tbKhachHang.Location = new System.Drawing.Point(8, 70);
+            this.tbKhachHang.Name = "tbKhachHang";
+            this.tbKhachHang.Size = new System.Drawing.Size(226, 20);
+            this.tbKhachHang.TabIndex = 16;
+            // 
+            // pSLKhachHang
+            // 
+            this.pSLKhachHang.Controls.Add(this.nSLKhachHang);
+            this.pSLKhachHang.Controls.Add(this.lSLKhachHang);
+            this.pSLKhachHang.Location = new System.Drawing.Point(448, 32);
+            this.pSLKhachHang.Name = "pSLKhachHang";
+            this.pSLKhachHang.Size = new System.Drawing.Size(89, 59);
+            this.pSLKhachHang.TabIndex = 12;
+            // 
+            // nSLKhachHang
+            // 
+            this.nSLKhachHang.AutoSize = true;
+            this.nSLKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nSLKhachHang.Location = new System.Drawing.Point(37, 28);
+            this.nSLKhachHang.Name = "nSLKhachHang";
+            this.nSLKhachHang.Size = new System.Drawing.Size(19, 20);
+            this.nSLKhachHang.TabIndex = 1;
+            this.nSLKhachHang.Text = "0";
+            // 
+            // lSLKhachHang
+            // 
+            this.lSLKhachHang.AutoSize = true;
+            this.lSLKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.lSLKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSLKhachHang.Location = new System.Drawing.Point(3, 3);
+            this.lSLKhachHang.Name = "lSLKhachHang";
+            this.lSLKhachHang.Size = new System.Drawing.Size(80, 16);
+            this.lSLKhachHang.TabIndex = 0;
+            this.lSLKhachHang.Text = "Khách Hàng";
+            // 
+            // dataKhachHang
+            // 
+            this.dataKhachHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataKhachHang.Location = new System.Drawing.Point(8, 101);
+            this.dataKhachHang.Name = "dataKhachHang";
+            this.dataKhachHang.Size = new System.Drawing.Size(758, 347);
+            this.dataKhachHang.TabIndex = 11;
             // 
             // bReKhachHang
             // 
@@ -839,20 +595,64 @@
             this.bTimKhachHang.TabIndex = 17;
             this.bTimKhachHang.UseVisualStyleBackColor = true;
             // 
+            // tpHoaDon
+            // 
+            this.tpHoaDon.Controls.Add(this.bThemHoaDon);
+            this.tpHoaDon.Controls.Add(this.cbLoaiHoaDon);
+            this.tpHoaDon.Controls.Add(this.tbHoaDon);
+            this.tpHoaDon.Controls.Add(this.dataHoaDon);
+            this.tpHoaDon.Controls.Add(this.bReHoaDon);
+            this.tpHoaDon.Controls.Add(this.bTimHoaDon);
+            this.tpHoaDon.Location = new System.Drawing.Point(4, 4);
+            this.tpHoaDon.Name = "tpHoaDon";
+            this.tpHoaDon.Padding = new System.Windows.Forms.Padding(3);
+            this.tpHoaDon.Size = new System.Drawing.Size(775, 453);
+            this.tpHoaDon.TabIndex = 2;
+            this.tpHoaDon.Text = "Hóa đơn";
+            this.tpHoaDon.UseVisualStyleBackColor = true;
+            // 
             // bThemHoaDon
             // 
+            this.bThemHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bThemHoaDon.Image = ((System.Drawing.Image)(resources.GetObject("bThemHoaDon.Image")));
-            this.bThemHoaDon.Location = new System.Drawing.Point(716, 2);
+            this.bThemHoaDon.Location = new System.Drawing.Point(722, 3);
             this.bThemHoaDon.Name = "bThemHoaDon";
             this.bThemHoaDon.Size = new System.Drawing.Size(39, 27);
             this.bThemHoaDon.TabIndex = 38;
             this.bThemHoaDon.UseVisualStyleBackColor = true;
             this.bThemHoaDon.Click += new System.EventHandler(this.bThemHoaDon_Click);
             // 
+            // cbLoaiHoaDon
+            // 
+            this.cbLoaiHoaDon.FormattingEnabled = true;
+            this.cbLoaiHoaDon.Location = new System.Drawing.Point(319, 6);
+            this.cbLoaiHoaDon.Name = "cbLoaiHoaDon";
+            this.cbLoaiHoaDon.Size = new System.Drawing.Size(121, 21);
+            this.cbLoaiHoaDon.TabIndex = 37;
+            this.cbLoaiHoaDon.Text = "Thể loại";
+            // 
+            // tbHoaDon
+            // 
+            this.tbHoaDon.Location = new System.Drawing.Point(17, 6);
+            this.tbHoaDon.Name = "tbHoaDon";
+            this.tbHoaDon.Size = new System.Drawing.Size(226, 20);
+            this.tbHoaDon.TabIndex = 34;
+            // 
+            // dataHoaDon
+            // 
+            this.dataHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataHoaDon.Location = new System.Drawing.Point(17, 32);
+            this.dataHoaDon.Name = "dataHoaDon";
+            this.dataHoaDon.Size = new System.Drawing.Size(744, 418);
+            this.dataHoaDon.TabIndex = 33;
+            // 
             // bReHoaDon
             // 
             this.bReHoaDon.Image = ((System.Drawing.Image)(resources.GetObject("bReHoaDon.Image")));
-            this.bReHoaDon.Location = new System.Drawing.Point(270, 4);
+            this.bReHoaDon.Location = new System.Drawing.Point(284, 4);
             this.bReHoaDon.Name = "bReHoaDon";
             this.bReHoaDon.Size = new System.Drawing.Size(29, 25);
             this.bReHoaDon.TabIndex = 36;
@@ -861,11 +661,53 @@
             // bTimHoaDon
             // 
             this.bTimHoaDon.Image = ((System.Drawing.Image)(resources.GetObject("bTimHoaDon.Image")));
-            this.bTimHoaDon.Location = new System.Drawing.Point(235, 4);
+            this.bTimHoaDon.Location = new System.Drawing.Point(249, 4);
             this.bTimHoaDon.Name = "bTimHoaDon";
             this.bTimHoaDon.Size = new System.Drawing.Size(29, 25);
             this.bTimHoaDon.TabIndex = 35;
             this.bTimHoaDon.UseVisualStyleBackColor = true;
+            // 
+            // tpDonHang
+            // 
+            this.tpDonHang.CausesValidation = false;
+            this.tpDonHang.Controls.Add(this.cbLoaiDonHang);
+            this.tpDonHang.Controls.Add(this.txDonHang);
+            this.tpDonHang.Controls.Add(this.dataDonHang);
+            this.tpDonHang.Controls.Add(this.bReDonhang);
+            this.tpDonHang.Controls.Add(this.bTimDonHang);
+            this.tpDonHang.Location = new System.Drawing.Point(4, 4);
+            this.tpDonHang.Name = "tpDonHang";
+            this.tpDonHang.Size = new System.Drawing.Size(775, 453);
+            this.tpDonHang.TabIndex = 3;
+            this.tpDonHang.Text = "Đơn hàng";
+            this.tpDonHang.UseVisualStyleBackColor = true;
+            // 
+            // cbLoaiDonHang
+            // 
+            this.cbLoaiDonHang.FormattingEnabled = true;
+            this.cbLoaiDonHang.Location = new System.Drawing.Point(310, 4);
+            this.cbLoaiDonHang.Name = "cbLoaiDonHang";
+            this.cbLoaiDonHang.Size = new System.Drawing.Size(121, 21);
+            this.cbLoaiDonHang.TabIndex = 43;
+            this.cbLoaiDonHang.Text = "Thể loại";
+            // 
+            // txDonHang
+            // 
+            this.txDonHang.Location = new System.Drawing.Point(8, 5);
+            this.txDonHang.Name = "txDonHang";
+            this.txDonHang.Size = new System.Drawing.Size(226, 20);
+            this.txDonHang.TabIndex = 40;
+            // 
+            // dataDonHang
+            // 
+            this.dataDonHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataDonHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataDonHang.Location = new System.Drawing.Point(8, 31);
+            this.dataDonHang.Name = "dataDonHang";
+            this.dataDonHang.Size = new System.Drawing.Size(758, 407);
+            this.dataDonHang.TabIndex = 39;
             // 
             // bReDonhang
             // 
@@ -885,6 +727,92 @@
             this.bTimDonHang.TabIndex = 41;
             this.bTimDonHang.UseVisualStyleBackColor = true;
             // 
+            // tpBaoCao
+            // 
+            this.tpBaoCao.Controls.Add(this.dateKetThuc);
+            this.tpBaoCao.Controls.Add(this.dateBatDau);
+            this.tpBaoCao.Controls.Add(this.dataBaoCao);
+            this.tpBaoCao.Location = new System.Drawing.Point(4, 4);
+            this.tpBaoCao.Name = "tpBaoCao";
+            this.tpBaoCao.Size = new System.Drawing.Size(775, 453);
+            this.tpBaoCao.TabIndex = 4;
+            this.tpBaoCao.Text = "BaoCao";
+            this.tpBaoCao.UseVisualStyleBackColor = true;
+            // 
+            // dateKetThuc
+            // 
+            this.dateKetThuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateKetThuc.Location = new System.Drawing.Point(408, 3);
+            this.dateKetThuc.Name = "dateKetThuc";
+            this.dateKetThuc.Size = new System.Drawing.Size(200, 20);
+            this.dateKetThuc.TabIndex = 38;
+            // 
+            // dateBatDau
+            // 
+            this.dateBatDau.Location = new System.Drawing.Point(82, 3);
+            this.dateBatDau.Name = "dateBatDau";
+            this.dateBatDau.Size = new System.Drawing.Size(200, 20);
+            this.dateBatDau.TabIndex = 37;
+            // 
+            // dataBaoCao
+            // 
+            this.dataBaoCao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataBaoCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataBaoCao.Location = new System.Drawing.Point(17, 29);
+            this.dataBaoCao.Name = "dataBaoCao";
+            this.dataBaoCao.Size = new System.Drawing.Size(744, 410);
+            this.dataBaoCao.TabIndex = 33;
+            // 
+            // tpUuDai
+            // 
+            this.tpUuDai.Controls.Add(this.panel4);
+            this.tpUuDai.Controls.Add(this.pUuDai);
+            this.tpUuDai.Location = new System.Drawing.Point(4, 4);
+            this.tpUuDai.Name = "tpUuDai";
+            this.tpUuDai.Padding = new System.Windows.Forms.Padding(3);
+            this.tpUuDai.Size = new System.Drawing.Size(775, 453);
+            this.tpUuDai.TabIndex = 5;
+            this.tpUuDai.Text = "UuDai";
+            this.tpUuDai.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.lTTUuDai);
+            this.panel4.Controls.Add(this.cbLoaiTTUuDai);
+            this.panel4.Controls.Add(this.bReTTUuDai);
+            this.panel4.Controls.Add(this.bTimTTUuDai);
+            this.panel4.Controls.Add(this.tbTTUuDai);
+            this.panel4.Controls.Add(this.dataTTUuDai);
+            this.panel4.Location = new System.Drawing.Point(3, 222);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(766, 228);
+            this.panel4.TabIndex = 17;
+            // 
+            // lTTUuDai
+            // 
+            this.lTTUuDai.AutoSize = true;
+            this.lTTUuDai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTTUuDai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lTTUuDai.Location = new System.Drawing.Point(3, 4);
+            this.lTTUuDai.Name = "lTTUuDai";
+            this.lTTUuDai.Size = new System.Drawing.Size(159, 16);
+            this.lTTUuDai.TabIndex = 33;
+            this.lTTUuDai.Text = "Thông Tin Thành Viên";
+            // 
+            // cbLoaiTTUuDai
+            // 
+            this.cbLoaiTTUuDai.FormattingEnabled = true;
+            this.cbLoaiTTUuDai.Location = new System.Drawing.Point(306, 22);
+            this.cbLoaiTTUuDai.Name = "cbLoaiTTUuDai";
+            this.cbLoaiTTUuDai.Size = new System.Drawing.Size(121, 21);
+            this.cbLoaiTTUuDai.TabIndex = 31;
+            this.cbLoaiTTUuDai.Text = "Thể loại";
+            // 
             // bReTTUuDai
             // 
             this.bReTTUuDai.Image = ((System.Drawing.Image)(resources.GetObject("bReTTUuDai.Image")));
@@ -903,15 +831,59 @@
             this.bTimTTUuDai.TabIndex = 29;
             this.bTimTTUuDai.UseVisualStyleBackColor = true;
             // 
+            // tbTTUuDai
+            // 
+            this.tbTTUuDai.Location = new System.Drawing.Point(4, 23);
+            this.tbTTUuDai.Name = "tbTTUuDai";
+            this.tbTTUuDai.Size = new System.Drawing.Size(226, 20);
+            this.tbTTUuDai.TabIndex = 28;
+            // 
+            // dataTTUuDai
+            // 
+            this.dataTTUuDai.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataTTUuDai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataTTUuDai.Location = new System.Drawing.Point(3, 49);
+            this.dataTTUuDai.Name = "dataTTUuDai";
+            this.dataTTUuDai.Size = new System.Drawing.Size(758, 176);
+            this.dataTTUuDai.TabIndex = 27;
+            // 
+            // pUuDai
+            // 
+            this.pUuDai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pUuDai.Controls.Add(this.bThemUuDai);
+            this.pUuDai.Controls.Add(this.cbLoaiUuDai);
+            this.pUuDai.Controls.Add(this.bReUuDai);
+            this.pUuDai.Controls.Add(this.bTimUudai);
+            this.pUuDai.Controls.Add(this.tbUuDai);
+            this.pUuDai.Controls.Add(this.dataUuDai);
+            this.pUuDai.Location = new System.Drawing.Point(3, 3);
+            this.pUuDai.Name = "pUuDai";
+            this.pUuDai.Size = new System.Drawing.Size(766, 213);
+            this.pUuDai.TabIndex = 16;
+            // 
             // bThemUuDai
             // 
+            this.bThemUuDai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.bThemUuDai.Image = ((System.Drawing.Image)(resources.GetObject("bThemUuDai.Image")));
-            this.bThemUuDai.Location = new System.Drawing.Point(717, 0);
+            this.bThemUuDai.Location = new System.Drawing.Point(722, 0);
             this.bThemUuDai.Name = "bThemUuDai";
             this.bThemUuDai.Size = new System.Drawing.Size(39, 27);
             this.bThemUuDai.TabIndex = 32;
             this.bThemUuDai.UseVisualStyleBackColor = true;
             this.bThemUuDai.Click += new System.EventHandler(this.bThemUuDai_Click);
+            // 
+            // cbLoaiUuDai
+            // 
+            this.cbLoaiUuDai.FormattingEnabled = true;
+            this.cbLoaiUuDai.Location = new System.Drawing.Point(306, 5);
+            this.cbLoaiUuDai.Name = "cbLoaiUuDai";
+            this.cbLoaiUuDai.Size = new System.Drawing.Size(121, 21);
+            this.cbLoaiUuDai.TabIndex = 31;
+            this.cbLoaiUuDai.Text = "Thể loại";
             // 
             // bReUuDai
             // 
@@ -930,6 +902,80 @@
             this.bTimUudai.Size = new System.Drawing.Size(29, 25);
             this.bTimUudai.TabIndex = 29;
             this.bTimUudai.UseVisualStyleBackColor = true;
+            // 
+            // tbUuDai
+            // 
+            this.tbUuDai.Location = new System.Drawing.Point(4, 4);
+            this.tbUuDai.Name = "tbUuDai";
+            this.tbUuDai.Size = new System.Drawing.Size(226, 20);
+            this.tbUuDai.TabIndex = 28;
+            // 
+            // dataUuDai
+            // 
+            this.dataUuDai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataUuDai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataUuDai.Location = new System.Drawing.Point(5, 30);
+            this.dataUuDai.Name = "dataUuDai";
+            this.dataUuDai.Size = new System.Drawing.Size(758, 176);
+            this.dataUuDai.TabIndex = 27;
+            // 
+            // pDeMuc
+            // 
+            this.pDeMuc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pDeMuc.Controls.Add(this.pColor);
+            this.pDeMuc.Controls.Add(this.labelText);
+            this.pDeMuc.Location = new System.Drawing.Point(15, 3);
+            this.pDeMuc.Name = "pDeMuc";
+            this.pDeMuc.Size = new System.Drawing.Size(783, 32);
+            this.pDeMuc.TabIndex = 0;
+            // 
+            // pColor
+            // 
+            this.pColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pColor.BackColor = System.Drawing.Color.Teal;
+            this.pColor.Controls.Add(this.label1);
+            this.pColor.Location = new System.Drawing.Point(3, 28);
+            this.pColor.Name = "pColor";
+            this.pColor.Size = new System.Drawing.Size(776, 10);
+            this.pColor.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Teal;
+            this.label1.Location = new System.Drawing.Point(14, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(14, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = " ";
+            // 
+            // labelText
+            // 
+            this.labelText.AutoSize = true;
+            this.labelText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelText.Location = new System.Drawing.Point(3, 9);
+            this.labelText.Name = "labelText";
+            this.labelText.Size = new System.Drawing.Size(0, 20);
+            this.labelText.TabIndex = 1;
+            // 
+            // panelColor
+            // 
+            this.panelColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelColor.BackColor = System.Drawing.Color.Teal;
+            this.panelColor.Controls.Add(this.bAcc);
+            this.panelColor.Controls.Add(this.bLogOut);
+            this.panelColor.Controls.Add(this.bSecurity);
+            this.panelColor.Controls.Add(this.panelMenu);
+            this.panelColor.Location = new System.Drawing.Point(0, 0);
+            this.panelColor.Name = "panelColor";
+            this.panelColor.Size = new System.Drawing.Size(35, 527);
+            this.panelColor.TabIndex = 6;
             // 
             // bAcc
             // 
@@ -972,6 +1018,14 @@
             this.bSecurity.TabIndex = 2;
             this.bSecurity.UseVisualStyleBackColor = true;
             // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelMenu.Location = new System.Drawing.Point(31, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(94, 463);
+            this.panelMenu.TabIndex = 1;
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -982,7 +1036,8 @@
             this.Controls.Add(this.panelColor);
             this.Name = "Admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form2";
+            this.Text = "Admin";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelTab.ResumeLayout(false);
             this.panelChoose.ResumeLayout(false);
             this.panelView.ResumeLayout(false);
@@ -1014,10 +1069,10 @@
             this.pUuDai.ResumeLayout(false);
             this.pUuDai.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataUuDai)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pDeMuc.ResumeLayout(false);
+            this.pDeMuc.PerformLayout();
+            this.pColor.ResumeLayout(false);
+            this.pColor.PerformLayout();
             this.panelColor.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1034,11 +1089,11 @@
         private System.Windows.Forms.Button bDanhMuc;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel panelView;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pDeMuc;
         private System.Windows.Forms.Label labelText;
         private System.Windows.Forms.Panel panelColor;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pColor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabManage;
         private System.Windows.Forms.TabPage tpKhachHang;
@@ -1063,7 +1118,7 @@
         private System.Windows.Forms.TextBox tbTTBoardGame;
         private System.Windows.Forms.DataGridView dataTTBoardGame;
         private System.Windows.Forms.Panel pBG;
-        private System.Windows.Forms.Button bAddBG;
+        private System.Windows.Forms.Button bThemBoardGame;
         private System.Windows.Forms.ComboBox cbLoaiBG;
         private System.Windows.Forms.Button bReBG;
         private System.Windows.Forms.Button bTimBG;

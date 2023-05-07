@@ -24,42 +24,43 @@ namespace QuanLyBoardGame
             this.BackColor = Color.Teal;
             labelText.Text = btn.Text;
         }
-        private void bThemKhachHang_Click(object sender, EventArgs e)
-        {
-            FThemKH fMember = new FThemKH();
-            fMember.ShowDialog();
-        }
        
         private void bDanhMuc_Click(object sender, EventArgs e)
         {
             tabManage.SelectedIndex = 0;
+            mouseClick(sender, e);
         }
 
         private void bKhachHang_Click(object sender, EventArgs e)
         {
             tabManage.SelectedIndex = 1;
+            mouseClick(sender, e);
         }
 
         private void bHoaDon_Click(object sender, EventArgs e)
         {
             tabManage.SelectedIndex = 2;
+            mouseClick(sender, e);
         }
 
         private void bThue_Click(object sender, EventArgs e)
         {
             tabManage.SelectedIndex = 3;
+            mouseClick(sender, e);
         }
 
         private void bBaoCao_Click(object sender, EventArgs e)
         {
             tabManage.SelectedIndex = 4;
+            mouseClick(sender, e);
         }
         private void bUuDai_Click(object sender, EventArgs e)
         {
             tabManage.SelectedIndex = 5;
+            mouseClick(sender, e);
         }
 
-        private void bThemBoarGame_Click(object sender, EventArgs e)
+        private void bThemBoardGame_Click(object sender, EventArgs e)
         {
             ThemBoardGame themBoardGame = new ThemBoardGame();
             themBoardGame.ShowDialog();
@@ -75,6 +76,12 @@ namespace QuanLyBoardGame
         {
             ThemHoaDon themDon = new ThemHoaDon();
             themDon.ShowDialog();
+        }
+
+        private void bThemKhachHang_Click(object sender, EventArgs e)
+        {
+            FThemKH fMember = new FThemKH();
+            fMember.ShowDialog();
         }
 
         private void bLogOut_Click(object sender, EventArgs e)
