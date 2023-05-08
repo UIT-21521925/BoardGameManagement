@@ -13,6 +13,7 @@ html {
     display: flex;
     flex-direction: column;
     background-color: rgb(218, 214, 214);
+    overflow: hidden;
 }
 
 .header {
@@ -116,18 +117,33 @@ html {
     width: 30%;
     height: fit-content;
     background-color:#fff;
-    padding: 4px 4px;
+    padding-top: 4px;
+    padding-left: 24px;
+    padding-bottom: 12px;
+}
+
+
+.categories-header {
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 2px solid #757575;
 }
 
 .categories-title{
-
+    font-size: 16px;
+    color: #4f4f4f;
+    margin-top: 8px;
+    /* border-top: 1px solid #757575; */
 }
 
 .categories-choice{
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+}
+
+.categories-name {
+    padding-left: 8px;
 }
 
 
