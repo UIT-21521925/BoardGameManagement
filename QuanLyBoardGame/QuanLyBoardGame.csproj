@@ -63,54 +63,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ThemHoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ThemHoaDon.Designer.cs">
-      <DependentUpon>ThemHoaDon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ThemKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ThemKhachHang.Designer.cs">
-      <DependentUpon>ThemKhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ThemBoardGame.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ThemBoardGame.Designer.cs">
-      <DependentUpon>ThemBoardGame.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThemUuDai.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ThemUuDai.Designer.cs">
-      <DependentUpon>ThemUuDai.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThemHoaDon.resx">
-      <DependentUpon>ThemHoaDon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ThemKhachHang.resx">
-      <DependentUpon>ThemKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ThemBoardGame.resx">
-      <DependentUpon>ThemBoardGame.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ThemUuDai.resx">
-      <DependentUpon>ThemUuDai.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -34,10 +34,10 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelPassword = new System.Windows.Forms.Panel();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textboxMatKhau = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.panelName = new System.Windows.Forms.Panel();
-            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textboxTen = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.panelLogin.SuspendLayout();
             this.panelPassword.SuspendLayout();
@@ -104,20 +104,20 @@
             // 
             // panelPassword
             // 
-            this.panelPassword.Controls.Add(this.textBoxPassword);
+            this.panelPassword.Controls.Add(this.textboxMatKhau);
             this.panelPassword.Controls.Add(this.labelPassword);
             this.panelPassword.Location = new System.Drawing.Point(41, 140);
             this.panelPassword.Name = "panelPassword";
             this.panelPassword.Size = new System.Drawing.Size(355, 59);
             this.panelPassword.TabIndex = 4;
             // 
-            // textBoxPassword
+            // textboxMatKhau
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(99, 26);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(241, 20);
-            this.textBoxPassword.TabIndex = 2;
+            this.textboxMatKhau.Location = new System.Drawing.Point(99, 26);
+            this.textboxMatKhau.Name = "textboxMatKhau";
+            this.textboxMatKhau.PasswordChar = '*';
+            this.textboxMatKhau.Size = new System.Drawing.Size(241, 20);
+            this.textboxMatKhau.TabIndex = 2;
             // 
             // labelPassword
             // 
@@ -131,19 +131,19 @@
             // 
             // panelName
             // 
-            this.panelName.Controls.Add(this.textBoxName);
+            this.panelName.Controls.Add(this.textboxTen);
             this.panelName.Controls.Add(this.labelName);
             this.panelName.Location = new System.Drawing.Point(41, 84);
             this.panelName.Name = "panelName";
             this.panelName.Size = new System.Drawing.Size(355, 59);
             this.panelName.TabIndex = 3;
             // 
-            // textBoxName
+            // textboxTen
             // 
-            this.textBoxName.Location = new System.Drawing.Point(99, 21);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(241, 20);
-            this.textBoxName.TabIndex = 1;
+            this.textboxTen.Location = new System.Drawing.Point(99, 21);
+            this.textboxTen.Name = "textboxTen";
+            this.textboxTen.Size = new System.Drawing.Size(241, 20);
+            this.textboxTen.TabIndex = 1;
             // 
             // labelName
             // 
@@ -184,9 +184,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelPassword;
         private System.Windows.Forms.Panel panelName;
-        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textboxTen;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textboxMatKhau;
         private System.Windows.Forms.Label labelPassword;
     }
 }

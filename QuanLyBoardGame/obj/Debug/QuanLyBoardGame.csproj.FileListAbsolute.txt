@@ -18,10 +18,6 @@ C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.SuggestedBindingRedirects.cache
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.DangNhap.resources
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.Admin.resources
-C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemHoaDon.resources
-C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.FThemKH.resources
-C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemBoardGame.resources
-C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemUuDai.resources
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.GenerateResource.cache
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.exe
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.pdb
