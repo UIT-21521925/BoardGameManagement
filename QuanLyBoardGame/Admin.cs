@@ -81,5 +81,11 @@ namespace QuanLyBoardGame
                 }
             }
         }
+
+        private void bBienBan_Click(object sender, EventArgs e)
+        {
+           Form1 form1 = new Form1();   
+           form1.ShowDialog();
+        }
     }
 }

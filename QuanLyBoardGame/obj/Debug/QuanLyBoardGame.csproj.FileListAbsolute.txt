@@ -26,3 +26,4 @@ C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\bin\Debug\QuanLyBoardGame
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\bin\Debug\QuanLyBoardGame.pdb
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.Properties.Resources.resources
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.Form1.resources
