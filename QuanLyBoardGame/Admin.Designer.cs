@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TextBox tbTenKhachHang;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.panelTab = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
@@ -106,13 +105,14 @@
             this.dgvTTBG = new System.Windows.Forms.DataGridView();
             this.tpKhachHang = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.tbTenKhachHang = new System.Windows.Forms.TextBox();
             this.tbDiaChi = new System.Windows.Forms.TextBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.bXoaKhachHang = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.tbSoTichDiem = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.tbSoDienThoai = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
@@ -211,7 +211,6 @@
             this.bLogOut = new System.Windows.Forms.Button();
             this.bMatKhau = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
-            tbTenKhachHang = new System.Windows.Forms.TextBox();
             this.panelTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelChoose.SuspendLayout();
@@ -255,13 +254,6 @@
             this.pColor.SuspendLayout();
             this.panelColor.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tbTenKhachHang
-            // 
-            tbTenKhachHang.Location = new System.Drawing.Point(115, 104);
-            tbTenKhachHang.Name = "tbTenKhachHang";
-            tbTenKhachHang.Size = new System.Drawing.Size(204, 20);
-            tbTenKhachHang.TabIndex = 44;
             // 
             // panelTab
             // 
@@ -1167,13 +1159,14 @@
             // 
             this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel10.Controls.Add(this.tbTenKhachHang);
             this.panel10.Controls.Add(this.tbDiaChi);
             this.panel10.Controls.Add(this.dtpNgaySinh);
             this.panel10.Controls.Add(this.bXoaKhachHang);
             this.panel10.Controls.Add(this.label24);
             this.panel10.Controls.Add(this.tbSoTichDiem);
             this.panel10.Controls.Add(this.label27);
-            this.panel10.Controls.Add(this.textBox12);
+            this.panel10.Controls.Add(this.tbEmail);
             this.panel10.Controls.Add(this.label29);
             this.panel10.Controls.Add(this.tbSoDienThoai);
             this.panel10.Controls.Add(this.label30);
@@ -1183,13 +1176,19 @@
             this.panel10.Controls.Add(this.bThemKhachHang);
             this.panel10.Controls.Add(this.label36);
             this.panel10.Controls.Add(this.label37);
-            this.panel10.Controls.Add(tbTenKhachHang);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Controls.Add(this.label39);
             this.panel10.Location = new System.Drawing.Point(9, 3);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(385, 447);
             this.panel10.TabIndex = 17;
+            // 
+            // tbTenKhachHang
+            // 
+            this.tbTenKhachHang.Location = new System.Drawing.Point(116, 104);
+            this.tbTenKhachHang.Name = "tbTenKhachHang";
+            this.tbTenKhachHang.Size = new System.Drawing.Size(204, 20);
+            this.tbTenKhachHang.TabIndex = 69;
             // 
             // tbDiaChi
             // 
@@ -1216,6 +1215,7 @@
             this.bXoaKhachHang.TabIndex = 66;
             this.bXoaKhachHang.Text = "Xóa";
             this.bXoaKhachHang.UseVisualStyleBackColor = false;
+            this.bXoaKhachHang.Click += new System.EventHandler(this.bXoaKhachHang_Click);
             // 
             // label24
             // 
@@ -1246,12 +1246,12 @@
             this.label27.TabIndex = 61;
             this.label27.Text = "Email";
             // 
-            // textBox12
+            // tbEmail
             // 
-            this.textBox12.Location = new System.Drawing.Point(115, 253);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(204, 20);
-            this.textBox12.TabIndex = 60;
+            this.tbEmail.Location = new System.Drawing.Point(115, 253);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(204, 20);
+            this.tbEmail.TabIndex = 60;
             // 
             // label29
             // 
@@ -1311,6 +1311,7 @@
             this.bSuaKhachHang.TabIndex = 53;
             this.bSuaKhachHang.Text = "Sửa";
             this.bSuaKhachHang.UseVisualStyleBackColor = false;
+            this.bSuaKhachHang.Click += new System.EventHandler(this.bSuaKhachHang_Click);
             // 
             // bThemKhachHang
             // 
@@ -1323,6 +1324,7 @@
             this.bThemKhachHang.TabIndex = 52;
             this.bThemKhachHang.Text = "Thêm";
             this.bThemKhachHang.UseVisualStyleBackColor = false;
+            this.bThemKhachHang.Click += new System.EventHandler(this.bThemKhachHang_Click);
             // 
             // label36
             // 
@@ -1423,6 +1425,7 @@
             this.dgvKhachHang.Name = "dgvKhachHang";
             this.dgvKhachHang.Size = new System.Drawing.Size(355, 357);
             this.dgvKhachHang.TabIndex = 35;
+            this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
             // 
             // bMacDinhKH
             // 
@@ -2078,6 +2081,7 @@
             this.bXoaUuDai.TabIndex = 66;
             this.bXoaUuDai.Text = "Xóa";
             this.bXoaUuDai.UseVisualStyleBackColor = false;
+            this.bXoaUuDai.Click += new System.EventHandler(this.bXoaUuDai_Click);
             // 
             // label42
             // 
@@ -2126,6 +2130,7 @@
             this.bSuaUuDai.TabIndex = 53;
             this.bSuaUuDai.Text = "Sửa";
             this.bSuaUuDai.UseVisualStyleBackColor = false;
+            this.bSuaUuDai.Click += new System.EventHandler(this.bSuaUuDai_Click);
             // 
             // bThemUuDai
             // 
@@ -2138,6 +2143,7 @@
             this.bThemUuDai.TabIndex = 52;
             this.bThemUuDai.Text = "Thêm";
             this.bThemUuDai.UseVisualStyleBackColor = false;
+            this.bThemUuDai.Click += new System.EventHandler(this.bThemUuDai_Click);
             // 
             // panel13
             // 
@@ -2234,6 +2240,7 @@
             this.dgvUuDai.Name = "dgvUuDai";
             this.dgvUuDai.Size = new System.Drawing.Size(363, 369);
             this.dgvUuDai.TabIndex = 27;
+            this.dgvUuDai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUuDai_CellClick);
             // 
             // pDeMuc
             // 
@@ -2535,7 +2542,7 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox tbSoTichDiem;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox tbSoDienThoai;
         private System.Windows.Forms.Label label30;
@@ -2600,5 +2607,6 @@
         private System.Windows.Forms.TextBox tbTTBG;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.TextBox tbTenTTBG;
+        private System.Windows.Forms.TextBox tbTenKhachHang;
     }
 }

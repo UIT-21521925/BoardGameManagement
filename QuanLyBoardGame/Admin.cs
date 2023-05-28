@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace QuanLyBoardGame
 {
@@ -20,55 +22,51 @@ namespace QuanLyBoardGame
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<ThongTinBG> collection_TTBG = db.GetCollection<ThongTinBG>("TTBoardGame");
         static IMongoCollection<BoardGame> collection_BG = db.GetCollection<BoardGame>("BoardGame");
+        static IMongoCollection<KhachHang> collection_KH = db.GetCollection<KhachHang>("KhachHang");
+        static IMongoCollection<UuDai> collection_UD = db.GetCollection<UuDai>("UuDai");
 
         public Admin()
         {
             InitializeComponent();
             ReadAllDocuments_ThongTinBG();
             ReadAllDocuments_TTBG();
-        }
-
-        private void mouseClick(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            this.ForeColor = Color.Black;
-            this.BackColor = Color.Teal;
-            labelText.Text = btn.Text;
+            ReadAllDocuments_KH();
+            ReadAllDocuments_UD();
         }
        
         private void bDanhMuc_Click(object sender, EventArgs e)
         {
             tabQuanLy.SelectedIndex = 1;
-            mouseClick(sender, e);
+            labelText.Text = this.Text;
         }
 
         private void bKho_Click(object sender, EventArgs e)
         {
             tabQuanLy.SelectedIndex = 2;
-            mouseClick(sender, e);
+            labelText.Text = this.Text;
         }
 
         private void bKhachHang_Click(object sender, EventArgs e)
         {
             tabQuanLy.SelectedIndex = 3;
-            mouseClick(sender, e);
+            labelText.Text = this.Text;
         }
 
         private void bThue_Click(object sender, EventArgs e)
         {
             tabQuanLy.SelectedIndex = 4;
-            mouseClick(sender, e);
+            labelText.Text = this.Text;
         }
 
         private void bBaoCao_Click(object sender, EventArgs e)
         {
             tabQuanLy.SelectedIndex = 5;
-            mouseClick(sender, e);
+            labelText.Text = this.Text;
         }
         private void bUuDai_Click(object sender, EventArgs e)
         {
             tabQuanLy.SelectedIndex = 6;
-            mouseClick(sender, e);
+            labelText.Text = this.Text;
         }
 
         private void bLogOut_Click(object sender, EventArgs e)
@@ -213,6 +211,101 @@ namespace QuanLyBoardGame
         {
             collection_BG.DeleteOneAsync(bg => bg.MaBG == ObjectId.Parse(tbMaBoardGame.Text));
             ReadAllDocuments_BG();
+        }
+
+        //Quản lý khách hàng
+        public void ReadAllDocuments_KH()
+        {
+            List<KhachHang> list = collection_KH.AsQueryable().ToList<KhachHang>();
+            dgvKhachHang.DataSource = list;
+            tbMaKhachHang.Text = dgvKhachHang.Rows[0].Cells[0].Value.ToString();
+            tbTenKhachHang.Text = dgvKhachHang.Rows[0].Cells[1].Value.ToString();
+            dtpNgaySinh.Text = dgvKhachHang.Rows[0].Cells[2].Value.ToString();
+            tbDiaChi.Text = dgvKhachHang.Rows[0].Cells[3].Value.ToString();
+            tbSoDienThoai.Text = dgvKhachHang.Rows[0].Cells[4].Value.ToString();
+            tbEmail.Text = dgvKhachHang.Rows[0].Cells[5].Value.ToString();
+            tbSoTichDiem.Text = dgvKhachHang.Rows[0].Cells[6].Value.ToString();
+        }
+
+        private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tbMaKhachHang.Text = dgvKhachHang.Rows[e.RowIndex].Cells[0].Value.ToString();
+            tbTenKhachHang.Text = dgvKhachHang.Rows[e.RowIndex].Cells[1].Value.ToString();
+            dtpNgaySinh.Text = dgvKhachHang.Rows[e.RowIndex].Cells[2].Value.ToString();
+            tbDiaChi.Text = dgvKhachHang.Rows[e.RowIndex].Cells[3].Value.ToString();
+            tbSoDienThoai.Text = dgvKhachHang.Rows[e.RowIndex].Cells[4].Value.ToString();
+            tbEmail.Text = dgvKhachHang.Rows[e.RowIndex].Cells[5].Value.ToString();
+            tbSoTichDiem.Text = dgvKhachHang.Rows[e.RowIndex].Cells[6].Value.ToString();
+        }
+
+        private void bThemKhachHang_Click(object sender, EventArgs e)
+        {
+            KhachHang kh = new KhachHang(tbTenKhachHang.Text, dtpNgaySinh.Value, tbDiaChi.Text, tbSoDienThoai.Text, tbEmail.Text, int.Parse(tbSoTichDiem.Text));
+            collection_KH.InsertOneAsync(kh);
+            ReadAllDocuments_KH();
+        }
+
+        private void bSuaKhachHang_Click(object sender, EventArgs e)
+        {
+            var updateDef = Builders<KhachHang>.Update.Set("TenKH", tbTenKhachHang.Text).Set("NgSinh", dtpNgaySinh.Value).Set("DiaChi", tbDiaChi.Text).Set("SDT", tbSoDienThoai.Text).Set("Email", tbEmail.Text).Set("TichDiem", int.Parse(tbSoTichDiem.Text));
+            collection_KH.UpdateOneAsync(kh => kh.MaKH == ObjectId.Parse(tbMaKhachHang.Text), updateDef);
+            ReadAllDocuments_KH();
+        }
+
+        private void bXoaKhachHang_Click(object sender, EventArgs e)
+        {
+            collection_KH.DeleteOneAsync(kh => kh.MaKH == ObjectId.Parse(tbMaKhachHang.Text));
+            ReadAllDocuments_KH();
+        }
+
+        //Quản lí đơn hàng
+
+
+        //Quản lí ưu đãi
+        public void ReadAllDocuments_UD()
+        {
+            List<UuDai> list = collection_UD.AsQueryable().ToList<UuDai>();
+            dgvUuDai.DataSource = list;
+            tbMaUuDai.Text = dgvUuDai.Rows[0].Cells[0].Value.ToString();
+            tbTenUuDai.Text = dgvUuDai.Rows[0].Cells[1].Value.ToString();
+            tbMoTa.Text = dgvUuDai.Rows[0].Cells[2].Value.ToString();
+            dtpNgayBD.Text = dgvUuDai.Rows[0].Cells[3].Value.ToString();
+            dtpNgayKT.Text = dgvUuDai.Rows[0].Cells[4].Value.ToString();
+            tbPhanTramGiam.Text = dgvUuDai.Rows[0].Cells[5].Value.ToString();
+            tbSoLuongUD.Text = dgvUuDai.Rows[0].Cells[6].Value.ToString();
+            tbSoLuongQD.Text = dgvUuDai.Rows[0].Cells[7].Value.ToString();
+        }
+
+        private void dgvUuDai_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tbMaUuDai.Text = dgvUuDai.Rows[e.RowIndex].Cells[0].Value.ToString();
+            tbTenUuDai.Text = dgvUuDai.Rows[e.RowIndex].Cells[1].Value.ToString();
+            tbMoTa.Text = dgvUuDai.Rows[e.RowIndex].Cells[2].Value.ToString();
+            dtpNgayBD.Text = dgvUuDai.Rows[e.RowIndex].Cells[3].Value.ToString();
+            dtpNgayKT.Text = dgvUuDai.Rows[e.RowIndex].Cells[4].Value.ToString();
+            tbPhanTramGiam.Text = dgvUuDai.Rows[e.RowIndex].Cells[5].Value.ToString();
+            tbSoLuongUD.Text = dgvUuDai.Rows[e.RowIndex].Cells[6].Value.ToString();
+            tbSoLuongQD.Text = dgvUuDai.Rows[e.RowIndex].Cells[7].Value.ToString();
+        }
+
+        private void bThemUuDai_Click(object sender, EventArgs e)
+        {
+            UuDai ud = new UuDai(tbTenUuDai.Text, tbMoTa.Text, dtpNgayBD.Value, dtpNgayKT.Value, double.Parse(tbPhanTramGiam.Text), int.Parse(tbSoLuongUD.Text),int.Parse(tbSoLuongQD.Text));
+            collection_UD.InsertOneAsync(ud);
+            ReadAllDocuments_UD();
+        }
+
+        private void bSuaUuDai_Click(object sender, EventArgs e)
+        {
+            var updateDef = Builders<UuDai>.Update.Set("TenUD", tbTenUuDai.Text).Set("MoTa", tbMoTa.Text).Set("NgayBD", dtpNgayBD.Value).Set("NgayKT", dtpNgayKT.Value).Set("PhanTramGiam", double.Parse(tbPhanTramGiam.Text)).Set("SoLuong", int.Parse(tbSoLuongUD.Text)).Set("DiemQuyDoi", int.Parse(tbSoLuongQD.Text));
+            collection_UD.UpdateOneAsync(ud => ud.MaUD == ObjectId.Parse(tbMaUuDai.Text), updateDef);
+            ReadAllDocuments_UD();
+        }
+
+        private void bXoaUuDai_Click(object sender, EventArgs e)
+        {
+            collection_UD.DeleteOneAsync(ud => ud.MaUD == ObjectId.Parse(tbMaUuDai.Text));
+            ReadAllDocuments_UD();
         }
     }
 }
