@@ -827,6 +827,7 @@
             this.bMacDinhTT.Size = new System.Drawing.Size(29, 25);
             this.bMacDinhTT.TabIndex = 30;
             this.bMacDinhTT.UseVisualStyleBackColor = true;
+            this.bMacDinhTT.Click += new System.EventHandler(this.bMacDinhTT_Click);
             // 
             // bTimKiemTT
             // 
@@ -836,6 +837,7 @@
             this.bTimKiemTT.Size = new System.Drawing.Size(29, 25);
             this.bTimKiemTT.TabIndex = 29;
             this.bTimKiemTT.UseVisualStyleBackColor = true;
+            this.bTimKiemTT.Click += new System.EventHandler(this.bTimKiemTT_Click);
             // 
             // tbTimKiemTT
             // 
@@ -1122,6 +1124,7 @@
             this.bMacDinhTTBG.Size = new System.Drawing.Size(29, 25);
             this.bMacDinhTTBG.TabIndex = 30;
             this.bMacDinhTTBG.UseVisualStyleBackColor = true;
+            this.bMacDinhTTBG.Click += new System.EventHandler(this.bMacDinhTTBG_Click);
             // 
             // bTimKiemTTBG
             // 
@@ -1131,6 +1134,7 @@
             this.bTimKiemTTBG.Size = new System.Drawing.Size(29, 25);
             this.bTimKiemTTBG.TabIndex = 29;
             this.bTimKiemTTBG.UseVisualStyleBackColor = true;
+            this.bTimKiemTTBG.Click += new System.EventHandler(this.bTimKiemTTBG_Click);
             // 
             // tbTimKiemTTBG
             // 
@@ -1443,6 +1447,7 @@
             this.bMacDinhKH.Size = new System.Drawing.Size(29, 25);
             this.bMacDinhKH.TabIndex = 38;
             this.bMacDinhKH.UseVisualStyleBackColor = true;
+            this.bMacDinhKH.Click += new System.EventHandler(this.bMacDinhKH_Click);
             // 
             // bTimKiemKH
             // 
@@ -1452,6 +1457,7 @@
             this.bTimKiemKH.Size = new System.Drawing.Size(29, 25);
             this.bTimKiemKH.TabIndex = 37;
             this.bTimKiemKH.UseVisualStyleBackColor = true;
+            this.bTimKiemKH.Click += new System.EventHandler(this.bTimKiemKH_Click);
             // 
             // tpDonHang
             // 
@@ -1581,6 +1587,7 @@
             this.bMacDinhDSDH.Size = new System.Drawing.Size(29, 25);
             this.bMacDinhDSDH.TabIndex = 45;
             this.bMacDinhDSDH.UseVisualStyleBackColor = true;
+            this.bMacDinhDSDH.Click += new System.EventHandler(this.bMacDinhDSDH_Click);
             // 
             // bTimKiemDSDH
             // 
@@ -1590,6 +1597,7 @@
             this.bTimKiemDSDH.Size = new System.Drawing.Size(29, 25);
             this.bTimKiemDSDH.TabIndex = 44;
             this.bTimKiemDSDH.UseVisualStyleBackColor = true;
+            this.bTimKiemDSDH.Click += new System.EventHandler(this.bTimKiemDSDH_Click);
             // 
             // tbTimKiemDSDH
             // 
@@ -2301,6 +2309,7 @@
             this.bMacDinhUD.Size = new System.Drawing.Size(29, 25);
             this.bMacDinhUD.TabIndex = 30;
             this.bMacDinhUD.UseVisualStyleBackColor = true;
+            this.bMacDinhUD.Click += new System.EventHandler(this.bMacDinhUD_Click);
             // 
             // bTimKiemUD
             // 
@@ -2310,6 +2319,7 @@
             this.bTimKiemUD.Size = new System.Drawing.Size(29, 25);
             this.bTimKiemUD.TabIndex = 29;
             this.bTimKiemUD.UseVisualStyleBackColor = true;
+            this.bTimKiemUD.Click += new System.EventHandler(this.bTimKiemUD_Click);
             // 
             // tbTimKiemUD
             // 

@@ -151,6 +151,29 @@ namespace QuanLyBoardGame
             ReadAllDocuments_ThongTinBG();
         }
 
+        private void bTimKiemTT_Click(object sender, EventArgs e)
+        {
+            List<ThongTinBG> listTTBG = collection_TTBG.AsQueryable().ToList<ThongTinBG>();
+            List<ThongTinBG> filteredTTBGList = new List<ThongTinBG>();
+
+            foreach (var ttbg in listTTBG)
+            {
+                if (ttbg.TenBoardGame == tbTimKiemTT.Text)
+                {
+                    filteredTTBGList.Add(ttbg);
+                }
+            }
+            var bindingSourceTTBG = new BindingSource();
+            bindingSourceTTBG.DataSource = filteredTTBGList;
+            dgvTT.DataSource = bindingSourceTTBG;
+        }
+
+        private void bMacDinhTT_Click(object sender, EventArgs e)
+        {
+            tbTimKiemTT.Text = "";
+            ReadAllDocuments_ThongTinBG();
+        }
+
         //Quản lý Kho
 
         public void ReadAllDocuments_TTBG()
@@ -220,6 +243,29 @@ namespace QuanLyBoardGame
             ReadAllDocuments_BG();
         }
 
+        private void bTimKiemTTBG_Click(object sender, EventArgs e)
+        {
+            List<ThongTinBG> listTTBG = collection_TTBG.AsQueryable().ToList<ThongTinBG>();
+            List<ThongTinBG> filteredTTBGList = new List<ThongTinBG>();
+
+            foreach (var ttbg in listTTBG)
+            {
+                if (ttbg.TenBoardGame == tbTimKiemTTBG.Text)
+                {
+                    filteredTTBGList.Add(ttbg);
+                }
+            }
+            var bindingSourceTTBG = new BindingSource();
+            bindingSourceTTBG.DataSource = filteredTTBGList;
+            dgvTTBG.DataSource = bindingSourceTTBG;
+        }
+
+        private void bMacDinhTTBG_Click(object sender, EventArgs e)
+        {
+            tbTimKiemTTBG.Text = "";
+            ReadAllDocuments_TTBG();
+        }
+
         //Quản lý khách hàng
         public void ReadAllDocuments_KH()
         {
@@ -265,6 +311,29 @@ namespace QuanLyBoardGame
             ReadAllDocuments_KH();
         }
 
+        private void bTimKiemKH_Click(object sender, EventArgs e)
+        {
+            List<KhachHang> listKH = collection_KH.AsQueryable().ToList<KhachHang>();
+            List<KhachHang> filteredKHList = new List<KhachHang>();
+
+            foreach (var kh in listKH)
+            {
+                if (kh.TenKH == tbTimKiemKH.Text)
+                {
+                    filteredKHList.Add(kh);
+                }
+            }
+            var bindingSourceKH = new BindingSource();
+            bindingSourceKH.DataSource = filteredKHList;
+            dgvKhachHang.DataSource = bindingSourceKH;
+        }
+
+        private void bMacDinhKH_Click(object sender, EventArgs e)
+        {
+            tbTimKiemKH.Text = "";
+            ReadAllDocuments_KH();
+        }
+
         //Quản lí đơn hàng
         public void ReadAllDocuments_DSKH()
         {
@@ -301,6 +370,7 @@ namespace QuanLyBoardGame
                 ReadAllDocuments_DSBGDH();
             } else
             {
+                dgvDSBGDH.Rows.Clear();
                 tbMaCTDH.Text = "";
                 dtpNgayThueDH.Value = DateTime.Now;
                 dtpNgayTraDH.Value = DateTime.Now;
@@ -441,7 +511,27 @@ namespace QuanLyBoardGame
             }
         }
 
+        private void bTimKiemDSDH_Click(object sender, EventArgs e)
+        {
+            List<KhachHang> listKH = collection_KH.AsQueryable().ToList<KhachHang>();
+            List<KhachHang> filteredKHList = new List<KhachHang>();
 
+            foreach (var kh in listKH)
+            {
+                if (kh.TenKH == tbTimKiemDSDH.Text)
+                {
+                    filteredKHList.Add(kh);
+                }
+            }
+            var bindingSourceKH = new BindingSource();
+            bindingSourceKH.DataSource = filteredKHList;
+            dgvDSKH.DataSource = bindingSourceKH;
+        }
+        private void bMacDinhDSDH_Click(object sender, EventArgs e)
+        {
+            tbTimKiemDSDH.Text = "";
+            ReadAllDocuments_DSKH();
+        }
 
 
         //Quản lí ưu đãi
@@ -491,6 +581,27 @@ namespace QuanLyBoardGame
             ReadAllDocuments_UD();
         }
 
-        
+        private void bTimKiemUD_Click(object sender, EventArgs e)
+        {
+            List<UuDai> listUD = collection_UD.AsQueryable().ToList<UuDai>();
+            List<UuDai> filteredUDList = new List<UuDai>();
+
+            foreach (var ud in listUD)
+            {
+                if (ud.TenUD == tbTimKiemUD.Text)
+                {
+                    filteredUDList.Add(ud);
+                }
+            }
+            var bindingSourceUD = new BindingSource();
+            bindingSourceUD.DataSource = filteredUDList;
+            dgvUuDai.DataSource = bindingSourceUD;
+        }
+
+        private void bMacDinhUD_Click(object sender, EventArgs e)
+        {
+            tbTimKiemUD.Text = "";
+            ReadAllDocuments_UD();
+        }
     }
 }
