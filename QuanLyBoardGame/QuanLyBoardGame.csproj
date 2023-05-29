@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardGame.cs" />
+    <Compile Include="CTDonHang.cs" />
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +166,7 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="DonHang.cs" />
     <Compile Include="fBienBan.cs">
       <SubType>Form</SubType>
     </Compile>
