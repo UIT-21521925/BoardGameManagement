@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Itim|Lobster|Montserrat:500|Noto+Serif|Nunito|Patrick+Hand|Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i|Roboto+Slab|Saira" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="assets/boardgame.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="header">
+            <!-- <div class="header-left">
+                <img src="" alt="" class="header__logo">
+            </div> -->
+
+            <i class="fa-regular fa-game-board-simple header-logo"></i>
+
+            <div class="header-search">
+                <input type="text" class="header-search-input" placeholder="Search">
+                <button class="header-search-button">
+                    <i class="fa fa-solid fa-magnifying-glass input-icon"></i>
+                </button>
+            </div>
+
+            <i class="fa-solid fa-house header-icon" style="color: #fcfcfc;"></i>
+
+            <!-- <div class="header-user">
+                
+            </div> -->
+        </div>
+
+        <div class="container">
+            <div class="boardgame-top">
+                <img src="assets/img/3.jpg" alt="" class="boardgame-img">
+                <div class="boardgame-info">
+                    <h5 class="boardgame-name">CỜ CÁ NGỰA</h5>
+                    <li class="boardgame-info__list">Giá gốc: 200.000</li>
+                    <li class="boardgame-info__list">Giá cọc: 200.000</li>
+                    <li class="boardgame-info__list">Giá thuê:</li>
+                    <div class="boardgame-date">
+                        <button class="date">1 ngày</button>
+                        <button class="date">7 ngày</button>
+                        <button class="date">30 ngày</button>
+                    </div>
+                    <li class="boardgame-info__list">Điểm tích lũy: 10pts</li>
+
+                    <button class="boardgame-top__btn date js-buy">Giữ chỗ</button>
+
+                </div>
+
+            </div>
+
+            <div class="boardgame-bottom">
+                <h6 class="btm__title">Chi Tiết</h6>
+                <div class="btm__content">
+                    Manufacturer: WizKids/NECA
+
+                    Bloodthirsty bandits haunt the local roads, preying on all who cross their path. Risking life, limb, and inventory, a traveling merchant will brave the bandit-infested roads between him and his next day of sale; but he won't be braving it alone.
+
+                    Can your party of adventurers protect the merchant from the bandit threat? With Wagon Ambush, you can find out! From maps to miniatures, this box contains everything you need to run a daring tabletop encounter.
+
+                    Approximate Height:
+                    Merchant: 39mm
+                    Bandit Leader: 30mm
+                    Bandit w/ Crossbow: 35mm
+                    Bandit w/ Sword: 34mm
+                    Cart: 28mm
+                    Horse: 33mm
+                    Pack Mule:30 mm
+
+                    Contents:
+                    5 Acrylic 2D Miniatures
+                    ‣ 1 Merchant
+                    ‣ 1 Bandit Leader
+                    ‣ 2 Bandits w/ Crossbows
+                    ‣ 1 Bandit w/ Sword
+                    6 Plastic 3D Miniatures
+                    ‣ 1 Cart
+                    ‣ 1 Horse
+                    ‣ 2 Pack Mules
+                    ‣ 2 Fallen Logs
+                    2 Double-sided Map Tiles (22.2 x 15.2cm)
+                    1 Scenario Booklet
+                </div>
+            </div>
+        </div>
+
+        <div class="footer grid">
+            <div class="footer-content grid__col-4">
+                <div class="content-title">Connect with us</div>
+                <div class="content-contactlink">
+                    <a href=""><i class="fa-brands fa-facebook content-icon"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram content-icon"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter content-icon"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-content grid__col-4">
+                <div class="content-title">Quick Links</div>
+                <a href=""><li class="content-list">Customer Service</li></a>
+                <a href=""><li class="content-list">FAQ</li></a>
+                <a href=""><li class="content-list">Gift Certificates</li></a>
+            </div>
+
+            <div class="footer-content grid__col-4">
+                <div class="content-title">About us</div>
+                <a href=""><li class="content-list">Our Story</li></a>
+                <a href=""><li class="content-list">Review</li></a>
+                <a href=""><li class="content-list">Career</li></a>
+                <a href=""><li class="content-list">Community Outreach</li></a>
+            </div>
+
+            <div class="footer-content grid__col-4">
+                <div class="content-title">Connect with us</div>
+                <li class="content-list">877-326-4429</li>
+                <li class="content-list">Support@MiniatureMarket.com</li>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-inform js-modalInform">
+        <div class="modal-inform__container js-modalInform-container">
+            <div class="modal-inform__close js-modal-close">
+                <i class="fa-regular fa-xmark modal-inform__icon"></i>
+            </div>
+
+            <header class="modal-inform__header">GIỮ CHỖ</header>
+            <div class="modal-inform__body">
+                <li class="body1__cnt1">*Lưu ý: </li>
+                <!-- <li class="body1__cnt1">Cách tính tiền cọc</li>
+                <li class="body1__cnt1">Giữ chỗ nửa ngày sau đó đến cửa hàng tiến hành thủ tục cho thuê.</li>
+                <li class="body1__cnt1">Luật tích điểm</li>
+                <li class="body1__cnt1">Luật phạt</li> -->
+                <div class="body__form">
+                    <header class="body__form-title">Điền thông tin giữ chỗ:</header>
+                    <label for="boardgame-name" class="modal-label">
+                        <i class="ti-user"></i>
+                        Tên boardgame?
+                    </label>
+
+                    <input id="boardgame-name" type="text" class="modal-input" placeholder="VD: Trò  chơi 1">
+
+                    <label for="boardgame-quantity" class="modal-label">
+                        <i class="ti-email"></i>
+                        Số lượng?
+                    </label>
+
+                    <input id="boardgame-quantity" type="number" class="modal-input" placeholder="VD: 1">
+
+                    <label for="boardgame-contact" class="modal-label">
+                        <i class="ti-email"></i>
+                        Thông tin liên lạc
+                    </label>
+
+                    <input id="boardgame-contact" type="text" class="modal-input" placeholder="VD: 0123456789/ abc@gmail.com">
+                </div>
+            </div>
+
+            <div class="modal-inform__footer">
+                <button class="modal-inform__btn">Xong</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const buyBtns = document.querySelectorAll('.js-buy');
+        const modalInform = document.querySelector('.js-modalInform');
+        const modalInformContainer = document.querySelector('.js-modalInform-container')
+        const modalClose = document.querySelector('.js-modal-close');
+
+        function showBuyTickets() {
+            modalInform.classList.add('open')
+        }
+
+        function hideBuyTickets() {
+            modalInform.classList.remove('open')
+        }
+
+        for(const buyBtn of buyBtns) {
+            buyBtn.addEventListener('click', showBuyTickets)
+        }
+
+        modalClose.addEventListener('click', hideBuyTickets)
+
+        modalInform.addEventListener('click',  hideBuyTickets)
+
+        modalInformContainer.addEventListener('click', function(event) {
+            event.stopPropagation()
+        })
+    </script>
+
+
+</body>
