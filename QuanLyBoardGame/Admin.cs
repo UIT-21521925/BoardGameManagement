@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Sources;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
@@ -106,6 +107,7 @@ namespace QuanLyBoardGame
         {
             List<ThongTinBG> list = collection_TTBG.AsQueryable().ToList<ThongTinBG>();
             dgvTT.DataSource = list;
+            tbSoLuong.ReadOnly = true;
             tbMaThongTin.Text = dgvTT.Rows[0].Cells[0].Value.ToString();
             tbTenBoardGame.Text = dgvTT.Rows[0].Cells[1].Value.ToString();
             nudSoNguoiChoi.Text = dgvTT.Rows[0].Cells[2].Value.ToString();
@@ -132,7 +134,7 @@ namespace QuanLyBoardGame
         private void bThemTT_Click(object sender, EventArgs e)
         {
             ThongTinBG ttbg = new ThongTinBG( tbTenBoardGame.Text, int.Parse(nudSoNguoiChoi.Text)
-                , int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text),int.Parse(tbSoLuong.Text)
+                , int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text)
                 ,cbTinhTrangTTBG.Text, cbTheLoai.Text);
                 collection_TTBG.InsertOneAsync(ttbg);
                 ReadAllDocuments_ThongTinBG();
@@ -149,6 +151,7 @@ namespace QuanLyBoardGame
         {
             collection_TTBG.DeleteOneAsync(ttbg => ttbg.MaTTBG == ObjectId.Parse(tbMaThongTin.Text));
             ReadAllDocuments_ThongTinBG();
+            ReadAllDocuments_TTBG();
         }
 
         private void bTimKiemTT_Click(object sender, EventArgs e)
@@ -225,9 +228,14 @@ namespace QuanLyBoardGame
 
         private void bThemBG_Click(object sender, EventArgs e)
         {
-            BoardGame ttbg = new BoardGame(ObjectId.Parse(tbTTBG.Text) , cbTinhTrangBG.Text, cbTinhTrangMuon.Text);
-            collection_BG.InsertOneAsync(ttbg);
+            BoardGame bg = new BoardGame(ObjectId.Parse(tbTTBG.Text) , cbTinhTrangBG.Text);
+            collection_BG.InsertOneAsync(bg);
+            var filterTTBG = Builders<ThongTinBG>.Filter.Eq("MaTTBG", ObjectId.Parse(tbTTBG.Text));
+            var updateTTBG = Builders<ThongTinBG>.Update.Inc("SoLuong", 1);
+            collection_TTBG.UpdateOneAsync(filterTTBG, updateTTBG);
             ReadAllDocuments_BG();
+            ReadAllDocuments_TTBG();
+            ReadAllDocuments_ThongTinBG();
         }
 
         private void bSuaBG_Click(object sender, EventArgs e)
@@ -240,7 +248,12 @@ namespace QuanLyBoardGame
         private void bXoaBG_Click(object sender, EventArgs e)
         {
             collection_BG.DeleteOneAsync(bg => bg.MaBG == ObjectId.Parse(tbMaBoardGame.Text));
+            var filterTTBG = Builders<ThongTinBG>.Filter.Eq("MaTTBG", ObjectId.Parse(tbTTBG.Text));
+            var updateTTBG = Builders<ThongTinBG>.Update.Inc("SoLuong", -1);
+            collection_TTBG.UpdateOneAsync(filterTTBG, updateTTBG);
             ReadAllDocuments_BG();
+            ReadAllDocuments_TTBG();
+            ReadAllDocuments_ThongTinBG();
         }
 
         private void bTimKiemTTBG_Click(object sender, EventArgs e)
@@ -296,6 +309,7 @@ namespace QuanLyBoardGame
             KhachHang kh = new KhachHang(tbTenKhachHang.Text, dtpNgaySinh.Value, tbDiaChi.Text, tbSoDienThoai.Text, tbEmail.Text, int.Parse(tbSoTichDiem.Text));
             collection_KH.InsertOneAsync(kh);
             ReadAllDocuments_KH();
+            ReadAllDocuments_DSKH();
         }
 
         private void bSuaKhachHang_Click(object sender, EventArgs e)
@@ -303,12 +317,14 @@ namespace QuanLyBoardGame
             var updateDef = Builders<KhachHang>.Update.Set("TenKH", tbTenKhachHang.Text).Set("NgSinh", dtpNgaySinh.Value).Set("DiaChi", tbDiaChi.Text).Set("SDT", tbSoDienThoai.Text).Set("Email", tbEmail.Text).Set("TichDiem", int.Parse(tbSoTichDiem.Text));
             collection_KH.UpdateOneAsync(kh => kh.MaKH == ObjectId.Parse(tbMaKhachHang.Text), updateDef);
             ReadAllDocuments_KH();
+            ReadAllDocuments_DSKH();
         }
 
         private void bXoaKhachHang_Click(object sender, EventArgs e)
         {
             collection_KH.DeleteOneAsync(kh => kh.MaKH == ObjectId.Parse(tbMaKhachHang.Text));
             ReadAllDocuments_KH();
+            ReadAllDocuments_DSKH();
         }
 
         private void bTimKiemKH_Click(object sender, EventArgs e)
@@ -481,12 +497,49 @@ namespace QuanLyBoardGame
                 // Lấy giá trị từ hàng được chọn
                 var value = dgvDanhSachBG.SelectedRows[0].Cells[0].Value.ToString();
 
-                // Tạo đối tượng DonHang và thêm vào cơ sở dữ liệu MongoDB
-                DonHang dh = new DonHang(ObjectId.Parse(tbMaCTDH.Text), ObjectId.Parse(value));
-                collection_DH.InsertOneAsync(dh);
+                // Kiểm tra giá trị của trường "TinhTrangMuon"
+                var filter = Builders<BoardGame>.Filter.And(
+                    Builders<BoardGame>.Filter.Eq("_id", ObjectId.Parse(value)),
+                    Builders<BoardGame>.Filter.Ne("TinhTrangMuon", "Dang thue")
+                );
 
-                // Cập nhật danh sách hiển thị
-                ReadAllDocuments_DSBGDH();
+                // Cập nhật trường "TinhTrangMuon" thành "Dang thue"
+                var updateDef = Builders<BoardGame>.Update.Set("TinhTrangMuon", "Dang thue");
+                var updateResult = collection_BG.UpdateOne(filter, updateDef);
+
+                // Kiểm tra kết quả cập nhật
+                if (updateResult.ModifiedCount > 0)
+                {
+                    // Tiếp tục thực hiện các thao tác khác
+                    DonHang dh = new DonHang(ObjectId.Parse(tbMaCTDH.Text), ObjectId.Parse(value));
+                    collection_DH.InsertOneAsync(dh);
+                    ReadAllDocuments_DSBGDH();
+                    List<ThongTinBG> listTTBG = collection_TTBG.AsQueryable().ToList<ThongTinBG>();
+                    List<BoardGame> listBG = collection_BG.AsQueryable().ToList<BoardGame>();
+                    List<BoardGame> filteredTTBGList = new List<BoardGame>();
+
+                    foreach (var ttbg in listTTBG)
+                    {
+                        if (ttbg.TenBoardGame == tbTimBG.Text)
+                        {
+                            foreach (var bg in listBG)
+                            {
+                                if (bg.MaTTBG == ttbg.MaTTBG)
+                                {
+                                    filteredTTBGList.Add(bg);
+                                }
+                            }
+                        }
+                    }
+
+                    var bindingSourceTTBG = new BindingSource();
+                    bindingSourceTTBG.DataSource = filteredTTBGList;
+                    dgvDanhSachBG.DataSource = bindingSourceTTBG;
+                }
+                else
+                {
+                    MessageBox.Show("Board game đã được đặt trước hoặc đang được thuê.");
+                }
             }
             else
             {
@@ -494,16 +547,36 @@ namespace QuanLyBoardGame
             }
         }
 
-        private void bXoaDSDH_Click(object sender, EventArgs e)
+    private void bXoaDSDH_Click(object sender, EventArgs e)
         {
             if (dgvDSBGDH.SelectedRows.Count > 0)
             {
                 
                 var value = dgvDSBGDH.SelectedRows[0].Cells[0].Value.ToString();
 
-                    // Xóa dòng đang được chọn khỏi DataGridView
-                    collection_DH.DeleteOneAsync(bg => bg.MaBG == ObjectId.Parse(value));
-                    ReadAllDocuments_DSBGDH();
+                var updateDef = Builders<BoardGame>.Update.Set("TinhTrangMuon", "Chua duoc thue");
+                collection_BG.UpdateOneAsync(bg => bg.MaBG == ObjectId.Parse(value), updateDef);
+                // Xóa dòng đang được chọn khỏi DataGridView
+                collection_DH.DeleteOneAsync(bg => bg.MaBG == ObjectId.Parse(value));
+                ReadAllDocuments_DSBGDH();
+                List<ThongTinBG> listTTBG = collection_TTBG.AsQueryable().ToList<ThongTinBG>();
+                List<BoardGame> listBG = collection_BG.AsQueryable().ToList<BoardGame>();
+                List<BoardGame> filteredTTBGList = new List<BoardGame>();
+
+                foreach (var ttbg in listTTBG)
+                {
+                    if (ttbg.TenBoardGame == tbTimBG.Text)
+                        foreach (var bg in listBG)
+                        {
+                            if (bg.MaTTBG == ttbg.MaTTBG)
+                            {
+                                filteredTTBGList.Add(bg);
+                            }
+                        }
+                }
+                var bindingSourceTTBG = new BindingSource();
+                bindingSourceTTBG.DataSource = filteredTTBGList;
+                dgvDanhSachBG.DataSource = bindingSourceTTBG;
             }
             else
             {

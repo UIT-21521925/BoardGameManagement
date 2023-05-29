@@ -31,14 +31,14 @@ namespace QuanLyBoardGame
         public string MaLBG { get; set; }
 
         public ThongTinBG(string tenBoardGame,int soNguoiChoi,int doTuoi,
-            int triGia, int giaThue, int soLuong, string tinhTrangBG, string maLBG)
+            int triGia, int giaThue, string tinhTrangBG, string maLBG)
         {
             TenBoardGame = tenBoardGame;
             SoNguoiChoi = soNguoiChoi;
             DoTuoi = doTuoi;
             TriGia = triGia;
-            GiaThue = soLuong;
-            SoLuong = soLuong;
+            GiaThue = giaThue;
+            SoLuong = 0;
             TinhTrangBG = tinhTrangBG;
             MaLBG = maLBG;
         }

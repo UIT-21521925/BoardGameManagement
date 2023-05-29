@@ -20,11 +20,11 @@ namespace QuanLyBoardGame
         [BsonElement("TinhTrangMuon")]
         public string TinhTrangMuon { get; set; }
 
-        public BoardGame(ObjectId maTTBG,string tinhTrangBG, string tinhTrangMuon)
+        public BoardGame(ObjectId maTTBG,string tinhTrangBG)
         {
             MaTTBG = maTTBG;
             TinhTrangBG = tinhTrangBG;
-            TinhTrangMuon = tinhTrangMuon;
+            TinhTrangMuon = "Chua duoc thue";
         }
     }
 }
