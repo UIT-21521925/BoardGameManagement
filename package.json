@@ -4,6 +4,7 @@
   "main": "BGProject/src/index.js",
   "scripts": {
     "start": "nodemon BGProject/src/index.js",
+    "watch" : "node-sass --watch BGProject/src/resources/scss/ --output BGProject/src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -17,6 +18,7 @@
   "devDependencies": {
     "json-server": "^0.17.3",
     "morgan": "^1.10.0",
+    "node-sass": "^9.0.0",
     "nodemon": "^2.0.22"
   },
   "dependencies": {

@@ -39,3 +39,7 @@ mỗi route có một chức năng để xử lý ( handle function)
 
  *params.slug thường được sử dụng để truy cập vào giá trị của tham số slug trong URL. vd : nếu URL của bạn là "/products/apple-iphone-12", thì params.slug sẽ là "apple-iphone-12"
  -  Truy cập vào giá trị của tham số slug trong URL
+
+
+ *node-sass :
+ - thuc hien lenh npm run watch : input vao app.sass sau do se auto output ra app.css
