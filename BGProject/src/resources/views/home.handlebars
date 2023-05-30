@@ -1,7 +1,41 @@
-<div class="mt-4">
+ <div class="body">
+    <header class="body-title">TẤT CẢ SẢN PHẨM</header>
+        <div class="body-content">
+            <div class="boardergames-categories">
+                <header class="categories-header">Filter</header>
+                <h4 class="categories-title">Category</h4>
+                <div class="categories-choice">
+                    <input type="checkbox" id="choice" class="categories-checkbox" placeholder="" name="choiced">
+                    <p class="categories-name">Card game</p>
+                </div>
+            </div>
+
+            <div class="boardgames">
+                <div class="grid">
+                    {{#each ThongtinBGs}}
+                    <div class="grid__col-4">
+                       <div class="boardgame">
+                            <img src="assets/img/1.jpg" alt="" class="boardgame-img">
+                    
+                            <div class="boardgame-info">
+                                <h4 class="boardgame-info__name">TRÒ CHƠI 1</h4>
+                                <p class="boardgame-info__price">Giá: 100.000</p>
+                                <p class="boardgame-info__status">Tình trạng: Còn hàng</p>
+                            </div>
+                
+                            <button class="boardgame-btn js-buy">Giữ chỗ</button>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+</div>
+{{!-- <div class="mt-4">
     <div class="row">
+       
         {{#each ThongtinBGs}}
-        <div class="col-sm-6 col-lg-3">
+        <div class="col-sm-6 col-lg-4">
              <div class="boardgame">
                 <img src="assets/img/1.jpg" alt="" class="boardgame-img">
                 
@@ -16,4 +50,4 @@
         </div>
         {{/each}}
     </div>
-</div>
+</div> --}}
