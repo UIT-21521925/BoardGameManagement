@@ -17,6 +17,8 @@ namespace QuanLyBoardGame
         public ObjectId MaCTDH { get; set; }
         [BsonElement("MaBG")]
         public ObjectId MaBG { get; set; }
+        [BsonElement("TongTien")]
+        public int TongTien { get; set; }
 
         public DonHang(ObjectId maCTDH,ObjectId maBG)
         {

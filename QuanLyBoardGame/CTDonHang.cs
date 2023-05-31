@@ -24,7 +24,7 @@ namespace QuanLyBoardGame
         [BsonElement("MaUD")]
         public ObjectId MaUD { get; set; }
         [BsonElement("TongTien")]
-        public decimal TongTien { get; set; }
+        public int TongTien { get; set; }
 
         public CTDonHang(DateTime ngayThue,DateTime ngayTra, string trangThai,ObjectId maKH, ObjectId maUD)
         {

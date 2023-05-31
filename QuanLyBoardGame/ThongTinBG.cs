@@ -20,9 +20,9 @@ namespace QuanLyBoardGame
         [BsonElement("DoTuoi")]
         public int DoTuoi { get; set; }
         [BsonElement("TriGia")]
-        public decimal TriGia { get; set; }
+        public Decimal TriGia { get; set; }
         [BsonElement("GiaThue")]
-        public decimal GiaThue { get; set; }
+        public int GiaThue { get; set; }
         [BsonElement("SoLuong")]
         public int SoLuong { get; set; }
         [BsonElement("TinhTrangBG")]
