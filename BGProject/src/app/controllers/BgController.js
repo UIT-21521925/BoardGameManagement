@@ -1,12 +1,13 @@
 
 const ThongtinBG = require('../models/TTBG')
-const LoaiBoardGame = require('../models/LOAIBG')
 class BgController {
     // get /home/tenbg
     show(req,res,next) {
-      ThongtinBG.findOne({TenBoardGame: req.params.TenBoardGame})
-
-        .then((boardgame)=> res.render('boardgame/show.handlebars', {boardgame}))
+      ThongtinBG.findOne({TenBoardGame: req.params.TenBoardGame}).exec()
+        .then((boardgames)=> {
+            // boardgames = boardgames.map(boardgame => boardgame.toObject());
+            res.render('boardgame/show.handlebars', {boardgames: boardgames.toObject()})
+        })
         .catch(next);
     }
 }

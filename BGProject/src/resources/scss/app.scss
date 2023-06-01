@@ -104,6 +104,7 @@ html {
     padding-bottom: 20px;
     font-size: 22px;
     text-align: center;
+    transform: translateX(14%);
 }
 
 .body-content {
@@ -142,6 +143,10 @@ hr {
 
 .categories-name {
     padding-left: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 5px;
 }
 
 
@@ -149,7 +154,7 @@ hr {
 .boardgames {
     width: 70%;
     margin-left: 9%;
-
+    height: auto;
 }
 
 .grid {
@@ -168,7 +173,7 @@ hr {
 .boardgame {
     margin-bottom: 12px;
     width: 220px;
-    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    box-shadow: rgba(203, 197, 197, 0.2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
     background-color: #fff;
 }
 
@@ -232,4 +237,36 @@ hr {
 .boardgame-btn:hover {
     cursor: pointer;
     opacity: 0.8;
+}
+.site-footer
+{
+  background-color:#26272b;
+  font-size:15px;
+  line-height:24px;
+  color:#f5eeee;
+    margin-top: 30px;
+    padding: 40px 0;
+}
+.container-footer {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 35px;
+    width: 100%;
+}
+.container-item{
+    width: 50%;
+    padding: 0 20px;
+}
+
+.container-item--header {
+    font-size: 15px;
+    padding-bottom: 5px;
+}
+
+.quicklinks-item {
+    color: #fff;
+    text-decoration: none;
+    padding-bottom: 5px;
 }

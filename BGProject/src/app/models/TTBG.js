@@ -8,15 +8,18 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 const Decimal = Schema.Types.Decimal128;
 
+
 const TTBG = new Schema ({
     MATTBG: {type :ObjectId},
     TenBoardGame: {type: String},
     SoNguoiChoi : {type: Number, min: 16, index : true},
     DoTuoi : {type : Number, min: 16},
-    TriGia: { type: Decimal},
-    GiaThue: { type: Decimal},
+    TriGia: { type: Number},
+    GiaThue: { type: Number},
     SoLuong: {type : Number},
     HinhAnh : { type: String },
+    LuatChoi : { type: String },
+    ThoiGianChoi : { type: Number },
     MALBG: {type: Object}
 });
 
