@@ -10,13 +10,13 @@ const Decimal = Schema.Types.Decimal128;
 
 const TTBG = new Schema ({
     MATTBG: {type :ObjectId},
-    TENBG: {type: String},
-    SONGUOICHOI : {type: Number, min: 16, index : true},
-    DOTUOI : {type : Number, min: 16},
-    TRIGIA: { type: Decimal},
-    GIATHUE: { type: Decimal},
-    SOLUONG : {type : Number},
-    HINHANH : { type: String },
+    TenBoardGame: {type: String},
+    SoNguoiChoi : {type: Number, min: 16, index : true},
+    DoTuoi : {type : Number, min: 16},
+    TriGia: { type: Decimal},
+    GiaThue: { type: Decimal},
+    SoLuong: {type : Number},
+    HinhAnh : { type: String },
     MALBG: {type: Object}
 });
 

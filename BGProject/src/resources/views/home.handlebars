@@ -2,7 +2,6 @@
     <header class="body-title">TẤT CẢ SẢN PHẨM</header>
         <div class="body-content">
             <div class="boardergames-categories">
-                <header class="categories-header">Filter</header>
                 <h4 class="categories-title">Category</h4>
                 <div class="categories-choice">
                     <input type="checkbox" id="choice" class="categories-checkbox" placeholder="" name="choiced">
@@ -15,11 +14,10 @@
                     {{#each ThongtinBGs}}
                     <div class="grid__col-4">
                        <div class="boardgame">
-                            <img src="assets/img/1.jpg" alt="" class="boardgame-img">
-                    
+                            <img src="{{this.HinhAnh}}" alt="" class="boardgame-img">
                             <div class="boardgame-info">
-                                <h4 class="boardgame-info__name">TRÒ CHƠI 1</h4>
-                                <p class="boardgame-info__price">Giá: 100.000</p>
+                                <h4 class="boardgame-info__name">{{this.TenBoardGame}}</h4>
+                                <p class="boardgame-info__price">Giá : {{this.GiaThue}}</p>
                                 <p class="boardgame-info__status">Tình trạng: Còn hàng</p>
                             </div>
                 
@@ -31,23 +29,3 @@
             </div>
         </div>
 </div>
-{{!-- <div class="mt-4">
-    <div class="row">
-       
-        {{#each ThongtinBGs}}
-        <div class="col-sm-6 col-lg-4">
-             <div class="boardgame">
-                <img src="assets/img/1.jpg" alt="" class="boardgame-img">
-                
-                <div class="boardgame-info">
-                    <h4 class="boardgame-info__name">TRÒ CHƠI 1</h4>
-                    <p class="boardgame-info__price">Giá: 100.000</p>
-                    <p class="boardgame-info__status">Tình trạng: Còn hàng</p>
-                </div>
-                
-                <button class="boardgame-btn js-buy">Giữ chỗ</button>
-            </div>
-        </div>
-        {{/each}}
-    </div>
-</div> --}}
