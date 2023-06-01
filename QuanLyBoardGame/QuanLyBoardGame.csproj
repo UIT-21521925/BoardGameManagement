@@ -182,6 +182,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaiKhoan.cs" />
     <Compile Include="ThongTinBG.cs" />
     <Compile Include="UuDai.cs" />
     <EmbeddedResource Include="DangNhap.resx">
