@@ -9,7 +9,7 @@ const ObjectId = Schema.Types.ObjectId;
 
 const LOAIBG = new Schema ({
     MALBG : ObjectId,
-    TENTHELOAI : String
+    TENLBG : String
 });
 
 module.exports = mongoose.model('LOAIBG',LOAIBG);

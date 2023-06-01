@@ -3,7 +3,7 @@ const siteRouter = require('./siteRouter')
 const bgRouter = require('./bgRouter');
 
 function route(app) {
-    app.use('/product', bgRouter),
+    app.use('/home', bgRouter),
     app.use('/',siteRouter)
 
 }

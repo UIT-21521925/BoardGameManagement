@@ -2,25 +2,13 @@
 const ThongtinBG = require('../models/TTBG')
 const LoaiBoardGame = require('../models/LOAIBG')
 class BgController {
-    index(req, res, next) {
-      // LoaiBoardGame.find({}).exec()
-      //   .then((LOAIBGs) => {
-      //     res.render('product.handlebars', {LOAIBGs})
-      //   })
-      //   .catch(next);
-      
-               
-      ThongtinBG.find({}).exec()
-      .then((ThongtinBGs) => {
-        res.render('product.handlebars', {ThongtinBGs})
-      })
-      .catch(next);
-    } 
+    // get /home/tenbg
+    show(req,res,next) {
+      ThongtinBG.findOne({TenBoardGame: req.params.TenBoardGame})
 
-    // get / slug
-    // show(req,res) {
-    //   res.send('DETAIL');
-    // }
+        .then((boardgame)=> res.render('boardgame/show.handlebars', {boardgame}))
+        .catch(next);
+    }
 }
 
 

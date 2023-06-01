@@ -97,14 +97,20 @@ html {
 .boardergames-categories {
   width: 20%;
   height: fit-content;
-  background-color: #ddd3d3;
+  background-color: #444242;
   padding: 10px 10px;
-  margin-left: 15px; }
+  margin-left: 15px;
+  color: #fffafa; }
 
 .categories-title {
   font-size: 16px;
   margin-top: 8px;
   text-align: center; }
+
+hr {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px; }
 
 .categories-choice {
   list-style: none;
@@ -125,7 +131,9 @@ html {
   flex-wrap: wrap; }
 
 .grid__col-4 {
-  width: 25%; }
+  width: 25%;
+  color: #000;
+  text-decoration: none; }
 
 .boardgame {
   margin-bottom: 12px;
@@ -142,26 +150,46 @@ html {
 
 .boardgame-info {
   list-style: none;
-  padding: 5px 5px; }
+  padding: 5px 10px;
+  height: 130px; }
+
+.available {
+  font-weight: bolder;
+  font-size: 15px; }
+
+.sold-out {
+  padding-top: 10px;
+  font-weight: bolder;
+  font-size: 15px;
+  color: red; }
+
+.boardgame-info-sold {
+  height: 136px;
+  list-style: none;
+  padding-top: 5px;
+  padding-left: 10px; }
 
 .boardgame-info__name {
   font-size: 19px;
-  padding: 5px 0;
+  padding: 7px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
 
 .boardgame-info__price {
-  padding-bottom: 5px; }
+  padding-bottom: 7px; }
 
 .boardgame-btn {
   border: none;
-  padding: 4px 8px;
-  margin-top: 24px;
-  margin-left: 48px;
-  border-radius: 4px;
+  padding: 6px 10px;
+  transform: translateX(65px);
   background-color: crimson;
-  color: #fff; }
+  color: #fff;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  font-weight: bold; }
 
 .boardgame-btn:hover {
   cursor: pointer;
