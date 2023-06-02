@@ -16,5 +16,14 @@ namespace QuanLyBoardGame
         public string TenTaiKhoan { get; set; }
         [BsonElement("MatKhau")]
         public string MatKhau { get; set; }
+        [BsonElement("ChucVu")]
+        public string ChucVu { get; set; }
+
+        public TaiKhoan( string tenTaiKhoan, string matKhau, string chucVu)
+        {
+            TenTaiKhoan = tenTaiKhoan;
+            MatKhau = matKhau;
+            ChucVu = chucVu;
+        }
     }
 }

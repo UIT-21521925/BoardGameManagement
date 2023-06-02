@@ -476,7 +476,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(772, 448);
+            this.pictureBox1.Size = new System.Drawing.Size(849, 480);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -2412,6 +2412,7 @@
             this.bAdmin.Size = new System.Drawing.Size(32, 35);
             this.bAdmin.TabIndex = 4;
             this.bAdmin.UseVisualStyleBackColor = false;
+            this.bAdmin.Click += new System.EventHandler(this.bAdmin_Click);
             // 
             // bLogOut
             // 
@@ -2438,6 +2439,7 @@
             this.bMatKhau.Size = new System.Drawing.Size(32, 35);
             this.bMatKhau.TabIndex = 2;
             this.bMatKhau.UseVisualStyleBackColor = true;
+            this.bMatKhau.Click += new System.EventHandler(this.bMatKhau_Click);
             // 
             // panelMenu
             // 

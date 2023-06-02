@@ -30,8 +30,8 @@ namespace QuanLyBoardGame
         static IMongoCollection<UuDai> collection_UD = db.GetCollection<UuDai>("UuDai");
         static IMongoCollection<CTDonHang> collection_CTDH = db.GetCollection<CTDonHang>("CTDonHang");
         static IMongoCollection<DonHang> collection_DH = db.GetCollection<DonHang>("DonHang");
-
-        public Admin()
+        private TaiKhoan taikhoan;
+        internal Admin(TaiKhoan taikhoan)
         {
             InitializeComponent();
             ReadAllDocuments_ThongTinBG();
@@ -39,6 +39,7 @@ namespace QuanLyBoardGame
             ReadAllDocuments_KH();
             ReadAllDocuments_UD();
             ReadAllDocuments_DSKH();
+            this.taikhoan = taikhoan;
         }
        
         private void bDanhMuc_Click(object sender, EventArgs e)
@@ -78,7 +79,13 @@ namespace QuanLyBoardGame
 
         private void bLogOut_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận thoát", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                this.Hide();
+                DangNhap dangNhap = new DangNhap();
+                dangNhap.ShowDialog();
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -689,6 +696,18 @@ namespace QuanLyBoardGame
         {
             tbTimKiemUD.Text = "";
             ReadAllDocuments_UD();
+        }
+
+        private void bAdmin_Click(object sender, EventArgs e)
+        {
+            TTTaiKhoan tTTaiKhoan = new TTTaiKhoan(taikhoan);
+            tTTaiKhoan.ShowDialog();
+        }
+
+        private void bMatKhau_Click(object sender, EventArgs e)
+        {
+            DSTaiKhoan dSTaiKhoan = new DSTaiKhoan();
+            dSTaiKhoan.ShowDialog();
         }
     }
 }

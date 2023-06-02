@@ -1,5 +1,6 @@
 ﻿using MongoDB.Driver;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,11 +39,12 @@ namespace QuanLyBoardGame
 
             var filter = Builders<TaiKhoan>.Filter.Eq("TenTaiKhoan", taiKhoan) & Builders<TaiKhoan>.Filter.Eq("MatKhau", matKhau);
             var result = collection_DN.Find(filter).ToList();
-
+            var taikhoan = collection_DN.Find(filter).FirstOrDefault();
             if (result.Count > 0)
             {
                 // Đăng nhập thành công
-                Admin admin = new Admin();
+                Admin admin = new Admin(taikhoan);
+                TTTaiKhoan tTTaiKhoan = new TTTaiKhoan(taikhoan);
                 this.Hide();
                 admin.ShowDialog();
             }

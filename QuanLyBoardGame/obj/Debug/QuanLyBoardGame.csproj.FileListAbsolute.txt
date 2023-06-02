@@ -70,3 +70,5 @@ C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\bin\Debug\System.Security
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\bin\Debug\System.Text.Encoding.CodePages.xml
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.CopyComplete
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.TTTaiKhoan.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.DSTaiKhoan.resources
