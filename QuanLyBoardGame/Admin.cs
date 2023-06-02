@@ -110,6 +110,7 @@ namespace QuanLyBoardGame
             List<ThongTinBG> list = collection_TTBG.AsQueryable().ToList<ThongTinBG>();
             dgvTT.DataSource = list;
             tbSoLuong.ReadOnly = true;
+            // Sau khi run thì không truy cập được dữ liệu - Lỗi ở dòng 114
             tbMaThongTin.Text = dgvTT.Rows[0].Cells[0].Value.ToString();
             tbTenBoardGame.Text = dgvTT.Rows[0].Cells[1].Value.ToString();
             nudSoNguoiChoi.Text = dgvTT.Rows[0].Cells[2].Value.ToString();
