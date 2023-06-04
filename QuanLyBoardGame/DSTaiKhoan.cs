@@ -20,7 +20,7 @@ namespace QuanLyBoardGame
         public DSTaiKhoan()
         {
             InitializeComponent();
-            ReadAllDocuments_DSTaiKhoan();
+            ReadAllDocuments_DSTaiKhoan(); 
         }
         public void ReadAllDocuments_DSTaiKhoan()
         {

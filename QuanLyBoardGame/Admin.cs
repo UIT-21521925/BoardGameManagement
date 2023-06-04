@@ -30,6 +30,9 @@ namespace QuanLyBoardGame
         static IMongoCollection<UuDai> collection_UD = db.GetCollection<UuDai>("UuDai");
         static IMongoCollection<CTDonHang> collection_CTDH = db.GetCollection<CTDonHang>("CTDonHang");
         static IMongoCollection<DonHang> collection_DH = db.GetCollection<DonHang>("DonHang");
+        static IMongoCollection<CTBaoCao> collection_CTBC = db.GetCollection<CTBaoCao>("CTBaoCao");
+        static IMongoCollection<BaoCao> collection_BC = db.GetCollection<BaoCao>("BaoCao");
+        static IMongoCollection<LoaiBG> collection_LBG = db.GetCollection<LoaiBG>("LoaiBG");
         private TaiKhoan taikhoan;
         internal Admin(TaiKhoan taikhoan)
         {
@@ -547,17 +550,6 @@ namespace QuanLyBoardGame
                 // Kiểm tra kết quả cập nhật
                 if (updateResult.ModifiedCount > 0)
                 {
-                    // Tiếp tục thực hiện các thao tác khác
-                    /*DonHang dh = new DonHang(ObjectId.Parse(tbMaCTDH.Text), ObjectId.Parse(value));
-                    collection_DH.InsertOneAsync(dh);
-
-                    var filterTongTien = Builders<ThongTinBG>.Filter.Eq("MaTTBG", ObjectId.Parse(valueTien));
-                    var projection = Builders<ThongTinBG>.Projection.Expression(ttbg => ttbg.GiaThue);
-                    var ttboardGame = collection_TTBG.Find(filterTongTien).Project(projection).FirstOrDefault();
-                    decimal giaThue = ttboardGame;
-                    // Cập nhật giá trị "TongTien" trong đơn hàng
-                    var updateDonHang = Builders<CTDonHang>.Update.Inc("TongTien", giaThue);
-                    collection_CTDH.UpdateOne(ctdh => ctdh.MaCTDH ==ObjectId.Parse(tbMaCTDH.Text), updateDonHang);*/
 
                     DonHang dh = new DonHang(ObjectId.Parse(tbMaCTDH.Text), ObjectId.Parse(value));
                     collection_DH.InsertOneAsync(dh);
@@ -698,6 +690,8 @@ namespace QuanLyBoardGame
             ReadAllDocuments_UD();
         }
 
+        //Chức năng đổi mật khẩu và xem danh sách tài khoản
+
         private void bAdmin_Click(object sender, EventArgs e)
         {
             TTTaiKhoan tTTaiKhoan = new TTTaiKhoan(taikhoan);
@@ -709,5 +703,55 @@ namespace QuanLyBoardGame
             DSTaiKhoan dSTaiKhoan = new DSTaiKhoan();
             dSTaiKhoan.ShowDialog();
         }
+
+        //Lập báo cáo theo thể loại board game
+
+        private void bLapBaoCao_Click(object sender, EventArgs e)
+        {
+            int thang = int.Parse(cbChonThang.SelectedItem.ToString());
+            int nam = int.Parse(cbChonNam.SelectedItem.ToString());
+            List<CTDonHang> listCTDHs = collection_CTDH.AsQueryable().ToList<CTDonHang>();
+            BaoCao bc = new BaoCao(thang, nam);
+            collection_BC.InsertOneAsync(bc);
+            decimal tongDoanhThu = 0;
+            int soDonHang = 0;
+
+            List<CTDonHang> filteredCTDHList = new List<CTDonHang>();
+            foreach (CTDonHang ctdh in listCTDHs)
+                {
+                    // Lấy thông tin ngày tháng năm từ trường DonHang
+                    DateTime ngayTra = ctdh.NgayTra;
+
+                    // Kiểm tra xem ngày tháng năm có thuộc tháng và năm hiện tại không
+                    if (ngayTra.Month == thang && ngayTra.Year == nam)
+                    {
+                        CTBaoCao ctbc = new CTBaoCao(ctdh.MaCTDH, bc.MaBC);
+                        collection_CTBC.InsertOneAsync(ctbc);
+
+
+                        filteredCTDHList.Add(ctdh);
+                        
+                        
+
+                        // Tính tổng doanh thu từng đơn hàng
+                        decimal DoanhThu = ctdh.TongTien;
+
+                        tongDoanhThu = tongDoanhThu + DoanhThu;
+                        soDonHang += 1;
+                    }
+
+                }
+            var updateDef = Builders<BaoCao>.Update.Set("TongDoanhThu", tongDoanhThu ).Set("SoDonHang", soDonHang);
+            collection_BC.UpdateOneAsync(nbc => nbc.MaBC == bc.MaBC, updateDef);
+            tbSoDonHang.Text = soDonHang.ToString();
+            tbDoanhThu.Text = tongDoanhThu.ToString();
+            var bindingSourceKH = new BindingSource();
+            bindingSourceKH.DataSource = filteredCTDHList;
+            dgvBaoCao.DataSource = bindingSourceKH;
+
+        }
+        // Hiển thị kết quả lên dgvBaoCao
+
+
     }
 }

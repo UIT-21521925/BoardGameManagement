@@ -152,7 +152,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaoCao.cs" />
     <Compile Include="BoardGame.cs" />
+    <Compile Include="TheLoaiBG.cs" />
+    <Compile Include="CTBaoCao.cs" />
     <Compile Include="CTDonHang.cs" />
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
