@@ -49,12 +49,15 @@ namespace QuanLyBoardGame
         {
             tabQuanLy.SelectedIndex = 1;
             labelText.Text = this.Text;
+            ReadAllDocuments_ThongTinBG();
         }
 
         private void bKho_Click(object sender, EventArgs e)
         {
             tabQuanLy.SelectedIndex = 2;
             labelText.Text = this.Text;
+            ReadAllDocuments_ThongTinBG();
+            ReadAllDocuments_TTBG();
         }
 
         private void bKhachHang_Click(object sender, EventArgs e)
@@ -110,8 +113,26 @@ namespace QuanLyBoardGame
 
         private void bBienBan_Click(object sender, EventArgs e)
         {
-           Form1 form1 = new Form1();   
-           form1.ShowDialog();
+            if (tbMaCTDH.Text != null)
+            {
+                var thongTinCTDHquery = Builders<CTDonHang>.Filter.Eq("MaCTDH", ObjectId.Parse(tbMaCTDH.Text));
+                List<CTDonHang> filteredCTDHs = collection_CTDH.Find(thongTinCTDHquery).ToList();
+
+                if (filteredCTDHs.Count > 0)
+                {
+                    CTDonHang ctdh = filteredCTDHs[0];
+                    Form1 form1 = new Form1(ctdh);
+                    form1.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("lỗi kết nối");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn đơn hàng để lập hóa đơn");
+            }
         }
 
         //Quản lý Board game
@@ -206,7 +227,6 @@ namespace QuanLyBoardGame
 
         public void ReadAllDocuments_TTBG()
         {
-
             List<ThongTinBG> list = collection_TTBG.AsQueryable().ToList<ThongTinBG>();
             dgvTTBG.DataSource = list;
             tbTTBG.Text = dgvTTBG.Rows[0].Cells[0].Value.ToString();
@@ -708,8 +728,10 @@ namespace QuanLyBoardGame
 
         private void bLapBaoCao_Click(object sender, EventArgs e)
         {
+            
             int thang = int.Parse(cbChonThang.SelectedItem.ToString());
             int nam = int.Parse(cbChonNam.SelectedItem.ToString());
+
             List<CTDonHang> listCTDHs = collection_CTDH.AsQueryable().ToList<CTDonHang>();
             BaoCao bc = new BaoCao(thang, nam);
             collection_BC.InsertOneAsync(bc);
@@ -728,10 +750,7 @@ namespace QuanLyBoardGame
                         CTBaoCao ctbc = new CTBaoCao(ctdh.MaCTDH, bc.MaBC);
                         collection_CTBC.InsertOneAsync(ctbc);
 
-
                         filteredCTDHList.Add(ctdh);
-                        
-                        
 
                         // Tính tổng doanh thu từng đơn hàng
                         decimal DoanhThu = ctdh.TongTien;
