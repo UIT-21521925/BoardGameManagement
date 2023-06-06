@@ -19,6 +19,8 @@ namespace QuanLyBoardGame
         public int Nam { get; set; }
         [BsonElement("SoDonHang")]
         public int SoDonHang { get; set; }
+        [BsonElement("SoBienBan")]
+        public int SoBIenBan { get; set; }
         [BsonElement("TongDoanhThu")]
         public decimal TongDoanhThu { get; set; }
 
@@ -28,6 +30,7 @@ namespace QuanLyBoardGame
             Nam = nam;
             TongDoanhThu = 0;
             SoDonHang = 0;
+            SoBIenBan = 0;
         }
     }
 }

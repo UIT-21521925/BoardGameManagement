@@ -33,6 +33,8 @@ namespace QuanLyBoardGame
         static IMongoCollection<CTBaoCao> collection_CTBC = db.GetCollection<CTBaoCao>("CTBaoCao");
         static IMongoCollection<BaoCao> collection_BC = db.GetCollection<BaoCao>("BaoCao");
         static IMongoCollection<LoaiBG> collection_LBG = db.GetCollection<LoaiBG>("LoaiBG");
+        static IMongoCollection<BienBan> collection_BB = db.GetCollection<BienBan>("BienBan");
+        static IMongoCollection<LoaiPhat> collection_LP = db.GetCollection<LoaiPhat>("LoaiPhat");
         private TaiKhoan taikhoan;
         internal Admin(TaiKhoan taikhoan)
         {
@@ -737,7 +739,7 @@ namespace QuanLyBoardGame
             collection_BC.InsertOneAsync(bc);
             decimal tongDoanhThu = 0;
             int soDonHang = 0;
-
+            int soBienBan = 0;
             List<CTDonHang> filteredCTDHList = new List<CTDonHang>();
             foreach (CTDonHang ctdh in listCTDHs)
                 {
@@ -749,7 +751,7 @@ namespace QuanLyBoardGame
                     {
                         CTBaoCao ctbc = new CTBaoCao(ctdh.MaCTDH, bc.MaBC);
                         collection_CTBC.InsertOneAsync(ctbc);
-
+                        
                         filteredCTDHList.Add(ctdh);
 
                         // Tính tổng doanh thu từng đơn hàng
@@ -757,13 +759,18 @@ namespace QuanLyBoardGame
 
                         tongDoanhThu = tongDoanhThu + DoanhThu;
                         soDonHang += 1;
+                        var thongTinBBquery = Builders<BienBan>.Filter.Eq("MaCTDH", ctdh.MaCTDH);
+                        List<BienBan> filteredLPs = collection_BB.Find(thongTinBBquery).ToList();
+                        soBienBan += filteredLPs.Count;
+                    
                     }
 
                 }
-            var updateDef = Builders<BaoCao>.Update.Set("TongDoanhThu", tongDoanhThu ).Set("SoDonHang", soDonHang);
+            var updateDef = Builders<BaoCao>.Update.Set("TongDoanhThu", tongDoanhThu ).Set("SoDonHang", soDonHang).Set("SoBienBan", soBienBan);
             collection_BC.UpdateOneAsync(nbc => nbc.MaBC == bc.MaBC, updateDef);
             tbSoDonHang.Text = soDonHang.ToString();
             tbDoanhThu.Text = tongDoanhThu.ToString();
+            tbSoBienBan.Text = soBienBan.ToString();
             var bindingSourceKH = new BindingSource();
             bindingSourceKH.DataSource = filteredCTDHList;
             dgvBaoCao.DataSource = bindingSourceKH;
