@@ -51,7 +51,7 @@
             this.pbHinhanh = new System.Windows.Forms.PictureBox();
             this.tbDoTuoi = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
-            this.bXoaTT = new System.Windows.Forms.Button();
+            this.bMDTT = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.tbSoLuong = new System.Windows.Forms.TextBox();
             this.bTaiAnh = new System.Windows.Forms.Button();
@@ -89,7 +89,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label31 = new System.Windows.Forms.Label();
-            this.bXoaBG = new System.Windows.Forms.Button();
+            this.bMDBG = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.tbMaBoardGame = new System.Windows.Forms.TextBox();
             this.bSuaBG = new System.Windows.Forms.Button();
@@ -108,7 +108,7 @@
             this.tbTenKhachHang = new System.Windows.Forms.TextBox();
             this.tbDiaChi = new System.Windows.Forms.TextBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.bXoaKhachHang = new System.Windows.Forms.Button();
+            this.bMDKhachHang = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.tbSoTichDiem = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -147,6 +147,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dgvDSKH = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbMaUuDaiSD = new System.Windows.Forms.ComboBox();
             this.bMacDinhDH = new System.Windows.Forms.Button();
             this.label55 = new System.Windows.Forms.Label();
             this.tbMaCTDH = new System.Windows.Forms.TextBox();
@@ -198,7 +199,7 @@
             this.dtpNgayBD = new System.Windows.Forms.DateTimePicker();
             this.label46 = new System.Windows.Forms.Label();
             this.tbMoTa = new System.Windows.Forms.TextBox();
-            this.bXoaUuDai = new System.Windows.Forms.Button();
+            this.bMDUuDai = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.tbTenUuDai = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
@@ -223,7 +224,6 @@
             this.bLogOut = new System.Windows.Forms.Button();
             this.bMatKhau = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.cbMaUuDaiSD = new System.Windows.Forms.ComboBox();
             this.panelTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelChoose.SuspendLayout();
@@ -509,7 +509,7 @@
             this.panel4.Controls.Add(this.pbHinhanh);
             this.panel4.Controls.Add(this.tbDoTuoi);
             this.panel4.Controls.Add(this.label50);
-            this.panel4.Controls.Add(this.bXoaTT);
+            this.panel4.Controls.Add(this.bMDTT);
             this.panel4.Controls.Add(this.label23);
             this.panel4.Controls.Add(this.tbSoLuong);
             this.panel4.Controls.Add(this.bTaiAnh);
@@ -601,18 +601,18 @@
             this.label50.TabIndex = 68;
             this.label50.Text = "Độ tuổi";
             // 
-            // bXoaTT
+            // bMDTT
             // 
-            this.bXoaTT.BackColor = System.Drawing.Color.Teal;
-            this.bXoaTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bXoaTT.ForeColor = System.Drawing.Color.White;
-            this.bXoaTT.Location = new System.Drawing.Point(286, 403);
-            this.bXoaTT.Name = "bXoaTT";
-            this.bXoaTT.Size = new System.Drawing.Size(100, 35);
-            this.bXoaTT.TabIndex = 66;
-            this.bXoaTT.Text = "Xóa";
-            this.bXoaTT.UseVisualStyleBackColor = false;
-            this.bXoaTT.Click += new System.EventHandler(this.bXoaTT_Click);
+            this.bMDTT.BackColor = System.Drawing.Color.Teal;
+            this.bMDTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bMDTT.ForeColor = System.Drawing.Color.White;
+            this.bMDTT.Location = new System.Drawing.Point(286, 403);
+            this.bMDTT.Name = "bMDTT";
+            this.bMDTT.Size = new System.Drawing.Size(100, 35);
+            this.bMDTT.TabIndex = 66;
+            this.bMDTT.Text = "Mặc Định";
+            this.bMDTT.UseVisualStyleBackColor = false;
+            this.bMDTT.Click += new System.EventHandler(this.bMDTT_Click);
             // 
             // label23
             // 
@@ -889,7 +889,7 @@
             this.panel6.Controls.Add(this.cbTinhTrangBG);
             this.panel6.Controls.Add(this.label16);
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Controls.Add(this.bXoaBG);
+            this.panel6.Controls.Add(this.bMDBG);
             this.panel6.Controls.Add(this.label28);
             this.panel6.Controls.Add(this.tbMaBoardGame);
             this.panel6.Controls.Add(this.bSuaBG);
@@ -1004,18 +1004,18 @@
             this.label31.TabIndex = 1;
             this.label31.Text = " ";
             // 
-            // bXoaBG
+            // bMDBG
             // 
-            this.bXoaBG.BackColor = System.Drawing.Color.Teal;
-            this.bXoaBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bXoaBG.ForeColor = System.Drawing.Color.White;
-            this.bXoaBG.Location = new System.Drawing.Point(254, 348);
-            this.bXoaBG.Name = "bXoaBG";
-            this.bXoaBG.Size = new System.Drawing.Size(100, 35);
-            this.bXoaBG.TabIndex = 66;
-            this.bXoaBG.Text = "Xóa";
-            this.bXoaBG.UseVisualStyleBackColor = false;
-            this.bXoaBG.Click += new System.EventHandler(this.bXoaBG_Click);
+            this.bMDBG.BackColor = System.Drawing.Color.Teal;
+            this.bMDBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bMDBG.ForeColor = System.Drawing.Color.White;
+            this.bMDBG.Location = new System.Drawing.Point(254, 348);
+            this.bMDBG.Name = "bMDBG";
+            this.bMDBG.Size = new System.Drawing.Size(100, 35);
+            this.bMDBG.TabIndex = 66;
+            this.bMDBG.Text = "Mặc định";
+            this.bMDBG.UseVisualStyleBackColor = false;
+            this.bMDBG.Click += new System.EventHandler(this.bMDBG_Click);
             // 
             // label28
             // 
@@ -1181,7 +1181,7 @@
             this.panel10.Controls.Add(this.tbTenKhachHang);
             this.panel10.Controls.Add(this.tbDiaChi);
             this.panel10.Controls.Add(this.dtpNgaySinh);
-            this.panel10.Controls.Add(this.bXoaKhachHang);
+            this.panel10.Controls.Add(this.bMDKhachHang);
             this.panel10.Controls.Add(this.label24);
             this.panel10.Controls.Add(this.tbSoTichDiem);
             this.panel10.Controls.Add(this.label27);
@@ -1223,18 +1223,18 @@
             this.dtpNgaySinh.Size = new System.Drawing.Size(204, 20);
             this.dtpNgaySinh.TabIndex = 67;
             // 
-            // bXoaKhachHang
+            // bMDKhachHang
             // 
-            this.bXoaKhachHang.BackColor = System.Drawing.Color.Teal;
-            this.bXoaKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bXoaKhachHang.ForeColor = System.Drawing.Color.White;
-            this.bXoaKhachHang.Location = new System.Drawing.Point(254, 386);
-            this.bXoaKhachHang.Name = "bXoaKhachHang";
-            this.bXoaKhachHang.Size = new System.Drawing.Size(100, 35);
-            this.bXoaKhachHang.TabIndex = 66;
-            this.bXoaKhachHang.Text = "Xóa";
-            this.bXoaKhachHang.UseVisualStyleBackColor = false;
-            this.bXoaKhachHang.Click += new System.EventHandler(this.bXoaKhachHang_Click);
+            this.bMDKhachHang.BackColor = System.Drawing.Color.Teal;
+            this.bMDKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bMDKhachHang.ForeColor = System.Drawing.Color.White;
+            this.bMDKhachHang.Location = new System.Drawing.Point(254, 386);
+            this.bMDKhachHang.Name = "bMDKhachHang";
+            this.bMDKhachHang.Size = new System.Drawing.Size(100, 35);
+            this.bMDKhachHang.TabIndex = 66;
+            this.bMDKhachHang.Text = "Mặc định";
+            this.bMDKhachHang.UseVisualStyleBackColor = false;
+            this.bMDKhachHang.Click += new System.EventHandler(this.bMDKhachHang_Click);
             // 
             // label24
             // 
@@ -1667,6 +1667,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(441, 479);
             this.panel1.TabIndex = 0;
+            // 
+            // cbMaUuDaiSD
+            // 
+            this.cbMaUuDaiSD.FormattingEnabled = true;
+            this.cbMaUuDaiSD.Items.AddRange(new object[] {
+            "Da tra",
+            "Chua tra"});
+            this.cbMaUuDaiSD.Location = new System.Drawing.Point(151, 241);
+            this.cbMaUuDaiSD.Name = "cbMaUuDaiSD";
+            this.cbMaUuDaiSD.Size = new System.Drawing.Size(204, 21);
+            this.cbMaUuDaiSD.TabIndex = 65;
             // 
             // bMacDinhDH
             // 
@@ -2112,7 +2123,7 @@
             this.panel12.Controls.Add(this.dtpNgayBD);
             this.panel12.Controls.Add(this.label46);
             this.panel12.Controls.Add(this.tbMoTa);
-            this.panel12.Controls.Add(this.bXoaUuDai);
+            this.panel12.Controls.Add(this.bMDUuDai);
             this.panel12.Controls.Add(this.label42);
             this.panel12.Controls.Add(this.tbTenUuDai);
             this.panel12.Controls.Add(this.label43);
@@ -2234,18 +2245,18 @@
             this.tbMoTa.Size = new System.Drawing.Size(204, 20);
             this.tbMoTa.TabIndex = 69;
             // 
-            // bXoaUuDai
+            // bMDUuDai
             // 
-            this.bXoaUuDai.BackColor = System.Drawing.Color.Teal;
-            this.bXoaUuDai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bXoaUuDai.ForeColor = System.Drawing.Color.White;
-            this.bXoaUuDai.Location = new System.Drawing.Point(262, 382);
-            this.bXoaUuDai.Name = "bXoaUuDai";
-            this.bXoaUuDai.Size = new System.Drawing.Size(100, 35);
-            this.bXoaUuDai.TabIndex = 66;
-            this.bXoaUuDai.Text = "Xóa";
-            this.bXoaUuDai.UseVisualStyleBackColor = false;
-            this.bXoaUuDai.Click += new System.EventHandler(this.bXoaUuDai_Click);
+            this.bMDUuDai.BackColor = System.Drawing.Color.Teal;
+            this.bMDUuDai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bMDUuDai.ForeColor = System.Drawing.Color.White;
+            this.bMDUuDai.Location = new System.Drawing.Point(262, 382);
+            this.bMDUuDai.Name = "bMDUuDai";
+            this.bMDUuDai.Size = new System.Drawing.Size(100, 35);
+            this.bMDUuDai.TabIndex = 66;
+            this.bMDUuDai.Text = "Mặc định";
+            this.bMDUuDai.UseVisualStyleBackColor = false;
+            this.bMDUuDai.Click += new System.EventHandler(this.bMDUuDai_Click);
             // 
             // label42
             // 
@@ -2516,17 +2527,6 @@
             this.panelMenu.Size = new System.Drawing.Size(94, 463);
             this.panelMenu.TabIndex = 1;
             // 
-            // cbMaUuDaiSD
-            // 
-            this.cbMaUuDaiSD.FormattingEnabled = true;
-            this.cbMaUuDaiSD.Items.AddRange(new object[] {
-            "Da tra",
-            "Chua tra"});
-            this.cbMaUuDaiSD.Location = new System.Drawing.Point(151, 241);
-            this.cbMaUuDaiSD.Name = "cbMaUuDaiSD";
-            this.cbMaUuDaiSD.Size = new System.Drawing.Size(204, 21);
-            this.cbMaUuDaiSD.TabIndex = 65;
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2666,7 +2666,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label dtpNgayThue;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button bXoaTT;
+        private System.Windows.Forms.Button bMDTT;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox tbSoLuong;
         private System.Windows.Forms.Button bTaiAnh;
@@ -2690,7 +2690,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TabPage tpKho;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button bXoaBG;
+        private System.Windows.Forms.Button bMDBG;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox tbMaBoardGame;
         private System.Windows.Forms.Button bSuaBG;
@@ -2717,7 +2717,7 @@
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.TabPage tpMacDinh;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Button bXoaKhachHang;
+        private System.Windows.Forms.Button bMDKhachHang;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox tbSoTichDiem;
         private System.Windows.Forms.Label label27;
@@ -2740,7 +2740,7 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.ComboBox cbChonNam;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button bXoaUuDai;
+        private System.Windows.Forms.Button bMDUuDai;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.TextBox tbTenUuDai;
         private System.Windows.Forms.Label label43;

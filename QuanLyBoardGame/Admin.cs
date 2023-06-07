@@ -197,24 +197,18 @@ namespace QuanLyBoardGame
             ReadAllDocuments_ThongTinBG();
         }
 
-        private void bXoaTT_Click(object sender, EventArgs e)
+        private void bMDTT_Click(object sender, EventArgs e)
         {
-            var filter = Builders<ThongTinBG>.Filter.And(
-                Builders<ThongTinBG>.Filter.Eq("MaTTBG", ObjectId.Parse(tbMaThongTin.Text)),
-                Builders<ThongTinBG>.Filter.Eq("SoLuong", 0)
-            );
-
-            var result = collection_BG.DeleteOne(filter);
-
-            if (result.IsAcknowledged && result.DeletedCount > 0)
-            {
-                ReadAllDocuments_ThongTinBG();
-                ReadAllDocuments_TTBG();
-            }
-            else
-            {
-                MessageBox.Show("Trong kho vẫn còn tồn tại Board game này");
-            }
+            tbMaThongTin.ReadOnly = true;
+            tbMaThongTin.Text = "";
+            tbTenBoardGame.Text = "";
+            nudSoNguoiChoi.Text = "";
+            tbDoTuoi.Text = "";
+            tbTriGia.Text = "";
+            tbGiaThue.Text = "";
+            tbSoLuong.Text = "";
+            cbTinhTrangTTBG.Text = "";
+            cbTheLoai.Text = "";
         }
 
         private void bTimKiemTT_Click(object sender, EventArgs e)
@@ -310,15 +304,13 @@ namespace QuanLyBoardGame
             ReadAllDocuments_BG();
         }
 
-        private void bXoaBG_Click(object sender, EventArgs e)
+        private void bMDBG_Click(object sender, EventArgs e)
         {
-            collection_G.DeleteOneAsync(bg => bg.MaBG == ObjectId.Parse(tbMaBoardGame.Text));
-            var filterTTBG = Builders<ThongTinBG>.Filter.Eq("MaTTBG", ObjectId.Parse(tbTTBG.Text));
-            var updateTTBG = Builders<ThongTinBG>.Update.Inc("SoLuong", -1);
-            collection_BG.UpdateOneAsync(filterTTBG, updateTTBG);
-            ReadAllDocuments_BG();
-            ReadAllDocuments_TTBG();
-            ReadAllDocuments_ThongTinBG();
+            tbTTBG.Text = "";
+            tbTenTTBG.Text = "";
+            tbMaBoardGame.Text = "";
+            cbTinhTrangBG.Text = "";
+            cbTinhTrangMuon.Text = "";
         }
 
         private void bTimKiemTTBG_Click(object sender, EventArgs e)
@@ -388,11 +380,16 @@ namespace QuanLyBoardGame
             ReadAllDocuments_DSKH();
         }
 
-        private void bXoaKhachHang_Click(object sender, EventArgs e)
+        private void bMDKhachHang_Click(object sender, EventArgs e)
         {
-            collection_KH.DeleteOneAsync(kh => kh.MaKH == ObjectId.Parse(tbMaKhachHang.Text));
-            ReadAllDocuments_KH();
-            ReadAllDocuments_DSKH();
+            tbMaBoardGame.ReadOnly = true;
+            tbMaKhachHang.Text = "";
+            tbTenKhachHang.Text = "";
+            dtpNgaySinh.Text = "";
+            tbDiaChi.Text = "";
+            tbSoDienThoai.Text = "";
+            tbEmail.Text = "";
+            tbSoTichDiem.Text = "";
         }
 
         private void bTimKiemKH_Click(object sender, EventArgs e)
@@ -724,10 +721,17 @@ namespace QuanLyBoardGame
             ReadAllDocuments_UD();
         }
 
-        private void bXoaUuDai_Click(object sender, EventArgs e)
+        private void bMDUuDai_Click(object sender, EventArgs e)
         {
-            collection_UD.DeleteOneAsync(ud => ud.MaUD == ObjectId.Parse(tbMaUuDai.Text));
-            ReadAllDocuments_UD();
+            tbMaUuDai.ReadOnly = true;
+            tbMaUuDai.Text = "";
+            tbTenUuDai.Text = "";
+            tbMoTa.Text = "";
+            dtpNgayBD.Text = "";
+            dtpNgayKT.Text = "";
+            tbPhanTramGiam.Text = "";
+            tbSoLuongUD.Text = "";
+            tbSoLuongQD.Text = "";
         }
 
         private void bTimKiemUD_Click(object sender, EventArgs e)
@@ -817,6 +821,14 @@ namespace QuanLyBoardGame
             dgvBaoCao.DataSource = bindingSourceKH;
 
         }
+
+        
+
+
+
+
+
+
         // Hiển thị kết quả lên dgvBaoCao
 
 
