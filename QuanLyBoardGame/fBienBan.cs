@@ -19,11 +19,11 @@ namespace QuanLyBoardGame
         static IMongoCollection<BienBan> collection_BB = db.GetCollection<BienBan>("BienBan");
         static IMongoCollection<LoaiPhat> collection_LP = db.GetCollection<LoaiPhat>("LoaiPhat");
         static IMongoCollection<KhachHang> collection_KH = db.GetCollection<KhachHang>("KhachHang");
-        static IMongoCollection<CTDonHang> collection_CTDH = db.GetCollection<CTDonHang>("CTDonHang");
         static IMongoCollection<DonHang> collection_DH = db.GetCollection<DonHang>("DonHang");
-        static IMongoCollection<BoardGame> collection_BG = db.GetCollection<BoardGame>("BoardGame");
-        internal CTDonHang CTDH;
-        internal Form1(CTDonHang ctdh)
+        static IMongoCollection<CTDonHang> collection_CTDH = db.GetCollection<CTDonHang>("CTDonHang");
+        static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
+        internal DonHang CTDH;
+        internal Form1(DonHang ctdh)
         {
             InitializeComponent();
             if (ctdh != null)
@@ -43,8 +43,8 @@ namespace QuanLyBoardGame
             List<KhachHang> filteredKHs = collection_KH.Find(thongTinKHquery).ToList();
             KhachHang kh = filteredKHs[0];
             tbTenKHVP.Text = kh.TenKH.ToString();
-            var thongTinDHquery = Builders<DonHang>.Filter.Eq("MaCTDH", CTDH.MaCTDH);
-            List<DonHang> filtereDHHs = collection_DH.Find(thongTinDHquery).ToList();
+            var thongTinDHquery = Builders<CTDonHang>.Filter.Eq("MaDH", CTDH.MaDH);
+            List<CTDonHang> filtereDHHs = collection_CTDH.Find(thongTinDHquery).ToList();
             cbBGVP.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
 
             foreach (var donHang in filtereDHHs)
@@ -68,17 +68,17 @@ namespace QuanLyBoardGame
             var thongTinLPquery = Builders<LoaiPhat>.Filter.Eq("TenLoaiPhat", cbLoaiVP.Text);
             List<LoaiPhat> filteredLPs = collection_LP.Find(thongTinLPquery).ToList();
             LoaiPhat lp = filteredLPs[0];
-            BienBan bb = new BienBan(tbLyDoVP.Text, CTDH.MaCTDH, lp.MaLP);
+            BienBan bb = new BienBan(tbLyDoVP.Text, CTDH.MaDH, lp.MaLP);
             collection_BB.InsertOneAsync(bb);
             MessageBox.Show("Cập nhật biên bản thành công");
             var updateDef = Builders<BoardGame>.Update.Set("TinhTrangBG", cbTTBGVP.Text);
-            collection_BG.UpdateOneAsync(bg => bg.MaBG == ObjectId.Parse(cbBGVP.Text), updateDef);
+            collection_G.UpdateOneAsync(bg => bg.MaBG == ObjectId.Parse(cbBGVP.Text), updateDef);
         }
 
         private void cbBGVP_SelectedIndexChanged(object sender, EventArgs e)
         {
             var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaBG", ObjectId.Parse(cbBGVP.Text));
-            List<BoardGame> filteredBGs = collection_BG.Find(thongTinBGquery).ToList();
+            List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
 
             if (filteredBGs.Count > 0)
             {

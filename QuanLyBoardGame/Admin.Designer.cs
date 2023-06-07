@@ -166,12 +166,17 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dtpNgayTraDH = new System.Windows.Forms.DateTimePicker();
             this.dtpNgayThueDH = new System.Windows.Forms.DateTimePicker();
-            this.tbMaUuDaiSD = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbMaKHThue = new System.Windows.Forms.TextBox();
             this.tpBaoCao = new System.Windows.Forms.TabPage();
+            this.label58 = new System.Windows.Forms.Label();
+            this.tbSoBienBan = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.tbSoDonHang = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.tbDoanhThu = new System.Windows.Forms.TextBox();
             this.bLapBaoCao = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
             this.cbChonNam = new System.Windows.Forms.ComboBox();
@@ -218,12 +223,7 @@
             this.bLogOut = new System.Windows.Forms.Button();
             this.bMatKhau = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.label56 = new System.Windows.Forms.Label();
-            this.tbDoanhThu = new System.Windows.Forms.TextBox();
-            this.label57 = new System.Windows.Forms.Label();
-            this.tbSoDonHang = new System.Windows.Forms.TextBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.tbSoBienBan = new System.Windows.Forms.TextBox();
+            this.cbMaUuDaiSD = new System.Windows.Forms.ComboBox();
             this.panelTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelChoose.SuspendLayout();
@@ -940,8 +940,9 @@
             // 
             this.cbTinhTrangMuon.FormattingEnabled = true;
             this.cbTinhTrangMuon.Items.AddRange(new object[] {
-            "Đang được thuê",
-            "Chưa được thuê"});
+            "Dang thue",
+            "Chua duoc thue",
+            "\t"});
             this.cbTinhTrangMuon.Location = new System.Drawing.Point(150, 229);
             this.cbTinhTrangMuon.Name = "cbTinhTrangMuon";
             this.cbTinhTrangMuon.Size = new System.Drawing.Size(204, 21);
@@ -962,9 +963,9 @@
             // 
             this.cbTinhTrangBG.FormattingEnabled = true;
             this.cbTinhTrangBG.Items.AddRange(new object[] {
-            "Tốt",
-            "Bị hỏng",
-            "Trầy xước"});
+            "Tot",
+            "Hong",
+            "Tray Xuoc"});
             this.cbTinhTrangBG.Location = new System.Drawing.Point(150, 189);
             this.cbTinhTrangBG.Name = "cbTinhTrangBG";
             this.cbTinhTrangBG.Size = new System.Drawing.Size(204, 21);
@@ -1639,6 +1640,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.cbMaUuDaiSD);
             this.panel1.Controls.Add(this.bMacDinhDH);
             this.panel1.Controls.Add(this.label55);
             this.panel1.Controls.Add(this.tbMaCTDH);
@@ -1658,7 +1660,6 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dtpNgayTraDH);
             this.panel1.Controls.Add(this.dtpNgayThueDH);
-            this.panel1.Controls.Add(this.tbMaUuDaiSD);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.tbMaKHThue);
@@ -1765,8 +1766,8 @@
             // 
             this.cbTinhTrangDH.FormattingEnabled = true;
             this.cbTinhTrangDH.Items.AddRange(new object[] {
-            "Đã trả",
-            "Chưa trả"});
+            "Da tra",
+            "Chua tra"});
             this.cbTinhTrangDH.Location = new System.Drawing.Point(151, 207);
             this.cbTinhTrangDH.Name = "cbTinhTrangDH";
             this.cbTinhTrangDH.Size = new System.Drawing.Size(204, 21);
@@ -1868,13 +1869,6 @@
             this.dtpNgayThueDH.Size = new System.Drawing.Size(204, 20);
             this.dtpNgayThueDH.TabIndex = 38;
             // 
-            // tbMaUuDaiSD
-            // 
-            this.tbMaUuDaiSD.Location = new System.Drawing.Point(151, 240);
-            this.tbMaUuDaiSD.Name = "tbMaUuDaiSD";
-            this.tbMaUuDaiSD.Size = new System.Drawing.Size(204, 20);
-            this.tbMaUuDaiSD.TabIndex = 36;
-            // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1936,6 +1930,66 @@
             this.tpBaoCao.TabIndex = 4;
             this.tpBaoCao.Text = "BaoCao";
             this.tpBaoCao.UseVisualStyleBackColor = true;
+            // 
+            // label58
+            // 
+            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label58.Location = new System.Drawing.Point(15, 389);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(148, 18);
+            this.label58.TabIndex = 73;
+            this.label58.Text = "Số lượng biên bản:";
+            // 
+            // tbSoBienBan
+            // 
+            this.tbSoBienBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbSoBienBan.Location = new System.Drawing.Point(165, 389);
+            this.tbSoBienBan.Name = "tbSoBienBan";
+            this.tbSoBienBan.Size = new System.Drawing.Size(137, 20);
+            this.tbSoBienBan.TabIndex = 72;
+            // 
+            // label57
+            // 
+            this.label57.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label57.Location = new System.Drawing.Point(308, 389);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(154, 18);
+            this.label57.TabIndex = 71;
+            this.label57.Text = "Số lượng đơn hàng:";
+            // 
+            // tbSoDonHang
+            // 
+            this.tbSoDonHang.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tbSoDonHang.Location = new System.Drawing.Point(468, 389);
+            this.tbSoDonHang.Name = "tbSoDonHang";
+            this.tbSoDonHang.Size = new System.Drawing.Size(137, 20);
+            this.tbSoDonHang.TabIndex = 70;
+            // 
+            // label56
+            // 
+            this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label56.Location = new System.Drawing.Point(611, 389);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(95, 18);
+            this.label56.TabIndex = 69;
+            this.label56.Text = "Doanh thu: ";
+            // 
+            // tbDoanhThu
+            // 
+            this.tbDoanhThu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDoanhThu.Location = new System.Drawing.Point(712, 387);
+            this.tbDoanhThu.Name = "tbDoanhThu";
+            this.tbDoanhThu.Size = new System.Drawing.Size(137, 20);
+            this.tbDoanhThu.TabIndex = 68;
             // 
             // bLapBaoCao
             // 
@@ -2462,65 +2516,16 @@
             this.panelMenu.Size = new System.Drawing.Size(94, 463);
             this.panelMenu.TabIndex = 1;
             // 
-            // label56
+            // cbMaUuDaiSD
             // 
-            this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label56.Location = new System.Drawing.Point(611, 389);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(95, 18);
-            this.label56.TabIndex = 69;
-            this.label56.Text = "Doanh thu: ";
-            // 
-            // tbDoanhThu
-            // 
-            this.tbDoanhThu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDoanhThu.Location = new System.Drawing.Point(712, 387);
-            this.tbDoanhThu.Name = "tbDoanhThu";
-            this.tbDoanhThu.Size = new System.Drawing.Size(137, 20);
-            this.tbDoanhThu.TabIndex = 68;
-            // 
-            // label57
-            // 
-            this.label57.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label57.Location = new System.Drawing.Point(308, 389);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(154, 18);
-            this.label57.TabIndex = 71;
-            this.label57.Text = "Số lượng đơn hàng:";
-            // 
-            // tbSoDonHang
-            // 
-            this.tbSoDonHang.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tbSoDonHang.Location = new System.Drawing.Point(468, 389);
-            this.tbSoDonHang.Name = "tbSoDonHang";
-            this.tbSoDonHang.Size = new System.Drawing.Size(137, 20);
-            this.tbSoDonHang.TabIndex = 70;
-            // 
-            // label58
-            // 
-            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label58.Location = new System.Drawing.Point(15, 389);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(148, 18);
-            this.label58.TabIndex = 73;
-            this.label58.Text = "Số lượng biên bản:";
-            // 
-            // tbSoBienBan
-            // 
-            this.tbSoBienBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbSoBienBan.Location = new System.Drawing.Point(165, 389);
-            this.tbSoBienBan.Name = "tbSoBienBan";
-            this.tbSoBienBan.Size = new System.Drawing.Size(137, 20);
-            this.tbSoBienBan.TabIndex = 72;
+            this.cbMaUuDaiSD.FormattingEnabled = true;
+            this.cbMaUuDaiSD.Items.AddRange(new object[] {
+            "Da tra",
+            "Chua tra"});
+            this.cbMaUuDaiSD.Location = new System.Drawing.Point(151, 241);
+            this.cbMaUuDaiSD.Name = "cbMaUuDaiSD";
+            this.cbMaUuDaiSD.Size = new System.Drawing.Size(204, 21);
+            this.cbMaUuDaiSD.TabIndex = 65;
             // 
             // Admin
             // 
@@ -2647,7 +2652,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker dtpNgayTraDH;
         private System.Windows.Forms.DateTimePicker dtpNgayThueDH;
-        private System.Windows.Forms.TextBox tbMaUuDaiSD;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -2796,5 +2800,6 @@
         private System.Windows.Forms.TextBox tbSoDonHang;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.TextBox tbDoanhThu;
+        private System.Windows.Forms.ComboBox cbMaUuDaiSD;
     }
 }

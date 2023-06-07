@@ -156,7 +156,7 @@
     <Compile Include="BienBan.cs" />
     <Compile Include="BoardGame.cs" />
     <Compile Include="LoaiPhat.cs" />
-    <Compile Include="TheLoaiBG.cs" />
+    <Compile Include="LoaiBG.cs" />
     <Compile Include="CTBaoCao.cs" />
     <Compile Include="CTDonHang.cs" />
     <Compile Include="DangNhap.cs">
