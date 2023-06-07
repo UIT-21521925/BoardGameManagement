@@ -155,15 +155,18 @@ namespace QuanLyBoardGame
             List<ThongTinBG> list = collection_BG.AsQueryable().ToList<ThongTinBG>();
             dgvTT.DataSource = list;
             tbSoLuong.ReadOnly = true;
-            tbMaThongTin.Text = dgvTT.Rows[0].Cells[0].Value.ToString();
-            tbTenBoardGame.Text = dgvTT.Rows[0].Cells[1].Value.ToString();
-            nudSoNguoiChoi.Text = dgvTT.Rows[0].Cells[2].Value.ToString();
-            tbDoTuoi.Text = dgvTT.Rows[0].Cells[3].Value.ToString();
-            tbTriGia.Text = dgvTT.Rows[0].Cells[4].Value.ToString();
-            tbGiaThue.Text = dgvTT.Rows[0].Cells[5].Value.ToString();
-            tbSoLuong.Text = dgvTT.Rows[0].Cells[6].Value.ToString();
-            cbTinhTrangTTBG.Text = dgvTT.Rows[0].Cells[7].Value.ToString();
-            cbTheLoai.Text = dgvTT.Rows[0].Cells[8].Value.ToString();
+            if (dgvTT.Rows.Count > 0)
+            {
+                tbMaThongTin.Text = dgvTT.Rows[0].Cells[0].Value.ToString();
+                tbTenBoardGame.Text = dgvTT.Rows[0].Cells[1].Value.ToString();
+                nudSoNguoiChoi.Text = dgvTT.Rows[0].Cells[2].Value.ToString();
+                tbDoTuoi.Text = dgvTT.Rows[0].Cells[3].Value.ToString();
+                tbTriGia.Text = dgvTT.Rows[0].Cells[4].Value.ToString();
+                tbGiaThue.Text = dgvTT.Rows[0].Cells[5].Value.ToString();
+                tbSoLuong.Text = dgvTT.Rows[0].Cells[6].Value.ToString();
+                cbTinhTrangTTBG.Text = dgvTT.Rows[0].Cells[7].Value.ToString();
+                cbTheLoai.Text = dgvTT.Rows[0].Cells[8].Value.ToString();
+            }
         }
         private void dgvTT_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -243,8 +246,11 @@ namespace QuanLyBoardGame
         {
             List<ThongTinBG> list = collection_BG.AsQueryable().ToList<ThongTinBG>();
             dgvTTBG.DataSource = list;
-            tbTTBG.Text = dgvTTBG.Rows[0].Cells[0].Value.ToString();
-            tbTenTTBG.Text = dgvTTBG.Rows[0].Cells[1].Value.ToString();
+            if (dgvTTBG.Rows.Count > 0)
+            {
+                tbTTBG.Text = dgvTTBG.Rows[0].Cells[0].Value.ToString();
+                tbTenTTBG.Text = dgvTTBG.Rows[0].Cells[1].Value.ToString();
+            }
         }
 
         public void ReadAllDocuments_BG()
@@ -343,13 +349,16 @@ namespace QuanLyBoardGame
         {
             List<KhachHang> list = collection_KH.AsQueryable().ToList<KhachHang>();
             dgvKhachHang.DataSource = list;
-            tbMaKhachHang.Text = dgvKhachHang.Rows[0].Cells[0].Value.ToString();
-            tbTenKhachHang.Text = dgvKhachHang.Rows[0].Cells[1].Value.ToString();
-            dtpNgaySinh.Text = dgvKhachHang.Rows[0].Cells[2].Value.ToString();
-            tbDiaChi.Text = dgvKhachHang.Rows[0].Cells[3].Value.ToString();
-            tbSoDienThoai.Text = dgvKhachHang.Rows[0].Cells[4].Value.ToString();
-            tbEmail.Text = dgvKhachHang.Rows[0].Cells[5].Value.ToString();
-            tbSoTichDiem.Text = dgvKhachHang.Rows[0].Cells[6].Value.ToString();
+            if (dgvKhachHang.Rows.Count > 0)
+            {
+                tbMaKhachHang.Text = dgvKhachHang.Rows[0].Cells[0].Value.ToString();
+                tbTenKhachHang.Text = dgvKhachHang.Rows[0].Cells[1].Value.ToString();
+                dtpNgaySinh.Text = dgvKhachHang.Rows[0].Cells[2].Value.ToString();
+                tbDiaChi.Text = dgvKhachHang.Rows[0].Cells[3].Value.ToString();
+                tbSoDienThoai.Text = dgvKhachHang.Rows[0].Cells[4].Value.ToString();
+                tbEmail.Text = dgvKhachHang.Rows[0].Cells[5].Value.ToString();
+                tbSoTichDiem.Text = dgvKhachHang.Rows[0].Cells[6].Value.ToString();
+            }
         }
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -415,7 +424,10 @@ namespace QuanLyBoardGame
             tbTongTien.ReadOnly = true;
             List<KhachHang> list = collection_KH.AsQueryable().ToList<KhachHang>();
             dgvDSKH.DataSource = list;
-            tbMaKHThue.Text = dgvDSKH.Rows[0].Cells[0].Value.ToString();
+            if (dgvDSKH.Rows.Count > 0)
+            {
+                tbMaKHThue.Text = dgvDSKH.Rows[0].Cells[0].Value.ToString();
+            }
         }
 
         public void ReadAllDocuments_DSDHKH()
@@ -523,7 +535,7 @@ namespace QuanLyBoardGame
 
         private void dgvDSDHKH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
             tbMaCTDH.Text = dgvDSDHKH.Rows[e.RowIndex].Cells[0].Value.ToString();
             dtpNgayThueDH.Text = dgvDSDHKH.Rows[e.RowIndex].Cells[1].Value.ToString();
             dtpNgayTraDH.Text = dgvDSDHKH.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -673,14 +685,17 @@ namespace QuanLyBoardGame
         {
             List<UuDai> list = collection_UD.AsQueryable().ToList<UuDai>();
             dgvUuDai.DataSource = list;
-            tbMaUuDai.Text = dgvUuDai.Rows[0].Cells[0].Value.ToString();
-            tbTenUuDai.Text = dgvUuDai.Rows[0].Cells[1].Value.ToString();
-            tbMoTa.Text = dgvUuDai.Rows[0].Cells[2].Value.ToString();
-            dtpNgayBD.Text = dgvUuDai.Rows[0].Cells[3].Value.ToString();
-            dtpNgayKT.Text = dgvUuDai.Rows[0].Cells[4].Value.ToString();
-            tbPhanTramGiam.Text = dgvUuDai.Rows[0].Cells[5].Value.ToString();
-            tbSoLuongUD.Text = dgvUuDai.Rows[0].Cells[6].Value.ToString();
-            tbSoLuongQD.Text = dgvUuDai.Rows[0].Cells[7].Value.ToString();
+            if (dgvUuDai.Rows.Count > 0)
+            {
+                tbMaUuDai.Text = dgvUuDai.Rows[0].Cells[0].Value.ToString();
+                tbTenUuDai.Text = dgvUuDai.Rows[0].Cells[1].Value.ToString();
+                tbMoTa.Text = dgvUuDai.Rows[0].Cells[2].Value.ToString();
+                dtpNgayBD.Text = dgvUuDai.Rows[0].Cells[3].Value.ToString();
+                dtpNgayKT.Text = dgvUuDai.Rows[0].Cells[4].Value.ToString();
+                tbPhanTramGiam.Text = dgvUuDai.Rows[0].Cells[5].Value.ToString();
+                tbSoLuongUD.Text = dgvUuDai.Rows[0].Cells[6].Value.ToString();
+                tbSoLuongQD.Text = dgvUuDai.Rows[0].Cells[7].Value.ToString();
+            }
         }
 
         private void dgvUuDai_CellClick(object sender, DataGridViewCellEventArgs e)
