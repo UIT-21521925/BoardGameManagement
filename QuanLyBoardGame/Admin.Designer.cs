@@ -782,6 +782,8 @@
             // 
             // cbTheLoai
             // 
+            this.cbTheLoai.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTheLoai.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbTheLoai.FormattingEnabled = true;
             this.cbTheLoai.Location = new System.Drawing.Point(111, 364);
             this.cbTheLoai.Name = "cbTheLoai";
@@ -1678,6 +1680,7 @@
             this.cbMaUuDaiSD.Name = "cbMaUuDaiSD";
             this.cbMaUuDaiSD.Size = new System.Drawing.Size(204, 21);
             this.cbMaUuDaiSD.TabIndex = 65;
+            this.cbMaUuDaiSD.SelectedValueChanged += new System.EventHandler(this.cbMaUuDaiSD_SelectedValueChanged);
             // 
             // bMacDinhDH
             // 

@@ -26,14 +26,14 @@ namespace QuanLyBoardGame
         [BsonElement("TichDiem")]
         public int TichDiem { get; set; }
 
-        public KhachHang( string tenKH, DateTime ngSinh, string diaChi, string email, string sdt, int tichDiem)
+        public KhachHang( string tenKH, DateTime ngSinh, string diaChi, string email, string sdt)
         {
             TenKH = tenKH;
             NgSinh = ngSinh;
             DiaChi = diaChi;
             Email = email;
             SDT = sdt;
-            TichDiem = tichDiem;
+            TichDiem = 0;
         }
     }
 }
