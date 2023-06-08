@@ -20,7 +20,7 @@ namespace QuanLyBoardGame
         [BsonElement("DoTuoi")]
         public int DoTuoi { get; set; }
         [BsonElement("TriGia")]
-        public Decimal TriGia { get; set; }
+        public int TriGia { get; set; }
         [BsonElement("GiaThue")]
         public int GiaThue { get; set; }
         [BsonElement("SoLuong")]
@@ -28,10 +28,10 @@ namespace QuanLyBoardGame
         [BsonElement("TinhTrangBG")]
         public string TinhTrangBG { get; set; }
         [BsonElement("MaLBG")]
-        public string MaLBG { get; set; }
+        public ObjectId MaLBG { get; set; }
 
         public ThongTinBG(string tenBoardGame,int soNguoiChoi,int doTuoi,
-            int triGia, int giaThue, string tinhTrangBG, string maLBG)
+            int triGia, int giaThue, string tinhTrangBG, ObjectId maLBG)
         {
             TenBoardGame = tenBoardGame;
             SoNguoiChoi = soNguoiChoi;

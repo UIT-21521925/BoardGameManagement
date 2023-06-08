@@ -22,13 +22,13 @@ namespace QuanLyBoardGame
         [BsonElement("NgayKT")]
         public DateTime NgayKT { get; set; }
         [BsonElement("PhanTramGiam")]
-        public double PhanTramGiam { get; set; }
+        public int PhanTramGiam { get; set; }
         [BsonElement("SoLuong")]
         public int SoLuong { get; set; }
         [BsonElement("DiemQuyDoi")]
         public int DiemQuyDoi { get; set; }
 
-        public UuDai(string tenUD, string moTa, DateTime ngayBD, DateTime ngayKT, double phanTramGiam, int soLuong, int diemQuyDoi)
+        public UuDai(string tenUD, string moTa, DateTime ngayBD, DateTime ngayKT, int phanTramGiam, int soLuong, int diemQuyDoi)
         {
             TenUD = tenUD;
             MoTa = moTa;

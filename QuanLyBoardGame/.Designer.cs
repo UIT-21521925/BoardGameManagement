@@ -35,10 +35,8 @@
             this.cbLoaiVP = new System.Windows.Forms.ComboBox();
             this.cbTTBGVP = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbTenBGVP = new System.Windows.Forms.ComboBox();
             this.cbBGVP = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbLyDoVP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,10 +56,8 @@
             this.panel1.Controls.Add(this.cbLoaiVP);
             this.panel1.Controls.Add(this.cbTTBGVP);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.cbTenBGVP);
             this.panel1.Controls.Add(this.cbBGVP);
             this.panel1.Controls.Add(this.label28);
-            this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.tbLyDoVP);
             this.panel1.Controls.Add(this.label1);
@@ -98,13 +94,14 @@
             this.bXacNhanVP.TabIndex = 98;
             this.bXacNhanVP.Text = "Xác nhận biên bản";
             this.bXacNhanVP.UseVisualStyleBackColor = false;
+            this.bXacNhanVP.Click += new System.EventHandler(this.bXacNhanVP_Click);
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label26.Location = new System.Drawing.Point(80, 237);
+            this.label26.Location = new System.Drawing.Point(80, 195);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(83, 16);
             this.label26.TabIndex = 97;
@@ -113,15 +110,12 @@
             // cbLoaiVP
             // 
             this.cbLoaiVP.FormattingEnabled = true;
-            this.cbLoaiVP.Items.AddRange(new object[] {
-            "Làm hỏng",
-            "Làm trầy xước",
-            "Trả trễ"});
-            this.cbLoaiVP.Location = new System.Drawing.Point(173, 236);
+            this.cbLoaiVP.Location = new System.Drawing.Point(173, 194);
             this.cbLoaiVP.Name = "cbLoaiVP";
             this.cbLoaiVP.Size = new System.Drawing.Size(204, 21);
             this.cbLoaiVP.TabIndex = 96;
             this.cbLoaiVP.Text = "Chọn loại vi phạm";
+            this.cbLoaiVP.SelectedIndexChanged += new System.EventHandler(this.cbLoaiVP_SelectedIndexChanged);
             // 
             // cbTTBGVP
             // 
@@ -130,7 +124,7 @@
             "Tốt",
             "Bị hỏng",
             "Trầy xước"});
-            this.cbTTBGVP.Location = new System.Drawing.Point(173, 199);
+            this.cbTTBGVP.Location = new System.Drawing.Point(173, 157);
             this.cbTTBGVP.Name = "cbTTBGVP";
             this.cbTTBGVP.Size = new System.Drawing.Size(204, 21);
             this.cbTTBGVP.TabIndex = 95;
@@ -141,58 +135,39 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(16, 199);
+            this.label4.Location = new System.Drawing.Point(16, 157);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 16);
             this.label4.TabIndex = 94;
             this.label4.Text = "Tình trạng board game";
             // 
-            // cbTenBGVP
-            // 
-            this.cbTenBGVP.FormattingEnabled = true;
-            this.cbTenBGVP.Location = new System.Drawing.Point(173, 116);
-            this.cbTenBGVP.Name = "cbTenBGVP";
-            this.cbTenBGVP.Size = new System.Drawing.Size(204, 21);
-            this.cbTenBGVP.TabIndex = 93;
-            this.cbTenBGVP.Text = "Chọn tên board game bị vi phạm";
-            // 
             // cbBGVP
             // 
             this.cbBGVP.FormattingEnabled = true;
-            this.cbBGVP.Location = new System.Drawing.Point(173, 159);
+            this.cbBGVP.Location = new System.Drawing.Point(173, 117);
             this.cbBGVP.Name = "cbBGVP";
             this.cbBGVP.Size = new System.Drawing.Size(204, 21);
             this.cbBGVP.TabIndex = 92;
             this.cbBGVP.Text = "Chọn mã board game bị vi phạm";
+            this.cbBGVP.SelectedIndexChanged += new System.EventHandler(this.cbBGVP_SelectedIndexChanged);
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label28.Location = new System.Drawing.Point(58, 159);
+            this.label28.Location = new System.Drawing.Point(58, 117);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(103, 16);
             this.label28.TabIndex = 91;
             this.label28.Text = "Mã board game";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label18.Location = new System.Drawing.Point(58, 121);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(108, 16);
-            this.label18.TabIndex = 89;
-            this.label18.Text = "Tên board game";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(120, 275);
+            this.label2.Location = new System.Drawing.Point(120, 233);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 87;
@@ -200,7 +175,7 @@
             // 
             // tbLyDoVP
             // 
-            this.tbLyDoVP.Location = new System.Drawing.Point(173, 274);
+            this.tbLyDoVP.Location = new System.Drawing.Point(173, 232);
             this.tbLyDoVP.Name = "tbLyDoVP";
             this.tbLyDoVP.Size = new System.Drawing.Size(204, 20);
             this.tbLyDoVP.TabIndex = 86;
@@ -210,15 +185,15 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(95, 312);
+            this.label1.Location = new System.Drawing.Point(83, 271);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.Size = new System.Drawing.Size(77, 16);
             this.label1.TabIndex = 85;
-            this.label1.Text = "Số tiền thu";
+            this.label1.Text = "Số tiền phạt";
             // 
             // tbTienPhatVP
             // 
-            this.tbTienPhatVP.Location = new System.Drawing.Point(173, 312);
+            this.tbTienPhatVP.Location = new System.Drawing.Point(173, 270);
             this.tbTienPhatVP.Name = "tbTienPhatVP";
             this.tbTienPhatVP.Size = new System.Drawing.Size(204, 20);
             this.tbTienPhatVP.TabIndex = 84;
@@ -277,9 +252,7 @@
         private System.Windows.Forms.TextBox tbLyDoVP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbTienPhatVP;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbTenBGVP;
         private System.Windows.Forms.ComboBox cbBGVP;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label26;
