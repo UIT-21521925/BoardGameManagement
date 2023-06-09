@@ -573,25 +573,47 @@ namespace QuanLyBoardGame
 
         private void bThemDH_Click(object sender, EventArgs e)
         {
+            var thongTinKHquery = Builders<KhachHang>.Filter.Eq("MaKH", ObjectId.Parse(tbMaKHThue.Text));
+            List<KhachHang> filteredKHs = collection_KH.Find(thongTinKHquery).ToList();
+            KhachHang kh = filteredKHs[0];
+
+            var thongTinUDquery = Builders<UuDai>.Filter.Eq("TenUD", cbMaUuDaiSD.Text);
+            List<UuDai> filteredUDs = collection_UD.Find(thongTinUDquery).ToList();
+            UuDai ud = filteredUDs[0];
             if (dgvDSBGDH.Rows.Count > 0)
             {
+                if (kh.TichDiem > ud.DiemQuyDoi)
+                {
+                    MessageBox.Show("Thêm đơn hàng thành công! ");
 
-                MessageBox.Show("Thêm đơn hàng thành công! ");
 
-                var thongTinKHquery = Builders<KhachHang>.Filter.Eq("MaKH", ObjectId.Parse(tbMaKHThue.Text));
-                List<KhachHang> filteredKHs = collection_KH.Find(thongTinKHquery).ToList();
-                KhachHang kh = filteredKHs[0];
-                var updateKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", 10);
-                collection_KH.UpdateOne(kh1 => kh1.MaKH == kh.MaKH, updateKhachHang);
+                    var updateCongTichDiemKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", 10);
+                    collection_KH.UpdateOne(kh1 => kh1.MaKH == kh.MaKH, updateCongTichDiemKhachHang);
 
-                var thongTinUDquery = Builders<UuDai>.Filter.Eq("TenUD", cbMaUuDaiSD.Text);
-                List<UuDai> filteredUDs = collection_UD.Find(thongTinUDquery).ToList();
-                UuDai ud = filteredUDs[0];
-                var updateUuDai = Builders<UuDai>.Update.Inc("SoLuong", -1);
-                collection_UD.UpdateOne(ud1 => ud1.MaUD == ud.MaUD, updateUuDai);
+                    var thongTinDHquery = Builders<DonHang>.Filter.Eq("MaDH", ObjectId.Parse(tbMaCTDH.Text));
+                    List<DonHang> filteredDHs = collection_DH.Find(thongTinDHquery).ToList();
+                    DonHang dh1 = filteredDHs[0];
 
-                ReadAllDocuments_DSKH();
-                ReadAllDocuments_DSDHKH();
+
+
+                    var updateUuDai = Builders<UuDai>.Update.Inc("SoLuong", -1);
+                    collection_UD.UpdateOne(ud1 => ud1.MaUD == ud.MaUD, updateUuDai);
+
+                    int giaThue = dh1.TongTien;
+                    giaThue = giaThue - giaThue * ud.PhanTramGiam / 100;
+                    var updateDonHang = Builders<DonHang>.Update.Set("TongTien", giaThue);
+                    collection_DH.UpdateOne(dh2 => dh2.MaDH == dh1.MaDH, updateDonHang);
+
+                    var updateTruTichDiemKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", -ud.DiemQuyDoi);
+                    collection_KH.UpdateOne(kh1 => kh1.MaKH == kh.MaKH, updateTruTichDiemKhachHang);
+
+                    ReadAllDocuments_DSKH();
+                    ReadAllDocuments_DSDHKH();
+                }
+                else
+                {
+                    MessageBox.Show("Không đủ điểm để sử dụng ưu đãi vui lòng đổi mã ưu đãi khác!");
+                }
             }
             else
             {
@@ -657,9 +679,9 @@ namespace QuanLyBoardGame
                     collection_G.UpdateOneAsync(bg1 => bg1.MaBG ==bg.MaBG, updateDef);
 
                     int uds = ud.PhanTramGiam;
-                    decimal giaThue = dh1.TongTien;
+                    int giaThue = dh1.TongTien;
                     giaThue += valueTien;
-                    giaThue = giaThue - giaThue * uds / 100;
+                    
                     tbTongTien.Text = giaThue.ToString();
                     // Cập nhật giá trị "TongTien" trong đơn hàng
                     var updateDonHang = Builders<DonHang>.Update.Set("TongTien", giaThue);
