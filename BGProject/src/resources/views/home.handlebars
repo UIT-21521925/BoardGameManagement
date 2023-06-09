@@ -1,4 +1,4 @@
-<header class="body-title">TẤT CẢ SẢN PHẨM</header>
+{{!-- <header class="body-title">TẤT CẢ SẢN PHẨM</header>
 
 <body class="body-content">
   <div class="boardgames-categories">
@@ -14,7 +14,7 @@
 
   <div class="boardgames">
     <div class="grid">
-      {{#each filteredThongtinBGs}}
+      {{#each ThongtinBGs}}
         {{#if SoLuong }}
         <a class="grid__col-4" href="/home/{{this.TenBoardGame}}">
           <div class="boardgame">
@@ -70,4 +70,99 @@
 
     window.location.href = `${window.location.pathname}?${urlParams.toString()}`;
   }
+</script> --}}
+<header class="body-title">TẤT CẢ SẢN PHẨM</header>
+
+<body class="body-content">
+  <div class="boardgames-categories">
+    <h4 class="categories-title">Category</h4>
+    <hr>
+    {{#each LoaiBoardGames}}
+    <a class="categories-choice" href="?_filter&value={{this._id}}">
+      <input
+        type="radio"
+        id="choice"
+        class="categories-checkbox"
+        placeholder=""
+        value="{{this._id}}"
+        {{#ifCond selectedCategory this._id}}
+        checked
+        {{/ifCond}}
+      >
+      <p class="categories-name">{{this.TenLBG}}</p>
+    </a>
+    {{/each}}
+  </div>
+
+  <div class="boardgames">
+    <div class="grid">
+      {{#each filters}}
+        {{#if SoLuong }}
+        <a class="grid__col-4" href="/home/{{this.TenBoardGame}}">
+          <div class="boardgame">
+            <img src="{{this.HinhAnh}}" alt="" class="boardgame-img">
+            <div class="boardgame-info">
+              <h4 class="boardgame-info__name">{{this.LOAIBG._id}}</h4>
+              <p class="boardgame-info__price">Giá : {{this.GiaThue}} VND</p>
+              <p class="boardgame-info__status">Tình trạng: <span class="available"> Còn hàng</span></p>
+              <button class="boardgame-btn js-buy">Giữ chỗ</button>
+            </div>
+          </div>
+        </a>
+        {{else}}
+        <a class="grid__col-4" href="/home/{{this.TenBoardGame}}">
+          <div class="boardgame">
+            <img src="{{this.HinhAnh}}" alt="" class="boardgame-img">
+            <div class="boardgame-info-sold">
+              <h4 class="boardgame-info__name">{{this.TenBoardGame}}</h4>
+              <p class="boardgame-info__price">Giá : {{this.GiaThue}}</p>
+              <p class="boardgame-info__status">Tình trạng: <span class="sold-out">Hết hàng</span> </p>
+            </div>
+          </div>
+        </a>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+</body>
+
+<script>
+  // Lắng nghe sự kiện click trên radio button
+  const radioButtons = document.querySelectorAll('.categories-checkbox');
+  radioButtons.forEach((radio) => {
+    radio.addEventListener('click', handleRadioClick);
+  });
+
+  // Xử lý sự kiện click trên radio button
+  function handleRadioClick(event) {
+    const selectedCategoryId = event.target.value;
+
+    // Gửi yêu cầu lọc đến server
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Nếu radio button được chọn
+    if (selectedCategoryId) {
+      urlParams.set('_filter', '');
+      urlParams.set('value', selectedCategoryId);
+    }
+    // Nếu không có radio button được chọn
+    else {
+      urlParams.delete('_filter');
+      urlParams.delete('value');
+    }
+
+    window.location.href = `${window.location.pathname}?${urlParams.toString()}`;
+  }
+
+  // Hàm so sánh giá trị trong Handlebars
+  handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
+    switch (operator) {
+      case '==':
+        return v1 == v2 ? options.fn(this) : options.inverse(this);
+      case '===':
+        return v1 === v2 ? options.fn(this) : options.inverse(this);
+      default:
+        return options.inverse(this);
+    }
+  });
 </script>

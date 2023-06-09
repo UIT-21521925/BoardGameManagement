@@ -1,38 +1,72 @@
-const ThongtinBG = require('../models/TTBG')
-const Boardgame = require('../models/BG');
-const handlebars = require('handlebars');
-const LoaiBoardGame = require('../models/LOAIBG')
+// const ThongtinBG = require('../models/TTBG')
+// const Boardgame = require('../models/BG');
+// const handlebars = require('handlebars');
+// const LoaiBoardGame = require('../models/LOAIBG')
 
-class SiteController {
+// class SiteController {
 
-  index(req, res, next) {
+//   index(req, res, next) {
 
     
-    ThongtinBG.find({}).exec()
+//     ThongtinBG.find({}).exec()
 
-    .then( (ThongtinBGs) => {
+//     .then( (ThongtinBGs) => {
 
-      LoaiBoardGame.find({}).exec()
+//       LoaiBoardGame.find({}).exec()
 
-        .then((LoaiBoardGames) => {
+//         .then((LoaiBoardGames) => {
 
-          LoaiBoardGames = LoaiBoardGames.map(LoaiBG => LoaiBG.toObject());
+//           LoaiBoardGames = LoaiBoardGames.map(LoaiBG => LoaiBG.toObject());
 
-          ThongtinBGs = ThongtinBGs.map(ThongtinBG => ThongtinBG.toObject());
+//           ThongtinBGs = ThongtinBGs.map(ThongtinBG => ThongtinBG.toObject());
 
-          const filteredThongtinBGs = ThongtinBGs.filter((item) => {
-            return item.LOAIBG._id === req.query.value;
-          });
-          res.render('home.handlebars', {LoaiBoardGames : LoaiBoardGames, ThongtinBGs: filteredThongtinBGs});
+//           const filteredThongtinBGs = ThongtinBGs.filter((item) => {
+//             return item.LOAIBG._id === req.query.value;
+//           });
+//           res.render('home.handlebars', {LoaiBoardGames : LoaiBoardGames, ThongtinBGs :ThongtinBGs ,  filters: filteredThongtinBGs});
 
-          // res.render('home.handlebars', {ThongtinBGs});
-        })
-        .catch(next);
-    })
-    .catch(next);
-  }
+//           // res.render('home.handlebars', {ThongtinBGs});
+//         })
+//         .catch(next);
+//     })
+//     .catch(next);
+//   }
 
   
+// }
+
+// module.exports = new SiteController();
+const ThongtinBG = require('../models/TTBG');
+const Boardgame = require('../models/BG');
+const handlebars = require('handlebars');
+const LoaiBoardGame = require('../models/LOAIBG');
+
+class SiteController {
+  index(req, res, next) {
+    ThongtinBG.find({})
+      .exec()
+      .then((ThongtinBGs) => {
+        LoaiBoardGame.find({})
+          .exec()
+          .then((LoaiBoardGames) => {
+            LoaiBoardGames = LoaiBoardGames.map((LoaiBG) => LoaiBG.toObject());
+            ThongtinBGs = ThongtinBGs.map((ThongtinBG) => ThongtinBG.toObject());
+
+            const filteredThongtinBGs = ThongtinBGs.filter((item) => {
+              return item.LOAIBG._id.toString() === req.query.value;
+            });
+
+            res.render('home.handlebars', {
+              LoaiBoardGames: LoaiBoardGames,
+              ThongtinBGs: ThongtinBGs,
+              filters: filteredThongtinBGs,
+              selectedCategory: req.query.value || '',
+            });
+          })
+          .catch(next);
+      })
+      .catch(next);
+  }
 }
 
 module.exports = new SiteController();

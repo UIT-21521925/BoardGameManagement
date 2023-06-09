@@ -20,9 +20,15 @@ app.use(express.json());
 
 // http logger
 app.use(morgan('combined'));
+// 
 
 // template engine
-app.engine('handlebars', handlebars.engine({defaultLayout: 'main'})); 
+app.engine('handlebars', handlebars.engine({
+  defaultLayout: 'main',
+  helpers: {
+    ifCond: handlebars.helpers.ifCond    // Thêm đoạn này để đăng ký helper ifCond
+  }
+})); 
 // Định nghĩa view engine
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'resources/views'));
