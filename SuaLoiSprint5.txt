@@ -1,0 +1,7 @@
+﻿Test 2/6/2023: Sau khi run project và click vào Login sau do bi loi
+
+		- So dong loi: 1
+		- Ten loi: "Co gang truy cap vao mot vi tri khong hop le trong mot collection o file Admin.cs"
+
+Test 4/6/2023: Dat ten bang trong mongoDB 
+Test 8/6/2023 : Ket noi cung co so du lieu
