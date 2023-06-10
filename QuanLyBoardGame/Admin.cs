@@ -600,6 +600,18 @@ namespace QuanLyBoardGame
                     collection_UD.UpdateOne(ud1 => ud1.MaUD == ud.MaUD, updateUuDai);
 
                     int giaThue = dh1.TongTien;
+
+                    if (dh1.NgayTra - dh1.NgayThue > TimeSpan.FromDays(7))
+                    {
+                        giaThue = giaThue * 5 / 100;
+                    }
+                    else
+                    {
+                        if (dh1.NgayTra - dh1.NgayThue > TimeSpan.FromDays(14))
+                        {
+                            giaThue = giaThue * 10/ 100;
+                        }
+                    }
                     giaThue = giaThue - giaThue * ud.PhanTramGiam / 100;
                     var updateDonHang = Builders<DonHang>.Update.Set("TongTien", giaThue);
                     collection_DH.UpdateOne(dh2 => dh2.MaDH == dh1.MaDH, updateDonHang);
