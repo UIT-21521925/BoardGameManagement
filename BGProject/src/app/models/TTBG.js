@@ -20,7 +20,7 @@ const TTBG = new Schema ({
     HinhAnh : { type: String },
     LuatChoi : { type: String },
     ThoiGianChoi : { type: Number },
-    MALBG: {type: Object}
+    LOAIBG: {type: String}
 });
 
-module.exports = mongoose.model('ThongTinBG', TTBG);
+module.exports = mongoose.model('ThongTinBG', TTBG, 'ThongTinBG');

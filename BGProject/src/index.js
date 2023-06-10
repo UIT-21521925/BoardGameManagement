@@ -25,9 +25,6 @@ app.use(morgan('combined'));
 // template engine
 app.engine('handlebars', handlebars.engine({
   defaultLayout: 'main',
-  helpers: {
-    ifCond: handlebars.helpers.ifCond    // Thêm đoạn này để đăng ký helper ifCond
-  }
 })); 
 // Định nghĩa view engine
 app.set('view engine', 'handlebars');

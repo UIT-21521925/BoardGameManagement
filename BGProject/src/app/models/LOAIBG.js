@@ -12,4 +12,4 @@ const LOAIBG = new Schema ({
     TENLBG : String
 });
 
-module.exports = mongoose.model('LOAIBG',LOAIBG);
+module.exports = mongoose.model('LOAIBG',LOAIBG,'LoaiBG');
