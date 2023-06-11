@@ -59,6 +59,14 @@ namespace QuanLyBoardGame
             {
                 cbTheLoai.Items.Add(lbg.TenLBG);
             }
+
+            List<ThongTinBG> listTTBGs = collection_BG.AsQueryable().ToList<ThongTinBG>();
+            cbTimKiemTT.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
+            foreach (var ttbg in listTTBGs)
+            {
+                cbTimKiemTT.Items.Add(ttbg.TenBoardGame);
+            }
+
             labelText.Text = this.Text;
             ReadAllDocuments_ThongTinBG();
         }
@@ -67,6 +75,14 @@ namespace QuanLyBoardGame
         {
             tabQuanLy.SelectedIndex = 2;
             labelText.Text = this.Text;
+
+            List<ThongTinBG> listTTBGs = collection_BG.AsQueryable().ToList<ThongTinBG>();
+            cbTimKiemTTBG.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
+            foreach (var ttbg in listTTBGs)
+            {
+                cbTimKiemTTBG.Items.Add(ttbg.TenBoardGame);
+            }
+
             ReadAllDocuments_ThongTinBG();
             ReadAllDocuments_TTBG();
         }
@@ -76,11 +92,33 @@ namespace QuanLyBoardGame
             ReadAllDocuments_KH();
             tabQuanLy.SelectedIndex = 3;
             labelText.Text = this.Text;
+
+            List<KhachHang> listKHs = collection_KH.AsQueryable().ToList<KhachHang>();
+            cbTimKiemKH.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
+            foreach (var kh in listKHs)
+            {
+                cbTimKiemKH.Items.Add(kh.TenKH);
+            }
         }
 
         private void bThue_Click(object sender, EventArgs e)
         {
             tabQuanLy.SelectedIndex = 4;
+
+            List<KhachHang> listKHs = collection_KH.AsQueryable().ToList<KhachHang>();
+            cbTimKiemDSDH.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
+            foreach (var kh in listKHs)
+            {
+                cbTimKiemDSDH.Items.Add(kh.TenKH);
+            }
+
+            List<ThongTinBG> listTTBGs = collection_BG.AsQueryable().ToList<ThongTinBG>();
+            cbTimBG.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
+            foreach (var ttbg in listTTBGs)
+            {
+                cbTimBG.Items.Add(ttbg.TenBoardGame);
+            }
+
             List<UuDai> listUDs = collection_UD.AsQueryable().ToList<UuDai>();
             cbMaUuDaiSD.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
             foreach (var ud in listUDs)
@@ -100,6 +138,13 @@ namespace QuanLyBoardGame
             ReadAllDocuments_UD();
             tabQuanLy.SelectedIndex = 6;
             labelText.Text = this.Text;
+
+            List<UuDai> listUDs = collection_UD.AsQueryable().ToList<UuDai>();
+            cbTimKiemUD.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
+            foreach (var ud in listUDs)
+            {
+                cbTimKiemUD.Items.Add(ud.TenUD);
+            }
         }
 
         private void bLogOut_Click(object sender, EventArgs e)
@@ -258,83 +303,89 @@ namespace QuanLyBoardGame
 
         private void bThemTT_Click(object sender, EventArgs e)
         {
-            var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("TenLBG", cbTheLoai.Text);
-            List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
-            LoaiBG lbg = filteredLBGs[0];
-            if (pbHinhanh.Image != null)
+            if (cbTheLoai.Text != "")
             {
-                // Kiểm tra xem ảnh có được tải từ máy tính hay từ đường dẫn cụ thể
-                if (pbHinhanh.ImageLocation != null)
+                var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("TenLBG", cbTheLoai.Text);
+                List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
+                LoaiBG lbg = filteredLBGs[0];
+                if (pbHinhanh.Image != null)
                 {
-                    // Đường dẫn của ảnh nếu đã được tải từ một đường dẫn cụ thể
-                    string imageURL = pbHinhanh.ImageLocation;
+                    // Kiểm tra xem ảnh có được tải từ máy tính hay từ đường dẫn cụ thể
+                    if (pbHinhanh.ImageLocation != null)
+                    {
+                        // Đường dẫn của ảnh nếu đã được tải từ một đường dẫn cụ thể
+                        string imageURL = pbHinhanh.ImageLocation;
 
-                    // Lưu đường dẫn ảnh vào cơ sở dữ liệu
-                    var ttbg = new ThongTinBG(tbTenBoardGame.Text, int.Parse(nudSoNguoiChoi.Text),
-                        int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text), imageURL,
-                        cbTinhTrangTTBG.Text, lbg.MaLBG);
+                        // Lưu đường dẫn ảnh vào cơ sở dữ liệu
+                        var ttbg = new ThongTinBG(tbTenBoardGame.Text, int.Parse(nudSoNguoiChoi.Text),
+                            int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text), imageURL,
+                            cbTinhTrangTTBG.Text, lbg.MaLBG);
 
-                    collection_BG.InsertOne(ttbg);
+                        collection_BG.InsertOne(ttbg);
 
-                    // Hiển thị thông báo lưu thành công (tuỳ chỉnh theo nhu cầu)
-                    MessageBox.Show("Lưu thông tin Board Game thành công!");
+                        // Hiển thị thông báo lưu thành công (tuỳ chỉnh theo nhu cầu)
+                        MessageBox.Show("Lưu thông tin Board Game thành công!");
 
-                    // Tiếp tục các thao tác khác sau khi lưu vào cơ sở dữ liệu
-                    ReadAllDocuments_ThongTinBG();
+                        // Tiếp tục các thao tác khác sau khi lưu vào cơ sở dữ liệu
+                        ReadAllDocuments_ThongTinBG();
+                    }
+                    else
+                    {
+                        // Xử lý trường hợp ảnh đã được tải từ máy tính
+                        string imageName = Guid.NewGuid().ToString() + ".jpg"; // Tạo tên ngẫu nhiên cho tệp tin ảnh
+
+                        string rootFolder = Directory.GetCurrentDirectory(); // Đường dẫn đến thư mục gốc của phần mềm
+
+                        string imageFolder = Path.Combine(rootFolder, "Image");
+
+                        // Kiểm tra và tạo thư mục "Image" nếu chưa tồn tại
+                        if (!Directory.Exists(imageFolder))
+                        {
+                            Directory.CreateDirectory(imageFolder);
+                        }
+
+                        // Cấp quyền ghi cho thư mục "Image"
+                        DirectoryInfo imageDirectoryInfo = new DirectoryInfo(imageFolder);
+                        DirectorySecurity imageDirectorySecurity = imageDirectoryInfo.GetAccessControl();
+                        imageDirectorySecurity.AddAccessRule(new FileSystemAccessRule(
+                            new SecurityIdentifier(WellKnownSidType.WorldSid, null),
+                            FileSystemRights.Write, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit,
+                            PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
+                        imageDirectoryInfo.SetAccessControl(imageDirectorySecurity);
+
+
+                        string imagePath = Path.Combine(imageFolder, imageName); // Đường dẫn đầy đủ của tệp tin ảnh
+
+                        // Lưu tệp tin ảnh từ PictureBox vào thư mục "Image"
+                        pbHinhanh.Image.Save(imagePath);
+
+                        // Lưu đường dẫn tệp tin ảnh vào cơ sở dữ liệu
+                        string imageURL = imagePath;
+
+
+
+                        // Lưu đường dẫn ảnh vào cơ sở dữ liệu
+                        var ttbg = new ThongTinBG(tbTenBoardGame.Text, int.Parse(nudSoNguoiChoi.Text),
+                            int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text), imageURL,
+                            cbTinhTrangTTBG.Text, lbg.MaLBG);
+
+                        collection_BG.InsertOne(ttbg);
+
+                        // Hiển thị thông báo lưu thành công (tuỳ chỉnh theo nhu cầu)
+                        MessageBox.Show("Lưu thông tin Board Game thành công!");
+                        ReadAllDocuments_ThongTinBG();
+                    }
                 }
                 else
                 {
-                    // Xử lý trường hợp ảnh đã được tải từ máy tính
-                    string imageName = Guid.NewGuid().ToString() + ".jpg"; // Tạo tên ngẫu nhiên cho tệp tin ảnh
-
-                    string rootFolder = Directory.GetCurrentDirectory(); // Đường dẫn đến thư mục gốc của phần mềm
-
-                    string imageFolder = Path.Combine(rootFolder, "Image");
-
-                    // Kiểm tra và tạo thư mục "Image" nếu chưa tồn tại
-                    if (!Directory.Exists(imageFolder))
-                    {
-                        Directory.CreateDirectory(imageFolder);
-                    }
-
-                    // Cấp quyền ghi cho thư mục "Image"
-                    DirectoryInfo imageDirectoryInfo = new DirectoryInfo(imageFolder);
-                    DirectorySecurity imageDirectorySecurity = imageDirectoryInfo.GetAccessControl();
-                    imageDirectorySecurity.AddAccessRule(new FileSystemAccessRule(
-                        new SecurityIdentifier(WellKnownSidType.WorldSid, null),
-                        FileSystemRights.Write, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit,
-                        PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
-                    imageDirectoryInfo.SetAccessControl(imageDirectorySecurity);
-
-
-                    string imagePath = Path.Combine(imageFolder, imageName); // Đường dẫn đầy đủ của tệp tin ảnh
-
-                    // Lưu tệp tin ảnh từ PictureBox vào thư mục "Image"
-                    pbHinhanh.Image.Save(imagePath);
-
-                    // Lưu đường dẫn tệp tin ảnh vào cơ sở dữ liệu
-                    string imageURL = imagePath;
-
-
-
-                    // Lưu đường dẫn ảnh vào cơ sở dữ liệu
-                    var ttbg = new ThongTinBG(tbTenBoardGame.Text, int.Parse(nudSoNguoiChoi.Text),
-                        int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text), imageURL,
-                        cbTinhTrangTTBG.Text, lbg.MaLBG);
-
-                    collection_BG.InsertOne(ttbg);
-
-                    // Hiển thị thông báo lưu thành công (tuỳ chỉnh theo nhu cầu)
-                    MessageBox.Show("Lưu thông tin Board Game thành công!");
-                    ReadAllDocuments_ThongTinBG();
+                    // Xử lý trường hợp không có ảnh trong PictureBox
+                    MessageBox.Show("Chưa cập nhật ảnh cho booard game!");
                 }
             }
             else
             {
-                // Xử lý trường hợp không có ảnh trong PictureBox
-                MessageBox.Show("Chưa cập nhật ảnh cho booard game!");
+                MessageBox.Show("Chưa nhập thể loại board game!");
             }
-
 
            /* var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("TenLBG", ObjectId.Parse(cbTheLoai.Text));
             List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
@@ -375,7 +426,7 @@ namespace QuanLyBoardGame
 
             foreach (var ttbg in listTTBG)
             {
-                if (ttbg.TenBoardGame == tbTimKiemTT.Text)
+                if (ttbg.TenBoardGame == cbTimKiemTT.Text)
                 {
                     filteredTTBGList.Add(ttbg);
                 }
@@ -387,7 +438,7 @@ namespace QuanLyBoardGame
 
         private void bMacDinhTT_Click(object sender, EventArgs e)
         {
-            tbTimKiemTT.Text = "";
+            cbTimKiemTT.Text = "";
             ReadAllDocuments_ThongTinBG();
         }
 
@@ -477,7 +528,7 @@ namespace QuanLyBoardGame
 
             foreach (var ttbg in listTTBG)
             {
-                if (ttbg.TenBoardGame == tbTimKiemTTBG.Text)
+                if (ttbg.TenBoardGame == cbTimKiemTTBG.Text)
                 {
                     filteredTTBGList.Add(ttbg);
                 }
@@ -489,7 +540,7 @@ namespace QuanLyBoardGame
 
         private void bMacDinhTTBG_Click(object sender, EventArgs e)
         {
-            tbTimKiemTTBG.Text = "";
+            cbTimKiemTTBG.Text = "";
             ReadAllDocuments_TTBG();
         }
 
@@ -556,7 +607,7 @@ namespace QuanLyBoardGame
 
             foreach (var kh in listKH)
             {
-                if (kh.TenKH == tbTimKiemKH.Text)
+                if (kh.TenKH == cbTimKiemKH.Text)
                 {
                     filteredKHList.Add(kh);
                 }
@@ -568,7 +619,7 @@ namespace QuanLyBoardGame
 
         private void bMacDinhKH_Click(object sender, EventArgs e)
         {
-            tbTimKiemKH.Text = "";
+            cbTimKiemKH.Text = "";
             ReadAllDocuments_KH();
         }
 
@@ -657,7 +708,7 @@ namespace QuanLyBoardGame
 
             foreach (var ttbg in listTTBG)
             {
-                if (ttbg.TenBoardGame == tbTimBG.Text)
+                if (ttbg.TenBoardGame == cbTimBG.Text)
                 {
                     foreach (var bg in listBG)
                     {
@@ -681,7 +732,7 @@ namespace QuanLyBoardGame
 
         private void bMacDinhBG_Click(object sender, EventArgs e)
         {
-            tbTimBG.Text = "";
+            cbTimBG.Text = "";
         }
 
         private void dgvDSKH_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -792,7 +843,7 @@ namespace QuanLyBoardGame
         private void bThemDSDH_Click(object sender, EventArgs e)
         {
 
-            var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("TenBoardGame", tbTimBG.Text);
+            var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("TenBoardGame", cbTimBG.Text);
             List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
             ThongTinBG ttbg = filteredTTBGs[0];
             var valueTien = ttbg.GiaThue;
@@ -909,7 +960,7 @@ namespace QuanLyBoardGame
 
             foreach (var kh in listKH)
             {
-                if (kh.TenKH == tbTimKiemDSDH.Text)
+                if (kh.TenKH == cbTimKiemDSDH.Text)
                 {
                     filteredKHList.Add(kh);
                 }
@@ -920,7 +971,7 @@ namespace QuanLyBoardGame
         }
         private void bMacDinhDSDH_Click(object sender, EventArgs e)
         {
-            tbTimKiemDSDH.Text = "";
+            cbTimKiemDSDH.Text = "";
             ReadAllDocuments_DSKH();
         }
 
@@ -989,7 +1040,7 @@ namespace QuanLyBoardGame
 
             foreach (var ud in listUD)
             {
-                if (ud.TenUD == tbTimKiemUD.Text)
+                if (ud.TenUD == cbTimKiemUD.Text)
                 {
                     filteredUDList.Add(ud);
                 }
@@ -1001,7 +1052,7 @@ namespace QuanLyBoardGame
 
         private void bMacDinhUD_Click(object sender, EventArgs e)
         {
-            tbTimKiemUD.Text = "";
+            cbTimKiemUD.Text = "";
             ReadAllDocuments_UD();
         }
 

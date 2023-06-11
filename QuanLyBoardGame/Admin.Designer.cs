@@ -75,7 +75,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.bMacDinhTT = new System.Windows.Forms.Button();
             this.bTimKiemTT = new System.Windows.Forms.Button();
-            this.tbTimKiemTT = new System.Windows.Forms.TextBox();
             this.dgvTT = new System.Windows.Forms.DataGridView();
             this.tpKho = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -101,7 +100,6 @@
             this.label33 = new System.Windows.Forms.Label();
             this.bMacDinhTTBG = new System.Windows.Forms.Button();
             this.bTimKiemTTBG = new System.Windows.Forms.Button();
-            this.tbTimKiemTTBG = new System.Windows.Forms.TextBox();
             this.dgvTTBG = new System.Windows.Forms.DataGridView();
             this.tpKhachHang = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -127,7 +125,6 @@
             this.label39 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lDSKH = new System.Windows.Forms.Label();
-            this.tbTimKiemKH = new System.Windows.Forms.TextBox();
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
             this.bMacDinhKH = new System.Windows.Forms.Button();
             this.bTimKiemKH = new System.Windows.Forms.Button();
@@ -135,7 +132,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.bMacDinhBG = new System.Windows.Forms.Button();
             this.bTimBG = new System.Windows.Forms.Button();
-            this.tbTimBG = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.dgvDSDHKH = new System.Windows.Forms.DataGridView();
             this.bThemDSDH = new System.Windows.Forms.Button();
@@ -143,7 +139,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.bMacDinhDSDH = new System.Windows.Forms.Button();
             this.bTimKiemDSDH = new System.Windows.Forms.Button();
-            this.tbTimKiemDSDH = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvDSKH = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -213,7 +208,6 @@
             this.lDSUD = new System.Windows.Forms.Label();
             this.bMacDinhUD = new System.Windows.Forms.Button();
             this.bTimKiemUD = new System.Windows.Forms.Button();
-            this.tbTimKiemUD = new System.Windows.Forms.TextBox();
             this.dgvUuDai = new System.Windows.Forms.DataGridView();
             this.pDeMuc = new System.Windows.Forms.Panel();
             this.pColor = new System.Windows.Forms.Panel();
@@ -224,6 +218,12 @@
             this.bLogOut = new System.Windows.Forms.Button();
             this.bMatKhau = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.cbTimKiemTT = new System.Windows.Forms.ComboBox();
+            this.cbTimKiemTTBG = new System.Windows.Forms.ComboBox();
+            this.cbTimKiemKH = new System.Windows.Forms.ComboBox();
+            this.cbTimKiemDSDH = new System.Windows.Forms.ComboBox();
+            this.cbTimBG = new System.Windows.Forms.ComboBox();
+            this.cbTimKiemUD = new System.Windows.Forms.ComboBox();
             this.panelTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelChoose.SuspendLayout();
@@ -807,10 +807,10 @@
             this.pBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pBG.Controls.Add(this.cbTimKiemTT);
             this.pBG.Controls.Add(this.label2);
             this.pBG.Controls.Add(this.bMacDinhTT);
             this.pBG.Controls.Add(this.bTimKiemTT);
-            this.pBG.Controls.Add(this.tbTimKiemTT);
             this.pBG.Controls.Add(this.dgvTT);
             this.pBG.Location = new System.Drawing.Point(456, 0);
             this.pBG.Name = "pBG";
@@ -847,14 +847,6 @@
             this.bTimKiemTT.TabIndex = 29;
             this.bTimKiemTT.UseVisualStyleBackColor = true;
             this.bTimKiemTT.Click += new System.EventHandler(this.bTimKiemTT_Click);
-            // 
-            // tbTimKiemTT
-            // 
-            this.tbTimKiemTT.Location = new System.Drawing.Point(6, 50);
-            this.tbTimKiemTT.Name = "tbTimKiemTT";
-            this.tbTimKiemTT.Size = new System.Drawing.Size(226, 20);
-            this.tbTimKiemTT.TabIndex = 28;
-            this.tbTimKiemTT.Text = "Tìm kiếm thông tin board game";
             // 
             // dgvTT
             // 
@@ -1080,12 +1072,12 @@
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel8.Controls.Add(this.cbTimKiemTTBG);
             this.panel8.Controls.Add(this.dgvBG);
             this.panel8.Controls.Add(this.label34);
             this.panel8.Controls.Add(this.label33);
             this.panel8.Controls.Add(this.bMacDinhTTBG);
             this.panel8.Controls.Add(this.bTimKiemTTBG);
-            this.panel8.Controls.Add(this.tbTimKiemTTBG);
             this.panel8.Controls.Add(this.dgvTTBG);
             this.panel8.Location = new System.Drawing.Point(394, 0);
             this.panel8.Name = "panel8";
@@ -1145,14 +1137,6 @@
             this.bTimKiemTTBG.TabIndex = 29;
             this.bTimKiemTTBG.UseVisualStyleBackColor = true;
             this.bTimKiemTTBG.Click += new System.EventHandler(this.bTimKiemTTBG_Click);
-            // 
-            // tbTimKiemTTBG
-            // 
-            this.tbTimKiemTTBG.Location = new System.Drawing.Point(6, 52);
-            this.tbTimKiemTTBG.Name = "tbTimKiemTTBG";
-            this.tbTimKiemTTBG.Size = new System.Drawing.Size(226, 20);
-            this.tbTimKiemTTBG.TabIndex = 28;
-            this.tbTimKiemTTBG.Text = "Tìm kiếm thông tin board game";
             // 
             // dgvTTBG
             // 
@@ -1408,8 +1392,8 @@
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.Controls.Add(this.cbTimKiemKH);
             this.panel9.Controls.Add(this.lDSKH);
-            this.panel9.Controls.Add(this.tbTimKiemKH);
             this.panel9.Controls.Add(this.dgvKhachHang);
             this.panel9.Controls.Add(this.bMacDinhKH);
             this.panel9.Controls.Add(this.bTimKiemKH);
@@ -1428,14 +1412,6 @@
             this.lDSKH.Size = new System.Drawing.Size(193, 20);
             this.lDSKH.TabIndex = 39;
             this.lDSKH.Text = "Danh sách khách hàng";
-            // 
-            // tbTimKiemKH
-            // 
-            this.tbTimKiemKH.Location = new System.Drawing.Point(7, 49);
-            this.tbTimKiemKH.Name = "tbTimKiemKH";
-            this.tbTimKiemKH.Size = new System.Drawing.Size(226, 20);
-            this.tbTimKiemKH.TabIndex = 36;
-            this.tbTimKiemKH.Text = "Tìm kiếm khách hàng";
             // 
             // dgvKhachHang
             // 
@@ -1486,9 +1462,10 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.cbTimBG);
+            this.panel2.Controls.Add(this.cbTimKiemDSDH);
             this.panel2.Controls.Add(this.bMacDinhBG);
             this.panel2.Controls.Add(this.bTimBG);
-            this.panel2.Controls.Add(this.tbTimBG);
             this.panel2.Controls.Add(this.label25);
             this.panel2.Controls.Add(this.dgvDSDHKH);
             this.panel2.Controls.Add(this.bThemDSDH);
@@ -1496,7 +1473,6 @@
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.bMacDinhDSDH);
             this.panel2.Controls.Add(this.bTimKiemDSDH);
-            this.panel2.Controls.Add(this.tbTimKiemDSDH);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.dgvDSKH);
             this.panel2.Location = new System.Drawing.Point(444, 3);
@@ -1523,14 +1499,6 @@
             this.bTimBG.TabIndex = 62;
             this.bTimBG.UseVisualStyleBackColor = true;
             this.bTimBG.Click += new System.EventHandler(this.bTimBG_Click);
-            // 
-            // tbTimBG
-            // 
-            this.tbTimBG.Location = new System.Drawing.Point(6, 360);
-            this.tbTimBG.Name = "tbTimBG";
-            this.tbTimBG.Size = new System.Drawing.Size(238, 20);
-            this.tbTimBG.TabIndex = 61;
-            this.tbTimBG.Text = "Tìm kiếm BoardGame";
             // 
             // label25
             // 
@@ -1608,14 +1576,6 @@
             this.bTimKiemDSDH.TabIndex = 44;
             this.bTimKiemDSDH.UseVisualStyleBackColor = true;
             this.bTimKiemDSDH.Click += new System.EventHandler(this.bTimKiemDSDH_Click);
-            // 
-            // tbTimKiemDSDH
-            // 
-            this.tbTimKiemDSDH.Location = new System.Drawing.Point(6, 32);
-            this.tbTimKiemDSDH.Name = "tbTimKiemDSDH";
-            this.tbTimKiemDSDH.Size = new System.Drawing.Size(238, 20);
-            this.tbTimKiemDSDH.TabIndex = 43;
-            this.tbTimKiemDSDH.Text = "Tìm kiếm khách hàng";
             // 
             // label5
             // 
@@ -2362,10 +2322,10 @@
             this.pUuDai.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pUuDai.Controls.Add(this.cbTimKiemUD);
             this.pUuDai.Controls.Add(this.lDSUD);
             this.pUuDai.Controls.Add(this.bMacDinhUD);
             this.pUuDai.Controls.Add(this.bTimKiemUD);
-            this.pUuDai.Controls.Add(this.tbTimKiemUD);
             this.pUuDai.Controls.Add(this.dgvUuDai);
             this.pUuDai.Location = new System.Drawing.Point(397, 3);
             this.pUuDai.Name = "pUuDai";
@@ -2402,14 +2362,6 @@
             this.bTimKiemUD.TabIndex = 29;
             this.bTimKiemUD.UseVisualStyleBackColor = true;
             this.bTimKiemUD.Click += new System.EventHandler(this.bTimKiemUD_Click);
-            // 
-            // tbTimKiemUD
-            // 
-            this.tbTimKiemUD.Location = new System.Drawing.Point(5, 42);
-            this.tbTimKiemUD.Name = "tbTimKiemUD";
-            this.tbTimKiemUD.Size = new System.Drawing.Size(226, 20);
-            this.tbTimKiemUD.TabIndex = 28;
-            this.tbTimKiemUD.Text = "Tìm kiếm ưu đãi";
             // 
             // dgvUuDai
             // 
@@ -2531,6 +2483,72 @@
             this.panelMenu.Size = new System.Drawing.Size(94, 463);
             this.panelMenu.TabIndex = 1;
             // 
+            // cbTimKiemTT
+            // 
+            this.cbTimKiemTT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTimKiemTT.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTimKiemTT.FormattingEnabled = true;
+            this.cbTimKiemTT.Location = new System.Drawing.Point(6, 50);
+            this.cbTimKiemTT.Name = "cbTimKiemTT";
+            this.cbTimKiemTT.Size = new System.Drawing.Size(211, 21);
+            this.cbTimKiemTT.TabIndex = 34;
+            this.cbTimKiemTT.Text = "Tìm kiếm board game";
+            // 
+            // cbTimKiemTTBG
+            // 
+            this.cbTimKiemTTBG.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTimKiemTTBG.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTimKiemTTBG.FormattingEnabled = true;
+            this.cbTimKiemTTBG.Location = new System.Drawing.Point(7, 50);
+            this.cbTimKiemTTBG.Name = "cbTimKiemTTBG";
+            this.cbTimKiemTTBG.Size = new System.Drawing.Size(222, 21);
+            this.cbTimKiemTTBG.TabIndex = 36;
+            this.cbTimKiemTTBG.Text = "Tìm kiếm board game";
+            // 
+            // cbTimKiemKH
+            // 
+            this.cbTimKiemKH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTimKiemKH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTimKiemKH.FormattingEnabled = true;
+            this.cbTimKiemKH.Location = new System.Drawing.Point(7, 51);
+            this.cbTimKiemKH.Name = "cbTimKiemKH";
+            this.cbTimKiemKH.Size = new System.Drawing.Size(226, 21);
+            this.cbTimKiemKH.TabIndex = 40;
+            this.cbTimKiemKH.Text = "Tìm kiếm khách hàng";
+            // 
+            // cbTimKiemDSDH
+            // 
+            this.cbTimKiemDSDH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTimKiemDSDH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTimKiemDSDH.FormattingEnabled = true;
+            this.cbTimKiemDSDH.Location = new System.Drawing.Point(6, 32);
+            this.cbTimKiemDSDH.Name = "cbTimKiemDSDH";
+            this.cbTimKiemDSDH.Size = new System.Drawing.Size(240, 21);
+            this.cbTimKiemDSDH.TabIndex = 64;
+            this.cbTimKiemDSDH.Text = "Tìm kiếm khách hàng";
+            // 
+            // cbTimBG
+            // 
+            this.cbTimBG.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTimBG.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTimBG.FormattingEnabled = true;
+            this.cbTimBG.Location = new System.Drawing.Point(6, 357);
+            this.cbTimBG.Name = "cbTimBG";
+            this.cbTimBG.Size = new System.Drawing.Size(240, 21);
+            this.cbTimBG.TabIndex = 65;
+            this.cbTimBG.Text = "Tìm kiếm board game";
+            // 
+            // cbTimKiemUD
+            // 
+            this.cbTimKiemUD.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTimKiemUD.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTimKiemUD.FormattingEnabled = true;
+            this.cbTimKiemUD.Location = new System.Drawing.Point(4, 43);
+            this.cbTimKiemUD.Name = "cbTimKiemUD";
+            this.cbTimKiemUD.Size = new System.Drawing.Size(227, 21);
+            this.cbTimKiemUD.TabIndex = 35;
+            this.cbTimKiemUD.Text = "Tìm kiếm ưu đãi";
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2631,7 +2649,6 @@
         private System.Windows.Forms.Panel pBG;
         private System.Windows.Forms.Button bMacDinhTT;
         private System.Windows.Forms.Button bTimKiemTT;
-        private System.Windows.Forms.TextBox tbTimKiemTT;
         private System.Windows.Forms.DataGridView dgvTT;
         private System.Windows.Forms.DataGridView dgvBaoCao;
         private System.Windows.Forms.Button bLogOut;
@@ -2642,7 +2659,6 @@
         private System.Windows.Forms.Panel pUuDai;
         private System.Windows.Forms.Button bMacDinhUD;
         private System.Windows.Forms.Button bTimKiemUD;
-        private System.Windows.Forms.TextBox tbTimKiemUD;
         private System.Windows.Forms.DataGridView dgvUuDai;
         private System.Windows.Forms.Button bKho;
         private System.Windows.Forms.Label label2;
@@ -2663,7 +2679,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button bMacDinhDSDH;
         private System.Windows.Forms.Button bTimKiemDSDH;
-        private System.Windows.Forms.TextBox tbTimKiemDSDH;
         private System.Windows.Forms.Button bThemDH;
         private System.Windows.Forms.Button bBienBan;
         private System.Windows.Forms.Label label13;
@@ -2708,13 +2723,11 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Button bMacDinhTTBG;
         private System.Windows.Forms.Button bTimKiemTTBG;
-        private System.Windows.Forms.TextBox tbTimKiemTTBG;
         private System.Windows.Forms.DataGridView dgvTTBG;
         private System.Windows.Forms.ComboBox cbTinhTrangBG;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label lDSKH;
-        private System.Windows.Forms.TextBox tbTimKiemKH;
         private System.Windows.Forms.DataGridView dgvKhachHang;
         private System.Windows.Forms.Button bMacDinhKH;
         private System.Windows.Forms.Button bTimKiemKH;
@@ -2797,7 +2810,6 @@
         private System.Windows.Forms.Button bMacDinhDH;
         private System.Windows.Forms.Button bMacDinhBG;
         private System.Windows.Forms.Button bTimBG;
-        private System.Windows.Forms.TextBox tbTimBG;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.TextBox tbSoBienBan;
         private System.Windows.Forms.Label label57;
@@ -2805,5 +2817,11 @@
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.TextBox tbDoanhThu;
         private System.Windows.Forms.ComboBox cbMaUuDaiSD;
+        private System.Windows.Forms.ComboBox cbTimKiemTT;
+        private System.Windows.Forms.ComboBox cbTimKiemTTBG;
+        private System.Windows.Forms.ComboBox cbTimKiemKH;
+        private System.Windows.Forms.ComboBox cbTimKiemDSDH;
+        private System.Windows.Forms.ComboBox cbTimBG;
+        private System.Windows.Forms.ComboBox cbTimKiemUD;
     }
 }
