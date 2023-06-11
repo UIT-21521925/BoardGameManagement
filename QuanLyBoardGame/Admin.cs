@@ -9,6 +9,8 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Sources;
@@ -121,9 +123,20 @@ namespace QuanLyBoardGame
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Xử lý tệp tin đã chọn ở đây
                     string selectedFilePath = openFileDialog.FileName;
-                    // Tiếp theo, bạn có thể thực hiện các thao tác khác với tệp tin ảnh này
+
+                    try
+                    {
+                        // Tải ảnh từ file được chọn
+                        Image image = Image.FromFile(selectedFilePath);
+
+                        // Gán ảnh vào PictureBox
+                        pbHinhanh.Image = image;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Không thể tải ảnh. Lỗi: " + ex.Message);
+                    }
                 }
             }
         }
@@ -245,14 +258,92 @@ namespace QuanLyBoardGame
 
         private void bThemTT_Click(object sender, EventArgs e)
         {
-            var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("TenLBG", ObjectId.Parse(cbTheLoai.Text));
+            var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("TenLBG", cbTheLoai.Text);
+            List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
+            LoaiBG lbg = filteredLBGs[0];
+            if (pbHinhanh.Image != null)
+            {
+                // Kiểm tra xem ảnh có được tải từ máy tính hay từ đường dẫn cụ thể
+                if (pbHinhanh.ImageLocation != null)
+                {
+                    // Đường dẫn của ảnh nếu đã được tải từ một đường dẫn cụ thể
+                    string imageURL = pbHinhanh.ImageLocation;
+
+                    // Lưu đường dẫn ảnh vào cơ sở dữ liệu
+                    var ttbg = new ThongTinBG(tbTenBoardGame.Text, int.Parse(nudSoNguoiChoi.Text),
+                        int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text), imageURL,
+                        cbTinhTrangTTBG.Text, lbg.MaLBG);
+
+                    collection_BG.InsertOne(ttbg);
+
+                    // Hiển thị thông báo lưu thành công (tuỳ chỉnh theo nhu cầu)
+                    MessageBox.Show("Lưu thông tin Board Game thành công!");
+
+                    // Tiếp tục các thao tác khác sau khi lưu vào cơ sở dữ liệu
+                    ReadAllDocuments_ThongTinBG();
+                }
+                else
+                {
+                    // Xử lý trường hợp ảnh đã được tải từ máy tính
+                    string imageName = Guid.NewGuid().ToString() + ".jpg"; // Tạo tên ngẫu nhiên cho tệp tin ảnh
+
+                    string rootFolder = Directory.GetCurrentDirectory(); // Đường dẫn đến thư mục gốc của phần mềm
+
+                    string imageFolder = Path.Combine(rootFolder, "Image");
+
+                    // Kiểm tra và tạo thư mục "Image" nếu chưa tồn tại
+                    if (!Directory.Exists(imageFolder))
+                    {
+                        Directory.CreateDirectory(imageFolder);
+                    }
+
+                    // Cấp quyền ghi cho thư mục "Image"
+                    DirectoryInfo imageDirectoryInfo = new DirectoryInfo(imageFolder);
+                    DirectorySecurity imageDirectorySecurity = imageDirectoryInfo.GetAccessControl();
+                    imageDirectorySecurity.AddAccessRule(new FileSystemAccessRule(
+                        new SecurityIdentifier(WellKnownSidType.WorldSid, null),
+                        FileSystemRights.Write, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit,
+                        PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
+                    imageDirectoryInfo.SetAccessControl(imageDirectorySecurity);
+
+
+                    string imagePath = Path.Combine(imageFolder, imageName); // Đường dẫn đầy đủ của tệp tin ảnh
+
+                    // Lưu tệp tin ảnh từ PictureBox vào thư mục "Image"
+                    pbHinhanh.Image.Save(imagePath);
+
+                    // Lưu đường dẫn tệp tin ảnh vào cơ sở dữ liệu
+                    string imageURL = imagePath;
+
+
+
+                    // Lưu đường dẫn ảnh vào cơ sở dữ liệu
+                    var ttbg = new ThongTinBG(tbTenBoardGame.Text, int.Parse(nudSoNguoiChoi.Text),
+                        int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text), imageURL,
+                        cbTinhTrangTTBG.Text, lbg.MaLBG);
+
+                    collection_BG.InsertOne(ttbg);
+
+                    // Hiển thị thông báo lưu thành công (tuỳ chỉnh theo nhu cầu)
+                    MessageBox.Show("Lưu thông tin Board Game thành công!");
+                    ReadAllDocuments_ThongTinBG();
+                }
+            }
+            else
+            {
+                // Xử lý trường hợp không có ảnh trong PictureBox
+                MessageBox.Show("Chưa cập nhật ảnh cho booard game!");
+            }
+
+
+           /* var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("TenLBG", ObjectId.Parse(cbTheLoai.Text));
             List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
             LoaiBG lbg = filteredLBGs[0];
             ThongTinBG ttbg = new ThongTinBG(tbTenBoardGame.Text, int.Parse(nudSoNguoiChoi.Text)
                 , int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text)
                 , cbTinhTrangTTBG.Text, lbg.MaLBG);
             collection_BG.InsertOneAsync(ttbg);
-            ReadAllDocuments_ThongTinBG();
+            ReadAllDocuments_ThongTinBG();*/
         }
 
         private void bSua_Click(object sender, EventArgs e)

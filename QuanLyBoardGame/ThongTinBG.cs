@@ -33,7 +33,7 @@ namespace QuanLyBoardGame
         public ObjectId MaLBG { get; set; }
 
         public ThongTinBG(string tenBoardGame,int soNguoiChoi,int doTuoi,
-            int triGia, int giaThue, string tinhTrangBG, ObjectId maLBG)
+            int triGia, int giaThue,string hinhAnh, string tinhTrangBG, ObjectId maLBG)
         {
             TenBoardGame = tenBoardGame;
             SoNguoiChoi = soNguoiChoi;
@@ -41,6 +41,7 @@ namespace QuanLyBoardGame
             TriGia = triGia;
             GiaThue = giaThue;
             SoLuong = 0;
+            HinhAnh = hinhAnh;
             TinhTrangBG = tinhTrangBG;
             MaLBG = maLBG;
         }
