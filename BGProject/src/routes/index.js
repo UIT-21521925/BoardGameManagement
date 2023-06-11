@@ -1,9 +1,9 @@
 
 const siteRouter = require('./siteRouter')
 const bgRouter = require('./bgRouter');
-
+const searchRouter = require('./searchRouter');
 function route(app) {
-    // app.get('/search',siteRouter),
+    app.use('/search',searchRouter),
     app.use('/home', bgRouter),
     app.use('/',siteRouter)
 

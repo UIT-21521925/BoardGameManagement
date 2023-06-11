@@ -8,8 +8,8 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const LOAIBG = new Schema ({
-    MALBG : ObjectId,
-    TENLBG : String
+    _id : ObjectId,
+    TenLBG : String
 });
 
 module.exports = mongoose.model('LOAIBG',LOAIBG,'LoaiBG');

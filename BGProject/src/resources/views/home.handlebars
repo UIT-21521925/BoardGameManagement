@@ -1,53 +1,40 @@
-
 <p class="body-title">TẤT CẢ SẢN PHẨM</p>
 
 <div class="body-content">
- 
-  <div class="boardgames-categories">
-    <h4 class="categories-title">Category</h4>
-    <hr>
-    {{#each LoaiBoardGames}}
-    <form action="/" method="GET">
-    <a class="categories-choice" href="/?id={{this._id}}">
-        <input type="checkbox" class="categories-checkbox" placeholder="" >
-        <label for="choice" class="categories-name">{{this.TenLBG}}</label>
-    </a>
-          </form>
-    {{/each}}
-  </div>
+  
+<div class="boardgames-categories">
+        <h4 class="categories-title">Category</h4>
+        <hr>
+        {{#each LoaiBoardGames}}
+            <a class="categories-choice" href="/search/{{this._id}}">
+                <label for="choice" class="categories-name">{{this.TenLBG}}</label>
+            </a>
+        {{/each}} 
+    </div>
 
-  <div class="boardgames">
-    <div class="grid">
-       {{#each ThongtinBGs}}
-        {{#if SoLuong }}
-        <a class="grid__col-4" href="/home/{{this.TenBoardGame}}">
-          <div class="boardgame">
-            <img src="{{this.HinhAnh}}" alt="" class="boardgame-img">
-            <div class="boardgame-info">
-              <h4 class="boardgame-info__name">{{this.TenBoardGame}}</h4>
-              <p class="boardgame-info__price">Giá : {{this.GiaThue}} VND</p>
-              <p class="boardgame-info__status">Tình trạng: <span class="available"> Còn hàng</span></p>
-              <button class="boardgame-btn js-buy">Giữ chỗ</button>
-            </div>
-          </div>
-        </a>
-        {{else}}
-        <a class="grid__col-4" href="/home/{{this.TenBoardGame}}">
-          <div class="boardgame">
-            <img src="{{this.HinhAnh}}" alt="" class="boardgame-img">
-            <div class="boardgame-info-sold">
-              <h4 class="boardgame-info__name">{{this.TenBoardGame}}</h4>
-              <p class="boardgame-info__price">Giá : {{this.GiaThue}}</p>
-              <p class="boardgame-info__status">Tình trạng: <span class="sold-out">Hết hàng</span> </p>
-            </div>
-          </div>
-        </a>
-        {{/if}}
-      {{/each}}
+   <div class="boardgames">
+        <div class="grid">
+            {{#if ThongtinBGs}}
+                {{#each ThongtinBGs}}
+                    <div class="grid__col-4">
+                        <div class="boardgame">
+                            <img src="{{this.HinhAnh}}" alt="" class="boardgame-img">
+                            <div class="boardgame-info">
+                                <a class="boardgame-info__name" href="/home/{{this.TenBoardGame}}">{{this.TenBoardGame}}</a>
+                                <a class="boardgame-info__price" href="/home/{{this.TenBoardGame}}">Giá: {{this.GiaThue}} VND</a>
+                                {{#if SoLuong }}
+                                    <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng</span></p>
+                                    <button class="boardgame-btn js-buy">Giữ chỗ</button>
+                                {{else}}
+                                    <p class="boardgame-info__status">Tình trạng: <span class="sold-out">Hết hàng</span></p>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <p class="no-results">Không tìm thấy kết quả phù hợp.</p>
+            {{/if}}
+        </div>
     </div>
   </div>
-</div>
-<script>
-   
-</script>
-

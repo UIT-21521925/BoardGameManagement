@@ -10,7 +10,6 @@ const Decimal = Schema.Types.Decimal128;
 
 
 const TTBG = new Schema ({
-    MATTBG: {type :ObjectId},
     TenBoardGame: {type: String},
     SoNguoiChoi : {type: Number, min: 16, index : true},
     DoTuoi : {type : Number, min: 16},
@@ -20,7 +19,7 @@ const TTBG = new Schema ({
     HinhAnh : { type: String },
     LuatChoi : { type: String },
     ThoiGianChoi : { type: Number },
-    LOAIBG: {type: String}
+    MaLBG: {type: String}
 });
 
-module.exports = mongoose.model('ThongTinBG', TTBG, 'ThongTinBG');
+module.exports = mongoose.model('ThongTinBG', TTBG, 'BoardGame');
