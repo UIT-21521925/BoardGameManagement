@@ -570,6 +570,9 @@
             // cbTinhTrangTTBG
             // 
             this.cbTinhTrangTTBG.FormattingEnabled = true;
+            this.cbTinhTrangTTBG.Items.AddRange(new object[] {
+            "Còn hàng",
+            "Hết hàng"});
             this.cbTinhTrangTTBG.Location = new System.Drawing.Point(111, 328);
             this.cbTinhTrangTTBG.Name = "cbTinhTrangTTBG";
             this.cbTinhTrangTTBG.Size = new System.Drawing.Size(204, 21);
@@ -641,7 +644,7 @@
             this.bTaiAnh.TabIndex = 63;
             this.bTaiAnh.Text = "Tải ảnh lên";
             this.bTaiAnh.UseVisualStyleBackColor = true;
-            this.bTaiAnh.Click += new System.EventHandler(this.button8_Click);
+            this.bTaiAnh.Click += new System.EventHandler(this.bTaiAnh_Click);
             // 
             // label22
             // 

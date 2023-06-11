@@ -158,7 +158,7 @@ namespace QuanLyBoardGame
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void bTaiAnh_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -399,9 +399,71 @@ namespace QuanLyBoardGame
 
         private void bSua_Click(object sender, EventArgs e)
         {
-            var updateDef = Builders<ThongTinBG>.Update.Set("TenBoardGame", tbTenBoardGame.Text).Set("SoNguoiChoi", nudSoNguoiChoi.Text).Set("DoTuoi", tbDoTuoi.Text).Set("TriGia", tbTriGia.Text).Set("GiaThue", tbGiaThue.Text).Set("SoLuong", tbSoLuong.Text).Set("TinhTrangBG", cbTinhTrangTTBG.Text).Set("MaLBG", cbTheLoai.Text);
-            collection_BG.UpdateOneAsync(ttbg => ttbg.MaTTBG == ObjectId.Parse(tbMaThongTin.Text), updateDef);
-            ReadAllDocuments_ThongTinBG();
+
+            var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("TenLBG", cbTheLoai.Text);
+            List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
+            LoaiBG lbg = filteredLBGs[0];
+            if (pbHinhanh.ImageLocation != null)
+            {
+                // Đường dẫn của ảnh nếu đã được tải từ một đường dẫn cụ thể
+                string imageURL = pbHinhanh.ImageLocation;
+
+                // Lưu đường dẫn ảnh vào cơ sở dữ liệu
+                var ttbg = new ThongTinBG(tbTenBoardGame.Text, int.Parse(nudSoNguoiChoi.Text),
+                    int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text), imageURL,
+                    cbTinhTrangTTBG.Text, lbg.MaLBG);
+
+                collection_BG.InsertOne(ttbg);
+
+                // Hiển thị thông báo lưu thành công (tuỳ chỉnh theo nhu cầu)
+                MessageBox.Show("Cập nhật thông tin Board Game thành công!");
+
+                // Tiếp tục các thao tác khác sau khi lưu vào cơ sở dữ liệu
+                ReadAllDocuments_ThongTinBG();
+            }
+            else
+            {
+                // Xử lý trường hợp ảnh đã được tải từ máy tính
+                string imageName = Guid.NewGuid().ToString() + ".jpg"; // Tạo tên ngẫu nhiên cho tệp tin ảnh
+
+                string rootFolder = Directory.GetCurrentDirectory(); // Đường dẫn đến thư mục gốc của phần mềm
+
+                string imageFolder = Path.Combine(rootFolder, "Image");
+
+                // Kiểm tra và tạo thư mục "Image" nếu chưa tồn tại
+                if (!Directory.Exists(imageFolder))
+                {
+                    Directory.CreateDirectory(imageFolder);
+                }
+
+                // Cấp quyền ghi cho thư mục "Image"
+                DirectoryInfo imageDirectoryInfo = new DirectoryInfo(imageFolder);
+                DirectorySecurity imageDirectorySecurity = imageDirectoryInfo.GetAccessControl();
+                imageDirectorySecurity.AddAccessRule(new FileSystemAccessRule(
+                    new SecurityIdentifier(WellKnownSidType.WorldSid, null),
+                    FileSystemRights.Write, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit,
+                    PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
+                imageDirectoryInfo.SetAccessControl(imageDirectorySecurity);
+
+
+                string imagePath = Path.Combine(imageFolder, imageName); // Đường dẫn đầy đủ của tệp tin ảnh
+
+                // Lưu tệp tin ảnh từ PictureBox vào thư mục "Image"
+                pbHinhanh.Image.Save(imagePath);
+
+                // Lưu đường dẫn tệp tin ảnh vào cơ sở dữ liệu
+                string imageURL = imagePath;
+
+                // Lưu đường dẫn ảnh vào cơ sở dữ liệu
+                var updateDef = Builders<ThongTinBG>.Update.Set("TenBoardGame", tbTenBoardGame.Text).Set("SoNguoiChoi", nudSoNguoiChoi.Text).Set("DoTuoi", tbDoTuoi.Text).Set("TriGia", tbTriGia.Text).Set("GiaThue", tbGiaThue.Text).Set("SoLuong", tbSoLuong.Text).Set("TinhTrangBG", cbTinhTrangTTBG.Text).Set("MaLBG", lbg.MaLBG).Set("HinhAnh", imageURL);
+                collection_BG.UpdateOneAsync(ttbg => ttbg.MaTTBG == ObjectId.Parse(tbMaThongTin.Text), updateDef);
+                ReadAllDocuments_ThongTinBG();
+
+
+                // Hiển thị thông báo lưu thành công (tuỳ chỉnh theo nhu cầu)
+                MessageBox.Show("Cập nhật thông tin Board Game thành công!");
+            }
+            
         }
 
         private void bMDTT_Click(object sender, EventArgs e)
@@ -1136,5 +1198,7 @@ namespace QuanLyBoardGame
             UuDai ud = filteredUDs[0];
             cbMaUuDaiSD.Text = ud.MaUD.ToString();
         }
+
+       
     }
 }
