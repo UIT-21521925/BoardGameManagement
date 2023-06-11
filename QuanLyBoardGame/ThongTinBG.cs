@@ -25,6 +25,8 @@ namespace QuanLyBoardGame
         public int GiaThue { get; set; }
         [BsonElement("SoLuong")]
         public int SoLuong { get; set; }
+        [BsonElement("HinhAnh")]
+        public string HinhAnh { get; set; }
         [BsonElement("TinhTrangBG")]
         public string TinhTrangBG { get; set; }
         [BsonElement("MaLBG")]

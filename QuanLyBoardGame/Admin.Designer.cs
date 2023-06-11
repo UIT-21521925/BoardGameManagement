@@ -580,6 +580,7 @@
             this.pbHinhanh.Location = new System.Drawing.Point(268, 44);
             this.pbHinhanh.Name = "pbHinhanh";
             this.pbHinhanh.Size = new System.Drawing.Size(165, 127);
+            this.pbHinhanh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbHinhanh.TabIndex = 70;
             this.pbHinhanh.TabStop = false;
             // 

@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Sources;
@@ -166,27 +167,80 @@ namespace QuanLyBoardGame
                 tbTriGia.Text = dgvTT.Rows[0].Cells[4].Value.ToString();
                 tbGiaThue.Text = dgvTT.Rows[0].Cells[5].Value.ToString();
                 tbSoLuong.Text = dgvTT.Rows[0].Cells[6].Value.ToString();
-                cbTinhTrangTTBG.Text = dgvTT.Rows[0].Cells[7].Value.ToString();
-                var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("MaLBG", ObjectId.Parse(dgvTT.Rows[0].Cells[8].Value.ToString()));
+                string imageURL = dgvTT.Rows[0].Cells[7].Value.ToString(); // Lấy đường dẫn URL từ ô Cells[7]
+
+                try
+                {
+                    using (WebClient webClient = new WebClient())
+                    {
+                        // Tải hình ảnh từ đường dẫn URL
+                        byte[] imageData = webClient.DownloadData(imageURL);
+
+                        // Chuyển đổi dữ liệu thành đối tượng Image
+                        using (var ms = new System.IO.MemoryStream(imageData))
+                        {
+                            Image image = Image.FromStream(ms);
+
+                            // Gán hình ảnh vào PictureBox
+                            pbHinhanh.Image = image;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi nếu cần
+                    MessageBox.Show("Đã xảy ra lỗi khi tải hình ảnh: " + ex.Message);
+                }
+
+                cbTinhTrangTTBG.Text = dgvTT.Rows[0].Cells[8].Value.ToString();
+                var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("MaLBG", ObjectId.Parse(dgvTT.Rows[0].Cells[9].Value.ToString()));
                 List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
                 LoaiBG lbg = filteredLBGs[0];
-                cbTheLoai.Text = dgvTT.Rows[0].Cells[8].Value.ToString();
+                cbTheLoai.Text = lbg.TenLBG;
             }
         }
         private void dgvTT_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            tbMaThongTin.Text = dgvTT.Rows[e.RowIndex].Cells[0].Value.ToString();
-            tbTenBoardGame.Text = dgvTT.Rows[e.RowIndex].Cells[1].Value.ToString();
-            nudSoNguoiChoi.Text = dgvTT.Rows[e.RowIndex].Cells[2].Value.ToString();
-            tbDoTuoi.Text = dgvTT.Rows[e.RowIndex].Cells[3].Value.ToString();
-            tbTriGia.Text = dgvTT.Rows[e.RowIndex].Cells[4].Value.ToString();
-            tbGiaThue.Text = dgvTT.Rows[e.RowIndex].Cells[5].Value.ToString();
-            tbSoLuong.Text = dgvTT.Rows[e.RowIndex].Cells[6].Value.ToString();
-            cbTinhTrangTTBG.Text = dgvTT.Rows[e.RowIndex].Cells[7].Value.ToString();
-            var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("MaLBG", ObjectId.Parse(dgvTT.Rows[e.RowIndex].Cells[8].Value.ToString()));
-            List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
-            LoaiBG lbg = filteredLBGs[0];
-            cbTheLoai.Text = lbg.TenLBG;
+            if (e.RowIndex >= 0 && e.RowIndex < dgvTT.Rows.Count)
+            {
+                tbMaThongTin.Text = dgvTT.Rows[e.RowIndex].Cells[0].Value.ToString();
+                tbTenBoardGame.Text = dgvTT.Rows[e.RowIndex].Cells[1].Value.ToString();
+                nudSoNguoiChoi.Text = dgvTT.Rows[e.RowIndex].Cells[2].Value.ToString();
+                tbDoTuoi.Text = dgvTT.Rows[e.RowIndex].Cells[3].Value.ToString();
+                tbTriGia.Text = dgvTT.Rows[e.RowIndex].Cells[4].Value.ToString();
+                tbGiaThue.Text = dgvTT.Rows[e.RowIndex].Cells[5].Value.ToString();
+                tbSoLuong.Text = dgvTT.Rows[e.RowIndex].Cells[6].Value.ToString();
+                string imageURL = dgvTT.Rows[e.RowIndex].Cells[7].Value.ToString(); // Lấy đường dẫn URL từ ô Cells[7]
+
+                try
+                {
+                    using (WebClient webClient = new WebClient())
+                    {
+                        // Tải hình ảnh từ đường dẫn URL
+                        byte[] imageData = webClient.DownloadData(imageURL);
+
+                        // Chuyển đổi dữ liệu thành đối tượng Image
+                        using (var ms = new System.IO.MemoryStream(imageData))
+                        {
+                            Image image = Image.FromStream(ms);
+
+                            // Gán hình ảnh vào PictureBox
+                            pbHinhanh.Image = image;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi nếu cần
+                    MessageBox.Show("Đã xảy ra lỗi khi tải hình ảnh: " + ex.Message);
+                }
+
+                cbTinhTrangTTBG.Text = dgvTT.Rows[e.RowIndex].Cells[8].Value.ToString();
+                var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("MaLBG", ObjectId.Parse(dgvTT.Rows[e.RowIndex].Cells[9].Value.ToString()));
+                List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
+                LoaiBG lbg = filteredLBGs[0];
+                cbTheLoai.Text = lbg.TenLBG;
+            }
         }
 
         private void bThemTT_Click(object sender, EventArgs e)
@@ -218,6 +272,7 @@ namespace QuanLyBoardGame
             tbTriGia.Text = "";
             tbGiaThue.Text = "";
             tbSoLuong.Text = "";
+            pbHinhanh.Image = null;
             cbTinhTrangTTBG.Text = "";
             cbTheLoai.Text = "";
         }
