@@ -1,5 +1,6 @@
 const ThongtinBG = require('../models/TTBG')
 const LoaiBoardGame = require('../models/LOAIBG');
+const { render } = require('node-sass');
 
 
 
@@ -25,19 +26,17 @@ class SiteController {
     .catch(next);
   }
 
-//   searchHandler(req, res, next) {
-//     ThongtinBG.find({MaLBG : req.params._id}).exec()
-//         .then(ThongtinBGs => {
-//             var filteredThongtinBGs = [];
-//             ThongtinBGs.forEach(ThongtinBG => {
-//                 if (ThongtinBG.MaLBG === value) {
-//                     filteredThongtinBGs.push(ThongtinBG.toObject());
-//                 }
-//             });
-//             res.render('home.handlebars', { ThongtinBGs: filteredThongtinBGs });
-//         })
-//         .catch(next);
-// }
+  // search(req, res, next ) {
+  //   ThongtinBG.find({}).exec()
+  //   .then (ThongtinBGs => {
+  //     res.render('home.handlebars', {ThongtinBGs})
+  //   })
+  //   .catch(next);
+
+  // }
+  // store(req, res, next ) {
+  //   res.send('OKE')
+  // }
   
 }
 module.exports = new SiteController();

@@ -9,7 +9,8 @@ const ObjectId = Schema.Types.ObjectId;
 
 const LOAIBG = new Schema ({
     _id : ObjectId,
-    TenLBG : String
+    TenLBG : String,
+    slug : {type : String, slug : '_id'}
 });
 
 module.exports = mongoose.model('LOAIBG',LOAIBG,'LoaiBG');

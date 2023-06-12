@@ -1,15 +1,49 @@
 <p class="body-title">TẤT CẢ SẢN PHẨM</p>
 
 <div class="body-content">
-  
-<div class="boardgames-categories">
-        <h4 class="categories-title">Category</h4>
+     <div class="boardgames-categories">
+        <h4 class="categories-title">Search Filter</h4>
         <hr>
-        {{#each LoaiBoardGames}}
+       <div class="navbar-dropdown">
+            <div class="nav-dropdown">
+                <div class="navbar-dropdown-item active" data-index="0">
+                    Theo The Loai
+                </div>
+                <div class="navbar-dropdown-item active" data-index="1">
+                    Theo Tuoi
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="dropdownitem active" data-index="0">
+                    <p class="dropdownitem-list--item">
+                        The Loai 1
+                    </p>
+                    <p class="dropdownitem-list--item">
+                        The Loai 2
+                    </p>
+                    <p class="dropdownitem-list--item">
+                        The Loai 3
+                    </p>
+                </div>
+               <div class="dropdownitem"  data-index="1">
+                    <p class="dropdownitem-list--item">
+                        The Loai 4
+                    </p>
+                    <p class="dropdownitem-list--item">
+                        The Loai 5
+                    </p>
+                    <p class="dropdownitem-list--item">
+                        The Loai 6
+                    </p>
+                </div>
+            
+            </div>
+       </div>
+        {{!-- {{#each LoaiBoardGames}}
             <a class="categories-choice" href="/search/{{this._id}}">
                 <label for="choice" class="categories-name">{{this.TenLBG}}</label>
             </a>
-        {{/each}} 
+        {{/each}}  --}}
     </div>
 
    <div class="boardgames">
@@ -38,3 +72,46 @@
         </div>
     </div>
   </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const $$ = document.querySelectorAll.bind(document)
+      const $ = document.querySelector.bind(document)
+
+    const category = $('.categories-title');
+    const navbar = $('.navbar-dropdown');
+    const drop = $('.dropdown')
+    const navbarItems = $$('.navbar-dropdown-item');
+    const subnavItems = $$('.dropdownitem');
+    const subnavActive = $('.dropdownitem.active');
+
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.navbar-dropdown') && !event.target.closest('.boardgames-categories')) {
+            navbar.style.display = "none";
+        }
+    });
+
+    category.addEventListener('click', function() {
+        if(navbar.style.display ="none") {
+            navbar.style.display = "block";
+            $(".dropdownitem.active").classList.remove("active");
+
+        }
+        else {
+            navbar.style.display ="none"
+        }
+      }); 
+       
+        navbarItems.forEach((navbarItem, index) => {
+            navbarItem.addEventListener('click', function() {
+              // Loại bỏ class "active" cho tất cả các subnav items
+                subnavItems.forEach(subnavItem => {
+                subnavItem.classList.remove('active');
+            });
+
+                 // Thêm class "active" cho subnav item tương ứng
+                subnavItems[index].classList.add('active');
+         });
+});
+   
+    })
+</script>
