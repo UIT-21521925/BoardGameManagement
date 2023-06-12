@@ -277,3 +277,6 @@ hr {
 
 .dropdownitem-list--item:hover {
   background-color: #989696; }
+
+.isSelected {
+  margin-top: 25px; }

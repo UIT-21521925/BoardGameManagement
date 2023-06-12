@@ -13,7 +13,6 @@ class SiteController {
     .then( (ThongtinBGs) => {
       LoaiBoardGame.find({}).exec()
         .then((LoaiBoardGames) => {
-          console.log(req.query.q)
           LoaiBoardGames = LoaiBoardGames.map(LoaiBG => LoaiBG.toObject());
             ThongtinBGs = ThongtinBGs.map(ThongtinBG => ThongtinBG.toObject());
               res.render('home.handlebars', {
@@ -26,18 +25,22 @@ class SiteController {
     .catch(next);
   }
 
-  // search(req, res, next ) {
-  //   ThongtinBG.find({}).exec()
-  //   .then (ThongtinBGs => {
-  //     res.render('home.handlebars', {ThongtinBGs})
-  //   })
-  //   .catch(next);
+      // get /search/MaLBG
+      searchbox(req,res,next) {
+        const value = req.params._id;
+            ThongtinBG.find({MaLBG : value })
+            .then(ThongtinBGs => {
+                ThongtinBGs = ThongtinBGs.map(ThongtinBG => ThongtinBG.toObject());
+                res.render('boardgame/search.handlebars', {ThongtinBGs : ThongtinBGs })
+            })
+        .catch(next);
+    }
 
-  // }
-  // store(req, res, next ) {
-  //   res.send('OKE')
-  // }
-  
+    // [POST] /search/store
+    // store(req, res, next ) {
+    //   res.send(req.params._id)
+    // }
 }
+
 module.exports = new SiteController();
 

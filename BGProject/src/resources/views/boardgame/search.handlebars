@@ -1,17 +1,23 @@
-<div class="boardgames">
-    <div class="grid">
-        <div class="grid__col-4">
-            <div class="boardgame">
-                <img src="assets/img/1.jpg" alt="" class="boardgame-img">
-            
-                <div class="boardgame-info">
-                <h4 class="boardgame-info__name">TRÒ CHƠI 1</h4>
-                <li class="boardgame-info__price">Giá: 100.000</li>
-                <li class="boardgame-info__status">Tình trạng: Còn hàng</li>
-                </div>
-            
-                <button class="boardgame-btn js-buy">Giữ chỗ</button>
-            </div>
+ <div class="grid isSelected">
+            {{#if ThongtinBGs}}
+                {{#each ThongtinBGs}}
+                    <div class="grid__col-4">
+                        <div class="boardgame">
+                            <img src="{{this.HinhAnh}}" alt="" class="boardgame-img">
+                            <div class="boardgame-info">
+                                <a class="boardgame-info__name" href="/home/{{this.TenBoardGame}}">{{this.TenBoardGame}}</a>
+                                <a class="boardgame-info__price" href="/home/{{this.TenBoardGame}}">Giá: {{this.GiaThue}} VND</a>
+                                {{#if SoLuong }}
+                                    <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng</span></p>
+                                    <button class="boardgame-btn js-buy">Giữ chỗ</button>
+                                {{else}}
+                                    <p class="boardgame-info__status">Tình trạng: <span class="sold-out">Hết hàng</span></p>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <p class="no-results">Không tìm thấy kết quả phù hợp.</p>
+            {{/if}}
         </div>
-    </div>
-</div>
