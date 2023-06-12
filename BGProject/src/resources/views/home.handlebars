@@ -15,15 +15,14 @@
             </div>
             <div class="dropdown">
                 <div class="dropdownitem active" data-index="0">
+                     {{#each LoaiBoardGames}}
                     <p class="dropdownitem-list--item">
-                        The Loai 1
+                        <a class="dropdownitem-list--item" href="/search/{{this._id}}">
+                               {{this.TenLBG}}
+                        </a>
                     </p>
-                    <p class="dropdownitem-list--item">
-                        The Loai 2
-                    </p>
-                    <p class="dropdownitem-list--item">
-                        The Loai 3
-                    </p>
+                     {{/each}}
+                  
                 </div>
                <div class="dropdownitem"  data-index="1">
                     <p class="dropdownitem-list--item">
