@@ -20,7 +20,7 @@ const TTBG = new Schema ({
     LuatChoi : { type: String },
     ThoiGianChoi : { type: Number },
     MaLBG: {type: String},
-    slug : {type : String, slug : 'TenBoardGame', unique : true}
+    slug : {type : String, slug : 'TenLoai'}
 });
 
 module.exports = mongoose.model('ThongTinBG', TTBG, 'BoardGame');

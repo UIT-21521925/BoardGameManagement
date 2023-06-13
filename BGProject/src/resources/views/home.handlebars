@@ -5,21 +5,23 @@
         <h4 class="categories-title">Search Filter</h4>
         <hr>
        <div class="navbar-dropdown">
-            <div class="nav-dropdown">
+            <div class="nav-dropdown-list">
                 <div class="navbar-dropdown-item active" data-index="0">
-                    Theo The Loai
+                    Theo Thể Loại
                 </div>
                 <div class="navbar-dropdown-item active" data-index="1">
-                    Theo Tuoi
+                    Theo Tuổi
                 </div>
             </div>
             <div class="dropdown">
                 <div class="dropdownitem active" data-index="0">
-                    <p class="dropdownitem-list--item"></p>
+                    <ul class="dropdownitem-list--item has-list"></p>
                         {{#each LoaiBoardGames}}
-                            <a href="/search/{{this._id}}">{{this.TenLBG}}</a>
+                           <li class="has-list--item">
+                             <a href="/search/{{this._id}}" class="has-link">{{this.TenLBG}}</a>
+                            </li>
                         {{/each}}
-                     </p>
+                    </ul>
                 </div>
                <div class="dropdownitem"  data-index="1">
                     <p class="dropdownitem-list--item">
@@ -45,8 +47,12 @@
                         <div class="boardgame">
                             <img src="{{this.HinhAnh}}" alt="" class="boardgame-img">
                             <div class="boardgame-info">
-                                <a class="boardgame-info__name" href="/home/{{this.TenBoardGame}}">{{this.TenBoardGame}}</a>
-                                <a class="boardgame-info__price" href="/home/{{this.TenBoardGame}}">Giá: {{this.GiaThue}} VND</a>
+                                 <div class="boardgame-info__item">
+                                    <a class="boardgame-link__name" href="/home/{{this.TenBoardGame}}">{{this.TenBoardGame}}</a>
+                                </div>
+                                <div class="boardgame-info__item">
+                                    <a class="boardgame-link__price" href="/home/{{this.TenBoardGame}}">Giá: {{this.GiaThue}} VND</a>
+                                </div>
                                 {{#if SoLuong }}
                                     <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng</span></p>
                                     <button class="boardgame-btn js-buy">Giữ chỗ</button>

@@ -215,16 +215,27 @@ hr {
     padding-left: 10px;
 }
 
-.boardgame-info__name{
+.boardgame-info__item{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    padding: 3px 0;
+   
+}
+.boardgame-link__name{
     font-size: 19px;
-    padding: 7px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
+    text-decoration: none;
+    color: #000;
+   
 }
-.boardgame-info__price {
+
+.boardgame-link__price {
     padding-bottom: 7px;
+    text-decoration: none;
+    color: #000;
 }
 
 .boardgame-btn {
@@ -312,16 +323,27 @@ hr {
     cursor: pointer;
 }
 .dropdownitem-list--item {
-    padding: 10px 10px;
+    // padding: 10px 10px;
     text-align: center;
 }
 
 .dropdownitem.active {
     display: block;
+    box-shadow: #444242;
 }
-.dropdownitem-list--item:hover {
-     background-color: #989696;
-}
+
 .isSelected {
-    margin-top: 25px;
+    margin-top: 100px;
+    padding-left: 115px;
+}
+.has-link {
+    text-decoration: none;
+    color: #000;
+}
+.has-list--item {
+    list-style: none;
+    padding: 15px 5px;
+}
+.has-list--item:hover {
+    background-color: #989696;
 }
