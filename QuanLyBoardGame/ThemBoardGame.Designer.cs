@@ -215,9 +215,9 @@
             this.bMDTT.BackColor = System.Drawing.Color.Teal;
             this.bMDTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bMDTT.ForeColor = System.Drawing.Color.White;
-            this.bMDTT.Location = new System.Drawing.Point(475, 462);
+            this.bMDTT.Location = new System.Drawing.Point(479, 462);
             this.bMDTT.Name = "bMDTT";
-            this.bMDTT.Size = new System.Drawing.Size(150, 35);
+            this.bMDTT.Size = new System.Drawing.Size(190, 35);
             this.bMDTT.TabIndex = 66;
             this.bMDTT.Text = "Mặc Định";
             this.bMDTT.UseVisualStyleBackColor = false;
@@ -339,9 +339,9 @@
             this.bThemTT.BackColor = System.Drawing.Color.Teal;
             this.bThemTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bThemTT.ForeColor = System.Drawing.Color.White;
-            this.bThemTT.Location = new System.Drawing.Point(265, 462);
+            this.bThemTT.Location = new System.Drawing.Point(213, 462);
             this.bThemTT.Name = "bThemTT";
-            this.bThemTT.Size = new System.Drawing.Size(150, 35);
+            this.bThemTT.Size = new System.Drawing.Size(190, 35);
             this.bThemTT.TabIndex = 52;
             this.bThemTT.Text = "Thêm";
             this.bThemTT.UseVisualStyleBackColor = false;

@@ -180,8 +180,16 @@ namespace QuanLyBoardGame
                 }
             }
             else
+
             {
-                if (cbTheLoai.Text != "")
+                if (tbMaThongTin.Text != "" &
+                tbTenBoardGame.Text != "" &
+                nudSoNguoiChoi.Text != ""&
+                tbDoTuoi.Text != ""&
+                tbTriGia.Text != ""&
+                tbGiaThue.Text != ""&
+                pbHinhanh.Image != null&
+                cbTheLoai.Text != "")
                 {
                     var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("TenLBG", cbTheLoai.Text);
                     List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
@@ -265,7 +273,7 @@ namespace QuanLyBoardGame
                 }
                 else
                 {
-                    MessageBox.Show("Chưa nhập thể loại board game!");
+                    MessageBox.Show("Vui lòng nhập đủ thông tin board game!");
                 }
             }
         }

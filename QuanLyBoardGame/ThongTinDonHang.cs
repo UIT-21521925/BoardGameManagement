@@ -97,7 +97,27 @@ namespace QuanLyBoardGame
 
         private void bDaTra_Click(object sender, EventArgs e)
         {
-            dh.TrangThai = "Da tra";
+            var updateDefDH = Builders<DonHang>.Update.Set("TrangThai", "Da tra"); 
+            collection_DH.UpdateOneAsync(dh1 => dh1.MaDH == dh.MaDH, updateDefDH);
+
+            var thongTinCTDHquery = Builders<CTDonHang>.Filter.Eq("MaDH", dh.MaDH);
+            List<CTDonHang> filteredCTDHs = collection_CTDH.Find(thongTinCTDHquery).ToList();
+            for(int i = 0; i < filteredCTDHs.Count; i++)
+            {
+                var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaBG", filteredCTDHs[i].MaBG);
+                List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
+                BoardGame bg = filteredBGs[0];
+
+                var updateDefG = Builders<BoardGame>.Update.Set("TinhTrangMuon", "Chua duoc thue");
+                collection_G.UpdateOneAsync(bg1 => bg1.MaBG == bg.MaBG, updateDefG);
+
+                var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
+                List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
+                ThongTinBG ttbg = filteredTTBGs[0];
+
+                var updateDefTTBG = Builders<ThongTinBG>.Update.Inc("SoLuong", 1);
+                collection_BG.UpdateOneAsync(ttbg1 => ttbg1.MaTTBG == ttbg.MaTTBG, updateDefTTBG);
+            }
             MessageBox.Show("Xác nhận đã trả thành công");
             this.Close();
             

@@ -19,12 +19,14 @@ namespace QuanLyBoardGame
         public string TinhTrangBG { get; set; }
         [BsonElement("TinhTrangMuon")]
         public string TinhTrangMuon { get; set; }
-
+        [BsonElement("DatHang")]
+        public string DatHang { get; set; }
         public BoardGame(ObjectId maTTBG,string tinhTrangBG)
         {
             MaTTBG = maTTBG;
             TinhTrangBG = tinhTrangBG;
             TinhTrangMuon = "Chua duoc thue";
+            DatHang = "";
         }
     }
 }

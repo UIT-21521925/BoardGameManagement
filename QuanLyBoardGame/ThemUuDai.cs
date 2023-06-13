@@ -70,10 +70,21 @@ namespace QuanLyBoardGame
             }
             else
             {
-                UuDai ud = new UuDai(tbTenUuDai.Text, tbMoTa.Text, dtpNgayBD.Value, dtpNgayKT.Value, int.Parse(tbPhanTramGiam.Text), int.Parse(tbSoLuongUD.Text), int.Parse(tbSoLuongQD.Text));
-                collection_UD.InsertOneAsync(ud);
-                MessageBox.Show("Thêm thông tin ưu đãi thành công");
-                this.Hide();
+                if (tbTenUuDai.Text != "" &
+                tbMoTa.Text != "" &
+                dtpNgayBD.Text != "" &
+                dtpNgayKT.Text != "" &
+                tbPhanTramGiam.Text != "0" &
+                tbSoLuongUD.Text != "0") {
+                    UuDai ud = new UuDai(tbTenUuDai.Text, tbMoTa.Text, dtpNgayBD.Value, dtpNgayKT.Value, int.Parse(tbPhanTramGiam.Text), int.Parse(tbSoLuongUD.Text), int.Parse(tbSoLuongQD.Text));
+                    collection_UD.InsertOneAsync(ud);
+                    MessageBox.Show("Thêm thông tin ưu đãi thành công");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin ưu đãi");
+                }
             }
         }
 

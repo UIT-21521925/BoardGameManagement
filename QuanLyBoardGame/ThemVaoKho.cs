@@ -87,13 +87,20 @@ namespace QuanLyBoardGame
             }
             else
             {
-                BoardGame bg = new BoardGame(ObjectId.Parse(tbTTBG.Text), cbTinhTrangBG.Text);
-                collection_G.InsertOneAsync(bg);
-                var filterTTBG = Builders<ThongTinBG>.Filter.Eq("MaTTBG", ttbg.MaTTBG);
-                var updateTTBG = Builders<ThongTinBG>.Update.Inc("SoLuong", 1);
-                collection_BG.UpdateOneAsync(filterTTBG, updateTTBG);
-                MessageBox.Show("Thêm thông tin trong kho thành công");
-                this.Hide();
+                if (cbTinhTrangBG.Text!= "")
+                {
+                    BoardGame bg = new BoardGame(ObjectId.Parse(tbTTBG.Text), cbTinhTrangBG.Text);
+                    collection_G.InsertOneAsync(bg);
+                    var filterTTBG = Builders<ThongTinBG>.Filter.Eq("MaTTBG", ttbg.MaTTBG);
+                    var updateTTBG = Builders<ThongTinBG>.Update.Inc("SoLuong", 1);
+                    collection_BG.UpdateOneAsync(filterTTBG, updateTTBG);
+                    MessageBox.Show("Thêm thông tin trong kho thành công");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập tình trạng board game!");
+                }
             }
         }
 

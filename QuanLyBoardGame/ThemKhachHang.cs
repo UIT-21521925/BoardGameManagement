@@ -67,10 +67,21 @@ namespace QuanLyBoardGame
             }
             else
             {
-                KhachHang kh = new KhachHang(tbTenKhachHang.Text, dtpNgaySinh.Value, tbDiaChi.Text, tbSoDienThoai.Text, tbEmail.Text);
-                collection_KH.InsertOneAsync(kh);
-                MessageBox.Show("Thêm thông tin khách hàng thành công");
-                this.Hide();
+                if (tbTenKhachHang.Text != ""&
+                dtpNgaySinh.Text != ""&
+                tbDiaChi.Text != ""&
+                tbSoDienThoai.Text != ""&
+                tbEmail.Text != "") 
+                {
+                    KhachHang kh = new KhachHang(tbTenKhachHang.Text, dtpNgaySinh.Value, tbDiaChi.Text, tbSoDienThoai.Text, tbEmail.Text);
+                    collection_KH.InsertOneAsync(kh);
+                    MessageBox.Show("Thêm thông tin khách hàng thành công");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin khách hàng");
+                }
             }
         }
 
@@ -82,7 +93,7 @@ namespace QuanLyBoardGame
             tbDiaChi.Text = "";
             tbSoDienThoai.Text = "";
             tbEmail.Text = "";
-            tbSoTichDiem.Text = "";
+            tbSoTichDiem.Text = "0";
         }
     }
 }

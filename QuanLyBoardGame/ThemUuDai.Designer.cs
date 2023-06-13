@@ -123,6 +123,7 @@
             this.tbSoLuongQD.Name = "tbSoLuongQD";
             this.tbSoLuongQD.Size = new System.Drawing.Size(204, 20);
             this.tbSoLuongQD.TabIndex = 79;
+            this.tbSoLuongQD.Text = "0";
             // 
             // label49
             // 
@@ -141,6 +142,7 @@
             this.tbSoLuongUD.Name = "tbSoLuongUD";
             this.tbSoLuongUD.Size = new System.Drawing.Size(204, 20);
             this.tbSoLuongUD.TabIndex = 77;
+            this.tbSoLuongUD.Text = "0";
             // 
             // label48
             // 
@@ -159,6 +161,7 @@
             this.tbPhanTramGiam.Name = "tbPhanTramGiam";
             this.tbPhanTramGiam.Size = new System.Drawing.Size(204, 20);
             this.tbPhanTramGiam.TabIndex = 75;
+            this.tbPhanTramGiam.Text = "0";
             // 
             // label47
             // 
@@ -221,7 +224,7 @@
             this.bMDUuDai.ForeColor = System.Drawing.Color.White;
             this.bMDUuDai.Location = new System.Drawing.Point(349, 428);
             this.bMDUuDai.Name = "bMDUuDai";
-            this.bMDUuDai.Size = new System.Drawing.Size(100, 35);
+            this.bMDUuDai.Size = new System.Drawing.Size(190, 35);
             this.bMDUuDai.TabIndex = 66;
             this.bMDUuDai.Text = "Mặc định";
             this.bMDUuDai.UseVisualStyleBackColor = false;
@@ -268,9 +271,9 @@
             this.bThemUuDai.BackColor = System.Drawing.Color.Teal;
             this.bThemUuDai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bThemUuDai.ForeColor = System.Drawing.Color.White;
-            this.bThemUuDai.Location = new System.Drawing.Point(192, 428);
+            this.bThemUuDai.Location = new System.Drawing.Point(111, 428);
             this.bThemUuDai.Name = "bThemUuDai";
-            this.bThemUuDai.Size = new System.Drawing.Size(100, 35);
+            this.bThemUuDai.Size = new System.Drawing.Size(190, 35);
             this.bThemUuDai.TabIndex = 52;
             this.bThemUuDai.Text = "Thêm";
             this.bThemUuDai.UseVisualStyleBackColor = false;

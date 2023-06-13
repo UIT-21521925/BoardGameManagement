@@ -144,12 +144,13 @@
             this.bMacDinhUD = new System.Windows.Forms.Button();
             this.bTimKiemUD = new System.Windows.Forms.Button();
             this.dgvUuDai = new System.Windows.Forms.DataGridView();
+            this.tpCaiDat = new System.Windows.Forms.TabPage();
             this.panelColor = new System.Windows.Forms.Panel();
             this.bAdmin = new System.Windows.Forms.Button();
             this.bLogOut = new System.Windows.Forms.Button();
             this.bMatKhau = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.tpCaiDat = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panelTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelChoose.SuspendLayout();
@@ -188,6 +189,7 @@
             this.tpDSUuDai.SuspendLayout();
             this.pUuDai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUuDai)).BeginInit();
+            this.tpCaiDat.SuspendLayout();
             this.panelColor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -800,7 +802,6 @@
             this.dtpNgayTraDH.Name = "dtpNgayTraDH";
             this.dtpNgayTraDH.Size = new System.Drawing.Size(204, 20);
             this.dtpNgayTraDH.TabIndex = 39;
-            this.dtpNgayTraDH.ValueChanged += new System.EventHandler(this.dtpNgayTraDH_ValueChanged);
             // 
             // dtpNgayThueDH
             // 
@@ -1603,6 +1604,17 @@
             this.dgvUuDai.TabIndex = 27;
             this.dgvUuDai.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUuDai_CellContentDoubleClick);
             // 
+            // tpCaiDat
+            // 
+            this.tpCaiDat.Controls.Add(this.panel7);
+            this.tpCaiDat.Location = new System.Drawing.Point(4, 4);
+            this.tpCaiDat.Name = "tpCaiDat";
+            this.tpCaiDat.Padding = new System.Windows.Forms.Padding(3);
+            this.tpCaiDat.Size = new System.Drawing.Size(859, 563);
+            this.tpCaiDat.TabIndex = 10;
+            this.tpCaiDat.Text = "Cài đặt";
+            this.tpCaiDat.UseVisualStyleBackColor = true;
+            // 
             // panelColor
             // 
             this.panelColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1668,15 +1680,13 @@
             this.panelMenu.Size = new System.Drawing.Size(94, 463);
             this.panelMenu.TabIndex = 1;
             // 
-            // tpCaiDat
+            // panel7
             // 
-            this.tpCaiDat.Location = new System.Drawing.Point(4, 4);
-            this.tpCaiDat.Name = "tpCaiDat";
-            this.tpCaiDat.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCaiDat.Size = new System.Drawing.Size(859, 563);
-            this.tpCaiDat.TabIndex = 10;
-            this.tpCaiDat.Text = "Cài đặt";
-            this.tpCaiDat.UseVisualStyleBackColor = true;
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(853, 554);
+            this.panel7.TabIndex = 0;
             // 
             // Admin
             // 
@@ -1743,6 +1753,7 @@
             this.pUuDai.ResumeLayout(false);
             this.pUuDai.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUuDai)).EndInit();
+            this.tpCaiDat.ResumeLayout(false);
             this.panelColor.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1871,5 +1882,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvDSKH;
         private System.Windows.Forms.TabPage tpCaiDat;
+        private System.Windows.Forms.Panel panel7;
     }
 }
