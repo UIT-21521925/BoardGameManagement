@@ -10,20 +10,34 @@ namespace QuanLyBoardGame
 {
     internal class DonHang
     {
+
         [BsonId]
 
         public ObjectId MaDH { get; set; }
-        [BsonElement("MaCTDH")]
-        public ObjectId MaCTDH { get; set; }
-        [BsonElement("MaBG")]
-        public ObjectId MaBG { get; set; }
+        [BsonElement("NgayThue")]
+        public DateTime NgayThue { get; set; }
+        [BsonElement("NgayTra")]
+        public DateTime NgayTra { get; set; }
+        [BsonElement("TrangThai")]
+        public string TrangThai { get; set; }
+        [BsonElement("MaKH")]
+        public ObjectId MaKH { get; set; }
+        [BsonElement("MaUD")]
+        public ObjectId MaUD { get; set; }
+        [BsonElement("TienCoc")]
+        public int TienCoc { get; set; }
         [BsonElement("TongTien")]
         public int TongTien { get; set; }
 
-        public DonHang(ObjectId maCTDH,ObjectId maBG)
+        public DonHang(DateTime ngayThue, DateTime ngayTra, string trangThai, ObjectId maKH, ObjectId maUD, int tienCoc, int tongTien)
         {
-           MaCTDH = maCTDH;
-           MaBG = maBG;
+            NgayThue = ngayThue;
+            NgayTra = ngayTra;
+            TrangThai = trangThai;
+            MaKH = maKH;
+            MaUD = maUD;
+            TongTien = tongTien;
+            TienCoc = tienCoc;
         }
     }
 }
