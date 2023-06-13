@@ -246,3 +246,8 @@ C:\Users\Windows 10\Desktop\BG_APP\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csp
 C:\Users\Windows 10\Desktop\BG_APP\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.csproj.CopyComplete
 C:\Users\Windows 10\Desktop\BG_APP\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.exe
 C:\Users\Windows 10\Desktop\BG_APP\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.pdb
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemBoardGame.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemVaoKho.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemKhachHang.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThemUuDai.resources
+C:\Users\ADMIN\Desktop\QuanLyBoardGame\QuanLyBoardGame\obj\Debug\QuanLyBoardGame.ThongTinDonHang.resources

@@ -24,17 +24,20 @@ namespace QuanLyBoardGame
         public ObjectId MaKH { get; set; }
         [BsonElement("MaUD")]
         public ObjectId MaUD { get; set; }
+        [BsonElement("TienCoc")]
+        public int TienCoc { get; set; }
         [BsonElement("TongTien")]
         public int TongTien { get; set; }
 
-        public DonHang(DateTime ngayThue, DateTime ngayTra, string trangThai, ObjectId maKH, ObjectId maUD)
+        public DonHang(DateTime ngayThue, DateTime ngayTra, string trangThai, ObjectId maKH, ObjectId maUD, int tienCoc, int tongTien)
         {
             NgayThue = ngayThue;
             NgayTra = ngayTra;
             TrangThai = trangThai;
             MaKH = maKH;
             MaUD = maUD;
-            TongTien = 0;
+            TongTien = tongTien;
+            TienCoc = tienCoc;
         }
     }
 }
