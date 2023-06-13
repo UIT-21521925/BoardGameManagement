@@ -413,6 +413,7 @@ namespace QuanLyBoardGame
                     for(int j=0;j< filteredDSCTDH.Count; j++)
                     {
                         CTDonHang ctdh = new CTDonHang(dh.MaDH, filteredDSCTDH[j].MaBG);
+                        collection_CTDH.InsertOneAsync(ctdh);
                     }
 
                     var updateTruTichDiemKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", -ud.DiemQuyDoi);
