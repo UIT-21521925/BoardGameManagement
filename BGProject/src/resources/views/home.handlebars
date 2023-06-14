@@ -1,6 +1,6 @@
-<p class="body-title">TẤT CẢ SẢN PHẨM</p>
 
 <div class="body-content">
+    {{!-- search filter --}}
      <div class="boardgames-categories">
         <h4 class="categories-title">Search Filter</h4>
         <hr>
@@ -38,7 +38,7 @@
             </div>
        </div>
     </div>
-
+{{!-- list of boardgames --}}
    <div class="boardgames">
         <div class="grid">
             {{#if ThongtinBGs}}
@@ -55,7 +55,7 @@
                                 </div>
                                 {{#if SoLuong }}
                                     <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng</span></p>
-                                    <button class="boardgame-btn js-buy">Giữ chỗ</button>
+                                    <button class="boardgame-btn modal-buy">Giữ chỗ</button>
                                 {{else}}
                                     <p class="boardgame-info__status">Tình trạng: <span class="sold-out">Hết hàng</span></p>
                                 {{/if}}
@@ -68,7 +68,26 @@
             {{/if}}
         </div>
     </div>
-  </div>
+</div>
+    {{!-- modal input --}}
+    <div class="modal-add">
+        <div class="modal-container-add">
+            <div class="header-modal-add">
+                 Thông tin giữ hàng 
+                <div class="icon-close-add closeModal"><i class="fa-regular fa-circle-xmark"></i></div>
+            </div>
+                {{!-- <form action="/wishlist/find" method="post"> --}}
+            <div class="body-modal-add">
+                <p class="body-add-heading">
+                       Vui lòng nhập số điện thoại của bạn
+                </p>
+                    <input type="text" class="phone-input" name="phone" placeholder="Nhập số điện thoại" value="">
+            </div>
+                    <button class="footer-modal-add">
+                        Giữ hàng
+                    </button>
+        </div>
+    </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
       const $$ = document.querySelectorAll.bind(document)
@@ -80,6 +99,9 @@
     const navbarItems = $$('.navbar-dropdown-item');
     const subnavItems = $$('.dropdownitem');
     const subnavActive = $('.dropdownitem.active');
+    const btnModals = $$('.modal-buy');
+    const openModal = $('.modal-add');
+    const closeModal = $('.closeModal');
 
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.navbar-dropdown') && !event.target.closest('.boardgames-categories')) {
@@ -104,11 +126,20 @@
                 subnavItems.forEach(subnavItem => {
                 subnavItem.classList.remove('active');
             });
-
                  // Thêm class "active" cho subnav item tương ứng
                 subnavItems[index].classList.add('active');
          });
 });
-   
-    })
+
+            btnModals.forEach((btnModal,index) => {
+            btnModal.addEventListener('click', function() {
+                openModal.classList.add('open');
+                closeModal.addEventListener('click', function() {
+                     openModal.classList.remove('open');
+                })
+            })
+        });
+
+
+})
 </script>

@@ -16,10 +16,45 @@
                                                         {{else}}
                                                                 <span class="sold-out">Hết hàng</span></p>
                                                              {{/if}}
-                <button class="boardgame-top__btn date js-buy">Giữ chỗ</button>
+                <button class="boardgame-top__btn date modal-buy">Giữ chỗ</button>
             </div>
        </div>
     </div>
 
-    
 </div>
+ {{!-- modal input --}}
+    <div class="modal-add">
+        <div class="modal-container-add">
+            <div class="header-modal-add">
+                 Thông tin giữ hàng 
+                <div class="icon-close-add closeModal"><i class="fa-regular fa-circle-xmark"></i></div>
+            </div>
+                {{!-- <form action="/wishlist/find" method="post"> --}}
+            <div class="body-modal-add">
+                <p class="body-add-heading">
+                       Vui lòng nhập số điện thoại của bạn
+                </p>
+                    <input type="text" class="phone-input" name="phone" placeholder="Nhập số điện thoại" value="">
+            </div>
+                    <button class="footer-modal-add">
+                        Giữ hàng
+                    </button>
+        </div>
+    </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const $$ = document.querySelectorAll.bind(document)
+    const $ = document.querySelector.bind(document);
+        const openModal = $('.modal-add');
+        const closeModal = $('.closeModal');
+        const btnModal = $('.modal-buy');
+          
+        btnModal.addEventListener('click', function() {
+            openModal.classList.add('open');
+            closeModal.addEventListener('click', function() {
+            openModal.classList.remove('open');
+                })
+            });
+       
+    })
+</script>

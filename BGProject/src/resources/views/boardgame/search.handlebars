@@ -1,6 +1,8 @@
 <div class="boardgames isSelected">
+    <a href="/" class="home">
+        <h4 class="text-home"> <i class="fa-solid fa-backward home-icon"></i> Back to home</h1>
+    </a>
  <div class="grid ">
-   
             {{#if ThongtinBGs}}
                 {{#each ThongtinBGs}}
                     <div class="grid__col-4">
@@ -16,7 +18,7 @@
                              
                                 {{#if SoLuong }}
                                     <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng</span></p>
-                                    <button class="boardgame-btn js-buy">Giữ chỗ</button>
+                                    <button class="boardgame-btn modal-buy">Giữ chỗ</button>
                                 {{else}}
                                     <p class="boardgame-info__status">Tình trạng: <span class="sold-out">Hết hàng</span></p>
                                 {{/if}}
@@ -29,3 +31,41 @@
             {{/if}}
         </div>
 </div>
+{{!-- modal input --}}
+    <div class="modal-add">
+        <div class="modal-container-add">
+            <div class="header-modal-add">
+                 Thông tin giữ hàng 
+                <div class="icon-close-add closeModal"><i class="fa-regular fa-circle-xmark"></i></div>
+            </div>
+                {{!-- <form action="/wishlist/find" method="post"> --}}
+            <div class="body-modal-add">
+                <p class="body-add-heading">
+                       Vui lòng nhập số điện thoại của bạn
+                </p>
+                    <input type="text" class="phone-input" name="phone" placeholder="Nhập số điện thoại" value="">
+            </div>
+                    <button class="footer-modal-add">
+                        Giữ hàng
+                    </button>
+        </div>
+    </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const $$ = document.querySelectorAll.bind(document)
+    const $ = document.querySelector.bind(document);
+        const openModal = $('.modal-add');
+        const closeModal = $('.closeModal');
+        const btnModals = $$('.modal-buy');
+          
+   
+            btnModals.forEach((btnModal,index) => {
+            btnModal.addEventListener('click', function() {
+                openModal.classList.add('open');
+                closeModal.addEventListener('click', function() {
+                     openModal.classList.remove('open');
+                })
+            })
+        });
+    })
+</script>

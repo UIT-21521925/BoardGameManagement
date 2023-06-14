@@ -36,11 +36,8 @@ class SiteController {
         .catch(next);
     }
 
-    // [POST] /search/store
-    // store(req, res, next ) {
-    //   res.send(req.params._id)
-    // }
 }
+// them database 
 
 module.exports = new SiteController();
 
