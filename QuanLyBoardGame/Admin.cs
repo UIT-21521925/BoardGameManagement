@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -26,6 +27,7 @@ namespace QuanLyBoardGame
     {
 
         static MongoClient client = new MongoClient();
+        //static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<ThongTinBG> collection_BG = db.GetCollection<ThongTinBG>("BoardGame");
         static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
@@ -511,6 +513,7 @@ namespace QuanLyBoardGame
                 }
             }
 
+
         }
 
 
@@ -625,51 +628,82 @@ namespace QuanLyBoardGame
 
         private void bLapBaoCao_Click(object sender, EventArgs e)
         {
-
-            int thang = int.Parse(cbChonThang.SelectedItem.ToString());
-            int nam = int.Parse(cbChonNam.SelectedItem.ToString());
-
-            List<DonHang> listCTDHs = collection_DH.AsQueryable().ToList<DonHang>();
-            BaoCao bc = new BaoCao(thang, nam);
-            collection_BC.InsertOneAsync(bc);
-            decimal tongDoanhThu = 0;
-            int soDonHang = 0;
-            int soBienBan = 0;
-            List<DonHang> filteredDHList = new List<DonHang>();
-            foreach (DonHang dh in listCTDHs)
+            if (cbChonThang.Text != "" & cbChonNam.Text != "")
             {
-                // Lấy thông tin ngày tháng năm từ trường DonHang
-                DateTime ngayTra = dh.NgayTra;
+                int thang = int.Parse(cbChonThang.SelectedItem.ToString());
+                int nam = int.Parse(cbChonNam.SelectedItem.ToString());
 
-                // Kiểm tra xem ngày tháng năm có thuộc tháng và năm hiện tại không
-                if (ngayTra.Month == thang && ngayTra.Year == nam)
+                List<LoaiBG> listLBGs = collection_LBG.AsQueryable().ToList<LoaiBG>();
+                List<DonHang> listDHs = collection_DH.AsQueryable().ToList<DonHang>();
+                BaoCao bc = new BaoCao(thang, nam);
+                collection_BC.InsertOneAsync(bc);
+                int tongDoanhThu = 0;
+                int soDonHang = 0;
+                int soBienBan = 0;
+                foreach (LoaiBG lbg in listLBGs)
                 {
-                    CTBaoCao ctbc = new CTBaoCao(dh.MaDH, bc.MaBC);
+                    int soLuongDonHang = 0;
+                    int doanhThu = 0;
+                    foreach (DonHang dh in listDHs)
+                    {
+                        // Lấy thông tin ngày tháng năm từ trường DonHang
+                        DateTime ngayTra = dh.NgayTra;
+
+                        
+                        // Kiểm tra xem ngày tháng năm có thuộc tháng và năm hiện tại không
+                        if (ngayTra.Month == thang && ngayTra.Year == nam)
+                        {
+                            
+                            var thongTinCTDHquery = Builders<CTDonHang>.Filter.Eq("MaDH", dh.MaDH);
+                            List<CTDonHang> filteredCTDHs = collection_CTDH.Find(thongTinCTDHquery).ToList();
+                            foreach (CTDonHang ctdh in filteredCTDHs)
+                            {
+                                var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaBG", ctdh.MaBG);
+                                List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
+                                foreach (BoardGame bg in filteredBGs)
+                                {
+
+                                    var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
+                                    List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
+                                    ThongTinBG ttbg = filteredTTBGs[0];
+
+                                    if(ttbg.MaLBG==lbg.MaLBG){
+                                            soLuongDonHang++;
+                                            doanhThu = doanhThu + ttbg.GiaThue;
+                                     }
+ 
+                                }
+                                var thongTinBBquery = Builders<BienBan>.Filter.Eq("MaCTDH", ctdh.MaCTDH);
+                                List<BienBan> filteredBBs = collection_BB.Find(thongTinBBquery).ToList();
+                                soBienBan += filteredBBs.Count;
+                            }
+                        }
+                        
+                    }
+                    CTBaoCao ctbc = new CTBaoCao(lbg.MaLBG, bc.MaBC, soLuongDonHang, doanhThu);
                     collection_CTBC.InsertOneAsync(ctbc);
 
-                    filteredDHList.Add(dh);
-
                     // Tính tổng doanh thu từng đơn hàng
-                    decimal DoanhThu = dh.TongTien;
+                    
+                    tongDoanhThu += doanhThu;
+                    soDonHang += soLuongDonHang;
 
-                    tongDoanhThu = tongDoanhThu + DoanhThu;
-                    soDonHang += 1;
-                    var thongTinBBquery = Builders<BienBan>.Filter.Eq("MaCTDH", dh.MaDH);
-                    List<BienBan> filteredLPs = collection_BB.Find(thongTinBBquery).ToList();
-                    soBienBan += filteredLPs.Count;
+
 
                 }
-
+                var updateDef = Builders<BaoCao>.Update.Set("TongDoanhThu", tongDoanhThu).Set("SoDonHang", soDonHang).Set("SoBienBan", soBienBan);
+                collection_BC.UpdateOneAsync(nbc => nbc.MaBC == bc.MaBC, updateDef);
+                tbSoDonHang.Text = soDonHang.ToString();
+                tbDoanhThu.Text = tongDoanhThu.ToString();
+                tbSoBienBan.Text = soBienBan.ToString();
+                var thongTinBCquery = Builders<CTBaoCao>.Filter.Eq("MaBC", bc.MaBC);
+                List<CTBaoCao> filteredBCs = collection_CTBC.Find(thongTinBCquery).ToList();
+                dgvBaoCao.DataSource = filteredBCs;
             }
-            var updateDef = Builders<BaoCao>.Update.Set("TongDoanhThu", tongDoanhThu).Set("SoDonHang", soDonHang).Set("SoBienBan", soBienBan);
-            collection_BC.UpdateOneAsync(nbc => nbc.MaBC == bc.MaBC, updateDef);
-            tbSoDonHang.Text = soDonHang.ToString();
-            tbDoanhThu.Text = tongDoanhThu.ToString();
-            tbSoBienBan.Text = soBienBan.ToString();
-            var bindingSourceKH = new BindingSource();
-            bindingSourceKH.DataSource = filteredDHList;
-            dgvBaoCao.DataSource = bindingSourceKH;
-
+            else
+            {
+                MessageBox.Show("Chưa chọn thông tin tháng và năm để lập báo cáo!");
+            }
         }
 
         private void cbMaUuDaiSD_TextChanged(object sender, EventArgs e)

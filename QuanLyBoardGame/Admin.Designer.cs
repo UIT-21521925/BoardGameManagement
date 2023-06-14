@@ -145,12 +145,12 @@
             this.bTimKiemUD = new System.Windows.Forms.Button();
             this.dgvUuDai = new System.Windows.Forms.DataGridView();
             this.tpCaiDat = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panelColor = new System.Windows.Forms.Panel();
             this.bAdmin = new System.Windows.Forms.Button();
             this.bLogOut = new System.Windows.Forms.Button();
             this.bMatKhau = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.panelTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelChoose.SuspendLayout();
@@ -1176,7 +1176,6 @@
             this.cbChonNam.Name = "cbChonNam";
             this.cbChonNam.Size = new System.Drawing.Size(121, 21);
             this.cbChonNam.TabIndex = 37;
-            this.cbChonNam.Text = "Chọn năm";
             // 
             // lTenBaoCao
             // 
@@ -1221,7 +1220,6 @@
             this.cbChonThang.Name = "cbChonThang";
             this.cbChonThang.Size = new System.Drawing.Size(121, 21);
             this.cbChonThang.TabIndex = 34;
-            this.cbChonThang.Text = "Chọn tháng";
             // 
             // dgvBaoCao
             // 
@@ -1615,6 +1613,14 @@
             this.tpCaiDat.Text = "Cài đặt";
             this.tpCaiDat.UseVisualStyleBackColor = true;
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(853, 554);
+            this.panel7.TabIndex = 0;
+            // 
             // panelColor
             // 
             this.panelColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1679,14 +1685,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(94, 463);
             this.panelMenu.TabIndex = 1;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Location = new System.Drawing.Point(3, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(853, 554);
-            this.panel7.TabIndex = 0;
             // 
             // Admin
             // 
