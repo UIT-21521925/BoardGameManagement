@@ -266,8 +266,6 @@ namespace QuanLyBoardGame
         //Quản lí lập đơn hàng
 
         int SoNgayThueMax = 60;
-        
-        
         int PhanTramCoc = 30;
         private void cbTenKhachHang_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -336,7 +334,6 @@ namespace QuanLyBoardGame
             dgvCTDH.DataSource= new List<BoardGame>(); ;
             dtpNgayThueDH.Value = DateTime.Now;
             dtpNgayTraDH.Value = DateTime.Now;
-            cbTinhTrangDH.Text = "";
             cbMaUuDaiSD.Text = "";
             tbTienCoc.Text = "0";
             tbTongTien.Text = "0";
@@ -355,7 +352,6 @@ namespace QuanLyBoardGame
                 UuDai ud = filteredUDs[0];
 
 
-                cbTinhTrangDH.Text = "Chua tra";
                 if (dgvCTDH.Rows.Count > 0)
                 {
                     if (kh.TichDiem > ud.DiemQuyDoi)
@@ -393,7 +389,7 @@ namespace QuanLyBoardGame
                             tbTongTien.Text = tongTien.ToString();
                         }
 
-                        DonHang dh = new DonHang(dtpNgayThueDH.Value, dtpNgayTraDH.Value, cbTinhTrangDH.Text, kh.MaKH, ud.MaUD, int.Parse(tbTienCoc.Text), int.Parse(tbTongTien.Text));
+                        DonHang dh = new DonHang(dtpNgayThueDH.Value, dtpNgayTraDH.Value, "Chua tra", kh.MaKH, ud.MaUD, int.Parse(tbTienCoc.Text), int.Parse(tbTongTien.Text));
                         collection_DH.InsertOneAsync(dh);
 
                         var updateUuDai = Builders<UuDai>.Update.Inc("SoLuong", -1);
@@ -489,10 +485,26 @@ namespace QuanLyBoardGame
                             tongtien += ttbg.GiaThue;
                             tbTongTien.Text = tongtien.ToString();
 
-                            int tiencoc = int.Parse(tbTienCoc.Text);
-                            tiencoc += ttbg.TriGia * PhanTramCoc / 100;
-                            tbTienCoc.Text = tiencoc.ToString();
-
+                            if (bg.TinhTrangBG == "Tray Xuoc")
+                            {
+                                int tiencoc = int.Parse(tbTienCoc.Text);
+                                tiencoc += ttbg.TriGia * (PhanTramCoc-5) / 100;
+                                tbTienCoc.Text = tiencoc.ToString();
+                            }
+                            else
+                            {
+                                if (bg.TinhTrangBG == "Hong")
+                                {
+                                    int tiencoc = int.Parse(tbTienCoc.Text);
+                                    tiencoc += ttbg.TriGia * (PhanTramCoc - 10) / 100;
+                                    tbTienCoc.Text = tiencoc.ToString();
+                                }
+                                else {
+                                    int tiencoc = int.Parse(tbTienCoc.Text);
+                                    tiencoc += ttbg.TriGia * PhanTramCoc / 100;
+                                    tbTienCoc.Text = tiencoc.ToString();
+                                }
+                            }
                             filteredDSCTDH.Add(bg);
                             dgvCTDH.DataSource = filteredDSCTDH;
                             dgvCTDH.Refresh();

@@ -134,12 +134,12 @@
             this.cbTinhTrangMuon.FormattingEnabled = true;
             this.cbTinhTrangMuon.Items.AddRange(new object[] {
             "Dang thue",
-            "Chua duoc thue",
-            "\t"});
+            "Chua duoc thue"});
             this.cbTinhTrangMuon.Location = new System.Drawing.Point(243, 282);
             this.cbTinhTrangMuon.Name = "cbTinhTrangMuon";
             this.cbTinhTrangMuon.Size = new System.Drawing.Size(204, 21);
             this.cbTinhTrangMuon.TabIndex = 70;
+            this.cbTinhTrangMuon.Text = "Chua duoc thue";
             // 
             // label51
             // 

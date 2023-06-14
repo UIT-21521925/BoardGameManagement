@@ -68,8 +68,6 @@
             this.dgvCTDH = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.tbTongTien = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.cbTinhTrangDH = new System.Windows.Forms.ComboBox();
             this.bThemDH = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -576,8 +574,6 @@
             this.panel1.Controls.Add(this.dgvCTDH);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.tbTongTien);
-            this.panel1.Controls.Add(this.label26);
-            this.panel1.Controls.Add(this.cbTinhTrangDH);
             this.panel1.Controls.Add(this.bThemDH);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label12);
@@ -615,7 +611,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(79, 274);
+            this.label14.Location = new System.Drawing.Point(79, 244);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(59, 16);
             this.label14.TabIndex = 68;
@@ -623,7 +619,7 @@
             // 
             // tbTienCoc
             // 
-            this.tbTienCoc.Location = new System.Drawing.Point(151, 274);
+            this.tbTienCoc.Location = new System.Drawing.Point(151, 244);
             this.tbTienCoc.Name = "tbTienCoc";
             this.tbTienCoc.Size = new System.Drawing.Size(204, 20);
             this.tbTienCoc.TabIndex = 67;
@@ -644,7 +640,7 @@
             this.cbMaUuDaiSD.Items.AddRange(new object[] {
             "Da tra",
             "Chua tra"});
-            this.cbMaUuDaiSD.Location = new System.Drawing.Point(151, 238);
+            this.cbMaUuDaiSD.Location = new System.Drawing.Point(151, 208);
             this.cbMaUuDaiSD.Name = "cbMaUuDaiSD";
             this.cbMaUuDaiSD.Size = new System.Drawing.Size(204, 21);
             this.cbMaUuDaiSD.TabIndex = 65;
@@ -717,28 +713,6 @@
             this.tbTongTien.TabIndex = 57;
             this.tbTongTien.Text = "0";
             // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label26.Location = new System.Drawing.Point(13, 205);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(125, 16);
-            this.label26.TabIndex = 56;
-            this.label26.Text = "Tình trạng đơn hàng";
-            // 
-            // cbTinhTrangDH
-            // 
-            this.cbTinhTrangDH.FormattingEnabled = true;
-            this.cbTinhTrangDH.Items.AddRange(new object[] {
-            "Da tra",
-            "Chua tra"});
-            this.cbTinhTrangDH.Location = new System.Drawing.Point(151, 204);
-            this.cbTinhTrangDH.Name = "cbTinhTrangDH";
-            this.cbTinhTrangDH.Size = new System.Drawing.Size(204, 21);
-            this.cbTinhTrangDH.TabIndex = 55;
-            // 
             // bThemDH
             // 
             this.bThemDH.BackColor = System.Drawing.Color.Teal;
@@ -757,7 +731,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(73, 237);
+            this.label13.Location = new System.Drawing.Point(73, 207);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 16);
             this.label13.TabIndex = 51;
@@ -1794,8 +1768,6 @@
         private System.Windows.Forms.Label dtpNgayThue;
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.TabPage tpMacDinh;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.ComboBox cbTinhTrangDH;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.ComboBox cbChonNam;
         private System.Windows.Forms.PictureBox pictureBox1;
