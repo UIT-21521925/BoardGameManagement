@@ -457,7 +457,6 @@ namespace QuanLyBoardGame
             {
                 ThongTinBG ttbg = filteredTTBGs[0];
 
-                
                 if (dgvDanhSachBG.SelectedRows.Count > 0)
                 {
                     // Lấy giá trị từ hàng được chọn
@@ -471,20 +470,35 @@ namespace QuanLyBoardGame
                     // Kiểm tra kết quả cập nhật
                     if (bg.TinhTrangMuon != "Dang thue")
                     {
+                        bool boardGameExists = false;
 
-                        int tongtien = int.Parse(tbTongTien.Text);
-                        tongtien += ttbg.GiaThue;
-                        tbTongTien.Text = tongtien.ToString();
+                        foreach (BoardGame item in filteredDSCTDH)
+                        {
+                            if (item.MaBG == bg.MaBG)
+                            {
+                                boardGameExists = true;
+                                break;
+                            }
+                        }
 
-                        int tiencoc = int.Parse(tbTienCoc.Text);
-                        tiencoc += ttbg.TriGia * PhanTramCoc / 100;
-                        tbTienCoc.Text = tiencoc.ToString();
+                        if (!boardGameExists)
+                        {
+                            int tongtien = int.Parse(tbTongTien.Text);
+                            tongtien += ttbg.GiaThue;
+                            tbTongTien.Text = tongtien.ToString();
 
-                        filteredDSCTDH.Add(bg);
-                        dgvCTDH.DataSource = filteredDSCTDH;
-                        dgvCTDH.Refresh();
+                            int tiencoc = int.Parse(tbTienCoc.Text);
+                            tiencoc += ttbg.TriGia * PhanTramCoc / 100;
+                            tbTienCoc.Text = tiencoc.ToString();
 
-
+                            filteredDSCTDH.Add(bg);
+                            dgvCTDH.DataSource = filteredDSCTDH;
+                            dgvCTDH.Refresh();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Board game đã tồn tại trong danh sách.");
+                        }
                     }
                     else
                     {
@@ -495,11 +509,11 @@ namespace QuanLyBoardGame
                 {
                     MessageBox.Show("Vui lòng chọn một board game để thêm vào đơn hàng.");
                 }
-                
             }
+
         }
 
-        
+
 
 
 
