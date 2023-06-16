@@ -27,7 +27,7 @@ namespace QuanLyBoardGame
     {
 
         //static MongoClient client = new MongoClient();
-        static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
+        static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/?connect=replicaSet");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<ThongTinBG> collection_BG = db.GetCollection<ThongTinBG>("BoardGame");
         static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
@@ -41,10 +41,10 @@ namespace QuanLyBoardGame
         static IMongoCollection<BienBan> collection_BB = db.GetCollection<BienBan>("BienBan");
         static IMongoCollection<LoaiPhat> collection_LP = db.GetCollection<LoaiPhat>("LoaiPhat");
         private TaiKhoan taikhoan;
-        internal Admin(TaiKhoan taikhoan)
+        internal Admin(/*TaiKhoan taikhoan*/)
         {
             InitializeComponent();
-            this.taikhoan = taikhoan;
+            //this.taikhoan = taikhoan;
         }
 
         private void pbLogo_Click(object sender, EventArgs e)
