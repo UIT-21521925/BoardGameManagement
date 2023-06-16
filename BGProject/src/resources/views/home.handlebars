@@ -54,8 +54,10 @@
                                     <a class="boardgame-link__price" href="/home/{{this.TenBoardGame}}">Giá: {{this.GiaThue}} VND</a>
                                 </div>
                                 {{#if SoLuong }}
-                                    <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng</span></p>
-                                    <button class="boardgame-btn modal-buy">Giữ chỗ</button>
+                                    <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng: {{this.SoLuong}}</span></p>
+                                    <button class="boardgame-btn modal-buy" data-bgId="{{this._id}}" >
+                                                                Giữ chỗ
+                                    </button>
                                 {{else}}
                                     <p class="boardgame-info__status">Tình trạng: <span class="sold-out">Hết hàng</span></p>
                                 {{/if}}
@@ -79,9 +81,12 @@
             <form action="/phone" method="POST">
                 <div class="body-modal-add">
                     <p class="body-add-heading">
-                        Vui lòng nhập số điện thoại của bạn
+                        Phiếu giữ hàng
                     </p>
-                        <input type="text" class="phone" name="phone" placeholder="Nhập số điện thoại" value="">
+                    <p id="bgIdValue"></p>
+
+                    <input type="text" class="phone" name="phone" placeholder="Nhập số điện thoại" value="">
+                    <input type="hidden" name="bgId" id="bgIdInput" value="">
                 </div>
                     <button class="footer-modal-add">
                         Giữ hàng
@@ -133,8 +138,15 @@
          });
 });
 
+       //     {{!-- const bgIdInput = openModal.querySelector('.bgId') --}}
             btnModals.forEach((btnModal,index) => {
-            btnModal.addEventListener('click', function() {
+              btnModal.addEventListener('click', function() {
+                // Khi click xảy ra, lấy giá trị bgID từ thuộc tính data-bgId của button 
+                const bgId = btnModal.getAttribute('data-bgId');
+                   // Cập nhật giá trị của thẻ <p> bgIdValue
+                bgIdValue.textContent = `MaTTBG: ${bgId}`;
+                 const bgIdInput = document.getElementById('bgIdInput');
+                bgIdInput.value = bgId;
                 openModal.classList.add('open');
                 closeModal.addEventListener('click', function() {
                      openModal.classList.remove('open');
