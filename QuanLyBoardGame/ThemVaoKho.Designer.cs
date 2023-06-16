@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
             this.tbTTBG = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.label32 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +74,24 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(572, 445);
             this.panel6.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(92, 327);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(139, 16);
+            this.label1.TabIndex = 76;
+            this.label1.Text = "Số điện thoại đặt trước";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(243, 326);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(204, 20);
+            this.textBox1.TabIndex = 75;
             // 
             // label53
             // 
@@ -116,12 +134,12 @@
             this.cbTinhTrangMuon.FormattingEnabled = true;
             this.cbTinhTrangMuon.Items.AddRange(new object[] {
             "Dang thue",
-            "Chua duoc thue",
-            "\t"});
+            "Chua duoc thue"});
             this.cbTinhTrangMuon.Location = new System.Drawing.Point(243, 282);
             this.cbTinhTrangMuon.Name = "cbTinhTrangMuon";
             this.cbTinhTrangMuon.Size = new System.Drawing.Size(204, 21);
             this.cbTinhTrangMuon.TabIndex = 70;
+            this.cbTinhTrangMuon.Text = "Chua duoc thue";
             // 
             // label51
             // 
@@ -164,7 +182,7 @@
             this.bMDBG.ForeColor = System.Drawing.Color.White;
             this.bMDBG.Location = new System.Drawing.Point(319, 367);
             this.bMDBG.Name = "bMDBG";
-            this.bMDBG.Size = new System.Drawing.Size(150, 35);
+            this.bMDBG.Size = new System.Drawing.Size(190, 35);
             this.bMDBG.TabIndex = 66;
             this.bMDBG.Text = "Mặc định";
             this.bMDBG.UseVisualStyleBackColor = false;
@@ -193,9 +211,9 @@
             this.bThemBG.BackColor = System.Drawing.Color.Teal;
             this.bThemBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bThemBG.ForeColor = System.Drawing.Color.White;
-            this.bThemBG.Location = new System.Drawing.Point(124, 367);
+            this.bThemBG.Location = new System.Drawing.Point(95, 367);
             this.bThemBG.Name = "bThemBG";
-            this.bThemBG.Size = new System.Drawing.Size(150, 35);
+            this.bThemBG.Size = new System.Drawing.Size(190, 35);
             this.bThemBG.TabIndex = 52;
             this.bThemBG.Text = "Thêm";
             this.bThemBG.UseVisualStyleBackColor = false;
@@ -233,24 +251,6 @@
             this.label4.Size = new System.Drawing.Size(14, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = " ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(92, 327);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 16);
-            this.label1.TabIndex = 76;
-            this.label1.Text = "Số điện thoại đặt trước";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(243, 326);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 20);
-            this.textBox1.TabIndex = 75;
             // 
             // ThemVaoKho
             // 

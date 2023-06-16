@@ -14,7 +14,8 @@ namespace QuanLyBoardGame
 {
     public partial class ThemUuDai : Form
     {
-        static MongoClient client = new MongoClient();
+        //static MongoClient client = new MongoClient();
+        static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<ThongTinBG> collection_BG = db.GetCollection<ThongTinBG>("BoardGame");
         static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
@@ -70,10 +71,21 @@ namespace QuanLyBoardGame
             }
             else
             {
-                UuDai ud = new UuDai(tbTenUuDai.Text, tbMoTa.Text, dtpNgayBD.Value, dtpNgayKT.Value, int.Parse(tbPhanTramGiam.Text), int.Parse(tbSoLuongUD.Text), int.Parse(tbSoLuongQD.Text));
-                collection_UD.InsertOneAsync(ud);
-                MessageBox.Show("Thêm thông tin ưu đãi thành công");
-                this.Hide();
+                if (tbTenUuDai.Text != "" &
+                tbMoTa.Text != "" &
+                dtpNgayBD.Text != "" &
+                dtpNgayKT.Text != "" &
+                tbPhanTramGiam.Text != "0" &
+                tbSoLuongUD.Text != "0") {
+                    UuDai ud = new UuDai(tbTenUuDai.Text, tbMoTa.Text, dtpNgayBD.Value, dtpNgayKT.Value, int.Parse(tbPhanTramGiam.Text), int.Parse(tbSoLuongUD.Text), int.Parse(tbSoLuongQD.Text));
+                    collection_UD.InsertOneAsync(ud);
+                    MessageBox.Show("Thêm thông tin ưu đãi thành công");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin ưu đãi");
+                }
             }
         }
 

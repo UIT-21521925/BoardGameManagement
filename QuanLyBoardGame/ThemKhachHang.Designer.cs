@@ -128,9 +128,9 @@
             this.bMDKhachHang.BackColor = System.Drawing.Color.Teal;
             this.bMDKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bMDKhachHang.ForeColor = System.Drawing.Color.White;
-            this.bMDKhachHang.Location = new System.Drawing.Point(317, 434);
+            this.bMDKhachHang.Location = new System.Drawing.Point(310, 434);
             this.bMDKhachHang.Name = "bMDKhachHang";
-            this.bMDKhachHang.Size = new System.Drawing.Size(150, 35);
+            this.bMDKhachHang.Size = new System.Drawing.Size(190, 35);
             this.bMDKhachHang.TabIndex = 66;
             this.bMDKhachHang.Text = "Mặc định";
             this.bMDKhachHang.UseVisualStyleBackColor = false;
@@ -153,6 +153,7 @@
             this.tbSoTichDiem.Name = "tbSoTichDiem";
             this.tbSoTichDiem.Size = new System.Drawing.Size(204, 20);
             this.tbSoTichDiem.TabIndex = 64;
+            this.tbSoTichDiem.Text = "0";
             // 
             // label27
             // 
@@ -224,9 +225,9 @@
             this.bThemKhachHang.BackColor = System.Drawing.Color.Teal;
             this.bThemKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bThemKhachHang.ForeColor = System.Drawing.Color.White;
-            this.bThemKhachHang.Location = new System.Drawing.Point(94, 434);
+            this.bThemKhachHang.Location = new System.Drawing.Point(81, 434);
             this.bThemKhachHang.Name = "bThemKhachHang";
-            this.bThemKhachHang.Size = new System.Drawing.Size(150, 35);
+            this.bThemKhachHang.Size = new System.Drawing.Size(190, 35);
             this.bThemKhachHang.TabIndex = 52;
             this.bThemKhachHang.Text = "Thêm";
             this.bThemKhachHang.UseVisualStyleBackColor = false;

@@ -14,7 +14,8 @@ namespace QuanLyBoardGame
 {
     public partial class ThemVaoKho : Form
     {
-        static MongoClient client = new MongoClient();
+        //static MongoClient client = new MongoClient();
+        static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<ThongTinBG> collection_BG = db.GetCollection<ThongTinBG>("BoardGame");
         static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
@@ -87,13 +88,20 @@ namespace QuanLyBoardGame
             }
             else
             {
-                BoardGame bg = new BoardGame(ObjectId.Parse(tbTTBG.Text), cbTinhTrangBG.Text);
-                collection_G.InsertOneAsync(bg);
-                var filterTTBG = Builders<ThongTinBG>.Filter.Eq("MaTTBG", ttbg.MaTTBG);
-                var updateTTBG = Builders<ThongTinBG>.Update.Inc("SoLuong", 1);
-                collection_BG.UpdateOneAsync(filterTTBG, updateTTBG);
-                MessageBox.Show("Thêm thông tin trong kho thành công");
-                this.Hide();
+                if (cbTinhTrangBG.Text!= "")
+                {
+                    BoardGame bg = new BoardGame(ObjectId.Parse(tbTTBG.Text), cbTinhTrangBG.Text);
+                    collection_G.InsertOneAsync(bg);
+                    var filterTTBG = Builders<ThongTinBG>.Filter.Eq("MaTTBG", ttbg.MaTTBG);
+                    var updateTTBG = Builders<ThongTinBG>.Update.Inc("SoLuong", 1);
+                    collection_BG.UpdateOneAsync(filterTTBG, updateTTBG);
+                    MessageBox.Show("Thêm thông tin trong kho thành công");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập tình trạng board game!");
+                }
             }
         }
 

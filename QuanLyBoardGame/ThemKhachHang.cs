@@ -14,7 +14,8 @@ namespace QuanLyBoardGame
 {
     public partial class ThemKhachHang : Form
     {
-        static MongoClient client = new MongoClient();
+        //static MongoClient client = new MongoClient();
+        static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<ThongTinBG> collection_BG = db.GetCollection<ThongTinBG>("BoardGame");
         static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
@@ -67,10 +68,21 @@ namespace QuanLyBoardGame
             }
             else
             {
-                KhachHang kh = new KhachHang(tbTenKhachHang.Text, dtpNgaySinh.Value, tbDiaChi.Text, tbSoDienThoai.Text, tbEmail.Text);
-                collection_KH.InsertOneAsync(kh);
-                MessageBox.Show("Thêm thông tin khách hàng thành công");
-                this.Hide();
+                if (tbTenKhachHang.Text != ""&
+                dtpNgaySinh.Text != ""&
+                tbDiaChi.Text != ""&
+                tbSoDienThoai.Text != ""&
+                tbEmail.Text != "") 
+                {
+                    KhachHang kh = new KhachHang(tbTenKhachHang.Text, dtpNgaySinh.Value, tbDiaChi.Text, tbSoDienThoai.Text, tbEmail.Text);
+                    collection_KH.InsertOneAsync(kh);
+                    MessageBox.Show("Thêm thông tin khách hàng thành công");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin khách hàng");
+                }
             }
         }
 
@@ -82,7 +94,7 @@ namespace QuanLyBoardGame
             tbDiaChi.Text = "";
             tbSoDienThoai.Text = "";
             tbEmail.Text = "";
-            tbSoTichDiem.Text = "";
+            tbSoTichDiem.Text = "0";
         }
     }
 }

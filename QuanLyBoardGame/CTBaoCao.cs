@@ -14,15 +14,26 @@ namespace QuanLyBoardGame
 
         public ObjectId MaCTBC { get; set; }
 
-        [BsonElement("MaCTDH")]
-        public ObjectId MaCTDH { get; set; }
+        [BsonElement("MaLBG")]
+        public ObjectId MaLBG { get; set; }
+
         [BsonElement("MaBC")]
         public ObjectId MaBC { get; set; }
 
-        public CTBaoCao(ObjectId maCTBG, ObjectId maBC)
+        [BsonElement("SoLuongDonHang")]
+        public int SoLuongDonHang { get; set; }
+
+        [BsonElement("DoanhThu")]
+        public int DoanhThu { get; set; }
+
+
+
+        public CTBaoCao(ObjectId maLBG, ObjectId maBC, int soLuongDonHang, int doanhThu)
         {
-            MaCTDH = maCTBG;
+            MaLBG = maLBG;
             MaBC = maBC;
+            SoLuongDonHang = soLuongDonHang;
+            DoanhThu = doanhThu;
         }
     }
 }
