@@ -14,7 +14,8 @@ namespace QuanLyBoardGame
 {
     public partial class ThongTinDonHang : Form
     {
-        static MongoClient client = new MongoClient();
+        //static MongoClient client = new MongoClient();
+        static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<ThongTinBG> collection_BG = db.GetCollection<ThongTinBG>("BoardGame");
         static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
@@ -115,8 +116,7 @@ namespace QuanLyBoardGame
                 List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
                 ThongTinBG ttbg = filteredTTBGs[0];
 
-                var updateDefTTBG = Builders<ThongTinBG>.Update.Inc("SoLuong", 1);
-                collection_BG.UpdateOneAsync(ttbg1 => ttbg1.MaTTBG == ttbg.MaTTBG, updateDefTTBG);
+                
             }
             MessageBox.Show("Xác nhận đã trả thành công");
             this.Close();

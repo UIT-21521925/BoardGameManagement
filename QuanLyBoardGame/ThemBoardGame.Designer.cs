@@ -29,14 +29,10 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label70 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label69 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbThoiGianChoi = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbTinhTrangTTBG = new System.Windows.Forms.ComboBox();
+            this.tbLuatChoi = new System.Windows.Forms.TextBox();
             this.pbHinhanh = new System.Windows.Forms.PictureBox();
             this.tbDoTuoi = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
@@ -72,14 +68,10 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.label70);
-            this.panel4.Controls.Add(this.textBox3);
             this.panel4.Controls.Add(this.label69);
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.tbThoiGianChoi);
             this.panel4.Controls.Add(this.label20);
-            this.panel4.Controls.Add(this.textBox1);
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.cbTinhTrangTTBG);
+            this.panel4.Controls.Add(this.tbLuatChoi);
             this.panel4.Controls.Add(this.pbHinhanh);
             this.panel4.Controls.Add(this.tbDoTuoi);
             this.panel4.Controls.Add(this.label50);
@@ -107,41 +99,23 @@
             this.panel4.Size = new System.Drawing.Size(852, 530);
             this.panel4.TabIndex = 17;
             // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label70.Location = new System.Drawing.Point(476, 425);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(59, 16);
-            this.label70.TabIndex = 78;
-            this.label70.Text = "Tiền cọc";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(545, 421);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(204, 20);
-            this.textBox3.TabIndex = 77;
-            // 
             // label69
             // 
             this.label69.AutoSize = true;
             this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label69.Location = new System.Drawing.Point(86, 381);
+            this.label69.Location = new System.Drawing.Point(447, 324);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(91, 16);
             this.label69.TabIndex = 76;
             this.label69.Text = "Thời gian chơi";
             // 
-            // textBox2
+            // tbThoiGianChoi
             // 
-            this.textBox2.Location = new System.Drawing.Point(184, 377);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 20);
-            this.textBox2.TabIndex = 75;
+            this.tbThoiGianChoi.Location = new System.Drawing.Point(545, 320);
+            this.tbThoiGianChoi.Name = "tbThoiGianChoi";
+            this.tbThoiGianChoi.Size = new System.Drawing.Size(204, 20);
+            this.tbThoiGianChoi.TabIndex = 75;
             // 
             // label20
             // 
@@ -154,34 +128,12 @@
             this.label20.TabIndex = 74;
             this.label20.Text = "Luật chơi";
             // 
-            // textBox1
+            // tbLuatChoi
             // 
-            this.textBox1.Location = new System.Drawing.Point(545, 375);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 20);
-            this.textBox1.TabIndex = 73;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Location = new System.Drawing.Point(472, 323);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 16);
-            this.label9.TabIndex = 72;
-            this.label9.Text = "Tình trạng";
-            // 
-            // cbTinhTrangTTBG
-            // 
-            this.cbTinhTrangTTBG.FormattingEnabled = true;
-            this.cbTinhTrangTTBG.Items.AddRange(new object[] {
-            "Còn hàng",
-            "Hết hàng"});
-            this.cbTinhTrangTTBG.Location = new System.Drawing.Point(545, 322);
-            this.cbTinhTrangTTBG.Name = "cbTinhTrangTTBG";
-            this.cbTinhTrangTTBG.Size = new System.Drawing.Size(204, 21);
-            this.cbTinhTrangTTBG.TabIndex = 71;
+            this.tbLuatChoi.Location = new System.Drawing.Point(545, 375);
+            this.tbLuatChoi.Name = "tbLuatChoi";
+            this.tbLuatChoi.Size = new System.Drawing.Size(204, 20);
+            this.tbLuatChoi.TabIndex = 73;
             // 
             // pbHinhanh
             // 
@@ -240,6 +192,7 @@
             this.tbSoLuong.Name = "tbSoLuong";
             this.tbSoLuong.Size = new System.Drawing.Size(204, 20);
             this.tbSoLuong.TabIndex = 64;
+            this.tbSoLuong.Text = "0";
             // 
             // bTaiAnh
             // 
@@ -352,7 +305,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label15.Location = new System.Drawing.Point(121, 427);
+            this.label15.Location = new System.Drawing.Point(121, 379);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(56, 16);
             this.label15.TabIndex = 49;
@@ -381,7 +334,7 @@
             this.cbTheLoai.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbTheLoai.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbTheLoai.FormattingEnabled = true;
-            this.cbTheLoai.Location = new System.Drawing.Point(184, 427);
+            this.cbTheLoai.Location = new System.Drawing.Point(184, 379);
             this.cbTheLoai.Name = "cbTheLoai";
             this.cbTheLoai.Size = new System.Drawing.Size(204, 21);
             this.cbTheLoai.TabIndex = 43;
@@ -442,14 +395,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbThoiGianChoi;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbTinhTrangTTBG;
+        private System.Windows.Forms.TextBox tbLuatChoi;
         private System.Windows.Forms.PictureBox pbHinhanh;
         private System.Windows.Forms.TextBox tbDoTuoi;
         private System.Windows.Forms.Label label50;

@@ -27,13 +27,15 @@ namespace QuanLyBoardGame
         public int SoLuong { get; set; }
         [BsonElement("HinhAnh")]
         public string HinhAnh { get; set; }
-        [BsonElement("TinhTrangBG")]
-        public string TinhTrangBG { get; set; }
+        [BsonElement("LuatChoi")]
+        public string LuatChoi { get; set; }
+        [BsonElement("ThoiGianChoi")]
+        public int ThoiGianChoi { get; set; }
         [BsonElement("MaLBG")]
         public ObjectId MaLBG { get; set; }
 
         public ThongTinBG(string tenBoardGame,int soNguoiChoi,int doTuoi,
-            int triGia, int giaThue,string hinhAnh, string tinhTrangBG, ObjectId maLBG)
+            int triGia, int giaThue,string hinhAnh, string luatChoi, int thoiGianChoi, ObjectId maLBG)
         {
             TenBoardGame = tenBoardGame;
             SoNguoiChoi = soNguoiChoi;
@@ -42,7 +44,8 @@ namespace QuanLyBoardGame
             GiaThue = giaThue;
             SoLuong = 0;
             HinhAnh = hinhAnh;
-            TinhTrangBG = tinhTrangBG;
+            LuatChoi= luatChoi;
+            ThoiGianChoi = thoiGianChoi;
             MaLBG = maLBG;
         }
     }
