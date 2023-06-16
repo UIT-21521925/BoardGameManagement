@@ -76,17 +76,19 @@
                  Thông tin giữ hàng 
                 <div class="icon-close-add closeModal"><i class="fa-regular fa-circle-xmark"></i></div>
             </div>
-                {{!-- <form action="/wishlist/find" method="post"> --}}
-            <div class="body-modal-add">
-                <p class="body-add-heading">
-                       Vui lòng nhập số điện thoại của bạn
-                </p>
-                    <input type="text" class="phone-input" name="phone" placeholder="Nhập số điện thoại" value="">
-            </div>
+            <form action="/phone" method="POST">
+                <div class="body-modal-add">
+                    <p class="body-add-heading">
+                        Vui lòng nhập số điện thoại của bạn
+                    </p>
+                        <input type="text" class="phone" name="phone" placeholder="Nhập số điện thoại" value="">
+                </div>
                     <button class="footer-modal-add">
                         Giữ hàng
                     </button>
+            </form>
         </div>
+
     </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {

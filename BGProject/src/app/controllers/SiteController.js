@@ -1,5 +1,6 @@
-const ThongtinBG = require('../models/TTBG')
+const ThongtinBG = require('../models/TTBG');
 const LoaiBoardGame = require('../models/LOAIBG');
+const Game = require('../models/Game');
 const { render } = require('node-sass');
 
 
@@ -34,6 +35,12 @@ class SiteController {
                 res.render('boardgame/search.handlebars', {ThongtinBGs : ThongtinBGs })
             })
         .catch(next);
+    }
+
+
+    phone(req,res) {
+      const customerNumber = req.body;
+      res.json(customerNumber);
     }
 
 }
