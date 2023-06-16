@@ -25,7 +25,7 @@ namespace QuanLyBoardGame
         {
             MaTTBG = maTTBG;
             TinhTrangBG = tinhTrangBG;
-            TinhTrangMuon = "Chua duoc thue";
+            TinhTrangMuon = "Chưa được thuê";
             DatHang = "";
         }
     }

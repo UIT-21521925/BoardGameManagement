@@ -106,6 +106,25 @@ namespace QuanLyBoardGame
             LoaiBG lbg = filteredLBGs[0];
             cbTheLoai.Text = lbg.TenLBG;
             bThemTT.Text = "Sửa";
+            if(ttbg.SoLuong != 0)
+            {
+                var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaTTBG", ttbg.MaTTBG) & Builders<BoardGame>.Filter.Eq("TrangThai", "Đang thuê");
+                List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
+                if(filteredBGs.Count < ttbg.SoLuong)
+                {
+                    tbTinhTrang.Text = "Còn hàng";
+                }
+                else 
+                { if (filteredBGs.Count == ttbg.SoLuong) 
+                    {
+                        tbTinhTrang.Text = "Hết hàng";
+                    } 
+                }
+            }
+            else
+            {
+                tbTinhTrang.Text = "Hết hàng";
+            }
         }
 
         bool isImageChanged = false;

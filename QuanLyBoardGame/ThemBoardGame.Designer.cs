@@ -57,6 +57,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbTinhTrang = new System.Windows.Forms.TextBox();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHinhanh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoNguoiChoi)).BeginInit();
@@ -68,6 +70,8 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.tbTinhTrang);
             this.panel4.Controls.Add(this.label69);
             this.panel4.Controls.Add(this.tbThoiGianChoi);
             this.panel4.Controls.Add(this.label20);
@@ -137,7 +141,7 @@
             // 
             // pbHinhanh
             // 
-            this.pbHinhanh.Location = new System.Drawing.Point(545, 89);
+            this.pbHinhanh.Location = new System.Drawing.Point(519, 60);
             this.pbHinhanh.Name = "pbHinhanh";
             this.pbHinhanh.Size = new System.Drawing.Size(165, 127);
             this.pbHinhanh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -196,7 +200,7 @@
             // 
             // bTaiAnh
             // 
-            this.bTaiAnh.Location = new System.Drawing.Point(598, 222);
+            this.bTaiAnh.Location = new System.Drawing.Point(572, 193);
             this.bTaiAnh.Name = "bTaiAnh";
             this.bTaiAnh.Size = new System.Drawing.Size(69, 23);
             this.bTaiAnh.TabIndex = 63;
@@ -209,7 +213,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label22.Location = new System.Drawing.Point(604, 70);
+            this.label22.Location = new System.Drawing.Point(569, 41);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(59, 16);
             this.label22.TabIndex = 62;
@@ -372,6 +376,24 @@
             this.label4.TabIndex = 1;
             this.label4.Text = " ";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(469, 223);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 16);
+            this.label1.TabIndex = 78;
+            this.label1.Text = "Tình trạng";
+            // 
+            // tbTinhTrang
+            // 
+            this.tbTinhTrang.Location = new System.Drawing.Point(545, 219);
+            this.tbTinhTrang.Name = "tbTinhTrang";
+            this.tbTinhTrang.Size = new System.Drawing.Size(204, 20);
+            this.tbTinhTrang.TabIndex = 77;
+            // 
             // ThemBoardGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,5 +445,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbTinhTrang;
     }
 }

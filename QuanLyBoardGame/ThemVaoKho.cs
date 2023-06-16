@@ -81,7 +81,7 @@ namespace QuanLyBoardGame
         {
             if (bThemBG.Text == "Sửa")
             {
-                var updateDef = Builders<BoardGame>.Update.Set("TinhTrangBG", cbTinhTrangBG.Text).Set("TinhTrangMuon", cbTinhTrangMuon.Text);
+                var updateDef = Builders<BoardGame>.Update.Set("TinhTrangBG", cbTinhTrangBG.Text).Set("TinhTrangMuon", cbTinhTrangMuon.Text).Set("DatHang",tbDatHang.Text);
                 collection_G.UpdateOneAsync(bg1 => bg1.MaBG == bg.MaBG, updateDef);
                 MessageBox.Show("Cập nhật thông tin trong kho thành công");
                 this.Hide();

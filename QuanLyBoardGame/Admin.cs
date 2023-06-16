@@ -465,55 +465,119 @@ namespace QuanLyBoardGame
                     BoardGame bg = filteredBGs[0];
 
                     // Kiểm tra kết quả cập nhật
-                    if (bg.TinhTrangBG != "Hong")
+                    if (bg.TinhTrangBG != "Hỏng")
                     {
-                        if (bg.TinhTrangMuon != "Dang thue")
+                        
+                        if (bg.TinhTrangMuon != "Đang thuê")
                         {
-                            bool boardGameExists = false;
-
-                            foreach (BoardGame item in filteredDSCTDH)
+                            if (bg.TinhTrangMuon == "Đặt trước")
                             {
-                                if (item.MaBG == bg.MaBG)
+                                var thongTinKHquery = Builders<KhachHang>.Filter.Eq("TenKH", cbTenKhachHang.Text);
+                                List<KhachHang> filteredKHs = collection_KH.Find(thongTinKHquery).ToList();
+                                if (filteredKHs.Count > 0)
                                 {
-                                    boardGameExists = true;
-                                    break;
-                                }
-                            }
+                                    KhachHang kh = filteredKHs[0];
+                                    if (bg.DatHang == kh.SDT)
+                                    {
+                                        bool boardGameExists = false;
 
-                            if (!boardGameExists)
-                            {
-                                int tongtien = int.Parse(tbTongTien.Text);
-                                tongtien += ttbg.GiaThue;
-                                tbTongTien.Text = tongtien.ToString();
+                                        foreach (BoardGame item in filteredDSCTDH)
+                                        {
+                                            if (item.MaBG == bg.MaBG)
+                                            {
+                                                boardGameExists = true;
+                                                break;
+                                            }
+                                        }
 
-                                if (bg.TinhTrangBG == "Tray Xuoc")
-                                {
-                                    int tiencoc = int.Parse(tbTienCoc.Text);
-                                    tiencoc += ttbg.TriGia * (PhanTramCoc - 5) / 100;
-                                    tbTienCoc.Text = tiencoc.ToString();
+                                        if (!boardGameExists)
+                                        {
+                                            int tongtien = int.Parse(tbTongTien.Text);
+                                            tongtien += ttbg.GiaThue;
+                                            tbTongTien.Text = tongtien.ToString();
+
+                                            if (bg.TinhTrangBG == "Trầy xước")
+                                            {
+                                                int tiencoc = int.Parse(tbTienCoc.Text);
+                                                tiencoc += ttbg.TriGia * (PhanTramCoc - 5) / 100;
+                                                tbTienCoc.Text = tiencoc.ToString();
+                                            }
+                                            else
+                                            {
+
+                                                int tiencoc = int.Parse(tbTienCoc.Text);
+                                                tiencoc += ttbg.TriGia * PhanTramCoc / 100;
+                                                tbTienCoc.Text = tiencoc.ToString();
+
+                                            }
+                                            filteredDSCTDH.Add(bg);
+                                            dgvCTDH.DataSource = filteredDSCTDH;
+                                            dgvCTDH.Refresh();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Board game đã tồn tại trong danh sách.");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Board game đã được đặt trước");
+                                    }
                                 }
                                 else
                                 {
-
-                                    int tiencoc = int.Parse(tbTienCoc.Text);
-                                    tiencoc += ttbg.TriGia * PhanTramCoc / 100;
-                                    tbTienCoc.Text = tiencoc.ToString();
-
+                                    MessageBox.Show("Hãy nhập tên khách hàng");
                                 }
-                                filteredDSCTDH.Add(bg);
-                                dgvCTDH.DataSource = filteredDSCTDH;
-                                dgvCTDH.Refresh();
                             }
                             else
                             {
-                                MessageBox.Show("Board game đã tồn tại trong danh sách.");
+                                bool boardGameExists = false;
+
+                                foreach (BoardGame item in filteredDSCTDH)
+                                {
+                                    if (item.MaBG == bg.MaBG)
+                                    {
+                                        boardGameExists = true;
+                                        break;
+                                    }
+                                }
+
+                                if (!boardGameExists)
+                                {
+                                    int tongtien = int.Parse(tbTongTien.Text);
+                                    tongtien += ttbg.GiaThue;
+                                    tbTongTien.Text = tongtien.ToString();
+
+                                    if (bg.TinhTrangBG == "Trầy xước")
+                                    {
+                                        int tiencoc = int.Parse(tbTienCoc.Text);
+                                        tiencoc += ttbg.TriGia * (PhanTramCoc - 5) / 100;
+                                        tbTienCoc.Text = tiencoc.ToString();
+                                    }
+                                    else
+                                    {
+
+                                        int tiencoc = int.Parse(tbTienCoc.Text);
+                                        tiencoc += ttbg.TriGia * PhanTramCoc / 100;
+                                        tbTienCoc.Text = tiencoc.ToString();
+
+                                    }
+                                    filteredDSCTDH.Add(bg);
+                                    dgvCTDH.DataSource = filteredDSCTDH;
+                                    dgvCTDH.Refresh();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Board game đã tồn tại trong danh sách.");
+                                }
+                            }
+                        
+                            }
+                            else
+                            {
+                                MessageBox.Show("Board game đã được đặt trước hoặc đang được thuê.");
                             }
                         }
-                        else
-                        {
-                            MessageBox.Show("Board game đã được đặt trước hoặc đang được thuê.");
-                        }
-                    }
                     else { 
                         MessageBox.Show("Board game đã bị hỏng."); 
                     }
