@@ -75,7 +75,6 @@ namespace QuanLyBoardGame
                 tbMoTa.Text != "" &
                 dtpNgayBD.Text != "" &
                 dtpNgayKT.Text != "" &
-                tbPhanTramGiam.Text != "0" &
                 tbSoLuongUD.Text != "0") {
                     UuDai ud = new UuDai(tbTenUuDai.Text, tbMoTa.Text, dtpNgayBD.Value, dtpNgayKT.Value, int.Parse(tbPhanTramGiam.Text), int.Parse(tbSoLuongUD.Text), int.Parse(tbSoLuongQD.Text));
                     collection_UD.InsertOneAsync(ud);
@@ -101,6 +100,14 @@ namespace QuanLyBoardGame
             tbPhanTramGiam.Text = "";
             tbSoLuongUD.Text = "";
             tbSoLuongQD.Text = "";
+        }
+
+        private void tbPhanTramGiam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự được hiển thị trong text box
+            }
         }
     }
 }

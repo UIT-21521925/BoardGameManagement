@@ -152,13 +152,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaoCao.cs" />
-    <Compile Include="BienBan.cs" />
-    <Compile Include="BoardGame.cs" />
-    <Compile Include="LoaiPhat.cs" />
-    <Compile Include="LoaiBG.cs" />
-    <Compile Include="CTBaoCao.cs" />
-    <Compile Include="CTDonHang.cs" />
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,7 +164,6 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="DonHang.cs" />
     <Compile Include="DSTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,7 +177,6 @@
       <DependentUpon>fBienBan.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KhachHang.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,7 +184,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaiKhoan.cs" />
+    <Compile Include="ThamSo.cs" />
     <Compile Include="ThemBoardGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,7 +209,6 @@
     <Compile Include="ThemVaoKho.Designer.cs">
       <DependentUpon>ThemVaoKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThongTinBG.cs" />
     <Compile Include="ThongTinDonHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,7 +221,6 @@
     <Compile Include="TTTaiKhoan.Designer.cs">
       <DependentUpon>TTTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="UuDai.cs" />
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>

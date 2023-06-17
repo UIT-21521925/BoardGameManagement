@@ -124,6 +124,7 @@
             this.tbSoLuongQD.Size = new System.Drawing.Size(204, 20);
             this.tbSoLuongQD.TabIndex = 79;
             this.tbSoLuongQD.Text = "0";
+            this.tbSoLuongQD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhanTramGiam_KeyPress);
             // 
             // label49
             // 
@@ -143,6 +144,7 @@
             this.tbSoLuongUD.Size = new System.Drawing.Size(204, 20);
             this.tbSoLuongUD.TabIndex = 77;
             this.tbSoLuongUD.Text = "0";
+            this.tbSoLuongUD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhanTramGiam_KeyPress);
             // 
             // label48
             // 
@@ -162,6 +164,7 @@
             this.tbPhanTramGiam.Size = new System.Drawing.Size(204, 20);
             this.tbPhanTramGiam.TabIndex = 75;
             this.tbPhanTramGiam.Text = "0";
+            this.tbPhanTramGiam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhanTramGiam_KeyPress);
             // 
             // label47
             // 

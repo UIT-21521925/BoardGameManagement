@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpNgayThueDH = new System.Windows.Forms.TextBox();
+            this.dtpNgayTraDH = new System.Windows.Forms.TextBox();
+            this.tbTrangThaiDH = new System.Windows.Forms.TextBox();
+            this.tbUuDaiSD = new System.Windows.Forms.TextBox();
             this.tbTenKH = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tbSdtKH = new System.Windows.Forms.TextBox();
@@ -48,10 +52,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbUuDaiSD = new System.Windows.Forms.TextBox();
-            this.tbTrangThaiDH = new System.Windows.Forms.TextBox();
-            this.dtpNgayTraDH = new System.Windows.Forms.TextBox();
-            this.dtpNgayThueDH = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSBGDH)).BeginInit();
             this.panel3.SuspendLayout();
@@ -86,6 +86,34 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(601, 532);
             this.panel1.TabIndex = 1;
+            // 
+            // dtpNgayThueDH
+            // 
+            this.dtpNgayThueDH.Location = new System.Drawing.Point(221, 131);
+            this.dtpNgayThueDH.Name = "dtpNgayThueDH";
+            this.dtpNgayThueDH.Size = new System.Drawing.Size(204, 20);
+            this.dtpNgayThueDH.TabIndex = 75;
+            // 
+            // dtpNgayTraDH
+            // 
+            this.dtpNgayTraDH.Location = new System.Drawing.Point(221, 171);
+            this.dtpNgayTraDH.Name = "dtpNgayTraDH";
+            this.dtpNgayTraDH.Size = new System.Drawing.Size(204, 20);
+            this.dtpNgayTraDH.TabIndex = 74;
+            // 
+            // tbTrangThaiDH
+            // 
+            this.tbTrangThaiDH.Location = new System.Drawing.Point(221, 205);
+            this.tbTrangThaiDH.Name = "tbTrangThaiDH";
+            this.tbTrangThaiDH.Size = new System.Drawing.Size(204, 20);
+            this.tbTrangThaiDH.TabIndex = 73;
+            // 
+            // tbUuDaiSD
+            // 
+            this.tbUuDaiSD.Location = new System.Drawing.Point(221, 238);
+            this.tbUuDaiSD.Name = "tbUuDaiSD";
+            this.tbUuDaiSD.Size = new System.Drawing.Size(204, 20);
+            this.tbUuDaiSD.TabIndex = 72;
             // 
             // tbTenKH
             // 
@@ -145,6 +173,7 @@
             // 
             this.dgvDSBGDH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDSBGDH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSBGDH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSBGDH.Location = new System.Drawing.Point(38, 361);
             this.dgvDSBGDH.Name = "dgvDSBGDH";
@@ -282,34 +311,6 @@
             this.label3.Size = new System.Drawing.Size(164, 20);
             this.label3.TabIndex = 35;
             this.label3.Text = "Thông tin đơn hàng";
-            // 
-            // tbUuDaiSD
-            // 
-            this.tbUuDaiSD.Location = new System.Drawing.Point(221, 238);
-            this.tbUuDaiSD.Name = "tbUuDaiSD";
-            this.tbUuDaiSD.Size = new System.Drawing.Size(204, 20);
-            this.tbUuDaiSD.TabIndex = 72;
-            // 
-            // tbTrangThaiDH
-            // 
-            this.tbTrangThaiDH.Location = new System.Drawing.Point(221, 205);
-            this.tbTrangThaiDH.Name = "tbTrangThaiDH";
-            this.tbTrangThaiDH.Size = new System.Drawing.Size(204, 20);
-            this.tbTrangThaiDH.TabIndex = 73;
-            // 
-            // dtpNgayTraDH
-            // 
-            this.dtpNgayTraDH.Location = new System.Drawing.Point(221, 171);
-            this.dtpNgayTraDH.Name = "dtpNgayTraDH";
-            this.dtpNgayTraDH.Size = new System.Drawing.Size(204, 20);
-            this.dtpNgayTraDH.TabIndex = 74;
-            // 
-            // dtpNgayThueDH
-            // 
-            this.dtpNgayThueDH.Location = new System.Drawing.Point(221, 131);
-            this.dtpNgayThueDH.Name = "dtpNgayThueDH";
-            this.dtpNgayThueDH.Size = new System.Drawing.Size(204, 20);
-            this.dtpNgayThueDH.TabIndex = 75;
             // 
             // ThongTinDonHang
             // 

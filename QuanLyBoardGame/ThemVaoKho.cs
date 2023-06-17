@@ -61,6 +61,7 @@ namespace QuanLyBoardGame
             tbMaBoardGame.Text = bg.MaBG.ToString();
             cbTinhTrangBG.Text = bg.TinhTrangBG;
             cbTinhTrangMuon.Text = bg.TinhTrangMuon;
+            tbDatHang.Text = bg.DatHang;
             bThemBG.Text = "Sửa";
         }
 

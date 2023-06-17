@@ -190,6 +190,7 @@
             this.tbSoDienThoai.Name = "tbSoDienThoai";
             this.tbSoDienThoai.Size = new System.Drawing.Size(204, 20);
             this.tbSoDienThoai.TabIndex = 58;
+            this.tbSoDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSoDienThoai_KeyPress);
             // 
             // label30
             // 

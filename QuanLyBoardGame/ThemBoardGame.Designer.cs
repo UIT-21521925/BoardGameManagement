@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbTinhTrang = new System.Windows.Forms.TextBox();
             this.label69 = new System.Windows.Forms.Label();
             this.tbThoiGianChoi = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -57,8 +59,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbTinhTrang = new System.Windows.Forms.TextBox();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHinhanh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoNguoiChoi)).BeginInit();
@@ -102,6 +102,24 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(852, 530);
             this.panel4.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(469, 223);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 16);
+            this.label1.TabIndex = 78;
+            this.label1.Text = "Tình trạng";
+            // 
+            // tbTinhTrang
+            // 
+            this.tbTinhTrang.Location = new System.Drawing.Point(545, 219);
+            this.tbTinhTrang.Name = "tbTinhTrang";
+            this.tbTinhTrang.Size = new System.Drawing.Size(204, 20);
+            this.tbTinhTrang.TabIndex = 77;
             // 
             // label69
             // 
@@ -154,6 +172,7 @@
             this.tbDoTuoi.Name = "tbDoTuoi";
             this.tbDoTuoi.Size = new System.Drawing.Size(204, 20);
             this.tbDoTuoi.TabIndex = 69;
+            this.tbDoTuoi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTriGia_KeyPress);
             // 
             // label50
             // 
@@ -236,6 +255,7 @@
             this.tbGiaThue.Name = "tbGiaThue";
             this.tbGiaThue.Size = new System.Drawing.Size(204, 20);
             this.tbGiaThue.TabIndex = 60;
+            this.tbGiaThue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTriGia_KeyPress);
             // 
             // label17
             // 
@@ -254,6 +274,7 @@
             this.tbTriGia.Name = "tbTriGia";
             this.tbTriGia.Size = new System.Drawing.Size(204, 20);
             this.tbTriGia.TabIndex = 58;
+            this.tbTriGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTriGia_KeyPress);
             // 
             // label14
             // 
@@ -375,24 +396,6 @@
             this.label4.Size = new System.Drawing.Size(14, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = " ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(469, 223);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
-            this.label1.TabIndex = 78;
-            this.label1.Text = "Tình trạng";
-            // 
-            // tbTinhTrang
-            // 
-            this.tbTinhTrang.Location = new System.Drawing.Point(545, 219);
-            this.tbTinhTrang.Name = "tbTinhTrang";
-            this.tbTinhTrang.Size = new System.Drawing.Size(204, 20);
-            this.tbTinhTrang.TabIndex = 77;
             // 
             // ThemBoardGame
             // 

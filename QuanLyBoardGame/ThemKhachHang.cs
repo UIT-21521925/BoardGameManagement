@@ -32,6 +32,7 @@ namespace QuanLyBoardGame
         public ThemKhachHang()
         {
             InitializeComponent();
+            tbSoTichDiem.ReadOnly = true;
         }
         internal ThemKhachHang(KhachHang kh)
         {
@@ -74,7 +75,7 @@ namespace QuanLyBoardGame
                 tbSoDienThoai.Text != ""&
                 tbEmail.Text != "") 
                 {
-                    KhachHang kh = new KhachHang(tbTenKhachHang.Text, dtpNgaySinh.Value, tbDiaChi.Text, tbSoDienThoai.Text, tbEmail.Text);
+                    KhachHang kh = new KhachHang(tbTenKhachHang.Text, dtpNgaySinh.Value, tbDiaChi.Text, tbEmail.Text, tbSoDienThoai.Text);
                     collection_KH.InsertOneAsync(kh);
                     MessageBox.Show("Thêm thông tin khách hàng thành công");
                     this.Hide();
@@ -95,6 +96,14 @@ namespace QuanLyBoardGame
             tbSoDienThoai.Text = "";
             tbEmail.Text = "";
             tbSoTichDiem.Text = "0";
+        }
+
+        private void tbSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự được hiển thị trong text box
+            }
         }
     }
 }

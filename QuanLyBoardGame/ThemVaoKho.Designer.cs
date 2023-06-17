@@ -164,6 +164,7 @@
             this.cbTinhTrangBG.Name = "cbTinhTrangBG";
             this.cbTinhTrangBG.Size = new System.Drawing.Size(204, 21);
             this.cbTinhTrangBG.TabIndex = 68;
+            this.cbTinhTrangBG.Text = "Tốt";
             // 
             // label16
             // 
