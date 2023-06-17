@@ -60,6 +60,10 @@ namespace QuanLyBoardGame
                 tpDSUuDai.Enabled = false;
                 bDSTaiKhoan.Enabled = false;
             }
+            HienThiKho();
+            ReadAllDocuments_ThongTinBG();
+            ReadAllDocuments_KH();
+            ReadAllDocuments_UD();
         }
 
         private void pbLogo_Click(object sender, EventArgs e)
@@ -94,7 +98,7 @@ namespace QuanLyBoardGame
            
             tbTienCoc.ReadOnly = true;
             tbTongTien.ReadOnly = true;
-            HienThiKho();
+            
 
         }
         private void bTruyXuatDH_Click(object sender, EventArgs e)
@@ -122,21 +126,21 @@ namespace QuanLyBoardGame
             {
                 cbTimKiemTTBG.Items.Add(ttbg.TenBoardGame);
             }
-            ReadAllDocuments_ThongTinBG();
+            
             List<KhachHang> listKHs = collection_KH.AsQueryable().ToList<KhachHang>();
             cbTimKiemKH.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
             foreach (var kh in listKHs)
             {
                 cbTimKiemKH.Items.Add(kh.TenKH);
             }
-            ReadAllDocuments_KH();
+            
             List<UuDai> listUDs = collection_UD.AsQueryable().ToList<UuDai>();
             cbTimKiemUD.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
             foreach (var ud in listUDs)
             {
                 cbTimKiemUD.Items.Add(ud.TenUD);
             }
-            ReadAllDocuments_UD();
+            
 
         }
 
@@ -457,6 +461,7 @@ namespace QuanLyBoardGame
 
                                 MessageBox.Show("Thêm đơn hàng thành công! ");
                                 filteredDSCTDH = new List<BoardGame>();
+                                HienThiKho();
                             }
                         }
                         else
@@ -478,6 +483,7 @@ namespace QuanLyBoardGame
             {
                 MessageBox.Show("Vui lòng nhập đủ thông tin cho đơn hàng.");
             }
+            
         }
 
        
@@ -808,6 +814,7 @@ namespace QuanLyBoardGame
                                 List<BienBan> filteredBBs = collection_BB.Find(thongTinBBquery).ToList();
                                 soBienBan += filteredBBs.Count;
                             }
+                            
                         }
                         
                     }
@@ -815,7 +822,7 @@ namespace QuanLyBoardGame
                     collection_CTBC.InsertOneAsync(ctbc);
 
                     // Tính tổng doanh thu từng đơn hàng
-                    
+
                     tongDoanhThu += doanhThu;
                     soDonHang += soLuongDonHang;
 
@@ -829,7 +836,27 @@ namespace QuanLyBoardGame
                 tbSoBienBan.Text = soBienBan.ToString();
                 var thongTinBCquery = Builders<CTBaoCao>.Filter.Eq("MaBC", bc.MaBC);
                 List<CTBaoCao> filteredBCs = collection_CTBC.Find(thongTinBCquery).ToList();
-                dgvBaoCao.DataSource = filteredBCs;
+
+                // Tạo DataTable mới
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaLBG", typeof(ObjectId)); 
+                dt.Columns.Add("TenLBG", typeof(string));
+                dt.Columns.Add("SoLuongDonHang", typeof(int));
+
+                // Thêm dữ liệu từ filteredBCs vào DataTable
+                foreach (CTBaoCao item in filteredBCs)
+                {
+                    DataRow row = dt.NewRow();
+                    row["MaLBG"] = item.MaLBG;
+                    var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("MaLBG", item.MaLBG);
+                    List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
+                    LoaiBG lbg1 = filteredLBGs[0];
+                    row["TenLBG"] = lbg1.TenLBG;
+                    row["SoLuongDonHang"] = item.SoLuongDonHang;
+                    dt.Rows.Add(row);
+                }
+
+                dgvBaoCao.DataSource = dt; // Sử dụng DataTable làm nguồn dữ liệu cho DataGridView
             }
             else
             {
