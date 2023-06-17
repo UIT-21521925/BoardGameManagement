@@ -222,6 +222,7 @@ namespace QuanLyBoardGame
         private void bMacDinhTTBG_Click_1(object sender, EventArgs e)
         {
             cbTimKiemTTBG.Text = "";
+            ReadAllDocuments_ThongTinBG();
         }
 
 
@@ -282,13 +283,18 @@ namespace QuanLyBoardGame
            
         }
 
+        public void ReadAllDocuments_KHDH()
+        {
+            List<KhachHang> list = collection_KH.AsQueryable().ToList<KhachHang>();
+            dgvDSKH.DataSource = list;
+
+        }
 
 
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------
         //Quản lí lập đơn hàng
 
-        
+
         private void cbTenKhachHang_SelectedIndexChanged(object sender, EventArgs e)
         {
             var thongTinKHquery = Builders<KhachHang>.Filter.Eq("TenKH", cbTenKhachHang.Text);
@@ -347,6 +353,8 @@ namespace QuanLyBoardGame
         private void bMacDinhBG_Click(object sender, EventArgs e)
         {
             cbTimBG.Text = "";
+            HienThiKho();
+
         }
        
 
@@ -698,6 +706,8 @@ namespace QuanLyBoardGame
         private void bMacDinhDSDH_Click(object sender, EventArgs e)
         {
             cbTimKiemDSDH.Text = "";
+            ReadAllDocuments_KHDH();
+
         }
 
         private void dgvDSKH_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -878,6 +888,7 @@ namespace QuanLyBoardGame
         private void bMacDinhKH_Click_1(object sender, EventArgs e)
         {
             cbTimKiemKH.Text = "";
+            ReadAllDocuments_KH();
         }
 
 
@@ -922,6 +933,7 @@ namespace QuanLyBoardGame
         private void bMacDinhUD_Click_1(object sender, EventArgs e)
         {
             cbTimKiemUD.Text = "";
+            ReadAllDocuments_UD();
         }
 
 
