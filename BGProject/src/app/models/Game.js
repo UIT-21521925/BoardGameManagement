@@ -10,10 +10,10 @@ const Decimal = Schema.Types.Decimal128;
 
 
 const Game = new Schema ({
-    MaTTBG: {type: String},
+    MaTTBG: {type: ObjectId},
     TinhTrangBG: {type: String},
     TinhTrangThue : { type: String },
     DatHang : {type: String}
-})
+}, { versionKey: false })
 
 module.exports = mongoose.model('Game', Game, 'Game');

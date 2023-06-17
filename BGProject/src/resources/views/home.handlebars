@@ -88,12 +88,25 @@
                     <input type="text" class="phone" name="phone" placeholder="Nhập số điện thoại" value="">
                     <input type="hidden" name="bgId" id="bgIdInput" value="">
                 </div>
-                    <button class="footer-modal-add">
-                        Giữ hàng
-                    </button>
+                <button class="footer-modal-add button">
+                      Giữ hàng
+                </button>
             </form>
         </div>
 
+    </div>
+     <div class="successmessage">
+        <div class="modal-container-add">
+           <div class="header-modal-add success">
+                Giữ hàng thành công
+                <div class="icon-close-add closeModal"><i class="fa-regular fa-circle-xmark"></i></div>
+            </div>   
+           <div class="modal-container-content">
+              <p class="modal-container-item">  Vui lòng đến cửa hàng trong thời gian hiệu lực: </p>
+              <p class="modal-container-item" id="expirationDate"> {{ expirationDate }}</p>
+              <p class="modal-container-item">  Địa chỉ cửa hàng : Linh Trung, Thủ Đức </p>
+           </div>
+        </div> 
     </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -109,6 +122,10 @@
     const btnModals = $$('.modal-buy');
     const openModal = $('.modal-add');
     const closeModal = $('.closeModal');
+    const successMessage = $('.successmessage');
+    const expirationDateElement = document.getElementById('expirationDate');
+
+
 
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.navbar-dropdown') && !event.target.closest('.boardgames-categories')) {
@@ -138,22 +155,28 @@
          });
 });
 
-       //     {{!-- const bgIdInput = openModal.querySelector('.bgId') --}}
-            btnModals.forEach((btnModal,index) => {
+         btnModals.forEach((btnModal,index) => {
               btnModal.addEventListener('click', function() {
                 // Khi click xảy ra, lấy giá trị bgID từ thuộc tính data-bgId của button 
                 const bgId = btnModal.getAttribute('data-bgId');
                    // Cập nhật giá trị của thẻ <p> bgIdValue
                 bgIdValue.textContent = `MaTTBG: ${bgId}`;
-                 const bgIdInput = document.getElementById('bgIdInput');
+                const bgIdInput = document.getElementById('bgIdInput');
                 bgIdInput.value = bgId;
+
                 openModal.classList.add('open');
+             
+            // thoi gian hieu luc tu khi khach hang chon Giu Hang
+            document.getElementById("expirationDate").textContent = "{{ expirationDate }}";
                 closeModal.addEventListener('click', function() {
                      openModal.classList.remove('open');
                 })
+ 
             })
         });
 
+
+      
 
 })
 </script>
