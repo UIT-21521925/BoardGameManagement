@@ -135,7 +135,7 @@
             this.cbTinhTrangMuon.Items.AddRange(new object[] {
             "Đang thuê",
             "Chưa được thuê",
-            "Đặt trước"});
+            "Đang giữ hàng"});
             this.cbTinhTrangMuon.Location = new System.Drawing.Point(243, 282);
             this.cbTinhTrangMuon.Name = "cbTinhTrangMuon";
             this.cbTinhTrangMuon.Size = new System.Drawing.Size(204, 21);

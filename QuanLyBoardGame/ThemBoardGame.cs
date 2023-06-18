@@ -76,6 +76,7 @@ namespace QuanLyBoardGame
             tbSoLuong.Text = ttbg.SoLuong.ToString();
             tbLuatChoi.Text =ttbg.LuatChoi.ToString();
             tbThoiGianChoi.Text = ttbg.ThoiGianChoi.ToString();
+            tbLinkAnh.Text = ttbg.HinhAnh.ToString();
             string imageURL = ttbg.HinhAnh.ToString(); // Lấy đường dẫn URL từ ô Cells[7]
 
             try
@@ -108,9 +109,14 @@ namespace QuanLyBoardGame
             bThemTT.Text = "Sửa";
             if(ttbg.SoLuong != 0)
             {
-                var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaTTBG", ttbg.MaTTBG) & Builders<BoardGame>.Filter.Eq("TrangThai", "Đang thuê");
+                var tinhTrangOptions = new List<string> { "Đang thuê", "Đang giữ hàng" };
+                var thongTinBGquery = Builders<BoardGame>.Filter.And(
+                    Builders<BoardGame>.Filter.Eq("MaTTBG", ttbg.MaTTBG),
+                    Builders<BoardGame>.Filter.In("TinhTrangMuon", tinhTrangOptions)
+                );
                 List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
-                if(filteredBGs.Count < ttbg.SoLuong)
+
+                if (filteredBGs.Count < ttbg.SoLuong)
                 {
                     tbTinhTrang.Text = "Còn hàng";
                 }
@@ -135,10 +141,10 @@ namespace QuanLyBoardGame
                 var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("TenLBG", cbTheLoai.Text);
                 List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
                 LoaiBG lbg = filteredLBGs[0];
-                if (pbHinhanh.ImageLocation != null)
-                {
+                //if (pbHinhanh.ImageLocation != null)
+                //{
                     // Đường dẫn của ảnh nếu đã được tải từ một đường dẫn cụ thể
-                    string imageURL = pbHinhanh.ImageLocation;
+                    string imageURL = tbLinkAnh.Text;
 
                     // Lưu đường dẫn ảnh vào cơ sở dữ liệu
                     var updateDef = Builders<ThongTinBG>.Update.Set("TenBoardGame", tbTenBoardGame.Text).Set("SoNguoiChoi", nudSoNguoiChoi.Text).Set("DoTuoi", tbDoTuoi.Text).Set("TriGia", tbTriGia.Text).Set("GiaThue", tbGiaThue.Text).Set("SoLuong", tbSoLuong.Text).Set("MaLBG", lbg.MaLBG).Set("HinhAnh", imageURL);
@@ -146,8 +152,8 @@ namespace QuanLyBoardGame
                     MessageBox.Show("Cập nhật thông tin Board Game thành công!");
                     this.Hide();
 
-                }
-                else
+                //}
+                /*else
                 {
                     // Xử lý trường hợp ảnh đã được tải từ máy tính
                    
@@ -162,7 +168,10 @@ namespace QuanLyBoardGame
 
                         // Kiểm tra và tạo thư mục "Image" nếu chưa tồn tại
                         if (!Directory.Exists(imageFolder))
-                        {
+                        if (!Directory.Exists(imageFolder))
+                        if (!Directory.Exists(imageFolder))
+                        if (!Directory.Exists(imageFolder))
+                                    {
                             Directory.CreateDirectory(imageFolder);
                         }
 
@@ -195,47 +204,47 @@ namespace QuanLyBoardGame
                         this.Hide();
                     }
                     
-                }
+                }*/
             }
             else
 
             {
-                if (tbMaThongTin.Text != "" &
+                if (
                 tbTenBoardGame.Text != "" &
                 nudSoNguoiChoi.Text != ""&
                 tbDoTuoi.Text != ""&
                 tbTriGia.Text != ""&
                 tbGiaThue.Text != ""&
-                pbHinhanh.Image != null&
                 cbTheLoai.Text != ""&
                 tbLuatChoi.Text!=""&
-                tbThoiGianChoi.Text != "")
+                tbThoiGianChoi.Text != ""&tbLinkAnh.Text !="")
                 {
                     var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("TenLBG", cbTheLoai.Text);
                     List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
                     LoaiBG lbg = filteredLBGs[0];
-                    if (pbHinhanh.Image != null)
+                    if (pbHinhanh.Image == null)
                     {
                         // Kiểm tra xem ảnh có được tải từ máy tính hay từ đường dẫn cụ thể
-                        if (pbHinhanh.ImageLocation != null)
+
+                        // Đường dẫn của ảnh nếu đã được tải từ một đường dẫn cụ thể
+                        string imageURL = tbLinkAnh.Text;
+
+                        // Lưu đường dẫn ảnh vào cơ sở dữ liệu
+                        var ttbg = new ThongTinBG(tbTenBoardGame.Text, int.Parse(nudSoNguoiChoi.Text),
+                            int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text), imageURL,
+                           tbLuatChoi.Text, int.Parse(tbThoiGianChoi.Text), lbg.MaLBG);
+
+                        collection_BG.InsertOne(ttbg);
+
+                        // Hiển thị thông báo lưu thành công (tuỳ chỉnh theo nhu cầu)
+                        MessageBox.Show("Lưu thông tin Board Game thành công!");
+                        this.Hide();
+                        // Tiếp tục các thao tác khác sau khi lưu vào cơ sở dữ liệu
+                    }
+                        /*else
                         {
-                            // Đường dẫn của ảnh nếu đã được tải từ một đường dẫn cụ thể
-                            string imageURL = pbHinhanh.ImageLocation;
+                            MessageBox.Show("Nếu không thêm link ảnh thì sẽ bị lỗi hiển thị!");
 
-                            // Lưu đường dẫn ảnh vào cơ sở dữ liệu
-                            var ttbg = new ThongTinBG(tbTenBoardGame.Text, int.Parse(nudSoNguoiChoi.Text),
-                                int.Parse(tbDoTuoi.Text), int.Parse(tbTriGia.Text), int.Parse(tbGiaThue.Text), imageURL,
-                               tbLuatChoi.Text, int.Parse(tbThoiGianChoi.Text), lbg.MaLBG);
-
-                            collection_BG.InsertOne(ttbg);
-
-                            // Hiển thị thông báo lưu thành công (tuỳ chỉnh theo nhu cầu)
-                            MessageBox.Show("Lưu thông tin Board Game thành công!");
-
-                            // Tiếp tục các thao tác khác sau khi lưu vào cơ sở dữ liệu
-                        }
-                        else
-                        {
                             // Xử lý trường hợp ảnh đã được tải từ máy tính
                             string imageName = Guid.NewGuid().ToString() + ".jpg"; // Tạo tên ngẫu nhiên cho tệp tin ảnh
 
@@ -289,7 +298,7 @@ namespace QuanLyBoardGame
                     {
                         // Xử lý trường hợp không có ảnh trong PictureBox
                         MessageBox.Show("Chưa cập nhật ảnh cho booard game!");
-                    }
+                    }*/
                 }
                 else
                 {

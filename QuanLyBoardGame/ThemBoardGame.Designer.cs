@@ -59,6 +59,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbLinkAnh = new System.Windows.Forms.TextBox();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHinhanh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoNguoiChoi)).BeginInit();
@@ -70,6 +72,8 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.tbLinkAnh);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.tbTinhTrang);
             this.panel4.Controls.Add(this.label69);
@@ -108,7 +112,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(469, 223);
+            this.label1.Location = new System.Drawing.Point(469, 328);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 78;
@@ -116,7 +120,7 @@
             // 
             // tbTinhTrang
             // 
-            this.tbTinhTrang.Location = new System.Drawing.Point(545, 219);
+            this.tbTinhTrang.Location = new System.Drawing.Point(545, 324);
             this.tbTinhTrang.Name = "tbTinhTrang";
             this.tbTinhTrang.Size = new System.Drawing.Size(204, 20);
             this.tbTinhTrang.TabIndex = 77;
@@ -126,7 +130,7 @@
             this.label69.AutoSize = true;
             this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label69.Location = new System.Drawing.Point(447, 324);
+            this.label69.Location = new System.Drawing.Point(86, 429);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(91, 16);
             this.label69.TabIndex = 76;
@@ -134,7 +138,7 @@
             // 
             // tbThoiGianChoi
             // 
-            this.tbThoiGianChoi.Location = new System.Drawing.Point(545, 320);
+            this.tbThoiGianChoi.Location = new System.Drawing.Point(184, 425);
             this.tbThoiGianChoi.Name = "tbThoiGianChoi";
             this.tbThoiGianChoi.Size = new System.Drawing.Size(204, 20);
             this.tbThoiGianChoi.TabIndex = 75;
@@ -144,7 +148,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label20.Location = new System.Drawing.Point(478, 379);
+            this.label20.Location = new System.Drawing.Point(478, 429);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(60, 16);
             this.label20.TabIndex = 74;
@@ -152,7 +156,7 @@
             // 
             // tbLuatChoi
             // 
-            this.tbLuatChoi.Location = new System.Drawing.Point(545, 375);
+            this.tbLuatChoi.Location = new System.Drawing.Point(545, 425);
             this.tbLuatChoi.Name = "tbLuatChoi";
             this.tbLuatChoi.Size = new System.Drawing.Size(204, 20);
             this.tbLuatChoi.TabIndex = 73;
@@ -203,7 +207,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label23.Location = new System.Drawing.Point(475, 272);
+            this.label23.Location = new System.Drawing.Point(475, 382);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(60, 16);
             this.label23.TabIndex = 65;
@@ -211,7 +215,7 @@
             // 
             // tbSoLuong
             // 
-            this.tbSoLuong.Location = new System.Drawing.Point(545, 268);
+            this.tbSoLuong.Location = new System.Drawing.Point(545, 378);
             this.tbSoLuong.Name = "tbSoLuong";
             this.tbSoLuong.Size = new System.Drawing.Size(204, 20);
             this.tbSoLuong.TabIndex = 64;
@@ -397,6 +401,24 @@
             this.label4.TabIndex = 1;
             this.label4.Text = " ";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(479, 272);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.TabIndex = 80;
+            this.label2.Text = "Link ảnh";
+            // 
+            // tbLinkAnh
+            // 
+            this.tbLinkAnh.Location = new System.Drawing.Point(545, 268);
+            this.tbLinkAnh.Name = "tbLinkAnh";
+            this.tbLinkAnh.Size = new System.Drawing.Size(204, 20);
+            this.tbLinkAnh.TabIndex = 79;
+            // 
             // ThemBoardGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,5 +472,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbTinhTrang;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbLinkAnh;
     }
 }
