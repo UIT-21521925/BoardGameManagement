@@ -18,7 +18,7 @@
                              
                                 {{#if SoLuong }}
                                     <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng</span></p>
-                                    <button class="boardgame-btn modal-buy">Giữ chỗ</button>
+                                    <button class="boardgame-btn modal-buy" data-bgId="{{this._id}}"> Giữ chỗ</button>
                                 {{else}}
                                     <p class="boardgame-info__status">Tình trạng: <span class="sold-out">Hết hàng</span></p>
                                 {{/if}}
@@ -38,17 +38,34 @@
                  Thông tin giữ hàng 
                 <div class="icon-close-add closeModal"><i class="fa-regular fa-circle-xmark"></i></div>
             </div>
-                {{!-- <form action="/wishlist/find" method="post"> --}}
-            <div class="body-modal-add">
-                <p class="body-add-heading">
-                       Vui lòng nhập số điện thoại của bạn
-                </p>
-                    <input type="text" class="phone-input" name="phone" placeholder="Nhập số điện thoại" value="">
-            </div>
-                    <button class="footer-modal-add">
-                        Giữ hàng
-                    </button>
+           <form action="/phone" method="POST" id="modalForm">
+                <div class="body-modal-add">
+                    <p class="body-add-heading">
+                        Phiếu giữ hàng
+                    </p>
+                    <p id="bgIdValue"  ></p>
+
+                    <input type="text" class="phone" name="phone" placeholder="Nhập số điện thoại" value="" required="true">
+                    <input type="hidden" name="bgId" id="bgIdInput" value="">
+                </div>
+                <button class="footer-modal-add button" id="modalSubmitBtn">
+                      Giữ hàng
+                </button>
+            </form>
         </div>
+    </div>
+     <div class="successmessage" id="successMessage" style="display: none;">
+        <div class="modal-container-add">
+           <div class="header-modal-add success">
+                Giữ hàng thành công
+            </div>   
+           <div class="modal-container-content">
+              <p class="modal-container-item welcome" > Board Game Store xin chân thành cảm ơn! </p>
+              <p class="modal-container-item" id="expiration-message"></p>
+              <p class="modal-container-item">  Địa chỉ cửa hàng : Linh Trung, Thủ Đức </p>
+              <p class="modal-container-item warnning">  Lưu ý: Việc giữ hàng cho quý khách sẽ bị <span class="cancle">HỦY</span> sau thời gian hiệu lực</p>
+           </div>
+        </div> 
     </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -57,15 +74,43 @@
         const openModal = $('.modal-add');
         const closeModal = $('.closeModal');
         const btnModals = $$('.modal-buy');
-          
+        const successMessage = $('.successmessage');
+        const openNotiSuccess = $('.footer-modal-add');
+        const modalForm = document.getElementById('modalForm');
+        const modalSubmitBtn = document.getElementById('modalSubmitBtn');
+        const expirationMessage = document.getElementById('expiration-message');
+
    
             btnModals.forEach((btnModal,index) => {
-            btnModal.addEventListener('click', function() {
-                openModal.classList.add('open');
-                closeModal.addEventListener('click', function() {
-                     openModal.classList.remove('open');
+                btnModal.addEventListener('click', function() {
+                    // Khi click xảy ra, lấy giá trị bgID từ thuộc tính data-bgId của button 
+                    const bgId = btnModal.getAttribute('data-bgId');
+                    // Cập nhật giá trị của thẻ <p> bgIdValue
+                    bgIdValue.textContent = `MaTTBG: ${bgId}`;
+                    const bgIdInput = document.getElementById('bgIdInput');
+                    bgIdInput.value = bgId;
+
+                    openModal.classList.add('open');
+    
+                    modalSubmitBtn.addEventListener('click', function (event) {
+                        // Tắt form giữ hàng
+                        openModal.classList.remove('open');
+                        successMessage.style.display = 'flex';
+                        var expirationDate = new Date();
+                        expirationDate.setHours(expirationDate.getHours() + 24);
+
+                        expirationMessage.innerHTML = 'Thời gian giữ hàng đến: ' + expirationDate.toLocaleString();
+                        // Đặt thời gian chờ 5 giây trước khi tắt thông báo thành công và chuyển hướng
+                        setTimeout(function () {
+                            successMessage.style.display = 'none';
+                            window.location.href = '/'
+                        }, 5000);
+                    })
+
+                    closeModal.addEventListener('click', function() {
+                   openModal.classList.remove('open');
                 })
+                });
             })
-        });
     })
 </script>

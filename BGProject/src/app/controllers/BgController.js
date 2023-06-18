@@ -1,5 +1,6 @@
 
-const ThongtinBG = require('../models/TTBG')
+const ThongtinBG = require('../models/TTBG');
+const Game = require('../models/Game');
 class BgController {
     // get /home/tenbg
     show(req,res,next) {
@@ -10,6 +11,10 @@ class BgController {
         })
         .catch(next);
     }
+
+    //[POST] /home/phonebg
+   
+
 }
 
 

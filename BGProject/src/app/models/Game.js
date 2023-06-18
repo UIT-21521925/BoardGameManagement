@@ -12,7 +12,7 @@ const Decimal = Schema.Types.Decimal128;
 const Game = new Schema ({
     MaTTBG: {type: ObjectId},
     TinhTrangBG: {type: String},
-    TinhTrangThue : { type: String },
+    TinhTrangMuon : { type: String },
     DatHang : {type: String}
 }, { versionKey: false })
 

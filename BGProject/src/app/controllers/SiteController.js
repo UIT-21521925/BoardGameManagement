@@ -3,8 +3,6 @@ const LoaiBoardGame = require('../models/LOAIBG');
 const Game = require('../models/Game');
 const { render } = require('node-sass');
 
-
-
 class SiteController {
 
   index(req, res, next) {
@@ -40,31 +38,20 @@ class SiteController {
 // [POST] /phone
      phone(req,res) {
       const customerNumber = req.body.phone;
-      const bgId = req.body.bgId; //
-      Game.findOne({ DatHang: customerNumber }).exec()
-      .then(result => {
-        if (!result) {
-          // Số điện thoại chưa tồn tại trong cơ sở dữ liệu, lưu số điện thoại mới
-            let newCustomerNumber = new Game({ MaTTBG : bgId, DatHang: customerNumber, TinhTrangThue : 'Đang giữ chỗ', TinhTrangBG:'Good' });
-            return newCustomerNumber.save();
-        } 
-        ThongtinBG.findOneAndUpdate({_id : bgId },{ $inc: { SoLuong: -1}, }).exec()
-      })
-      .then(() => {
-          return ThongtinBG.findOneAndUpdate({_id : bgId} ,{$inc: { SoLuong: -1}, },{ new: true }).exec()
-      })
+      const bgId = req.body.bgId; 
+      Game.findOneAndUpdate(
+        { MaTTBG: bgId, TinhTrangMuon: 'Chưa được thuê', TinhTrangBG: 'Tốt' },
+        { DatHang: customerNumber, TinhTrangMuon: 'Đang giữ hàng' },
+        { new: true }
+      ).exec()
+
       .then(updatedThongtinBG => {
         if (updatedThongtinBG) {
-          // const expirationDate = new Date();
-          // expirationDate.setHours(expirationDate.getHours() + 24); // Cộng thêm 24 giờ
-          // // hien thi tinh trang board game
-          // res.locals.successmessage = true;
-          //  res.cookie('successmessage', true); 
-   //   res.render('/home.handlebars', { expirationDate,successmessage : true, ThongtinBG });
-          res.redirect('/')
+          const expirationDate = new Date();
+          expirationDate.setHours(expirationDate.getHours() + 24); // Cộng thêm 24 giờ
+
         } else {
-          // Không tìm thấy ThongtinBG với ID tương ứng
-          res.status(404).json({ error: 'Không tìm thấy ThongtinBG' });
+          res.status(500).json({ error: error.message });
         }
       })
       
@@ -72,30 +59,7 @@ class SiteController {
         // Xử lý lỗi nếu có
         res.status(500).json({ error: error.message });
       });
-
-
-      Game.findByIdAndRemove(bgId).exec()
-      .then(deletedThongtinBG => {
-        if (deletedThongtinBG) {
-          // Cập nhật số lượng của ThongtinBG
-          return ThongtinBG.findOneAndUpdate({ _id: bgId }, { $inc: { SoLuong: 1 } }, { new: true }).exec();
-        } else {
-          res.status(404).json({ error: 'Không tìm thấy ThongtinBG' });
-        }
-      })
-      .then(updatedThongtinBG => {
-        if (updatedThongtinBG) {
-          res.redirect('/');
-        } else {
-          res.status(404).json({ error: 'Không tìm thấy ThongtinBG' });
-        }
-      })
-      .catch(error => {
-        res.status(500).json({ error: error.message });
-      });
-    }
-  
-
+}
 }
 
 module.exports = new SiteController();
