@@ -104,8 +104,11 @@ namespace QuanLyBoardGame
 
             var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("MaLBG", ttbg.MaLBG);
             List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
-            LoaiBG lbg = filteredLBGs[0];
-            cbTheLoai.Text = lbg.TenLBG;
+            if (filteredLBGs.Count > 0)
+            {
+                LoaiBG lbg = filteredLBGs[0];
+                cbTheLoai.Text = lbg.TenLBG;
+            }
             bThemTT.Text = "Sửa";
             if(ttbg.SoLuong != 0)
             {

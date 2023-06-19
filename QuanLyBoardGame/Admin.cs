@@ -387,8 +387,13 @@ namespace QuanLyBoardGame
                 List<KhachHang> filteredKHs = collection_KH.Find(thongTinKHquery).ToList();
                 KhachHang kh = filteredKHs[0];
 
-                var thongTinDHquery = Builders<DonHang>.Filter.Eq("MaKH", kh.MaKH);
+                var thongTinDHquery = Builders<DonHang>.Filter.And(
+                    Builders<DonHang>.Filter.Eq("MaKH", kh.MaKH),
+                    Builders<DonHang>.Filter.Eq("TrangThai", "Chưa trả")
+                );
+
                 List<DonHang> filteredDHs = collection_DH.Find(thongTinDHquery).ToList();
+
                 if (filteredDHs.Count < thamso.SoDonHangTD)
                 {
 
@@ -730,6 +735,7 @@ namespace QuanLyBoardGame
 
         }
 
+        private int selectedRowIndex = 0;
         private void dgvDSKH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -739,11 +745,14 @@ namespace QuanLyBoardGame
                 var thongTinDHquery = Builders<DonHang>.Filter.Eq("MaKH", ObjectId.Parse(dgvDSKH.Rows[e.RowIndex].Cells[0].Value.ToString()));
                 filteredDHs = collection_DH.Find(thongTinDHquery).ToList();
                 dgvDSDHKH.DataSource = filteredDHs;
+                selectedRowIndex = e.RowIndex;
             }
         }
 
+        
         private void dgvDSDHKH_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0 && e.RowIndex < dgvDSDHKH.Rows.Count)
             {
                 var thongTinDHquery = Builders<DonHang>.Filter.Eq("MaDH", ObjectId.Parse(dgvDSDHKH.Rows[e.RowIndex].Cells[0].Value.ToString()));
@@ -751,7 +760,10 @@ namespace QuanLyBoardGame
                 DonHang dh = filteredDHs[0];
                 ThongTinDonHang thongTinDonHang = new ThongTinDonHang(dh);
                 thongTinDonHang.ShowDialog();
+
+                dgvDSKH.CurrentCell = dgvDSKH.Rows[selectedRowIndex].Cells[0]; // Đặt lại dòng đang chọn
             }
+
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1021,9 +1033,12 @@ namespace QuanLyBoardGame
 
                     var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
                     List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
-                    ThongTinBG ttbg = filteredTTBGs[0];
+                    if (filteredTTBGs.Count > 0)
+                    {
+                        ThongTinBG ttbg = filteredTTBGs[0];
 
-                    row["TenBoardGame"] = ttbg.TenBoardGame;
+                        row["TenBoardGame"] = ttbg.TenBoardGame;
+                    }
                     row["LyDo"] = item.LyDo;
 
                     var thongTinLPquery = Builders<LoaiPhat>.Filter.Eq("MaLP", item.MaLP);

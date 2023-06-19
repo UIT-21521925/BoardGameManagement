@@ -41,7 +41,7 @@
             this.panelView = new System.Windows.Forms.Panel();
             this.tabQuanLy = new System.Windows.Forms.TabControl();
             this.tpMacDinh = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbManHinh = new System.Windows.Forms.PictureBox();
             this.tpThêmDonHang = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
             this.label71 = new System.Windows.Forms.Label();
@@ -180,7 +180,7 @@
             this.panelView.SuspendLayout();
             this.tabQuanLy.SuspendLayout();
             this.tpMacDinh.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbManHinh)).BeginInit();
             this.tpThêmDonHang.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -418,7 +418,7 @@
             // 
             // tpMacDinh
             // 
-            this.tpMacDinh.Controls.Add(this.pictureBox1);
+            this.tpMacDinh.Controls.Add(this.pbManHinh);
             this.tpMacDinh.Location = new System.Drawing.Point(4, 4);
             this.tpMacDinh.Name = "tpMacDinh";
             this.tpMacDinh.Size = new System.Drawing.Size(859, 563);
@@ -426,19 +426,19 @@
             this.tpMacDinh.Text = "Mặc định";
             this.tpMacDinh.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // pbManHinh
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pbManHinh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(858, 557);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbManHinh.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pbManHinh.Image = ((System.Drawing.Image)(resources.GetObject("pbManHinh.Image")));
+            this.pbManHinh.Location = new System.Drawing.Point(3, 3);
+            this.pbManHinh.Name = "pbManHinh";
+            this.pbManHinh.Size = new System.Drawing.Size(858, 557);
+            this.pbManHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbManHinh.TabIndex = 0;
+            this.pbManHinh.TabStop = false;
             // 
             // tpThêmDonHang
             // 
@@ -1619,9 +1619,9 @@
             this.panel13.Controls.Add(this.tbSoBienBan);
             this.panel13.Controls.Add(this.dgvDSBienBan);
             this.panel13.Controls.Add(this.label26);
-            this.panel13.Location = new System.Drawing.Point(3, 0);
+            this.panel13.Location = new System.Drawing.Point(3, 4);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(842, 529);
+            this.panel13.Size = new System.Drawing.Size(842, 525);
             this.panel13.TabIndex = 35;
             // 
             // label27
@@ -1630,7 +1630,7 @@
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label27.Location = new System.Drawing.Point(488, 491);
+            this.label27.Location = new System.Drawing.Point(488, 487);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(120, 18);
             this.label27.TabIndex = 77;
@@ -1639,7 +1639,7 @@
             // tbSoTienPhat
             // 
             this.tbSoTienPhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSoTienPhat.Location = new System.Drawing.Point(614, 490);
+            this.tbSoTienPhat.Location = new System.Drawing.Point(614, 486);
             this.tbSoTienPhat.Name = "tbSoTienPhat";
             this.tbSoTienPhat.Size = new System.Drawing.Size(137, 21);
             this.tbSoTienPhat.TabIndex = 76;
@@ -1650,7 +1650,7 @@
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label58.Location = new System.Drawing.Point(67, 488);
+            this.label58.Location = new System.Drawing.Point(67, 484);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(148, 18);
             this.label58.TabIndex = 75;
@@ -1659,7 +1659,7 @@
             // tbSoBienBan
             // 
             this.tbSoBienBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbSoBienBan.Location = new System.Drawing.Point(217, 488);
+            this.tbSoBienBan.Location = new System.Drawing.Point(217, 484);
             this.tbSoBienBan.Name = "tbSoBienBan";
             this.tbSoBienBan.Size = new System.Drawing.Size(137, 21);
             this.tbSoBienBan.TabIndex = 74;
@@ -1673,7 +1673,7 @@
             this.dgvDSBienBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSBienBan.Location = new System.Drawing.Point(37, 62);
             this.dgvDSBienBan.Name = "dgvDSBienBan";
-            this.dgvDSBienBan.Size = new System.Drawing.Size(773, 395);
+            this.dgvDSBienBan.Size = new System.Drawing.Size(773, 391);
             this.dgvDSBienBan.TabIndex = 36;
             // 
             // label26
@@ -2008,7 +2008,7 @@
             this.panelView.ResumeLayout(false);
             this.tabQuanLy.ResumeLayout(false);
             this.tpMacDinh.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbManHinh)).EndInit();
             this.tpThêmDonHang.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
@@ -2111,7 +2111,7 @@
         private System.Windows.Forms.TabPage tpMacDinh;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.ComboBox cbChonNam;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbManHinh;
         private System.Windows.Forms.Button bLapBaoCao;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbTongTien;
