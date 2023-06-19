@@ -179,7 +179,7 @@
             // 
             // pbHinhanh
             // 
-            this.pbHinhanh.Location = new System.Drawing.Point(519, 60);
+            this.pbHinhanh.Location = new System.Drawing.Point(538, 60);
             this.pbHinhanh.Name = "pbHinhanh";
             this.pbHinhanh.Size = new System.Drawing.Size(165, 127);
             this.pbHinhanh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -242,7 +242,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label22.Location = new System.Drawing.Point(569, 41);
+            this.label22.Location = new System.Drawing.Point(588, 41);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(59, 16);
             this.label22.TabIndex = 62;

@@ -62,10 +62,21 @@ namespace QuanLyBoardGame
         {
             if(bThemKhachHang.Text == "Sửa")
             {
-                var updateDef = Builders<KhachHang>.Update.Set("TenKH", tbTenKhachHang.Text).Set("NgSinh", dtpNgaySinh.Value).Set("DiaChi", tbDiaChi.Text).Set("SDT", tbSoDienThoai.Text).Set("Email", tbEmail.Text).Set("TichDiem", int.Parse(tbSoTichDiem.Text));
-                collection_KH.UpdateOneAsync(kh => kh.MaKH == ObjectId.Parse(tbMaKhachHang.Text), updateDef);
-                MessageBox.Show("Cập nhật thông tin khách hàng thành công");
-                this.Hide();
+                if (tbTenKhachHang.Text != "" &
+                dtpNgaySinh.Text != "" &
+                tbDiaChi.Text != "" &
+                tbSoDienThoai.Text != "" &
+                tbEmail.Text != "")
+                {
+                    var updateDef = Builders<KhachHang>.Update.Set("TenKH", tbTenKhachHang.Text).Set("NgSinh", dtpNgaySinh.Value).Set("DiaChi", tbDiaChi.Text).Set("SDT", tbSoDienThoai.Text).Set("Email", tbEmail.Text).Set("TichDiem", int.Parse(tbSoTichDiem.Text));
+                    collection_KH.UpdateOneAsync(kh => kh.MaKH == ObjectId.Parse(tbMaKhachHang.Text), updateDef);
+                    MessageBox.Show("Cập nhật thông tin khách hàng thành công");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin khách hàng");
+                }
             }
             else
             {
