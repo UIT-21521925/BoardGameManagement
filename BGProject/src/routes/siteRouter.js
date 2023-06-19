@@ -5,7 +5,7 @@ const siteController = require('../app/controllers/SiteController');
 
 
 router.post('/phone', siteController.phone);
-router.get('/:_id', siteController.searchbox);
+router.get('/search/:_id', siteController.searchbox);
 router.get('/', siteController.index);
 
 

@@ -6,14 +6,14 @@
         <hr>
        <div class="navbar-dropdown">
             <div class="nav-dropdown-list">
+                 {{#each LoaiBoardGames}}
                 <div class="navbar-dropdown-item active" data-index="0">
-                    Theo Thể Loại
+                      <a href="/search/{{this._id}}" class="has-link">{{this.TenLBG}}</a>
                 </div>
-                <div class="navbar-dropdown-item active" data-index="1">
-                    Theo Tuổi
-                </div>
+                {{/each}}
+             
             </div>
-            <div class="dropdown">
+          {{!-- <div class="dropdown">
                 <div class="dropdownitem active" data-index="0">
                     <ul class="dropdownitem-list--item has-list"></p>
                         {{#each LoaiBoardGames}}
@@ -36,6 +36,7 @@
                 </div>
             
             </div>
+             --}}
        </div>
     </div>
 {{!-- list of boardgames --}}
@@ -54,7 +55,7 @@
                                     <a class="boardgame-link__price" href="/home/{{this.TenBoardGame}}">Giá: {{this.GiaThue}} VND</a>
                                 </div>
                                 {{#if SoLuong }}
-                                    <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng</span></p>
+                                    <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng {{this.SoLuong}}</span></p>
                                     <button class="boardgame-btn modal-buy" data-bgId="{{this._id}}" >
                                                                 Giữ chỗ
                                     </button>
@@ -83,7 +84,7 @@
                     <p class="body-add-heading">
                         Phiếu giữ hàng
                     </p>
-                    <p id="bgIdValue" style="display: none;" ></p>
+                    <p id="bgIdValue" ></p>
                     <input type="text" class="phone" name="phone" placeholder="Nhập số điện thoại" value="" required="true">
                     <input type="hidden" name="bgId" id="bgIdInput" value="">
                 </div>
@@ -128,7 +129,7 @@
 
 
 
-    document.addEventListener('click', function(event) {
+    /*document.addEventListener('click', function(event) {
         if (!event.target.closest('.navbar-dropdown') && !event.target.closest('.boardgames-categories')) {
             navbar.style.display = "none";
         }
@@ -155,7 +156,7 @@
                 subnavItems[index].classList.add('active');
          });
 });
-
+*/
          btnModals.forEach((btnModal,index) => {
               btnModal.addEventListener('click', function() {
                 // Khi click xảy ra, lấy giá trị bgID từ thuộc tính data-bgId của button 
@@ -172,13 +173,13 @@
                         openModal.classList.remove('open');
                         successMessage.style.display = 'flex';
                         var expirationDate = new Date();
-                        expirationDate.setHours(expirationDate.getHours() + 24);
-
+                        expirationDate.setMinutes(expirationDate.getMinutes() + 1);
+                        console.log(expirationDate)
                         expirationMessage.innerHTML = ' Vui lòng đến cửa hàng trong thời gian hiệu lực : ' + expirationDate.toLocaleString()  ;
                         // Đặt thời gian chờ 5 giây trước khi tắt thông báo thành công và chuyển hướng
                         setTimeout(function () {
                             successMessage.style.display = 'none';
-                        }, 5000);
+                        }, 4000);
                     })
 
                     closeModal.addEventListener('click', function() {
