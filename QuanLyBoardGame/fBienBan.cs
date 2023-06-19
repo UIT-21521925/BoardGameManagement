@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using Amazon.SecurityToken.Model;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -74,11 +75,20 @@ namespace QuanLyBoardGame
             var thongTinLPquery = Builders<LoaiPhat>.Filter.Eq("TenLoaiPhat", cbLoaiVP.Text);
             List<LoaiPhat> filteredLPs = collection_LP.Find(thongTinLPquery).ToList();
             LoaiPhat lp = filteredLPs[0];
-            BienBan bb = new BienBan(tbLyDoVP.Text, dh.MaDH, lp.MaLP);
+
+            var thongTinCTDHQuery = Builders<CTDonHang>.Filter.Where(ctdh1 =>
+                    ctdh1.MaBG == ObjectId.Parse(cbBGVP.Text) && ctdh1.MaDH ==dh.MaDH);
+
+            List<CTDonHang> filtereDHHs = collection_CTDH.Find(thongTinCTDHQuery).ToList();
+            CTDonHang ctdh = filtereDHHs[0];
+
+            BienBan bb = new BienBan(tbLyDoVP.Text, ctdh.MaCTDH , lp.MaLP);
             collection_BB.InsertOneAsync(bb);
             MessageBox.Show("Cập nhật biên bản thành công");
+
             var updateDef = Builders<BoardGame>.Update.Set("TinhTrangBG", cbTTBGVP.Text);
             collection_G.UpdateOneAsync(bg => bg.MaBG == ObjectId.Parse(cbBGVP.Text), updateDef);
+            this.Hide();
         }
 
         private void cbBGVP_SelectedIndexChanged(object sender, EventArgs e)

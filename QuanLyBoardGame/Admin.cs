@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using Amazon.SecurityToken.Model;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ using System.Threading.Tasks.Sources;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
@@ -48,11 +50,11 @@ namespace QuanLyBoardGame
             InitializeComponent();
             List<ThamSo> listTSs = collection_TS.AsQueryable().ToList<ThamSo>();
             ThamSo ts = listTSs[0];
-            
+
             thamso = ts;
-            
+
             this.taikhoan = taikhoan;
-            if(taikhoan.ChucVu == "Nhân viên")
+            if (taikhoan.ChucVu == "Nhân viên")
             {
                 bBaoCao.Enabled = false;
                 bCaiDat.Enabled = false;
@@ -61,9 +63,7 @@ namespace QuanLyBoardGame
                 bDSTaiKhoan.Enabled = false;
             }
             HienThiKho();
-            ReadAllDocuments_ThongTinBG();
-            ReadAllDocuments_KH();
-            ReadAllDocuments_UD();
+            
         }
 
         private void pbLogo_Click(object sender, EventArgs e)
@@ -95,10 +95,10 @@ namespace QuanLyBoardGame
             {
                 cbTimBG.Items.Add(ttbg.TenBoardGame);
             }
-           
+
             tbTienCoc.ReadOnly = true;
             tbTongTien.ReadOnly = true;
-            
+
 
         }
         private void bTruyXuatDH_Click(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace QuanLyBoardGame
             {
                 cbTimKiemDSDH.Items.Add(kh.TenKH);
             }
-            dgvDSKH.DataSource=listKHs;
+            dgvDSKH.DataSource = listKHs;
         }
         private void bBaoCao_Click(object sender, EventArgs e)
         {
@@ -126,32 +126,37 @@ namespace QuanLyBoardGame
             {
                 cbTimKiemTTBG.Items.Add(ttbg.TenBoardGame);
             }
-            
+
             List<KhachHang> listKHs = collection_KH.AsQueryable().ToList<KhachHang>();
             cbTimKiemKH.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
             foreach (var kh in listKHs)
             {
                 cbTimKiemKH.Items.Add(kh.TenKH);
             }
-            
+
             List<UuDai> listUDs = collection_UD.AsQueryable().ToList<UuDai>();
             cbTimKiemUD.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
             foreach (var ud in listUDs)
             {
                 cbTimKiemUD.Items.Add(ud.TenUD);
             }
-            
+            List<BienBan> listBBS = collection_BB.AsQueryable().ToList<BienBan>();
+            dgvDSBienBan.DataSource = listBBS;
 
+            ReadAllDocuments_ThongTinBG();
+            ReadAllDocuments_KH();
+            ReadAllDocuments_UD();
+            HienThiDS_BienBan();
         }
 
 
         private void bCaiDat_Click(object sender, EventArgs e)
         {
 
-            tbSoNgayThueMax.Text =thamso.SoNgayThueTD.ToString();
-            tbSoNgayThueMin.Text =thamso.SoNgayThueTT.ToString();
-            tbPhanTramCoc.Text =thamso.PhanTramCoc.ToString();
-            tbSoDonHangMax.Text =thamso.SoDonHangTD.ToString();
+            tbSoNgayThueMax.Text = thamso.SoNgayThueTD.ToString();
+            tbSoNgayThueMin.Text = thamso.SoNgayThueTT.ToString();
+            tbPhanTramCoc.Text = thamso.PhanTramCoc.ToString();
+            tbSoDonHangMax.Text = thamso.SoDonHangTD.ToString();
             tbSoBGMax.Text = thamso.SoBoardGameTD.ToString();
             tabQuanLy.SelectedIndex = 5;
         }
@@ -177,7 +182,7 @@ namespace QuanLyBoardGame
 
 
 
- //-------------------------------------------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------
         //Quản lý danh sách Board game
 
         public void ReadAllDocuments_ThongTinBG()
@@ -204,7 +209,7 @@ namespace QuanLyBoardGame
 
         }
 
-       
+
 
         private void dgvTTBG_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -212,9 +217,9 @@ namespace QuanLyBoardGame
             {
                 var thongTinTTBGquery = Builders<BoardGame>.Filter.Eq("MaTTBG", ObjectId.Parse(dgvTTBG.Rows[e.RowIndex].Cells[0].Value.ToString()));
                 List<BoardGame> filteredLBGs = collection_G.Find(thongTinTTBGquery).ToList();
-                
+
                 dgvBG.DataSource = filteredLBGs;
-                
+
             }
         }
         private void bTimKiemTTBG_Click_1(object sender, EventArgs e)
@@ -233,7 +238,7 @@ namespace QuanLyBoardGame
 
 
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
         //Quản lý danh sách Kho
 
@@ -284,7 +289,7 @@ namespace QuanLyBoardGame
         {
             List<KhachHang> list = collection_KH.AsQueryable().ToList<KhachHang>();
             dgvKhachHang.DataSource = list;
-           
+
         }
 
         public void ReadAllDocuments_KHDH()
@@ -360,12 +365,12 @@ namespace QuanLyBoardGame
             HienThiKho();
 
         }
-       
+
 
         private void bMacDinhDH_Click(object sender, EventArgs e)
         {
             cbTenKhachHang.Text = "";
-            dgvCTDH.DataSource= new List<BoardGame>(); ;
+            dgvCTDH.DataSource = new List<BoardGame>(); ;
             dtpNgayThueDH.Value = DateTime.Now;
             dtpNgayTraDH.Value = DateTime.Now;
             cbMaUuDaiSD.Text = "";
@@ -376,7 +381,8 @@ namespace QuanLyBoardGame
 
         private void bThemDH_Click(object sender, EventArgs e)
         {
-            if (cbTenKhachHang.Text != "" & cbMaUuDaiSD.Text != "") {
+            if (cbTenKhachHang.Text != "" & cbMaUuDaiSD.Text != "")
+            {
                 var thongTinKHquery = Builders<KhachHang>.Filter.Eq("TenKH", cbTenKhachHang.Text);
                 List<KhachHang> filteredKHs = collection_KH.Find(thongTinKHquery).ToList();
                 KhachHang kh = filteredKHs[0];
@@ -395,79 +401,87 @@ namespace QuanLyBoardGame
                     {
                         if (kh.TichDiem >= ud.DiemQuyDoi)
                         {
-
-                            TimeSpan khoangThoiGianThue = dtpNgayTraDH.Value - dtpNgayThueDH.Value;
-                            if (khoangThoiGianThue.TotalDays > thamso.SoNgayThueTD || khoangThoiGianThue.TotalDays < thamso.SoNgayThueTT)
+                            if (dtpNgayTraDH.Value > dtpNgayThueDH.Value)
                             {
-                                MessageBox.Show("Không cho phép thuê trên " + thamso.SoNgayThueTD + " ngày và dưới " + thamso.SoNgayThueTT + " ngày !");
+                                TimeSpan khoangThoiGianThue = dtpNgayTraDH.Value - dtpNgayThueDH.Value;
+                                if (khoangThoiGianThue.TotalDays > thamso.SoNgayThueTD || khoangThoiGianThue.TotalDays < thamso.SoNgayThueTT)
+                                {
+                                    MessageBox.Show("Không cho phép thuê trên " + thamso.SoNgayThueTD + " ngày và dưới " + thamso.SoNgayThueTT + " ngày !");
+                                }
+                                else
+                                {
+                                    List<BoardGame> filteredDSCTDH = new List<BoardGame>();
+                                    filteredDSCTDH.AddRange((List<BoardGame>)dgvCTDH.DataSource);
+
+                                    var updateCongTichDiemKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", 10);
+                                    collection_KH.UpdateOne(kh1 => kh1.MaKH == kh.MaKH, updateCongTichDiemKhachHang);
+
+                                    int tongtien = int.Parse(tbTongTien.Text);
+                                    tongtien = tongtien - tongtien * ud.PhanTramGiam / 100;
+                                    tbTongTien.Text = tongtien.ToString();
+
+
+
+                                    if (khoangThoiGianThue.TotalDays > 14)
+                                    {
+                                        int tongTien = int.Parse(tbTongTien.Text);
+                                        tongTien -= tongTien * 5 / 100;
+                                        tbTongTien.Text = tongTien.ToString();
+
+                                        int tienCoc = int.Parse(tbTienCoc.Text);
+                                        tienCoc = tienCoc * 110 / 100;
+                                        tbTienCoc.Text = tienCoc.ToString();
+                                    }
+                                    else if (khoangThoiGianThue.TotalDays > 7)
+                                    {
+                                        int tongTien = int.Parse(tbTongTien.Text);
+                                        tongTien -= tongTien * 5 / 100;
+                                        tbTongTien.Text = tongTien.ToString();
+                                    }
+
+                                    DonHang dh = new DonHang(dtpNgayThueDH.Value, dtpNgayTraDH.Value, "Chưa trả", kh.MaKH, ud.MaUD, int.Parse(tbTienCoc.Text), int.Parse(tbTongTien.Text));
+                                    collection_DH.InsertOneAsync(dh);
+
+                                    var updateUuDai = Builders<UuDai>.Update.Inc("SoLuong", -1);
+                                    collection_UD.UpdateOne(ud1 => ud1.MaUD == ud.MaUD, updateUuDai);
+
+                                    for (int j = 0; j < filteredDSCTDH.Count; j++)
+                                    {
+                                        CTDonHang ctdh = new CTDonHang(dh.MaDH, filteredDSCTDH[j].MaBG);
+                                        collection_CTDH.InsertOneAsync(ctdh);
+
+                                        var updateDefBG = Builders<BoardGame>.Update.Set("TinhTrangMuon", "Đang thuê").Set("DatHang", "");
+                                        collection_G.UpdateOneAsync(bg1 => bg1.MaBG == filteredDSCTDH[j].MaBG, updateDefBG);
+
+                                        var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", filteredDSCTDH[j].MaTTBG);
+                                        List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
+                                        ThongTinBG ttbg = filteredTTBGs[0];
+
+
+                                    }
+
+
+
+
+                                    var updateTruTichDiemKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", -ud.DiemQuyDoi);
+                                    collection_KH.UpdateOne(kh1 => kh1.MaKH == kh.MaKH, updateTruTichDiemKhachHang);
+
+                                    MessageBox.Show("Thêm đơn hàng thành công! ");
+                                    filteredDSCTDH = new List<BoardGame>();
+                                    HienThiKho();
+                                }
                             }
                             else
                             {
-                                List<BoardGame> filteredDSCTDH = new List<BoardGame>();
-                                filteredDSCTDH.AddRange((List<BoardGame>)dgvCTDH.DataSource);
-
-                                var updateCongTichDiemKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", 10);
-                                collection_KH.UpdateOne(kh1 => kh1.MaKH == kh.MaKH, updateCongTichDiemKhachHang);
-
-                                int tongtien = int.Parse(tbTongTien.Text);
-                                tongtien = tongtien - tongtien * ud.PhanTramGiam / 100;
-                                tbTongTien.Text = tongtien.ToString();
-
-
-
-                                if (khoangThoiGianThue.TotalDays > 14)
-                                {
-                                    int tongTien = int.Parse(tbTongTien.Text);
-                                    tongTien -= tongTien * 5 / 100;
-                                    tbTongTien.Text = tongTien.ToString();
-
-                                    int tienCoc = int.Parse(tbTienCoc.Text);
-                                    tienCoc = tienCoc * 110 / 100;
-                                    tbTienCoc.Text = tienCoc.ToString();
-                                }
-                                else if (khoangThoiGianThue.TotalDays > 7)
-                                {
-                                    int tongTien = int.Parse(tbTongTien.Text);
-                                    tongTien -= tongTien * 5 / 100;
-                                    tbTongTien.Text = tongTien.ToString();
-                                }
-
-                                DonHang dh = new DonHang(dtpNgayThueDH.Value, dtpNgayTraDH.Value, "Chưa trả", kh.MaKH, ud.MaUD, int.Parse(tbTienCoc.Text), int.Parse(tbTongTien.Text));
-                                collection_DH.InsertOneAsync(dh);
-
-                                var updateUuDai = Builders<UuDai>.Update.Inc("SoLuong", -1);
-                                collection_UD.UpdateOne(ud1 => ud1.MaUD == ud.MaUD, updateUuDai);
-
-                                for (int j = 0; j < filteredDSCTDH.Count; j++)
-                                {
-                                    CTDonHang ctdh = new CTDonHang(dh.MaDH, filteredDSCTDH[j].MaBG);
-                                    collection_CTDH.InsertOneAsync(ctdh);
-
-                                    var updateDefBG = Builders<BoardGame>.Update.Set("TinhTrangMuon", "Đang thuê").Set("DatHang", "");
-                                    collection_G.UpdateOneAsync(bg1 => bg1.MaBG == filteredDSCTDH[j].MaBG, updateDefBG);
-
-                                    var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", filteredDSCTDH[j].MaTTBG);
-                                    List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
-                                    ThongTinBG ttbg = filteredTTBGs[0];
-
-
-                                }
-
-
-
-
-                                var updateTruTichDiemKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", -ud.DiemQuyDoi);
-                                collection_KH.UpdateOne(kh1 => kh1.MaKH == kh.MaKH, updateTruTichDiemKhachHang);
-
-                                MessageBox.Show("Thêm đơn hàng thành công! ");
-                                filteredDSCTDH = new List<BoardGame>();
-                                HienThiKho();
+                                MessageBox.Show("Ngày trả và ngày nhập không hợp lệ!");
                             }
                         }
-                        else
-                        {
-                            MessageBox.Show("Không đủ điểm để sử dụng ưu đãi vui lòng đổi mã ưu đãi khác!");
-                        }
+
+                            else
+                            {
+                                MessageBox.Show("Không đủ điểm để sử dụng ưu đãi vui lòng đổi mã ưu đãi khác!");
+                            }
+                        
                     }
                     else
                     {
@@ -483,12 +497,12 @@ namespace QuanLyBoardGame
             {
                 MessageBox.Show("Vui lòng nhập đủ thông tin cho đơn hàng.");
             }
-            
+
         }
 
-       
 
-        
+
+
         private void bThemDSDH_Click(object sender, EventArgs e)
         {
             if (dgvCTDH.DataSource == null)
@@ -643,7 +657,7 @@ namespace QuanLyBoardGame
                     }
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Số lượng board game cho phép thuê đã tối đa");
             }
@@ -720,12 +734,11 @@ namespace QuanLyBoardGame
         {
             if (e.RowIndex >= 0)
             {
+                List<DonHang> filteredDHs = new List<DonHang>();
+                dgvDSDHKH.DataSource = filteredDHs;
                 var thongTinDHquery = Builders<DonHang>.Filter.Eq("MaKH", ObjectId.Parse(dgvDSKH.Rows[e.RowIndex].Cells[0].Value.ToString()));
-                List<DonHang> filteredDHs = collection_DH.Find(thongTinDHquery).ToList();
-                if (filteredDHs.Count > 0)
-                {
-                    dgvDSDHKH.DataSource = filteredDHs;
-                }
+                filteredDHs = collection_DH.Find(thongTinDHquery).ToList();
+                dgvDSDHKH.DataSource = filteredDHs;
             }
         }
 
@@ -760,108 +773,89 @@ namespace QuanLyBoardGame
 
 
 
- //-------------------------------------------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------
         //Lập báo cáo theo thể loại board game
 
         private void bLapBaoCao_Click(object sender, EventArgs e)
         {
-            if (cbChonThang.Text != "" & cbChonNam.Text != "")
+            
+            if (cbChonThang.Text != "" && cbChonNam.Text != "")
             {
                 int thang = int.Parse(cbChonThang.SelectedItem.ToString());
                 int nam = int.Parse(cbChonNam.SelectedItem.ToString());
+                var thongTinDHQuery = Builders<DonHang>.Filter.Where(dh =>
+                dh.NgayTra.Month == thang && dh.NgayTra.Year == nam);
+                List<DonHang> listDHs = collection_DH.Find(thongTinDHQuery).ToList();
 
-                List<LoaiBG> listLBGs = collection_LBG.AsQueryable().ToList<LoaiBG>();
-                List<DonHang> listDHs = collection_DH.AsQueryable().ToList<DonHang>();
                 BaoCao bc = new BaoCao(thang, nam);
-                collection_BC.InsertOneAsync(bc);
+                collection_BC.InsertOne(bc);
                 int tongDoanhThu = 0;
                 int soDonHang = 0;
-                int soBienBan = 0;
-                foreach (LoaiBG lbg in listLBGs)
+                foreach (LoaiBG lbg in collection_LBG.AsQueryable().ToList<LoaiBG>())
                 {
+                    
                     int soLuongDonHang = 0;
                     int doanhThu = 0;
+
+
                     foreach (DonHang dh in listDHs)
                     {
-                        // Lấy thông tin ngày tháng năm từ trường DonHang
-                        DateTime ngayTra = dh.NgayTra;
-
-                        
-                        // Kiểm tra xem ngày tháng năm có thuộc tháng và năm hiện tại không
-                        if (ngayTra.Month == thang && ngayTra.Year == nam)
+                        foreach (CTDonHang ctdh in collection_CTDH.Find(Builders<CTDonHang>.Filter.Eq("MaDH", dh.MaDH)).ToList())
                         {
-                            
-                            var thongTinCTDHquery = Builders<CTDonHang>.Filter.Eq("MaDH", dh.MaDH);
-                            List<CTDonHang> filteredCTDHs = collection_CTDH.Find(thongTinCTDHquery).ToList();
-                            foreach (CTDonHang ctdh in filteredCTDHs)
+                            foreach (BoardGame bg in collection_G.Find(Builders<BoardGame>.Filter.Eq("MaBG", ctdh.MaBG)).ToList())
                             {
-                                var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaBG", ctdh.MaBG);
-                                List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
-                                foreach (BoardGame bg in filteredBGs)
+                                ThongTinBG ttbg = collection_BG.Find(Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG)).FirstOrDefault();
+
+                                if (ttbg != null && ttbg.MaLBG == lbg.MaLBG)
                                 {
+                                    soLuongDonHang++;
+                                    doanhThu += dh.TongTien;
 
-                                    var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
-                                    List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
-                                    ThongTinBG ttbg = filteredTTBGs[0];
-
-                                    if(ttbg.MaLBG==lbg.MaLBG){
-                                            soLuongDonHang++;
-                                            doanhThu = doanhThu + ttbg.GiaThue;
-                                     }
- 
                                 }
-                                var thongTinBBquery = Builders<BienBan>.Filter.Eq("MaCTDH", ctdh.MaCTDH);
-                                List<BienBan> filteredBBs = collection_BB.Find(thongTinBBquery).ToList();
-                                soBienBan += filteredBBs.Count;
-                            }
-                            
-                        }
-                        
-                    }
-                    CTBaoCao ctbc = new CTBaoCao(lbg.MaLBG, bc.MaBC, soLuongDonHang, doanhThu);
-                    collection_CTBC.InsertOneAsync(ctbc);
 
-                    // Tính tổng doanh thu từng đơn hàng
+                            }
+
+
+                        }
+                    }
+                    CTBaoCao ctbc = new CTBaoCao(lbg.MaLBG, bc.MaBC, soLuongDonHang);
+                    collection_CTBC.InsertOneAsync(ctbc);
 
                     tongDoanhThu += doanhThu;
                     soDonHang += soLuongDonHang;
 
+                    tbSoDonHang.Text = soDonHang.ToString();
+                    tbDoanhThu.Text = tongDoanhThu.ToString();
 
+                    var updateDef = Builders<BaoCao>.Update.Set("TongDoanhThu", tongDoanhThu).Set("SoDonHang", soDonHang);
+                    collection_BC.UpdateOneAsync(nbc => nbc.MaBC == bc.MaBC, updateDef);
+                    DataTable dt = new DataTable();
+                    var thongTinBCquery = Builders<CTBaoCao>.Filter.Eq("MaBC", bc.MaBC);
+                    List<CTBaoCao> filteredBCs = collection_CTBC.Find(thongTinBCquery).ToList();
+                    dt.Columns.Add("MaLBG", typeof(ObjectId));
+                    dt.Columns.Add("TenLBG", typeof(string));
+                    dt.Columns.Add("SoLuongDonHang", typeof(int));
 
+                    // Thêm dữ liệu từ filteredBCs vào DataTable
+                    foreach (CTBaoCao item in filteredBCs)
+                    {
+                        DataRow row = dt.NewRow();
+                        row["MaLBG"] = item.MaLBG;
+                        var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("MaLBG", item.MaLBG);
+                        List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
+                        LoaiBG lbg1 = filteredLBGs[0];
+                        row["TenLBG"] = lbg1.TenLBG;
+                        row["SoLuongDonHang"] = item.SoLuongDonHang;
+                        dt.Rows.Add(row);
+                    }
+                    dgvBaoCao.DataSource = dt;
                 }
-                var updateDef = Builders<BaoCao>.Update.Set("TongDoanhThu", tongDoanhThu).Set("SoDonHang", soDonHang).Set("SoBienBan", soBienBan);
-                collection_BC.UpdateOneAsync(nbc => nbc.MaBC == bc.MaBC, updateDef);
-                tbSoDonHang.Text = soDonHang.ToString();
-                tbDoanhThu.Text = tongDoanhThu.ToString();
-                tbSoBienBan.Text = soBienBan.ToString();
-                var thongTinBCquery = Builders<CTBaoCao>.Filter.Eq("MaBC", bc.MaBC);
-                List<CTBaoCao> filteredBCs = collection_CTBC.Find(thongTinBCquery).ToList();
-
-                // Tạo DataTable mới
-                DataTable dt = new DataTable();
-                dt.Columns.Add("MaLBG", typeof(ObjectId)); 
-                dt.Columns.Add("TenLBG", typeof(string));
-                dt.Columns.Add("SoLuongDonHang", typeof(int));
-
-                // Thêm dữ liệu từ filteredBCs vào DataTable
-                foreach (CTBaoCao item in filteredBCs)
-                {
-                    DataRow row = dt.NewRow();
-                    row["MaLBG"] = item.MaLBG;
-                    var thongTinLBGquery = Builders<LoaiBG>.Filter.Eq("MaLBG", item.MaLBG);
-                    List<LoaiBG> filteredLBGs = collection_LBG.Find(thongTinLBGquery).ToList();
-                    LoaiBG lbg1 = filteredLBGs[0];
-                    row["TenLBG"] = lbg1.TenLBG;
-                    row["SoLuongDonHang"] = item.SoLuongDonHang;
-                    dt.Rows.Add(row);
-                }
-
-                dgvBaoCao.DataSource = dt; // Sử dụng DataTable làm nguồn dữ liệu cho DataGridView
             }
             else
             {
                 MessageBox.Show("Chưa chọn thông tin tháng và năm để lập báo cáo!");
             }
+            
         }
 
         private void cbMaUuDaiSD_TextChanged(object sender, EventArgs e)
@@ -883,7 +877,7 @@ namespace QuanLyBoardGame
 
 
 
- //-------------------------------------------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
         //Quản lí danh sách khách hàng
@@ -990,8 +984,61 @@ namespace QuanLyBoardGame
             collection_TS.UpdateOneAsync(ts1 => ts1.MaTS == thamso.MaTS, updateDef);
             MessageBox.Show("Cập nhật thông tin tham số thành công");
         }
-    }
 
-   
+
+
+        //------------------------------------------------------------------------------------------
+
+        //Quản lí biên bản:
+
+        public void HienThiDS_BienBan()
+        {
+            List<BienBan> listBBs = collection_BB.AsQueryable().ToList<BienBan>();
+            tbSoBienBan.Text = listBBs.Count.ToString();
+            int tongTienPhat = 0;
+            // Tạo DataTable mới
+            DataTable dt = new DataTable();
+            dt.Columns.Add("MaBB", typeof(ObjectId));
+            dt.Columns.Add("TenBoardGame", typeof(string));
+            dt.Columns.Add("LyDo", typeof(string));
+            dt.Columns.Add("LoaiPhat", typeof(string));
+            dt.Columns.Add("SoTienPhat", typeof(int));
+
+            // Thêm dữ liệu từ filteredBCs vào DataTable
+            foreach (BienBan item in listBBs)
+            {
+                DataRow row = dt.NewRow();
+                row["MaBB"] = item.MaBB;
+                var thongTinCTDHquery = Builders<CTDonHang>.Filter.Eq("MaCTDH", item.MaCTDH);
+                List<CTDonHang> filteredCTDHs = collection_CTDH.Find(thongTinCTDHquery).ToList();
+                if (filteredCTDHs.Count > 0)
+                {
+                    CTDonHang ctdh = filteredCTDHs[0];
+
+                    var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaBG", ctdh.MaBG);
+                    List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
+                    BoardGame bg = filteredBGs[0];
+
+                    var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
+                    List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
+                    ThongTinBG ttbg = filteredTTBGs[0];
+
+                    row["TenBoardGame"] = ttbg.TenBoardGame;
+                    row["LyDo"] = item.LyDo;
+
+                    var thongTinLPquery = Builders<LoaiPhat>.Filter.Eq("MaLP", item.MaLP);
+                    List<LoaiPhat> filteredLPs = collection_LP.Find(thongTinLPquery).ToList();
+                    LoaiPhat lp = filteredLPs[0];
+
+                    row["LoaiPhat"] = lp.TenLoaiPhat;
+                    row["SoTienPhat"] = lp.SoTienPhat;
+                    tongTienPhat += lp.SoTienPhat;
+                    dt.Rows.Add(row);
+                }
+            }
+            tbSoTienPhat.Text=tongTienPhat.ToString();
+            dgvDSBienBan.DataSource = dt; // Sử dụng DataTable làm nguồn dữ liệu cho DataGridView
+        }
+    } 
 
 }

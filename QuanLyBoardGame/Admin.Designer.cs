@@ -98,8 +98,6 @@
             this.panel21 = new System.Windows.Forms.Panel();
             this.label65 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.tbSoBienBan = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
             this.tbSoDonHang = new System.Windows.Forms.TextBox();
             this.label56 = new System.Windows.Forms.Label();
@@ -142,6 +140,14 @@
             this.bMacDinhUD = new System.Windows.Forms.Button();
             this.bTimKiemUD = new System.Windows.Forms.Button();
             this.dgvUuDai = new System.Windows.Forms.DataGridView();
+            this.tpDSBienBan = new System.Windows.Forms.TabPage();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbSoTienPhat = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.tbSoBienBan = new System.Windows.Forms.TextBox();
+            this.dgvDSBienBan = new System.Windows.Forms.DataGridView();
+            this.label26 = new System.Windows.Forms.Label();
             this.tpCaiDat = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -206,6 +212,9 @@
             this.tpDSUuDai.SuspendLayout();
             this.pUuDai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUuDai)).BeginInit();
+            this.tpDSBienBan.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSBienBan)).BeginInit();
             this.tpCaiDat.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -1009,8 +1018,6 @@
             // 
             this.tpBaoCao.BackColor = System.Drawing.Color.White;
             this.tpBaoCao.Controls.Add(this.panel20);
-            this.tpBaoCao.Controls.Add(this.label58);
-            this.tpBaoCao.Controls.Add(this.tbSoBienBan);
             this.tpBaoCao.Controls.Add(this.label57);
             this.tpBaoCao.Controls.Add(this.tbSoDonHang);
             this.tpBaoCao.Controls.Add(this.label56);
@@ -1083,33 +1090,13 @@
             this.label66.Size = new System.Drawing.Size(0, 20);
             this.label66.TabIndex = 1;
             // 
-            // label58
-            // 
-            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label58.Location = new System.Drawing.Point(70, 505);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(148, 18);
-            this.label58.TabIndex = 73;
-            this.label58.Text = "Số lượng biên bản:";
-            // 
-            // tbSoBienBan
-            // 
-            this.tbSoBienBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbSoBienBan.Location = new System.Drawing.Point(220, 505);
-            this.tbSoBienBan.Name = "tbSoBienBan";
-            this.tbSoBienBan.Size = new System.Drawing.Size(137, 20);
-            this.tbSoBienBan.TabIndex = 72;
-            // 
             // label57
             // 
-            this.label57.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label57.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label57.Location = new System.Drawing.Point(318, 505);
+            this.label57.Location = new System.Drawing.Point(65, 506);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(154, 18);
             this.label57.TabIndex = 71;
@@ -1117,8 +1104,8 @@
             // 
             // tbSoDonHang
             // 
-            this.tbSoDonHang.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tbSoDonHang.Location = new System.Drawing.Point(478, 505);
+            this.tbSoDonHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbSoDonHang.Location = new System.Drawing.Point(225, 506);
             this.tbSoDonHang.Name = "tbSoDonHang";
             this.tbSoDonHang.Size = new System.Drawing.Size(137, 20);
             this.tbSoDonHang.TabIndex = 70;
@@ -1129,7 +1116,7 @@
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label56.Location = new System.Drawing.Point(577, 505);
+            this.label56.Location = new System.Drawing.Point(577, 509);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(95, 18);
             this.label56.TabIndex = 69;
@@ -1138,7 +1125,7 @@
             // tbDoanhThu
             // 
             this.tbDoanhThu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDoanhThu.Location = new System.Drawing.Point(678, 503);
+            this.tbDoanhThu.Location = new System.Drawing.Point(678, 507);
             this.tbDoanhThu.Name = "tbDoanhThu";
             this.tbDoanhThu.Size = new System.Drawing.Size(137, 20);
             this.tbDoanhThu.TabIndex = 68;
@@ -1185,7 +1172,7 @@
             this.lTenBaoCao.AutoSize = true;
             this.lTenBaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTenBaoCao.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lTenBaoCao.Location = new System.Drawing.Point(357, 124);
+            this.lTenBaoCao.Location = new System.Drawing.Point(339, 115);
             this.lTenBaoCao.Name = "lTenBaoCao";
             this.lTenBaoCao.Size = new System.Drawing.Size(180, 20);
             this.lTenBaoCao.TabIndex = 36;
@@ -1230,9 +1217,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBaoCao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBaoCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBaoCao.Location = new System.Drawing.Point(65, 147);
+            this.dgvBaoCao.Location = new System.Drawing.Point(40, 147);
             this.dgvBaoCao.Name = "dgvBaoCao";
-            this.dgvBaoCao.Size = new System.Drawing.Size(750, 337);
+            this.dgvBaoCao.Size = new System.Drawing.Size(789, 337);
             this.dgvBaoCao.TabIndex = 33;
             // 
             // tbDanhSach
@@ -1254,6 +1241,7 @@
             this.tabDanhSach.Controls.Add(this.tpDSBoardGame);
             this.tabDanhSach.Controls.Add(this.tpDSKhachHang);
             this.tabDanhSach.Controls.Add(this.tpDSUuDai);
+            this.tabDanhSach.Controls.Add(this.tpDSBienBan);
             this.tabDanhSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabDanhSach.Location = new System.Drawing.Point(3, 3);
             this.tabDanhSach.Name = "tabDanhSach";
@@ -1608,6 +1596,96 @@
             this.dgvUuDai.Size = new System.Drawing.Size(816, 428);
             this.dgvUuDai.TabIndex = 27;
             this.dgvUuDai.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUuDai_CellContentDoubleClick);
+            // 
+            // tpDSBienBan
+            // 
+            this.tpDSBienBan.Controls.Add(this.panel13);
+            this.tpDSBienBan.Location = new System.Drawing.Point(4, 24);
+            this.tpDSBienBan.Name = "tpDSBienBan";
+            this.tpDSBienBan.Size = new System.Drawing.Size(848, 532);
+            this.tpDSBienBan.TabIndex = 3;
+            this.tpDSBienBan.Text = "Biên bản";
+            this.tpDSBienBan.UseVisualStyleBackColor = true;
+            // 
+            // panel13
+            // 
+            this.panel13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel13.BackColor = System.Drawing.Color.White;
+            this.panel13.Controls.Add(this.label27);
+            this.panel13.Controls.Add(this.tbSoTienPhat);
+            this.panel13.Controls.Add(this.label58);
+            this.panel13.Controls.Add(this.tbSoBienBan);
+            this.panel13.Controls.Add(this.dgvDSBienBan);
+            this.panel13.Controls.Add(this.label26);
+            this.panel13.Location = new System.Drawing.Point(3, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(842, 529);
+            this.panel13.TabIndex = 35;
+            // 
+            // label27
+            // 
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label27.Location = new System.Drawing.Point(488, 491);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(120, 18);
+            this.label27.TabIndex = 77;
+            this.label27.Text = "Tổng tiền phạt:";
+            // 
+            // tbSoTienPhat
+            // 
+            this.tbSoTienPhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSoTienPhat.Location = new System.Drawing.Point(614, 490);
+            this.tbSoTienPhat.Name = "tbSoTienPhat";
+            this.tbSoTienPhat.Size = new System.Drawing.Size(137, 21);
+            this.tbSoTienPhat.TabIndex = 76;
+            // 
+            // label58
+            // 
+            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label58.Location = new System.Drawing.Point(67, 488);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(148, 18);
+            this.label58.TabIndex = 75;
+            this.label58.Text = "Số lượng biên bản:";
+            // 
+            // tbSoBienBan
+            // 
+            this.tbSoBienBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbSoBienBan.Location = new System.Drawing.Point(217, 488);
+            this.tbSoBienBan.Name = "tbSoBienBan";
+            this.tbSoBienBan.Size = new System.Drawing.Size(137, 21);
+            this.tbSoBienBan.TabIndex = 74;
+            // 
+            // dgvDSBienBan
+            // 
+            this.dgvDSBienBan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDSBienBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDSBienBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSBienBan.Location = new System.Drawing.Point(37, 62);
+            this.dgvDSBienBan.Name = "dgvDSBienBan";
+            this.dgvDSBienBan.Size = new System.Drawing.Size(773, 395);
+            this.dgvDSBienBan.TabIndex = 36;
+            // 
+            // label26
+            // 
+            this.label26.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label26.Location = new System.Drawing.Point(340, 19);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(169, 20);
+            this.label26.TabIndex = 35;
+            this.label26.Text = "Danh sách biên bản";
             // 
             // tpCaiDat
             // 
@@ -1976,6 +2054,10 @@
             this.pUuDai.ResumeLayout(false);
             this.pUuDai.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUuDai)).EndInit();
+            this.tpDSBienBan.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSBienBan)).EndInit();
             this.tpCaiDat.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -2040,8 +2122,6 @@
         private System.Windows.Forms.Button bMacDinhDH;
         private System.Windows.Forms.Button bMacDinhBG;
         private System.Windows.Forms.Button bTimBG;
-        private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.TextBox tbSoBienBan;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.TextBox tbSoDonHang;
         private System.Windows.Forms.Label label56;
@@ -2130,5 +2210,13 @@
         private System.Windows.Forms.TextBox tbSoBGMax;
         private System.Windows.Forms.Button bMacDinhTS;
         private System.Windows.Forms.Button bSuaThamSo;
+        private System.Windows.Forms.TabPage tpDSBienBan;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.DataGridView dgvDSBienBan;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox tbSoTienPhat;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.TextBox tbSoBienBan;
     }
 }

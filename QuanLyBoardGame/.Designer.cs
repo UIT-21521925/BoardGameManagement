@@ -122,7 +122,7 @@
             this.cbTTBGVP.FormattingEnabled = true;
             this.cbTTBGVP.Items.AddRange(new object[] {
             "Tốt",
-            "Bị hỏng",
+            "Hỏng",
             "Trầy xước"});
             this.cbTTBGVP.Location = new System.Drawing.Point(173, 157);
             this.cbTTBGVP.Name = "cbTTBGVP";

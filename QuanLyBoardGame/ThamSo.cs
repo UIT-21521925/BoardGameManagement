@@ -218,10 +218,8 @@ namespace QuanLyBoardGame
         public int Nam { get; set; }
         [BsonElement("SoDonHang")]
         public int SoDonHang { get; set; }
-        [BsonElement("SoBienBan")]
-        public int SoBIenBan { get; set; }
         [BsonElement("TongDoanhThu")]
-        public decimal TongDoanhThu { get; set; }
+        public int TongDoanhThu { get; set; }
 
         public BaoCao(int thang, int nam)
         {
@@ -229,7 +227,6 @@ namespace QuanLyBoardGame
             Nam = nam;
             TongDoanhThu = 0;
             SoDonHang = 0;
-            SoBIenBan = 0;
         }
     }
     internal class CTBaoCao
@@ -247,17 +244,11 @@ namespace QuanLyBoardGame
         [BsonElement("SoLuongDonHang")]
         public int SoLuongDonHang { get; set; }
 
-        [BsonElement("DoanhThu")]
-        public int DoanhThu { get; set; }
-
-
-
-        public CTBaoCao(ObjectId maLBG, ObjectId maBC, int soLuongDonHang, int doanhThu)
+        public CTBaoCao(ObjectId maLBG, ObjectId maBC, int soLuongDonHang)
         {
             MaLBG = maLBG;
             MaBC = maBC;
             SoLuongDonHang = soLuongDonHang;
-            DoanhThu = doanhThu;
         }
     }
 
@@ -296,9 +287,9 @@ namespace QuanLyBoardGame
         [BsonElement("TenLoaiPhat")]
         public string TenLoaiPhat { get; set; }
         [BsonElement("SoTienPhat")]
-        public decimal SoTienPhat { get; set; }
+        public int SoTienPhat { get; set; }
 
-        public LoaiPhat(string tenLoaiPhat, decimal soTienPhat)
+        public LoaiPhat(string tenLoaiPhat, int soTienPhat)
         {
             TenLoaiPhat = tenLoaiPhat;
             SoTienPhat = soTienPhat;
