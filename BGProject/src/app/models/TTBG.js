@@ -15,11 +15,12 @@ const TTBG = new Schema ({
     DoTuoi : {type : Number, min: 16},
     TriGia: { type: Number},
     GiaThue: { type: Number},
-    SoLuong: {type : Number, min: 0},
+    SoLuong: {type : Number, min: 0, default : 0},
     HinhAnh : { type: String },
     LuatChoi : { type: String },
     ThoiGianChoi : { type: Number },
     MaLBG: {type: ObjectId}
+    
 });
 
 module.exports = mongoose.model('ThongTinBG', TTBG, 'BoardGame');

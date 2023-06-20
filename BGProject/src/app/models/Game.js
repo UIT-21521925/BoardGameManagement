@@ -13,7 +13,8 @@ const Game = new Schema ({
     MaTTBG: {type: ObjectId},
     TinhTrangBG: {type: String},
     TinhTrangMuon : { type: String },
-    DatHang : {type: String}
+    DatHang : {type: String},
+    NgayDatHang: { type: Date,default : Date.now()} 
 }, { versionKey: false })
 
 module.exports = mongoose.model('Game', Game, 'Game');

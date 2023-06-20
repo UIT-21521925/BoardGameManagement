@@ -11,39 +11,14 @@
                       <a href="/search/{{this._id}}" class="has-link">{{this.TenLBG}}</a>
                 </div>
                 {{/each}}
-             
             </div>
-          {{!-- <div class="dropdown">
-                <div class="dropdownitem active" data-index="0">
-                    <ul class="dropdownitem-list--item has-list"></p>
-                        {{#each LoaiBoardGames}}
-                           <li class="has-list--item">
-                             <a href="/search/{{this._id}}" class="has-link">{{this.TenLBG}}</a>
-                            </li>
-                        {{/each}}
-                    </ul>
-                </div>
-               <div class="dropdownitem"  data-index="1">
-                    <p class="dropdownitem-list--item">
-                        The Loai 4
-                    </p>
-                    <p class="dropdownitem-list--item">
-                        The Loai 5
-                    </p>
-                    <p class="dropdownitem-list--item">
-                        The Loai 6
-                    </p>
-                </div>
-            
-            </div>
-             --}}
        </div>
     </div>
 {{!-- list of boardgames --}}
    <div class="boardgames">
         <div class="grid">
-            {{#if ThongtinBGs}}
-                {{#each ThongtinBGs}}
+            {{#if boardGames}}
+                {{#each boardGames}}
                     <div class="grid__col-4">
                         <div class="boardgame">
                             <img src="{{this.HinhAnh}}" alt="" class="boardgame-img">
@@ -54,8 +29,8 @@
                                 <div class="boardgame-info__item">
                                     <a class="boardgame-link__price" href="/home/{{this.TenBoardGame}}">Giá: {{this.GiaThue}} VND</a>
                                 </div>
-                                {{#if SoLuong }}
-                                    <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng {{this.SoLuong}}</span></p>
+                                {{#if tinhTrang}}
+                                    <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng </span></p>
                                     <button class="boardgame-btn modal-buy" data-bgId="{{this._id}}" >
                                                                 Giữ chỗ
                                     </button>
@@ -173,8 +148,9 @@
                         openModal.classList.remove('open');
                         successMessage.style.display = 'flex';
                         var expirationDate = new Date();
-                        expirationDate.setMinutes(expirationDate.getMinutes() + 1);
-                        console.log(expirationDate)
+                        expirationDate.setMinutes(expirationDate.getMinutes() + 2);
+                       
+                        
                         expirationMessage.innerHTML = ' Vui lòng đến cửa hàng trong thời gian hiệu lực : ' + expirationDate.toLocaleString()  ;
                         // Đặt thời gian chờ 5 giây trước khi tắt thông báo thành công và chuyển hướng
                         setTimeout(function () {
