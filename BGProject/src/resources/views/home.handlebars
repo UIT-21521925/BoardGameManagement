@@ -8,7 +8,7 @@
             <div class="nav-dropdown-list">
                  {{#each LoaiBoardGames}}
                 <div class="navbar-dropdown-item active" data-index="0">
-                      <a href="/search/{{this._id}}" class="has-link">{{this.TenLBG}}</a>
+                      <a href="/search/{{this._id}}" class="has-link item-transition">{{this.TenLBG}}</a>
                 </div>
                 {{/each}}
             </div>
@@ -59,7 +59,7 @@
                     <p class="body-add-heading">
                         Phiếu giữ hàng
                     </p>
-                    <p id="bgIdValue" ></p>
+                    <p id="bgIdValue" style="display: none;" ></p>
                     <input type="text" class="phone" name="phone" placeholder="Nhập số điện thoại" value="" required="true">
                     <input type="hidden" name="bgId" id="bgIdInput" value="">
                 </div>
@@ -75,7 +75,7 @@
                 Giữ hàng thành công
             </div>   
            <div class="modal-container-content">
-              <p class="modal-container-item welcome" > Board Game Store xin chân thành cảm ơn! </p>
+              <p class="modal-container-item welcome" > 3 Board Game xin chân thành cảm ơn! </p>
               <p class="modal-container-item" id="expiration-message"></p>
               <p class="modal-container-item">  Địa chỉ cửa hàng : Linh Trung, Thủ Đức </p>
               <p class="modal-container-item warnning">  Lưu ý: Việc giữ hàng cho quý khách sẽ bị <span class="cancle">HỦY</span> sau thời gian hiệu lực</p>
@@ -148,7 +148,7 @@
                         openModal.classList.remove('open');
                         successMessage.style.display = 'flex';
                         var expirationDate = new Date();
-                        expirationDate.setMinutes(expirationDate.getMinutes() + 2);
+                        expirationDate.setSeconds(expirationDate.getSeconds() + 30);
                        
                         
                         expirationMessage.innerHTML = ' Vui lòng đến cửa hàng trong thời gian hiệu lực : ' + expirationDate.toLocaleString()  ;
