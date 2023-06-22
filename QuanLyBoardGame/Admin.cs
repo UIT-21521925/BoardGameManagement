@@ -1008,6 +1008,8 @@ namespace QuanLyBoardGame
 
         public void HienThiDS_BienBan()
         {
+            tbSoTienPhat.ReadOnly = true;
+            tbSoBienBan.ReadOnly = true;
             List<BienBan> listBBs = collection_BB.AsQueryable().ToList<BienBan>();
             tbSoBienBan.Text = listBBs.Count.ToString();
             int tongTienPhat = 0;
@@ -1056,6 +1058,7 @@ namespace QuanLyBoardGame
             }
             tbSoTienPhat.Text=tongTienPhat.ToString();
             dgvDSBienBan.DataSource = dt; // Sử dụng DataTable làm nguồn dữ liệu cho DataGridView
+
         }
     } 
 

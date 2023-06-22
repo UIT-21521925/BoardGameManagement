@@ -43,6 +43,7 @@ namespace QuanLyBoardGame
                 cbTheLoai.Items.Add(lbg.TenLBG);
             }
             tbSoLuong.ReadOnly = true;
+            tbTinhTrang.ReadOnly = true;
         }
 
         internal ThemBoardGame(ThongTinBG ttbg)
