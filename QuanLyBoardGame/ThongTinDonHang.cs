@@ -98,7 +98,7 @@ namespace QuanLyBoardGame
 
         private void bDaTra_Click(object sender, EventArgs e)
         {
-            var updateDefDH = Builders<DonHang>.Update.Set("TrangThai", "Da tra"); 
+            var updateDefDH = Builders<DonHang>.Update.Set("TrangThai", "Đã trả"); 
             collection_DH.UpdateOneAsync(dh1 => dh1.MaDH == dh.MaDH, updateDefDH);
 
             var thongTinCTDHquery = Builders<CTDonHang>.Filter.Eq("MaDH", dh.MaDH);
@@ -109,7 +109,7 @@ namespace QuanLyBoardGame
                 List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
                 BoardGame bg = filteredBGs[0];
 
-                var updateDefG = Builders<BoardGame>.Update.Set("TinhTrangMuon", "Chua duoc thue");
+                var updateDefG = Builders<BoardGame>.Update.Set("TinhTrangMuon", "Chưa được thuê");
                 collection_G.UpdateOneAsync(bg1 => bg1.MaBG == bg.MaBG, updateDefG);
 
                 var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);

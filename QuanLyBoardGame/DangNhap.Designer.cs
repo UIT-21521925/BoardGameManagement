@@ -70,11 +70,11 @@
             this.buttonCancel.BackColor = System.Drawing.Color.Teal;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(212, 223);
+            this.buttonCancel.Location = new System.Drawing.Point(180, 223);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(89, 41);
+            this.buttonCancel.Size = new System.Drawing.Size(105, 41);
             this.buttonCancel.TabIndex = 7;
-            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.Text = "Thoát";
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
@@ -83,11 +83,11 @@
             this.buttonLogin.BackColor = System.Drawing.Color.Teal;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(307, 223);
+            this.buttonLogin.Location = new System.Drawing.Point(291, 223);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(89, 41);
+            this.buttonLogin.Size = new System.Drawing.Size(105, 41);
             this.buttonLogin.TabIndex = 6;
-            this.buttonLogin.Text = "Login";
+            this.buttonLogin.Text = "Đăng nhập";
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
@@ -98,9 +98,9 @@
             this.label1.ForeColor = System.Drawing.Color.Teal;
             this.label1.Location = new System.Drawing.Point(37, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 24);
+            this.label1.Size = new System.Drawing.Size(182, 24);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Welcome Back";
+            this.label1.Text = "Quản lý board game";
             // 
             // panelPassword
             // 

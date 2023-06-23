@@ -61,6 +61,7 @@ namespace QuanLyBoardGame
             tbMaBoardGame.Text = bg.MaBG.ToString();
             cbTinhTrangBG.Text = bg.TinhTrangBG;
             cbTinhTrangMuon.Text = bg.TinhTrangMuon;
+            tbDatHang.Text = bg.DatHang;
             bThemBG.Text = "Sửa";
         }
 
@@ -81,10 +82,17 @@ namespace QuanLyBoardGame
         {
             if (bThemBG.Text == "Sửa")
             {
-                var updateDef = Builders<BoardGame>.Update.Set("TinhTrangBG", cbTinhTrangBG.Text).Set("TinhTrangMuon", cbTinhTrangMuon.Text);
-                collection_G.UpdateOneAsync(bg1 => bg1.MaBG == bg.MaBG, updateDef);
-                MessageBox.Show("Cập nhật thông tin trong kho thành công");
-                this.Hide();
+                if (cbTinhTrangBG.Text != ""&& cbTinhTrangMuon.Text !="")
+                {
+                    var updateDef = Builders<BoardGame>.Update.Set("TinhTrangBG", cbTinhTrangBG.Text).Set("TinhTrangMuon", cbTinhTrangMuon.Text).Set("DatHang", tbDatHang.Text);
+                    collection_G.UpdateOneAsync(bg1 => bg1.MaBG == bg.MaBG, updateDef);
+                    MessageBox.Show("Cập nhật thông tin trong kho thành công");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập tình trạng board game!");
+                }
             }
             else
             {

@@ -64,10 +64,23 @@ namespace QuanLyBoardGame
         {
             if(bThemUuDai.Text == "Sửa")
             {
-                var updateDef = Builders<UuDai>.Update.Set("TenUD", tbTenUuDai.Text).Set("MoTa", tbMoTa.Text).Set("NgayBD", dtpNgayBD.Value).Set("NgayKT", dtpNgayKT.Value).Set("PhanTramGiam", double.Parse(tbPhanTramGiam.Text)).Set("SoLuong", int.Parse(tbSoLuongUD.Text)).Set("DiemQuyDoi", int.Parse(tbSoLuongQD.Text));
-                collection_UD.UpdateOneAsync(ud => ud.MaUD == ObjectId.Parse(tbMaUuDai.Text), updateDef);
-                MessageBox.Show("Cập nhật thông tin ưu đãi thành công");
-                this.Hide();
+                if (tbTenUuDai.Text != "" &
+                tbMoTa.Text != "" &
+                dtpNgayBD.Text != "" &
+                dtpNgayKT.Text != "" &
+                tbSoLuongUD.Text != "0")
+                {
+
+
+                    var updateDef = Builders<UuDai>.Update.Set("TenUD", tbTenUuDai.Text).Set("MoTa", tbMoTa.Text).Set("NgayBD", dtpNgayBD.Value).Set("NgayKT", dtpNgayKT.Value).Set("PhanTramGiam", double.Parse(tbPhanTramGiam.Text)).Set("SoLuong", int.Parse(tbSoLuongUD.Text)).Set("DiemQuyDoi", int.Parse(tbSoLuongQD.Text));
+                    collection_UD.UpdateOneAsync(ud => ud.MaUD == ObjectId.Parse(tbMaUuDai.Text), updateDef);
+                    MessageBox.Show("Cập nhật thông tin ưu đãi thành công");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin ưu đãi");
+                }
             }
             else
             {
@@ -75,7 +88,6 @@ namespace QuanLyBoardGame
                 tbMoTa.Text != "" &
                 dtpNgayBD.Text != "" &
                 dtpNgayKT.Text != "" &
-                tbPhanTramGiam.Text != "0" &
                 tbSoLuongUD.Text != "0") {
                     UuDai ud = new UuDai(tbTenUuDai.Text, tbMoTa.Text, dtpNgayBD.Value, dtpNgayKT.Value, int.Parse(tbPhanTramGiam.Text), int.Parse(tbSoLuongUD.Text), int.Parse(tbSoLuongQD.Text));
                     collection_UD.InsertOneAsync(ud);
@@ -101,6 +113,14 @@ namespace QuanLyBoardGame
             tbPhanTramGiam.Text = "";
             tbSoLuongUD.Text = "";
             tbSoLuongQD.Text = "";
+        }
+
+        private void tbPhanTramGiam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự được hiển thị trong text box
+            }
         }
     }
 }
