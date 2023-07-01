@@ -435,7 +435,7 @@
             this.pbManHinh.Image = ((System.Drawing.Image)(resources.GetObject("pbManHinh.Image")));
             this.pbManHinh.Location = new System.Drawing.Point(3, 3);
             this.pbManHinh.Name = "pbManHinh";
-            this.pbManHinh.Size = new System.Drawing.Size(858, 557);
+            this.pbManHinh.Size = new System.Drawing.Size(853, 560);
             this.pbManHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbManHinh.TabIndex = 0;
             this.pbManHinh.TabStop = false;
@@ -579,6 +579,7 @@
             this.dgvDanhSachBG.Name = "dgvDanhSachBG";
             this.dgvDanhSachBG.Size = new System.Drawing.Size(402, 467);
             this.dgvDanhSachBG.TabIndex = 57;
+            this.dgvDanhSachBG.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachBG_CellContentDoubleClick);
             // 
             // label11
             // 
