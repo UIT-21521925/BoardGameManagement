@@ -275,7 +275,7 @@
             this.Controls.Add(this.panel10);
             this.Name = "ThemKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ThemKhachHang";
+            this.Text = "Thông tin khách hàng";
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel3.ResumeLayout(false);

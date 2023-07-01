@@ -70,10 +70,27 @@ namespace QuanLyBoardGame
             tbTienCoc.Text = dh.TienCoc.ToString();
             tbTongTien.Text = dh.TongTien.ToString();
 
+            DataTable dt = new DataTable();
+            dt.Columns.Add("MaGame", typeof(ObjectId));
+            dt.Columns.Add("TenBoardGame", typeof(string));
 
             var thongTinCTDHquery = Builders<CTDonHang>.Filter.Eq("MaDH", dh.MaDH);
             List<CTDonHang> filteredCTDHs = collection_CTDH.Find(thongTinCTDHquery).ToList();
-            dgvDSBGDH.DataSource= filteredCTDHs;
+            foreach(CTDonHang ctdh in filteredCTDHs)
+            {
+                DataRow row = dt.NewRow();
+                row["MaGame"] = ctdh.MaBG;
+                var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaBG", ctdh.MaBG);
+                List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
+                BoardGame bg = filteredBGs[0];
+                var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
+                List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
+                ThongTinBG ttbg = filteredTTBGs[0];
+                row["TenBoardGame"] = ttbg.TenBoardGame;
+                dt.Rows.Add(row);
+            }
+            dgvDSBGDH.DataSource= dt;
+
         }
 
 

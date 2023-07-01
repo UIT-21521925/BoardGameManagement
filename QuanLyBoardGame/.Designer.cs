@@ -44,12 +44,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tbTenKHVP = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbMaBG = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.tbMaBG);
             this.panel1.Controls.Add(this.bThoat);
             this.panel1.Controls.Add(this.bXacNhanVP);
             this.panel1.Controls.Add(this.label26);
@@ -101,7 +105,7 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label26.Location = new System.Drawing.Point(80, 195);
+            this.label26.Location = new System.Drawing.Point(80, 231);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(83, 16);
             this.label26.TabIndex = 97;
@@ -110,7 +114,7 @@
             // cbLoaiVP
             // 
             this.cbLoaiVP.FormattingEnabled = true;
-            this.cbLoaiVP.Location = new System.Drawing.Point(173, 194);
+            this.cbLoaiVP.Location = new System.Drawing.Point(173, 230);
             this.cbLoaiVP.Name = "cbLoaiVP";
             this.cbLoaiVP.Size = new System.Drawing.Size(204, 21);
             this.cbLoaiVP.TabIndex = 96;
@@ -124,7 +128,7 @@
             "Tốt",
             "Hỏng",
             "Trầy xước"});
-            this.cbTTBGVP.Location = new System.Drawing.Point(173, 157);
+            this.cbTTBGVP.Location = new System.Drawing.Point(173, 193);
             this.cbTTBGVP.Name = "cbTTBGVP";
             this.cbTTBGVP.Size = new System.Drawing.Size(204, 21);
             this.cbTTBGVP.TabIndex = 95;
@@ -135,7 +139,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(16, 157);
+            this.label4.Location = new System.Drawing.Point(16, 193);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 16);
             this.label4.TabIndex = 94;
@@ -144,7 +148,7 @@
             // cbBGVP
             // 
             this.cbBGVP.FormattingEnabled = true;
-            this.cbBGVP.Location = new System.Drawing.Point(173, 117);
+            this.cbBGVP.Location = new System.Drawing.Point(173, 116);
             this.cbBGVP.Name = "cbBGVP";
             this.cbBGVP.Size = new System.Drawing.Size(204, 21);
             this.cbBGVP.TabIndex = 92;
@@ -156,18 +160,18 @@
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label28.Location = new System.Drawing.Point(58, 117);
+            this.label28.Location = new System.Drawing.Point(52, 153);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(103, 16);
+            this.label28.Size = new System.Drawing.Size(108, 16);
             this.label28.TabIndex = 91;
-            this.label28.Text = "Mã board game";
+            this.label28.Text = "Tên board game";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(120, 233);
+            this.label2.Location = new System.Drawing.Point(120, 269);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 87;
@@ -175,7 +179,7 @@
             // 
             // tbLyDoVP
             // 
-            this.tbLyDoVP.Location = new System.Drawing.Point(173, 232);
+            this.tbLyDoVP.Location = new System.Drawing.Point(173, 268);
             this.tbLyDoVP.Name = "tbLyDoVP";
             this.tbLyDoVP.Size = new System.Drawing.Size(204, 20);
             this.tbLyDoVP.TabIndex = 86;
@@ -185,7 +189,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(83, 271);
+            this.label1.Location = new System.Drawing.Point(83, 307);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 16);
             this.label1.TabIndex = 85;
@@ -193,7 +197,7 @@
             // 
             // tbTienPhatVP
             // 
-            this.tbTienPhatVP.Location = new System.Drawing.Point(173, 270);
+            this.tbTienPhatVP.Location = new System.Drawing.Point(173, 306);
             this.tbTienPhatVP.Name = "tbTienPhatVP";
             this.tbTienPhatVP.Size = new System.Drawing.Size(204, 20);
             this.tbTienPhatVP.TabIndex = 84;
@@ -226,6 +230,24 @@
             this.tbTenKHVP.Name = "tbTenKHVP";
             this.tbTenKHVP.Size = new System.Drawing.Size(204, 20);
             this.tbTenKHVP.TabIndex = 71;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(56, 116);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(103, 16);
+            this.label5.TabIndex = 101;
+            this.label5.Text = "Mã board game";
+            // 
+            // tbMaBG
+            // 
+            this.tbMaBG.Location = new System.Drawing.Point(173, 153);
+            this.tbMaBG.Name = "tbMaBG";
+            this.tbMaBG.Size = new System.Drawing.Size(204, 20);
+            this.tbMaBG.TabIndex = 100;
             // 
             // Form1
             // 
@@ -260,5 +282,7 @@
         private System.Windows.Forms.ComboBox cbTTBGVP;
         private System.Windows.Forms.Button bThoat;
         private System.Windows.Forms.Button bXacNhanVP;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbMaBG;
     }
 }

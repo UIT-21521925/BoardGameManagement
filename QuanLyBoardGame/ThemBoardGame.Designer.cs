@@ -416,7 +416,7 @@
             this.Controls.Add(this.panel4);
             this.Name = "ThemBoardGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ThemBoardGame";
+            this.Text = "Thông tin board game";
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHinhanh)).EndInit();

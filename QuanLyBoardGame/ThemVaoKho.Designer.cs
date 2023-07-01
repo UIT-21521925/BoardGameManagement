@@ -263,7 +263,7 @@
             this.Controls.Add(this.panel6);
             this.Name = "ThemVaoKho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ThemVaoKho";
+            this.Text = "Thông tin game trong kho";
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
