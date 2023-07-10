@@ -5,7 +5,7 @@
         <h4 class="categories-title">Search Filter</h4>
         <hr>
        <div class="navbar-dropdown">
-             <form method="POST" action="/search">
+             <form method="POST" action="/search" class="wrap" >
                     <div class="search" >
                         <input type="text" name="q" class="searchTerm" placeholder="What are you looking for?">
                         <button type="submit" class="searchButton">
@@ -111,35 +111,6 @@
     const expirationMessage = document.getElementById('expiration-message');
 
 
-
-    /*document.addEventListener('click', function(event) {
-        if (!event.target.closest('.navbar-dropdown') && !event.target.closest('.boardgames-categories')) {
-            navbar.style.display = "none";
-        }
-    });
-
-    category.addEventListener('click', function() {
-        if(navbar.style.display ="none") {
-            navbar.style.display = "block";
-            $(".dropdownitem.active").classList.remove("active");
-
-        }
-        else {
-            navbar.style.display ="none"
-        }
-      }); 
-       
-        navbarItems.forEach((navbarItem, index) => {
-            navbarItem.addEventListener('click', function() {
-              // Loại bỏ class "active" cho tất cả các subnav items
-                subnavItems.forEach(subnavItem => {
-                subnavItem.classList.remove('active');
-            });
-                 // Thêm class "active" cho subnav item tương ứng
-                subnavItems[index].classList.add('active');
-         });
-});
-*/
          btnModals.forEach((btnModal,index) => {
               btnModal.addEventListener('click', function() {
                 // Khi click xảy ra, lấy giá trị bgID từ thuộc tính data-bgId của button 

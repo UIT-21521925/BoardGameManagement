@@ -21,9 +21,7 @@
   margin: 7px 80px; }
 
 .wrap {
-  width: 30%;
-  position: absolute;
-  transform: translate(80%, 28%); }
+  margin: 5px 0; }
 
 .search {
   width: 100%;
@@ -193,7 +191,8 @@ hr {
   line-height: 24px;
   color: #f5eeee;
   margin-top: 30px;
-  padding: 40px 0; }
+  padding: 40px 0;
+  bottom: 0; }
 
 .container-footer {
   display: flex;

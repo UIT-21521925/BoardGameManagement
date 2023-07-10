@@ -59,13 +59,18 @@ index(req, res, next) {
      
     }
     //post /search/q
-    search(req, res) {
+    search(req, res,next) {
       var keyName = req.body.q;
-      ThongtinBG.find({TenBoardGame : {$regex :keyName}}).exec()
+      ThongtinBG.find({TenBoardGame : {$regex :keyName , $options : 'i'}}).exec()
         .then( ThongtinBG => {
           ThongtinBG = ThongtinBG.map(ThongtinBG => ThongtinBG.toObject());
           res.render('boardgame/search.handlebars', {ThongtinBGs : ThongtinBG })
         })
+
+        .catch((error) => {
+          // Xử lý lỗi nếu có
+          res.status(500).json({ error: error.message });
+        });
 
     }
 
