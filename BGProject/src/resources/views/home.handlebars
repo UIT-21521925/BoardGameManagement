@@ -5,6 +5,14 @@
         <h4 class="categories-title">Search Filter</h4>
         <hr>
        <div class="navbar-dropdown">
+             <form method="POST" action="/search">
+                    <div class="search" >
+                        <input type="text" name="q" class="searchTerm" placeholder="What are you looking for?">
+                        <button type="submit" class="searchButton">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
             <div class="nav-dropdown-list">
                  {{#each LoaiBoardGames}}
                 <div class="navbar-dropdown-item active" data-index="0">
@@ -148,7 +156,7 @@
                         openModal.classList.remove('open');
                         successMessage.style.display = 'flex';
                         var expirationDate = new Date();
-                        expirationDate.setSeconds(expirationDate.getSeconds() + 30);
+                        expirationDate.setMinutes(expirationDate.getMinutes() + 2);
                        
                         
                         expirationMessage.innerHTML = ' Vui lòng đến cửa hàng trong thời gian hiệu lực : ' + expirationDate.toLocaleString()  ;

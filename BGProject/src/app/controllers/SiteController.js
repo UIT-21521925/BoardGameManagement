@@ -2,6 +2,7 @@ const ThongtinBG = require('../models/TTBG');
 const LoaiBoardGame = require('../models/LOAIBG');
 const Game = require('../models/Game');
 const { render } = require('node-sass');
+const { query } = require('express');
 
 class SiteController {
 
@@ -42,14 +43,30 @@ index(req, res, next) {
     .catch(next);
 }
       // get /search/MaLBG
-      searchbox(req,res,next) {
+    searchbox(req,res,next) {
         var value = req.params._id;
+        var keyName = req.body.name;
+        LoaiBoardGame.find({TenLBG: keyName}).exec()
+          .then(LoaiBoardGames => {
             ThongtinBG.find({MaLBG : value }).exec()
             .then(ThongtinBGs => {
                 ThongtinBGs = ThongtinBGs.map(ThongtinBG => ThongtinBG.toObject());
                 res.render('boardgame/search.handlebars', {ThongtinBGs : ThongtinBGs })
             })
-        .catch(next);
+            .catch(next);
+      })
+          .catch(next);
+     
+    }
+    //post /search/q
+    search(req, res) {
+      var keyName = req.body.q;
+      ThongtinBG.find({TenBoardGame : {$regex :keyName}}).exec()
+        .then( ThongtinBG => {
+          ThongtinBG = ThongtinBG.map(ThongtinBG => ThongtinBG.toObject());
+          res.render('boardgame/search.handlebars', {ThongtinBGs : ThongtinBG })
+        })
+
     }
 
 // [POST] /phone
@@ -95,7 +112,7 @@ phone(req, res) {
             .catch((error) => {
               console.log('Lỗi khi cập nhật tình trạng mượn:', error);
             });
-        }, 30 * 1000);
+        }, 30 * 20000);
       }
     })
     .catch((error) => {
