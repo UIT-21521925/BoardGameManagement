@@ -413,7 +413,7 @@
             this.tabQuanLy.Location = new System.Drawing.Point(17, 6);
             this.tabQuanLy.Name = "tabQuanLy";
             this.tabQuanLy.SelectedIndex = 0;
-            this.tabQuanLy.Size = new System.Drawing.Size(867, 589);
+            this.tabQuanLy.Size = new System.Drawing.Size(867, 586);
             this.tabQuanLy.TabIndex = 2;
             // 
             // tpMacDinh
@@ -449,7 +449,7 @@
             this.tpThêmDonHang.Controls.Add(this.panel1);
             this.tpThêmDonHang.Location = new System.Drawing.Point(4, 4);
             this.tpThêmDonHang.Name = "tpThêmDonHang";
-            this.tpThêmDonHang.Size = new System.Drawing.Size(859, 563);
+            this.tpThêmDonHang.Size = new System.Drawing.Size(859, 560);
             this.tpThêmDonHang.TabIndex = 3;
             this.tpThêmDonHang.Text = "Thêm Đơn hàng";
             // 
@@ -521,7 +521,7 @@
             this.panel2.Controls.Add(this.label11);
             this.panel2.Location = new System.Drawing.Point(444, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(408, 524);
+            this.panel2.Size = new System.Drawing.Size(408, 521);
             this.panel2.TabIndex = 1;
             // 
             // cbTimBG
@@ -577,7 +577,7 @@
             this.dgvDanhSachBG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhSachBG.Location = new System.Drawing.Point(4, 54);
             this.dgvDanhSachBG.Name = "dgvDanhSachBG";
-            this.dgvDanhSachBG.Size = new System.Drawing.Size(402, 467);
+            this.dgvDanhSachBG.Size = new System.Drawing.Size(402, 464);
             this.dgvDanhSachBG.TabIndex = 57;
             this.dgvDanhSachBG.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachBG_CellContentDoubleClick);
             // 
@@ -619,7 +619,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(3, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(441, 524);
+            this.panel1.Size = new System.Drawing.Size(441, 521);
             this.panel1.TabIndex = 0;
             // 
             // label15
@@ -662,6 +662,8 @@
             // 
             // cbTenKhachHang
             // 
+            this.cbTenKhachHang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTenKhachHang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbTenKhachHang.FormattingEnabled = true;
             this.cbTenKhachHang.Location = new System.Drawing.Point(151, 54);
             this.cbTenKhachHang.Name = "cbTenKhachHang";
@@ -679,6 +681,7 @@
             this.cbMaUuDaiSD.Name = "cbMaUuDaiSD";
             this.cbMaUuDaiSD.Size = new System.Drawing.Size(204, 21);
             this.cbMaUuDaiSD.TabIndex = 65;
+            this.cbMaUuDaiSD.Text = "Không";
             this.cbMaUuDaiSD.SelectedIndexChanged += new System.EventHandler(this.cbMaUuDaiSD_SelectedIndexChanged);
             this.cbMaUuDaiSD.SelectedValueChanged += new System.EventHandler(this.cbMaUuDaiSD_SelectedValueChanged);
             // 
@@ -828,7 +831,7 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Location = new System.Drawing.Point(433, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(5, 523);
+            this.panel3.Size = new System.Drawing.Size(5, 520);
             this.panel3.TabIndex = 2;
             // 
             // label4
@@ -1166,6 +1169,7 @@
             this.cbChonNam.Name = "cbChonNam";
             this.cbChonNam.Size = new System.Drawing.Size(121, 21);
             this.cbChonNam.TabIndex = 37;
+            this.cbChonNam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbChonThang_KeyPress);
             // 
             // lTenBaoCao
             // 
@@ -1210,6 +1214,7 @@
             this.cbChonThang.Name = "cbChonThang";
             this.cbChonThang.Size = new System.Drawing.Size(121, 21);
             this.cbChonThang.TabIndex = 34;
+            this.cbChonThang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbChonThang_KeyPress);
             // 
             // dgvBaoCao
             // 
@@ -1229,7 +1234,7 @@
             this.tbDanhSach.Location = new System.Drawing.Point(4, 4);
             this.tbDanhSach.Name = "tbDanhSach";
             this.tbDanhSach.Padding = new System.Windows.Forms.Padding(3);
-            this.tbDanhSach.Size = new System.Drawing.Size(859, 563);
+            this.tbDanhSach.Size = new System.Drawing.Size(859, 560);
             this.tbDanhSach.TabIndex = 8;
             this.tbDanhSach.Text = "Danh sách";
             this.tbDanhSach.UseVisualStyleBackColor = true;
@@ -1247,7 +1252,7 @@
             this.tabDanhSach.Location = new System.Drawing.Point(3, 3);
             this.tabDanhSach.Name = "tabDanhSach";
             this.tabDanhSach.SelectedIndex = 0;
-            this.tabDanhSach.Size = new System.Drawing.Size(856, 560);
+            this.tabDanhSach.Size = new System.Drawing.Size(856, 557);
             this.tabDanhSach.TabIndex = 0;
             // 
             // tpDSBoardGame
@@ -1257,7 +1262,7 @@
             this.tpDSBoardGame.Location = new System.Drawing.Point(4, 24);
             this.tpDSBoardGame.Name = "tpDSBoardGame";
             this.tpDSBoardGame.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDSBoardGame.Size = new System.Drawing.Size(848, 532);
+            this.tpDSBoardGame.Size = new System.Drawing.Size(848, 529);
             this.tpDSBoardGame.TabIndex = 0;
             this.tpDSBoardGame.Text = "Board Game";
             // 
@@ -1278,7 +1283,7 @@
             this.panel8.Controls.Add(this.dgvTTBG);
             this.panel8.Location = new System.Drawing.Point(6, 8);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(836, 516);
+            this.panel8.Size = new System.Drawing.Size(836, 513);
             this.panel8.TabIndex = 18;
             // 
             // panel24
@@ -1349,7 +1354,7 @@
             this.dgvBG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBG.Location = new System.Drawing.Point(8, 282);
             this.dgvBG.Name = "dgvBG";
-            this.dgvBG.Size = new System.Drawing.Size(823, 227);
+            this.dgvBG.Size = new System.Drawing.Size(823, 224);
             this.dgvBG.TabIndex = 35;
             this.dgvBG.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBG_CellContentDoubleClick);
             // 
@@ -1415,7 +1420,7 @@
             this.tpDSKhachHang.Location = new System.Drawing.Point(4, 24);
             this.tpDSKhachHang.Name = "tpDSKhachHang";
             this.tpDSKhachHang.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDSKhachHang.Size = new System.Drawing.Size(848, 532);
+            this.tpDSKhachHang.Size = new System.Drawing.Size(848, 529);
             this.tpDSKhachHang.TabIndex = 1;
             this.tpDSKhachHang.Text = "Khách Hàng";
             // 
@@ -1432,7 +1437,7 @@
             this.panel9.Controls.Add(this.bTimKiemKH);
             this.panel9.Location = new System.Drawing.Point(3, 6);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(839, 517);
+            this.panel9.Size = new System.Drawing.Size(839, 514);
             this.panel9.TabIndex = 1;
             // 
             // bThemKH
@@ -1480,7 +1485,7 @@
             this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKhachHang.Location = new System.Drawing.Point(7, 84);
             this.dgvKhachHang.Name = "dgvKhachHang";
-            this.dgvKhachHang.Size = new System.Drawing.Size(823, 430);
+            this.dgvKhachHang.Size = new System.Drawing.Size(823, 427);
             this.dgvKhachHang.TabIndex = 35;
             this.dgvKhachHang.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellContentDoubleClick);
             // 
@@ -1510,7 +1515,7 @@
             this.tpDSUuDai.Controls.Add(this.pUuDai);
             this.tpDSUuDai.Location = new System.Drawing.Point(4, 24);
             this.tpDSUuDai.Name = "tpDSUuDai";
-            this.tpDSUuDai.Size = new System.Drawing.Size(848, 532);
+            this.tpDSUuDai.Size = new System.Drawing.Size(848, 529);
             this.tpDSUuDai.TabIndex = 2;
             this.tpDSUuDai.Text = "Ưu đãi";
             // 
@@ -1527,7 +1532,7 @@
             this.pUuDai.Controls.Add(this.dgvUuDai);
             this.pUuDai.Location = new System.Drawing.Point(3, 4);
             this.pUuDai.Name = "pUuDai";
-            this.pUuDai.Size = new System.Drawing.Size(842, 517);
+            this.pUuDai.Size = new System.Drawing.Size(842, 514);
             this.pUuDai.TabIndex = 17;
             // 
             // bThemUD
@@ -1594,7 +1599,7 @@
             this.dgvUuDai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUuDai.Location = new System.Drawing.Point(11, 84);
             this.dgvUuDai.Name = "dgvUuDai";
-            this.dgvUuDai.Size = new System.Drawing.Size(816, 428);
+            this.dgvUuDai.Size = new System.Drawing.Size(816, 425);
             this.dgvUuDai.TabIndex = 27;
             this.dgvUuDai.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUuDai_CellContentDoubleClick);
             // 

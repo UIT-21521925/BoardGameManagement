@@ -158,6 +158,7 @@
             this.tbThoiGianChoi.Name = "tbThoiGianChoi";
             this.tbThoiGianChoi.Size = new System.Drawing.Size(204, 20);
             this.tbThoiGianChoi.TabIndex = 75;
+            this.tbThoiGianChoi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTriGia_KeyPress);
             // 
             // label20
             // 
