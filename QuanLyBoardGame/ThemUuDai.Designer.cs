@@ -301,7 +301,7 @@
             this.Controls.Add(this.panel12);
             this.Name = "ThemUuDai";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ThemUuDai";
+            this.Text = "Thông tin ưu đãi";
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel3.ResumeLayout(false);

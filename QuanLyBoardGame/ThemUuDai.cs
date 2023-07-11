@@ -14,8 +14,8 @@ namespace QuanLyBoardGame
 {
     public partial class ThemUuDai : Form
     {
-        //static MongoClient client = new MongoClient();
-        static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
+        static MongoClient client = new MongoClient();
+        //static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<ThongTinBG> collection_BG = db.GetCollection<ThongTinBG>("BoardGame");
         static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
@@ -33,6 +33,7 @@ namespace QuanLyBoardGame
         public ThemUuDai()
         {
             InitializeComponent();
+            tbMaUuDai.ReadOnly = true;
         }
         internal ThemUuDai(UuDai ud)
         {
@@ -42,11 +43,12 @@ namespace QuanLyBoardGame
                 this.ud=ud;
                 HienThiUuDai();
             }
+            tbMaUuDai.ReadOnly = true;
         }
 
         public void HienThiUuDai()
         {
-            tbMaUuDai.ReadOnly = true;
+           
 
             tbMaUuDai.Text =ud.MaUD.ToString();
             tbTenUuDai.Text = ud.TenUD;
@@ -103,16 +105,22 @@ namespace QuanLyBoardGame
 
         private void bMDUuDai_Click(object sender, EventArgs e)
         {
-            tbMaUuDai.ReadOnly = true;
+            if (bThemUuDai.Text == "Sửa")
+            {
+                HienThiUuDai();
+            }
+            else
+            {
 
-            tbMaUuDai.Text = "";
-            tbTenUuDai.Text = "";
-            tbMoTa.Text = "";
-            dtpNgayBD.Text = "";
-            dtpNgayKT.Text = "";
-            tbPhanTramGiam.Text = "";
-            tbSoLuongUD.Text = "";
-            tbSoLuongQD.Text = "";
+                tbMaUuDai.Text = "";
+                tbTenUuDai.Text = "";
+                tbMoTa.Text = "";
+                dtpNgayBD.Text = "";
+                dtpNgayKT.Text = "";
+                tbPhanTramGiam.Text = "0";
+                tbSoLuongUD.Text = "0";
+                tbSoLuongQD.Text = "0";
+            }
         }
 
         private void tbPhanTramGiam_KeyPress(object sender, KeyPressEventArgs e)

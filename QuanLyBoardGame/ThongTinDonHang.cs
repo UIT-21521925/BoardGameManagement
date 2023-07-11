@@ -14,8 +14,8 @@ namespace QuanLyBoardGame
 {
     public partial class ThongTinDonHang : Form
     {
-        //static MongoClient client = new MongoClient();
-        static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
+        static MongoClient client = new MongoClient();
+        //static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<ThongTinBG> collection_BG = db.GetCollection<ThongTinBG>("BoardGame");
         static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
@@ -36,6 +36,10 @@ namespace QuanLyBoardGame
             {
                 this.dh = dh;
                 HienThiDonHang();
+                if(dh.TrangThai=="Đã trả")
+                {
+                    bDaTra.Enabled = false;
+                }
             }
         }
 
@@ -70,10 +74,27 @@ namespace QuanLyBoardGame
             tbTienCoc.Text = dh.TienCoc.ToString();
             tbTongTien.Text = dh.TongTien.ToString();
 
+            DataTable dt = new DataTable();
+            dt.Columns.Add("MaGame", typeof(ObjectId));
+            dt.Columns.Add("TenBoardGame", typeof(string));
 
             var thongTinCTDHquery = Builders<CTDonHang>.Filter.Eq("MaDH", dh.MaDH);
             List<CTDonHang> filteredCTDHs = collection_CTDH.Find(thongTinCTDHquery).ToList();
-            dgvDSBGDH.DataSource= filteredCTDHs;
+            foreach(CTDonHang ctdh in filteredCTDHs)
+            {
+                DataRow row = dt.NewRow();
+                row["MaGame"] = ctdh.MaBG;
+                var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaBG", ctdh.MaBG);
+                List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
+                BoardGame bg = filteredBGs[0];
+                var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
+                List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
+                ThongTinBG ttbg = filteredTTBGs[0];
+                row["TenBoardGame"] = ttbg.TenBoardGame;
+                dt.Rows.Add(row);
+            }
+            dgvDSBGDH.DataSource= dt;
+
         }
 
 
@@ -98,28 +119,29 @@ namespace QuanLyBoardGame
 
         private void bDaTra_Click(object sender, EventArgs e)
         {
-            var updateDefDH = Builders<DonHang>.Update.Set("TrangThai", "Đã trả"); 
-            collection_DH.UpdateOneAsync(dh1 => dh1.MaDH == dh.MaDH, updateDefDH);
+            
+                var updateDefDH = Builders<DonHang>.Update.Set("TrangThai", "Đã trả");
+                collection_DH.UpdateOneAsync(dh1 => dh1.MaDH == dh.MaDH, updateDefDH);
 
-            var thongTinCTDHquery = Builders<CTDonHang>.Filter.Eq("MaDH", dh.MaDH);
-            List<CTDonHang> filteredCTDHs = collection_CTDH.Find(thongTinCTDHquery).ToList();
-            for(int i = 0; i < filteredCTDHs.Count; i++)
-            {
-                var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaBG", filteredCTDHs[i].MaBG);
-                List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
-                BoardGame bg = filteredBGs[0];
+                var thongTinCTDHquery = Builders<CTDonHang>.Filter.Eq("MaDH", dh.MaDH);
+                List<CTDonHang> filteredCTDHs = collection_CTDH.Find(thongTinCTDHquery).ToList();
+                for (int i = 0; i < filteredCTDHs.Count; i++)
+                {
+                    var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaBG", filteredCTDHs[i].MaBG);
+                    List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
+                    BoardGame bg = filteredBGs[0];
 
-                var updateDefG = Builders<BoardGame>.Update.Set("TinhTrangMuon", "Chưa được thuê");
-                collection_G.UpdateOneAsync(bg1 => bg1.MaBG == bg.MaBG, updateDefG);
+                    var updateDefG = Builders<BoardGame>.Update.Set("TinhTrangMuon", "Chưa được thuê");
+                    collection_G.UpdateOneAsync(bg1 => bg1.MaBG == bg.MaBG, updateDefG);
 
-                var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
-                List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
-                ThongTinBG ttbg = filteredTTBGs[0];
+                    var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
+                    List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
+                    ThongTinBG ttbg = filteredTTBGs[0];
 
-                
-            }
-            MessageBox.Show("Xác nhận đã trả thành công");
-            this.Close();
+
+                }
+                MessageBox.Show("Xác nhận đã trả thành công");
+                this.Close();
             
         }
     }

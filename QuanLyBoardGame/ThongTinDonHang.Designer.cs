@@ -320,7 +320,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ThongTinDonHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ThongTinDonHang";
+            this.Text = "Thông tin đơn hàng";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSBGDH)).EndInit();

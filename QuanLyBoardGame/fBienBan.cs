@@ -15,15 +15,21 @@ namespace QuanLyBoardGame
 {
     public partial class Form1 : Form
     {
-        //static MongoClient client = new MongoClient();
-        static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
+        static MongoClient client = new MongoClient();
+        //static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
-        static IMongoCollection<BienBan> collection_BB = db.GetCollection<BienBan>("BienBan");
-        static IMongoCollection<LoaiPhat> collection_LP = db.GetCollection<LoaiPhat>("LoaiPhat");
+        static IMongoCollection<ThongTinBG> collection_BG = db.GetCollection<ThongTinBG>("BoardGame");
+        static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
         static IMongoCollection<KhachHang> collection_KH = db.GetCollection<KhachHang>("KhachHang");
+        static IMongoCollection<UuDai> collection_UD = db.GetCollection<UuDai>("UuDai");
         static IMongoCollection<DonHang> collection_DH = db.GetCollection<DonHang>("DonHang");
         static IMongoCollection<CTDonHang> collection_CTDH = db.GetCollection<CTDonHang>("CTDonHang");
-        static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
+        static IMongoCollection<CTBaoCao> collection_CTBC = db.GetCollection<CTBaoCao>("CTBaoCao");
+        static IMongoCollection<BaoCao> collection_BC = db.GetCollection<BaoCao>("BaoCao");
+        static IMongoCollection<LoaiBG> collection_LBG = db.GetCollection<LoaiBG>("LoaiBG");
+        static IMongoCollection<BienBan> collection_BB = db.GetCollection<BienBan>("BienBan");
+        static IMongoCollection<LoaiPhat> collection_LP = db.GetCollection<LoaiPhat>("LoaiPhat");
+        static IMongoCollection<ThamSo> collection_TS = db.GetCollection<ThamSo>("ThamSo");
         internal DonHang dh;
         internal Form1(DonHang dh)
         {
@@ -51,11 +57,13 @@ namespace QuanLyBoardGame
             }
                 var thongTinDHquery = Builders<CTDonHang>.Filter.Eq("MaDH", dh.MaDH);
                 List<CTDonHang> filtereDHHs = collection_CTDH.Find(thongTinDHquery).ToList();
-                cbBGVP.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
-
-                foreach (var donHang in filtereDHHs)
+                
+            cbBGVP.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
+                foreach (CTDonHang donHang in filtereDHHs)
                 {
+
                     cbBGVP.Items.Add(donHang.MaBG);
+
                 }
                 List<LoaiPhat> list = collection_LP.AsQueryable().ToList<LoaiPhat>();
                 foreach (var lp in list)
@@ -93,12 +101,17 @@ namespace QuanLyBoardGame
 
         private void cbBGVP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaBG", ObjectId.Parse(cbBGVP.Text));
+            var thongTinBGquery = Builders<BoardGame>.Filter.Eq("MaBG",ObjectId.Parse( cbBGVP.Text));
             List<BoardGame> filteredBGs = collection_G.Find(thongTinBGquery).ToList();
-
+           
+           
             if (filteredBGs.Count > 0)
             {
                 BoardGame bg = filteredBGs[0];
+                var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
+                List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
+                ThongTinBG ttbg = filteredTTBGs[0];
+                tbMaBG.Text = ttbg.TenBoardGame;
                 cbTTBGVP.Text = bg.TinhTrangBG.ToString();
             }
             else
