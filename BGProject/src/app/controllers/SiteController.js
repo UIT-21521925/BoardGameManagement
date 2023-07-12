@@ -6,42 +6,93 @@ const { query } = require('express');
 
 class SiteController {
 
-index(req, res, next) {
-  ThongtinBG.find().exec()
-    .then((ThongtinBGs) => {
-      LoaiBoardGame.find({}).exec()
-      .then(LoaiBoardGames => {
-        ThongtinBGs = ThongtinBGs.map(ThongtinBG => ThongtinBG.toObject());
-        const promises = ThongtinBGs.map((ThongtinBG) => {
-          return Game.countDocuments({
-              MaTTBG: ThongtinBG._id,
-              TinhTrangMuon: { $in: ["Đang thuê", "Đang giữ hàng"] }
-          }).exec()
-      });
-      Promise.all(promises)
-          .then((counts) => {
-              const processedBoardGames = ThongtinBGs.map((ThongtinBG, index) => {
+  index(req, res, next) {
+    ThongtinBG.find({}).exec()
+      .then((ThongtinBGs) => {
+        LoaiBoardGame.find({}).exec()
+          .then(LoaiBoardGames => {
+            ThongtinBGs = ThongtinBGs.map(ThongtinBG => ThongtinBG.toObject());
+            const promises = ThongtinBGs.map( ThongtinBG => {
+              return Game.find({ MaTTBG: ThongtinBG._id }).exec()
+                .then((games) => {
+                  let countIndex = 0;
+                  for (const game of games) {
+                    if ((game.TinhTrangBG !== "Hỏng" && (game.TinhTrangMuon == "Đang giữ hàng" || game.TinhTrangMuon == "Đang thuê")) || (game.TinhTrangBG == "Hỏng" && game.TinhTrangMuon == "Chưa được thuê")) {
+                      countIndex += 1; // Tăng số lượng nếu có tình trạng mượn là "Đang giữ hàng" hoặc "Đang thuê"
+                    }
+                  }
+                  return countIndex;
+                });
+            });
+  
+            Promise.all(promises)
+              .then((counts) => {
+                const processedBoardGames = ThongtinBGs.map((ThongtinBG, index) => {
                   const tinhTrang = counts[index] < ThongtinBG.SoLuong ? 1 : 0;
                   return {
-                      _id: ThongtinBG._id,
-                      TenBoardGame: ThongtinBG.TenBoardGame,
-                      GiaThue: ThongtinBG.GiaThue,
-                      HinhAnh : ThongtinBG.HinhAnh,
-                      tinhTrang: tinhTrang
+                    _id: ThongtinBG._id,
+                    TenBoardGame: ThongtinBG.TenBoardGame,
+                    GiaThue: ThongtinBG.GiaThue,
+                    HinhAnh: ThongtinBG.HinhAnh,
+                    tinhTrang: tinhTrang
                   };
+                });
+  
+                LoaiBoardGames = LoaiBoardGames.map(LoaiBG => LoaiBG.toObject());
+                res.render('home.handlebars', {
+                  LoaiBoardGames: LoaiBoardGames,
+                  boardGames: processedBoardGames,
+                  ThongtinBGs: ThongtinBGs
+                });
+              })
+              .catch((error) => {
+                console.log('Lỗi:', error);
+                res.render('error');
               });
-            LoaiBoardGames = LoaiBoardGames.map(LoaiBG => LoaiBG.toObject());
-              res.render('home.handlebars',{LoaiBoardGames: LoaiBoardGames, boardGames: processedBoardGames, ThongtinBGs : ThongtinBGs });
           })
-          .catch((error) => {
-              console.log('Lỗi:', error);
-              res.render('error');
-          });
+          .catch(next);
       })
       .catch(next);
-    })
-    .catch(next);
-}
+  }
+// index(req, res, next) {
+//   ThongtinBG.find({}).exec()
+//     .then((ThongtinBGs) => {
+//       const soluongBoardGame = ThongtinBGs.SoLuong;
+//       LoaiBoardGame.find({}).exec()
+//       .then(LoaiBoardGames => {
+//         ThongtinBGs = ThongtinBGs.map(ThongtinBG => ThongtinBG.toObject());
+//         const promises = ThongtinBGs.map((ThongtinBG) => {
+         
+//             return Game.countDocuments({
+//               MaTTBG: ThongtinBG._id,
+//               TinhTrangMuon: { $in : ["Đang thuê", "Đang giữ hàng"]},
+//               TinhTrangBG : {$ne : "Hỏng"}
+//           }).exec()
+//       });
+//       Promise.all(promises)
+//           .then((counts) => {
+//               const processedBoardGames = ThongtinBGs.map((ThongtinBG, index) => {
+//                  const tinhTrang = counts[index] < ThongtinBG.SoLuong ? 1 : 0 
+//                   return {
+//                       _id: ThongtinBG._id,
+//                       TenBoardGame: ThongtinBG.TenBoardGame,
+//                       GiaThue: ThongtinBG.GiaThue,
+//                       HinhAnh : ThongtinBG.HinhAnh,
+//                       tinhTrang: tinhTrang
+//                   };
+//               });
+//             LoaiBoardGames = LoaiBoardGames.map(LoaiBG => LoaiBG.toObject());
+//               res.render('home.handlebars',{LoaiBoardGames: LoaiBoardGames, boardGames: processedBoardGames, ThongtinBGs : ThongtinBGs });
+//           })
+//           .catch((error) => {
+//               console.log('Lỗi:', error);
+//               res.render('error');
+//           });
+//       })
+//       .catch(next);
+//     })
+//     .catch(next);
+// }
       // get /search/MaLBG
     searchbox(req,res,next) {
         var value = req.params._id;
@@ -83,7 +134,7 @@ phone(req, res) {
     {
       MaTTBG: bgId,
       TinhTrangMuon: 'Chưa được thuê',
-      TinhTrangBG: 'Tốt',
+      TinhTrangBG: { $in: ["Tốt", "Trầy xước"] },
     },
     {
       TinhTrangMuon: 'Đang giữ hàng',
@@ -117,7 +168,7 @@ phone(req, res) {
             .catch((error) => {
               console.log('Lỗi khi cập nhật tình trạng mượn:', error);
             });
-        }, 30 * 20000);
+        }, 40000);
       }
     })
     .catch((error) => {
