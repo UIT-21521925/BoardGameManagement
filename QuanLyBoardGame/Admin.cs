@@ -649,7 +649,24 @@ namespace QuanLyBoardGame
                         }
                         else
                         {
-                            MessageBox.Show("Khách hàng chưa tồn tại trong danh sách");
+                        DialogResult dialogResult = MessageBox.Show("Khách hàng chưa tồn tại! Tạo khách hàng mới:", "Thông báo", MessageBoxButtons.OKCancel);
+
+                        if (dialogResult == DialogResult.OK)
+                        {
+                            ThemKhachHang themKhachHang = new ThemKhachHang(bg.DatHang);
+                            themKhachHang.ShowDialog();
+
+                            List<KhachHang> listKHs = collection_KH.AsQueryable().ToList<KhachHang>();
+                            cbTenKhachHang.Items.Clear(); // Xóa các phần tử hiện có trong combobox trước khi thêm mới
+                            foreach (var kh in listKHs)
+                            {
+                                cbTenKhachHang.Items.Add(kh.TenKH);
+                            }
+                        }
+                        else if (dialogResult == DialogResult.Cancel)
+                        {
+                            return;
+                        }
                         }
 
 
