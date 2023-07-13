@@ -17,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Sources;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
@@ -460,72 +461,83 @@ namespace QuanLyBoardGame
                                         List<BoardGame> filteredDSCTDH = new List<BoardGame>();
                                         filteredDSCTDH.AddRange((List<BoardGame>)dgvCTDH.DataSource);
 
-                                        var updateCongTichDiemKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", 10);
-                                        collection_KH.UpdateOne(kh1 => kh1.MaKH == kh.MaKH, updateCongTichDiemKhachHang);
 
-                                        int tongtien = int.Parse(tbTongTien.Text);
-                                        tongtien = tongtien - tongtien * ud.PhanTramGiam / 100;
-                                        tbTongTien.Text = tongtien.ToString();
-
-
+                                        int tongTien = int.Parse(tbTongTien.Text);
+                                        int tongtiengoc = int.Parse(tbTongTien.Text);
+                                        tongTien = tongTien - tongTien * ud.PhanTramGiam / 100;
+                                        
+                                        int tienCoc = int.Parse(tbTienCoc.Text);
+                                        int tiencocgoc = int.Parse(tbTienCoc.Text);
 
                                         if (khoangThoiGianThue.TotalDays > 14)
                                         {
-                                            int tongTien = int.Parse(tbTongTien.Text);
-                                            tongTien -= tongTien * 5 / 100;
+                                            
+                                            tongTien -= tongTien * 10 / 100;
                                             tbTongTien.Text = tongTien.ToString();
 
-                                            int tienCoc = int.Parse(tbTienCoc.Text);
+                                            
                                             tienCoc = tienCoc * 110 / 100;
                                             tbTienCoc.Text = tienCoc.ToString();
                                         }
                                         else if (khoangThoiGianThue.TotalDays > 7)
                                         {
-                                            int tongTien = int.Parse(tbTongTien.Text);
+                                           
                                             tongTien -= tongTien * 5 / 100;
                                             tbTongTien.Text = tongTien.ToString();
                                         }
 
-                                        DonHang dh = new DonHang(dtpNgayThueDH.Value, dtpNgayTraDH.Value, "Chưa trả", kh.MaKH, ud.MaUD, int.Parse(tbTienCoc.Text), int.Parse(tbTongTien.Text));
-                                        collection_DH.InsertOneAsync(dh);
+                                        
 
-                                        var updateUuDai = Builders<UuDai>.Update.Inc("SoLuong", -1);
-                                        collection_UD.UpdateOne(ud1 => ud1.MaUD == ud.MaUD, updateUuDai);
+                                        DialogResult dialogResult = MessageBox.Show("Số tiền phải cọc là: " + tienCoc + " , Tổng số tiền phải trả là: " + tongTien, "Thông báo", MessageBoxButtons.OKCancel);
 
-                                        for (int j = 0; j < filteredDSCTDH.Count; j++)
+                                        if (dialogResult == DialogResult.OK)
                                         {
-                                            CTDonHang ctdh = new CTDonHang(dh.MaDH, filteredDSCTDH[j].MaBG);
-                                            collection_CTDH.InsertOneAsync(ctdh);
+                                            DonHang dh = new DonHang(dtpNgayThueDH.Value, dtpNgayTraDH.Value, "Chưa trả", kh.MaKH, ud.MaUD, tienCoc, tongTien);
+                                            collection_DH.InsertOneAsync(dh);
 
-                                            var updateDefBG = Builders<BoardGame>.Update.Set("TinhTrangMuon", "Đang thuê").Set("DatHang", "");
-                                            collection_G.UpdateOneAsync(bg1 => bg1.MaBG == filteredDSCTDH[j].MaBG, updateDefBG);
+                                            var updateUuDai = Builders<UuDai>.Update.Inc("SoLuong", -1);
+                                            collection_UD.UpdateOne(ud1 => ud1.MaUD == ud.MaUD, updateUuDai);
 
-                                            var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", filteredDSCTDH[j].MaTTBG);
-                                            List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
-                                            ThongTinBG ttbg = filteredTTBGs[0];
+                                            for (int j = 0; j < filteredDSCTDH.Count; j++)
+                                            {
+                                                CTDonHang ctdh = new CTDonHang(dh.MaDH, filteredDSCTDH[j].MaBG);
+                                                collection_CTDH.InsertOneAsync(ctdh);
 
+                                                var updateDefBG = Builders<BoardGame>.Update.Set("TinhTrangMuon", "Đang thuê").Set("DatHang", "");
+                                                collection_G.UpdateOneAsync(bg1 => bg1.MaBG == filteredDSCTDH[j].MaBG, updateDefBG);
 
+                                                var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", filteredDSCTDH[j].MaTTBG);
+                                                List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
+                                                ThongTinBG ttbg = filteredTTBGs[0];
+                                            }
+                                            var updateTruTichDiemKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", -ud.DiemQuyDoi);
+                                            collection_KH.UpdateOne(kh1 => kh1.MaKH == kh.MaKH, updateTruTichDiemKhachHang);
+
+                                            var updateCongTichDiemKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", 10);
+                                            collection_KH.UpdateOne(kh1 => kh1.MaKH == kh.MaKH, updateCongTichDiemKhachHang);
+
+                                            MessageBox.Show("Thêm đơn hàng thành công!");
+
+                                            filteredDSCTDH = new List<BoardGame>();
+
+                                            cbTenKhachHang.Text = "";
+                                            tbSdtKH.Text = "";
+                                            dgvCTDH.DataSource = new List<BoardGame>(); ;
+                                            dtpNgayThueDH.Value = DateTime.Now;
+                                            dtpNgayTraDH.Value = DateTime.Now;
+                                            cbMaUuDaiSD.Text = "Không";
+                                            tbTienCoc.Text = "0";
+                                            tbTongTien.Text = "0";
+
+                                            HienThiKho();
+                                        }
+                                        else if (dialogResult == DialogResult.Cancel)
+                                        {
+                                            tbTienCoc.Text =tiencocgoc.ToString();
+                                            tbTongTien.Text= tongtiengoc.ToString();
+                                            return;
                                         }
 
-
-
-
-                                        var updateTruTichDiemKhachHang = Builders<KhachHang>.Update.Inc("TichDiem", -ud.DiemQuyDoi);
-                                        collection_KH.UpdateOne(kh1 => kh1.MaKH == kh.MaKH, updateTruTichDiemKhachHang);
-
-                                        MessageBox.Show("Thêm đơn hàng thành công! ");
-                                        filteredDSCTDH = new List<BoardGame>();
-
-                                        cbTenKhachHang.Text = "";
-                                        tbSdtKH.Text = "";
-                                        dgvCTDH.DataSource = new List<BoardGame>(); ;
-                                        dtpNgayThueDH.Value = DateTime.Now;
-                                        dtpNgayTraDH.Value = DateTime.Now;
-                                        cbMaUuDaiSD.Text = "Không";
-                                        tbTienCoc.Text = "0";
-                                        tbTongTien.Text = "0";
-
-                                        HienThiKho();
                                     }
                                 }
                                 else
