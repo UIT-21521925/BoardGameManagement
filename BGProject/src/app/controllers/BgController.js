@@ -16,6 +16,6 @@ class BgController {
    
 
 }
-
+// 'boardgame/show.handlebars'
 
 module.exports = new BgController();

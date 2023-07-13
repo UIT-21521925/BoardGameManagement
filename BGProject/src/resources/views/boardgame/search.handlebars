@@ -2,9 +2,9 @@
     <a href="/" class="home">
         <h4 class="text-home"> <i class="fa-solid fa-backward home-icon"></i> Back to home</h1>
     </a>
- <div class="grid ">
-            {{#if ThongtinBGs}}
-                {{#each ThongtinBGs}}
+    <div class="grid ">
+            {{#if boardGames}}
+                {{#each boardGames}}
                     <div class="grid__col-4">
                         <div class="boardgame">
                             <img src="{{this.HinhAnh}}" alt="" class="boardgame-img">
@@ -16,7 +16,7 @@
                                     <a class="boardgame-link__price" href="/home/{{this.TenBoardGame}}">Giá: {{this.GiaThue}} VND</a>
                                 </div>
                              
-                                {{#if SoLuong }}
+                                {{#if tinhTrang }}
                                     <p class="boardgame-info__status">Tình trạng: <span class="available">Còn hàng</span></p>
                                     <button class="boardgame-btn modal-buy" data-bgId="{{this._id}}"> Giữ chỗ</button>
                                 {{else}}
@@ -29,7 +29,7 @@
             {{else}}
                 <p class="no-results">Không tìm thấy kết quả phù hợp.</p>
             {{/if}}
-        </div>
+    </div>
 </div>
 {{!-- modal input --}}
     <div class="modal-add">
