@@ -421,7 +421,7 @@
             this.tpMacDinh.Controls.Add(this.pbManHinh);
             this.tpMacDinh.Location = new System.Drawing.Point(4, 4);
             this.tpMacDinh.Name = "tpMacDinh";
-            this.tpMacDinh.Size = new System.Drawing.Size(859, 563);
+            this.tpMacDinh.Size = new System.Drawing.Size(859, 560);
             this.tpMacDinh.TabIndex = 7;
             this.tpMacDinh.Text = "Mặc định";
             this.tpMacDinh.UseVisualStyleBackColor = true;
@@ -863,7 +863,7 @@
             this.tpTruyXuat.Controls.Add(this.panel4);
             this.tpTruyXuat.Location = new System.Drawing.Point(4, 4);
             this.tpTruyXuat.Name = "tpTruyXuat";
-            this.tpTruyXuat.Size = new System.Drawing.Size(859, 563);
+            this.tpTruyXuat.Size = new System.Drawing.Size(859, 560);
             this.tpTruyXuat.TabIndex = 9;
             this.tpTruyXuat.Text = "Truy xuất đơn hàng";
             // 
@@ -1035,7 +1035,7 @@
             this.tpBaoCao.Controls.Add(this.dgvBaoCao);
             this.tpBaoCao.Location = new System.Drawing.Point(4, 4);
             this.tpBaoCao.Name = "tpBaoCao";
-            this.tpBaoCao.Size = new System.Drawing.Size(859, 563);
+            this.tpBaoCao.Size = new System.Drawing.Size(859, 560);
             this.tpBaoCao.TabIndex = 4;
             this.tpBaoCao.Text = "BaoCao";
             // 
@@ -1161,10 +1161,6 @@
             // cbChonNam
             // 
             this.cbChonNam.FormattingEnabled = true;
-            this.cbChonNam.Items.AddRange(new object[] {
-            "2021",
-            "2022",
-            "2023"});
             this.cbChonNam.Location = new System.Drawing.Point(319, 75);
             this.cbChonNam.Name = "cbChonNam";
             this.cbChonNam.Size = new System.Drawing.Size(121, 21);
@@ -1608,7 +1604,7 @@
             this.tpDSBienBan.Controls.Add(this.panel13);
             this.tpDSBienBan.Location = new System.Drawing.Point(4, 24);
             this.tpDSBienBan.Name = "tpDSBienBan";
-            this.tpDSBienBan.Size = new System.Drawing.Size(848, 532);
+            this.tpDSBienBan.Size = new System.Drawing.Size(848, 529);
             this.tpDSBienBan.TabIndex = 3;
             this.tpDSBienBan.Text = "Biên bản";
             this.tpDSBienBan.UseVisualStyleBackColor = true;
@@ -1627,7 +1623,7 @@
             this.panel13.Controls.Add(this.label26);
             this.panel13.Location = new System.Drawing.Point(3, 4);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(842, 525);
+            this.panel13.Size = new System.Drawing.Size(842, 522);
             this.panel13.TabIndex = 35;
             // 
             // label27
@@ -1636,7 +1632,7 @@
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label27.Location = new System.Drawing.Point(488, 487);
+            this.label27.Location = new System.Drawing.Point(488, 484);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(120, 18);
             this.label27.TabIndex = 77;
@@ -1645,7 +1641,7 @@
             // tbSoTienPhat
             // 
             this.tbSoTienPhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSoTienPhat.Location = new System.Drawing.Point(614, 486);
+            this.tbSoTienPhat.Location = new System.Drawing.Point(614, 483);
             this.tbSoTienPhat.Name = "tbSoTienPhat";
             this.tbSoTienPhat.Size = new System.Drawing.Size(137, 21);
             this.tbSoTienPhat.TabIndex = 76;
@@ -1656,7 +1652,7 @@
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label58.Location = new System.Drawing.Point(67, 484);
+            this.label58.Location = new System.Drawing.Point(67, 481);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(148, 18);
             this.label58.TabIndex = 75;
@@ -1665,7 +1661,7 @@
             // tbSoBienBan
             // 
             this.tbSoBienBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbSoBienBan.Location = new System.Drawing.Point(217, 484);
+            this.tbSoBienBan.Location = new System.Drawing.Point(217, 481);
             this.tbSoBienBan.Name = "tbSoBienBan";
             this.tbSoBienBan.Size = new System.Drawing.Size(137, 21);
             this.tbSoBienBan.TabIndex = 74;
@@ -1679,7 +1675,7 @@
             this.dgvDSBienBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSBienBan.Location = new System.Drawing.Point(37, 62);
             this.dgvDSBienBan.Name = "dgvDSBienBan";
-            this.dgvDSBienBan.Size = new System.Drawing.Size(773, 391);
+            this.dgvDSBienBan.Size = new System.Drawing.Size(773, 388);
             this.dgvDSBienBan.TabIndex = 36;
             // 
             // label26
@@ -1700,7 +1696,7 @@
             this.tpCaiDat.Location = new System.Drawing.Point(4, 4);
             this.tpCaiDat.Name = "tpCaiDat";
             this.tpCaiDat.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCaiDat.Size = new System.Drawing.Size(859, 563);
+            this.tpCaiDat.Size = new System.Drawing.Size(859, 560);
             this.tpCaiDat.TabIndex = 10;
             this.tpCaiDat.Text = "Cài đặt";
             this.tpCaiDat.UseVisualStyleBackColor = true;

@@ -35,6 +35,14 @@ namespace QuanLyBoardGame
             tbMaKhachHang.ReadOnly = true;
             tbSoTichDiem.ReadOnly = true;
         }
+
+        public ThemKhachHang(string sdt)
+        {
+            InitializeComponent();
+            tbSoDienThoai.Text = sdt;
+            tbMaKhachHang.ReadOnly = true;
+            tbSoTichDiem.ReadOnly = true;
+        }
         internal ThemKhachHang(KhachHang kh)
         {
             InitializeComponent();
