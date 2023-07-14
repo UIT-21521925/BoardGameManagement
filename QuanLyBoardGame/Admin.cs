@@ -116,7 +116,17 @@ namespace QuanLyBoardGame
         private void bBaoCao_Click(object sender, EventArgs e)
         {
             tabQuanLy.SelectedIndex = 3;
+            int currentYear = DateTime.Now.Year;
 
+            // Tạo danh sách các năm từ 2000 đến năm hiện tại
+            List<int> years = new List<int>();
+            for (int year = 2023; year <= currentYear; year++)
+            {
+                years.Add(year);
+            }
+
+            // Gán danh sách các năm cho ComboBox
+            cbChonNam.DataSource = years;
         }
         private void bDanhSach_Click(object sender, EventArgs e)
         {
@@ -961,7 +971,7 @@ namespace QuanLyBoardGame
             
             if (cbChonThang.Text != "" && cbChonNam.Text != "" 
                 && int.Parse(cbChonThang.Text)> 0 && int.Parse(cbChonThang.Text) < 13
-                && int.Parse(cbChonNam.Text) >= 2023 && int.Parse(cbChonNam.Text) <= 2030)
+                && int.Parse(cbChonNam.Text) >= 2023 )
             {
                 int thang = int.Parse(cbChonThang.Text.ToString());
                 int nam = int.Parse(cbChonNam.Text.ToString());
@@ -1035,7 +1045,7 @@ namespace QuanLyBoardGame
             }
             else
             {
-                MessageBox.Show("Thông tin tháng và năm sai cú phápu!");
+                MessageBox.Show("Thông tin tháng và năm sai cú pháp!");
             }
             
         }
