@@ -62,14 +62,15 @@
                  Thông tin giữ hàng 
                 <div class="icon-close-add closeModal"><i class="fa-regular fa-circle-xmark"></i></div>
             </div>
-            <form action="/phone" method="POST" id="modalForm">
+            <form action="/phone" method="POST" id="modalForm" onsubmit="return validateForm()">
                 <div class="body-modal-add">
                     <p class="body-add-heading">
                         Phiếu giữ hàng
                     </p>
                     <p id="bgIdValue" style="display: none;" ></p>
-                    <input type="text" class="phone" name="phone" placeholder="Nhập số điện thoại" value="" required="true">
+                    <input type="text" class="phone" name="phone" id="phoneInput" pattern="\d+" placeholder="Nhập số điện thoại" value="" required="true">
                     <input type="hidden" name="bgId" id="bgIdInput" value="">
+                    <div id="errorMessage" style="color: red;"></div>
                 </div>
                 <button class="footer-modal-add button" id="modalSubmitBtn">
                       Giữ hàng
@@ -109,7 +110,20 @@
     const modalForm = document.getElementById('modalForm');
     const modalSubmitBtn = document.getElementById('modalSubmitBtn');
     const expirationMessage = document.getElementById('expiration-message');
+    
+                var errorMessage = document.getElementById("errorMessage");
 
+            function validateForm() {
+                 var phoneInput = document.getElementById("phoneInput").value;
+                var phoneNumber = parseInt(phoneInput);
+      
+                if (isNaN(phoneNumber) || phoneNumber < 0 || !/^\d+$/.test(phoneInput) )  {
+                    
+                    return false; // Ngăn form được submit
+                }
+                // Form hợp lệ, cho phép submit
+                return true;
+            }
 
          btnModals.forEach((btnModal,index) => {
               btnModal.addEventListener('click', function() {
@@ -120,21 +134,30 @@
                 const bgIdInput = document.getElementById('bgIdInput');
                 bgIdInput.value = bgId;
 
+              
+
                 openModal.classList.add('open');
     
                     modalSubmitBtn.addEventListener('click', function (event) {
                         // Tắt form giữ hàng
-                        openModal.classList.remove('open');
-                        successMessage.style.display = 'flex';
-                        var expirationDate = new Date();
-                        expirationDate.setMinutes(expirationDate.getMinutes() + 2);
-                       
+                        if (!validateForm()) {
+                            // Ghi thông báo lỗi vào console
+                            errorMessage.textContent = "Vui lòng nhập số điện thoại hợp lệ.";
+                            return;
+                        }
+                        else {
+                            openModal.classList.remove('open');
+                            successMessage.style.display = 'flex';
+                            var expirationDate = new Date();
+                            expirationDate.setMinutes(expirationDate.getMinutes() + 2);
                         
-                        expirationMessage.innerHTML = ' Vui lòng đến cửa hàng trong thời gian hiệu lực : ' + expirationDate.toLocaleString()  ;
-                        // Đặt thời gian chờ 5 giây trước khi tắt thông báo thành công và chuyển hướng
-                        setTimeout(function () {
-                            successMessage.style.display = 'none';
-                        }, 4000);
+                            
+                            expirationMessage.innerHTML = ' Vui lòng đến cửa hàng trong thời gian hiệu lực : ' + expirationDate.toLocaleString()  ;
+                            // Đặt thời gian chờ 5 giây trước khi tắt thông báo thành công và chuyển hướng
+                            setTimeout(function () {
+                                successMessage.style.display = 'none';
+                            }, 6000);
+                        }
                     })
 
                     closeModal.addEventListener('click', function() {
@@ -142,6 +165,8 @@
                 })
                 });
             })
+
+        
         });
 
 </script>

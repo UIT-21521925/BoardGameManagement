@@ -11,11 +11,6 @@ class BgController {
         })
         .catch(next);
     }
-
-    //[POST] /home/phonebg
-   
-
 }
-// 'boardgame/show.handlebars'
 
 module.exports = new BgController();
