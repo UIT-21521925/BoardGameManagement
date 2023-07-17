@@ -104,11 +104,38 @@ class SiteController {
     search(req, res,next) {
       var keyName = req.body.q;
       ThongtinBG.find({TenBoardGame : {$regex :keyName , $options : 'i'}}).exec()
-        .then( ThongtinBG => {
-          ThongtinBG = ThongtinBG.map(ThongtinBG => ThongtinBG.toObject());
-          res.render('boardgame/search.handlebars', {ThongtinBGs : ThongtinBG })
+      .then(ThongtinBGs => {
+        ThongtinBGs = ThongtinBGs.map(ThongtinBG => ThongtinBG.toObject());
+        const promises = ThongtinBGs.map( ThongtinBG => {
+          return Game.find({ MaTTBG: ThongtinBG._id }).exec()
+            .then((games) => {
+              let countIndex = 0;
+              for (const game of games) {
+                if ((game.TinhTrangBG !== "Hỏng" && (game.TinhTrangMuon == "Đang giữ hàng" || game.TinhTrangMuon == "Đang thuê")) || (game.TinhTrangBG == "Hỏng" && game.TinhTrangMuon == "Chưa được thuê")) {
+                  countIndex += 1; // Tăng số lượng nếu có tình trạng mượn là "Đang giữ hàng" hoặc "Đang thuê"
+                }
+              }
+              return countIndex;
+            });
+        });
+        Promise.all(promises)
+        .then((counts) => {
+          const processedBoardGames = ThongtinBGs.map((ThongtinBG, index) => {
+            const tinhTrang = counts[index] < ThongtinBG.SoLuong ? 1 : 0;
+            return {
+              _id: ThongtinBG._id,
+              TenBoardGame: ThongtinBG.TenBoardGame,
+              GiaThue: ThongtinBG.GiaThue,
+              HinhAnh: ThongtinBG.HinhAnh,
+              tinhTrang: tinhTrang
+            };
+          });
+          res.render('boardgame/search.handlebars', {
+            boardGames: processedBoardGames,
+            ThongtinBGs: ThongtinBGs
+          });
         })
-
+    })
         .catch((error) => {
           // Xử lý lỗi nếu có
           res.status(500).json({ error: error.message });
