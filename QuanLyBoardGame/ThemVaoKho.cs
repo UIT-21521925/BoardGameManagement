@@ -138,5 +138,13 @@ namespace QuanLyBoardGame
                 cbTinhTrangMuon.Text = "";
             }
         }
+
+        private void tbDatHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự được hiển thị trong text box
+            }
+        }
     }
 }

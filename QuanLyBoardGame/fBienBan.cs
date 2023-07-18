@@ -38,7 +38,8 @@ namespace QuanLyBoardGame
             {
                 this.dh = dh;
                 ReadAllDocuments_BienBan();
-
+                tbTenKHVP.ReadOnly = true;
+                tbTienPhatVP.ReadOnly = true;
             }
             else
             {
@@ -80,23 +81,29 @@ namespace QuanLyBoardGame
 
         private void bXacNhanVP_Click(object sender, EventArgs e)
         {
-            var thongTinLPquery = Builders<LoaiPhat>.Filter.Eq("TenLoaiPhat", cbLoaiVP.Text);
-            List<LoaiPhat> filteredLPs = collection_LP.Find(thongTinLPquery).ToList();
-            LoaiPhat lp = filteredLPs[0];
+            if (cbLoaiVP.SelectedIndex != -1 && cbBGVP.SelectedIndex != -1 && cbTTBGVP.SelectedIndex != -1 ) {
+                var thongTinLPquery = Builders<LoaiPhat>.Filter.Eq("TenLoaiPhat", cbLoaiVP.Text);
+                List<LoaiPhat> filteredLPs = collection_LP.Find(thongTinLPquery).ToList();
+                LoaiPhat lp = filteredLPs[0];
 
-            var thongTinCTDHQuery = Builders<CTDonHang>.Filter.Where(ctdh1 =>
-                    ctdh1.MaBG == ObjectId.Parse(cbBGVP.Text) && ctdh1.MaDH ==dh.MaDH);
+                var thongTinCTDHQuery = Builders<CTDonHang>.Filter.Where(ctdh1 =>
+                        ctdh1.MaBG == ObjectId.Parse(cbBGVP.Text) && ctdh1.MaDH == dh.MaDH);
 
-            List<CTDonHang> filtereDHHs = collection_CTDH.Find(thongTinCTDHQuery).ToList();
-            CTDonHang ctdh = filtereDHHs[0];
+                List<CTDonHang> filtereDHHs = collection_CTDH.Find(thongTinCTDHQuery).ToList();
+                CTDonHang ctdh = filtereDHHs[0];
 
-            BienBan bb = new BienBan(tbLyDoVP.Text, ctdh.MaCTDH , lp.MaLP);
-            collection_BB.InsertOneAsync(bb);
-            MessageBox.Show("Cập nhật biên bản thành công");
+                BienBan bb = new BienBan(tbLyDoVP.Text, ctdh.MaCTDH, lp.MaLP);
+                collection_BB.InsertOneAsync(bb);
+                MessageBox.Show("Cập nhật biên bản thành công");
 
-            var updateDef = Builders<BoardGame>.Update.Set("TinhTrangBG", cbTTBGVP.Text);
-            collection_G.UpdateOneAsync(bg => bg.MaBG == ObjectId.Parse(cbBGVP.Text), updateDef);
-            this.Hide();
+                var updateDef = Builders<BoardGame>.Update.Set("TinhTrangBG", cbTTBGVP.Text);
+                collection_G.UpdateOneAsync(bg => bg.MaBG == ObjectId.Parse(cbBGVP.Text), updateDef);
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Thông tin nhập vào sai, vui lòng kiểm tra lại!");
+            }
         }
 
         private void cbBGVP_SelectedIndexChanged(object sender, EventArgs e)

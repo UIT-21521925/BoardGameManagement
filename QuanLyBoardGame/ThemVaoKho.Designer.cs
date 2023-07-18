@@ -92,6 +92,7 @@
             this.tbDatHang.Name = "tbDatHang";
             this.tbDatHang.Size = new System.Drawing.Size(204, 20);
             this.tbDatHang.TabIndex = 75;
+            this.tbDatHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDatHang_KeyPress);
             // 
             // label53
             // 
