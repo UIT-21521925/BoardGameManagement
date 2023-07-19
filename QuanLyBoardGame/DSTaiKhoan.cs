@@ -14,6 +14,7 @@ namespace QuanLyBoardGame
     public partial class DSTaiKhoan : Form
     {
         static MongoClient client = new MongoClient();
+        //static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<TaiKhoan> collection_DN = db.GetCollection<TaiKhoan>("DangNhap");
 

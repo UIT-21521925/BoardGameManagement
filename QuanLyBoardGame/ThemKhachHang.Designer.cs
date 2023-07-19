@@ -190,6 +190,7 @@
             this.tbSoDienThoai.Name = "tbSoDienThoai";
             this.tbSoDienThoai.Size = new System.Drawing.Size(204, 20);
             this.tbSoDienThoai.TabIndex = 58;
+            this.tbSoDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSoDienThoai_KeyPress);
             // 
             // label30
             // 
@@ -274,7 +275,7 @@
             this.Controls.Add(this.panel10);
             this.Name = "ThemKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ThemKhachHang";
+            this.Text = "Thông tin khách hàng";
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel3.ResumeLayout(false);

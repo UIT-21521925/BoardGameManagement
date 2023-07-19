@@ -15,6 +15,7 @@ namespace QuanLyBoardGame
     public partial class ThemKhachHang : Form
     {
         static MongoClient client = new MongoClient();
+        //static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<ThongTinBG> collection_BG = db.GetCollection<ThongTinBG>("BoardGame");
         static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
@@ -31,6 +32,16 @@ namespace QuanLyBoardGame
         public ThemKhachHang()
         {
             InitializeComponent();
+            tbMaKhachHang.ReadOnly = true;
+            tbSoTichDiem.ReadOnly = true;
+        }
+
+        public ThemKhachHang(string sdt)
+        {
+            InitializeComponent();
+            tbSoDienThoai.Text = sdt;
+            tbMaKhachHang.ReadOnly = true;
+            tbSoTichDiem.ReadOnly = true;
         }
         internal ThemKhachHang(KhachHang kh)
         {
@@ -40,13 +51,12 @@ namespace QuanLyBoardGame
                 this.kh = kh;
                 HienThiKhachHang();
             }
+            tbMaKhachHang.ReadOnly = true;
+            tbSoTichDiem.ReadOnly = true;
         }
 
         public void HienThiKhachHang()
         {
-            tbMaKhachHang.ReadOnly = true;
-            tbSoTichDiem.ReadOnly = true;
-
             tbMaKhachHang.Text =kh.MaKH.ToString();
             tbTenKhachHang.Text = kh.TenKH;
             dtpNgaySinh.Text = kh.NgSinh.ToString();
@@ -60,10 +70,30 @@ namespace QuanLyBoardGame
         {
             if(bThemKhachHang.Text == "Sửa")
             {
-                var updateDef = Builders<KhachHang>.Update.Set("TenKH", tbTenKhachHang.Text).Set("NgSinh", dtpNgaySinh.Value).Set("DiaChi", tbDiaChi.Text).Set("SDT", tbSoDienThoai.Text).Set("Email", tbEmail.Text).Set("TichDiem", int.Parse(tbSoTichDiem.Text));
-                collection_KH.UpdateOneAsync(kh => kh.MaKH == ObjectId.Parse(tbMaKhachHang.Text), updateDef);
-                MessageBox.Show("Cập nhật thông tin khách hàng thành công");
-                this.Hide();
+                if (tbTenKhachHang.Text != "" &
+                dtpNgaySinh.Text != "" &
+                tbDiaChi.Text != "" &
+                tbSoDienThoai.Text != "" &
+                tbEmail.Text != "")
+                {
+                    DateTime ngaySinh = dtpNgaySinh.Value;
+                    DateTime ngayHienTai = DateTime.Now;
+                    int tuoi = ngayHienTai.Year - ngaySinh.Year;
+                    if (tuoi>16) {
+                        var updateDef = Builders<KhachHang>.Update.Set("TenKH", tbTenKhachHang.Text).Set("NgSinh", dtpNgaySinh.Value).Set("DiaChi", tbDiaChi.Text).Set("SDT", tbSoDienThoai.Text).Set("Email", tbEmail.Text).Set("TichDiem", int.Parse(tbSoTichDiem.Text));
+                        collection_KH.UpdateOneAsync(kh => kh.MaKH == ObjectId.Parse(tbMaKhachHang.Text), updateDef);
+                        MessageBox.Show("Cập nhật thông tin khách hàng thành công");
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Khách hàng nhỏ hơn 16 tuổi không cho phép thuê");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin khách hàng");
+                }
             }
             else
             {
@@ -73,10 +103,20 @@ namespace QuanLyBoardGame
                 tbSoDienThoai.Text != ""&
                 tbEmail.Text != "") 
                 {
-                    KhachHang kh = new KhachHang(tbTenKhachHang.Text, dtpNgaySinh.Value, tbDiaChi.Text, tbSoDienThoai.Text, tbEmail.Text);
-                    collection_KH.InsertOneAsync(kh);
-                    MessageBox.Show("Thêm thông tin khách hàng thành công");
-                    this.Hide();
+                    DateTime ngaySinh = dtpNgaySinh.Value;
+                    DateTime ngayHienTai = DateTime.Now;
+                    int tuoi = ngayHienTai.Year - ngaySinh.Year;
+                    if (tuoi > 16)
+                    {
+                        KhachHang kh = new KhachHang(tbTenKhachHang.Text, dtpNgaySinh.Value, tbDiaChi.Text, tbEmail.Text, tbSoDienThoai.Text);
+                        collection_KH.InsertOneAsync(kh);
+                        MessageBox.Show("Thêm thông tin khách hàng thành công");
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Khách hàng nhỏ hơn 16 tuổi không cho phép thuê");
+                    }
                 }
                 else
                 {
@@ -87,13 +127,29 @@ namespace QuanLyBoardGame
 
         private void bMDKhachHang_Click(object sender, EventArgs e)
         {
-            tbMaKhachHang.Text = "";
-            tbTenKhachHang.Text = "";
-            dtpNgaySinh.Text = "";
-            tbDiaChi.Text = "";
-            tbSoDienThoai.Text = "";
-            tbEmail.Text = "";
-            tbSoTichDiem.Text = "0";
+            if (bThemKhachHang.Text == "Sửa")
+            {
+                HienThiKhachHang();
+            }
+
+            else
+            {
+                tbMaKhachHang.Text = "";
+                tbTenKhachHang.Text = "";
+                dtpNgaySinh.Text = "";
+                tbDiaChi.Text = "";
+                tbSoDienThoai.Text = "";
+                tbEmail.Text = "";
+                tbSoTichDiem.Text = "0";
+            }
+        }
+
+        private void tbSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự được hiển thị trong text box
+            }
         }
     }
 }

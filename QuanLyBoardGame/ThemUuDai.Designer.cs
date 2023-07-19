@@ -124,6 +124,7 @@
             this.tbSoLuongQD.Size = new System.Drawing.Size(204, 20);
             this.tbSoLuongQD.TabIndex = 79;
             this.tbSoLuongQD.Text = "0";
+            this.tbSoLuongQD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhanTramGiam_KeyPress);
             // 
             // label49
             // 
@@ -143,6 +144,7 @@
             this.tbSoLuongUD.Size = new System.Drawing.Size(204, 20);
             this.tbSoLuongUD.TabIndex = 77;
             this.tbSoLuongUD.Text = "0";
+            this.tbSoLuongUD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhanTramGiam_KeyPress);
             // 
             // label48
             // 
@@ -162,6 +164,7 @@
             this.tbPhanTramGiam.Size = new System.Drawing.Size(204, 20);
             this.tbPhanTramGiam.TabIndex = 75;
             this.tbPhanTramGiam.Text = "0";
+            this.tbPhanTramGiam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhanTramGiam_KeyPress);
             // 
             // label47
             // 
@@ -298,7 +301,7 @@
             this.Controls.Add(this.panel12);
             this.Name = "ThemUuDai";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ThemUuDai";
+            this.Text = "Thông tin ưu đãi";
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel3.ResumeLayout(false);

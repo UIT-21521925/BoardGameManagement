@@ -30,7 +30,7 @@
         {
             this.panel6 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbDatHang = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
             this.tbTTBG = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.Controls.Add(this.label1);
-            this.panel6.Controls.Add(this.textBox1);
+            this.panel6.Controls.Add(this.tbDatHang);
             this.panel6.Controls.Add(this.label53);
             this.panel6.Controls.Add(this.tbTTBG);
             this.panel6.Controls.Add(this.label54);
@@ -86,12 +86,13 @@
             this.label1.TabIndex = 76;
             this.label1.Text = "Số điện thoại đặt trước";
             // 
-            // textBox1
+            // tbDatHang
             // 
-            this.textBox1.Location = new System.Drawing.Point(243, 326);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 20);
-            this.textBox1.TabIndex = 75;
+            this.tbDatHang.Location = new System.Drawing.Point(243, 326);
+            this.tbDatHang.Name = "tbDatHang";
+            this.tbDatHang.Size = new System.Drawing.Size(204, 20);
+            this.tbDatHang.TabIndex = 75;
+            this.tbDatHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDatHang_KeyPress);
             // 
             // label53
             // 
@@ -133,13 +134,14 @@
             // 
             this.cbTinhTrangMuon.FormattingEnabled = true;
             this.cbTinhTrangMuon.Items.AddRange(new object[] {
-            "Dang thue",
-            "Chua duoc thue",
-            "\t"});
+            "Đang thuê",
+            "Chưa được thuê",
+            "Đang giữ hàng"});
             this.cbTinhTrangMuon.Location = new System.Drawing.Point(243, 282);
             this.cbTinhTrangMuon.Name = "cbTinhTrangMuon";
             this.cbTinhTrangMuon.Size = new System.Drawing.Size(204, 21);
             this.cbTinhTrangMuon.TabIndex = 70;
+            this.cbTinhTrangMuon.Text = "Chưa được thuê";
             // 
             // label51
             // 
@@ -156,13 +158,14 @@
             // 
             this.cbTinhTrangBG.FormattingEnabled = true;
             this.cbTinhTrangBG.Items.AddRange(new object[] {
-            "Tot",
-            "Hong",
-            "Tray Xuoc"});
+            "Tốt",
+            "Hỏng",
+            "Trầy xước"});
             this.cbTinhTrangBG.Location = new System.Drawing.Point(243, 232);
             this.cbTinhTrangBG.Name = "cbTinhTrangBG";
             this.cbTinhTrangBG.Size = new System.Drawing.Size(204, 21);
             this.cbTinhTrangBG.TabIndex = 68;
+            this.cbTinhTrangBG.Text = "Tốt";
             // 
             // label16
             // 
@@ -261,7 +264,7 @@
             this.Controls.Add(this.panel6);
             this.Name = "ThemVaoKho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ThemVaoKho";
+            this.Text = "Thông tin game trong kho";
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -289,6 +292,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbDatHang;
     }
 }

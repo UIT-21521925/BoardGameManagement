@@ -15,6 +15,7 @@ namespace QuanLyBoardGame
     public partial class ThemVaoKho : Form
     {
         static MongoClient client = new MongoClient();
+        //static MongoClient client = new MongoClient("mongodb+srv://cnpm:Thuydiem29@cluster0.2jmsamm.mongodb.net/");
         static IMongoDatabase db = client.GetDatabase("BoardGame");
         static IMongoCollection<ThongTinBG> collection_BG = db.GetCollection<ThongTinBG>("BoardGame");
         static IMongoCollection<BoardGame> collection_G = db.GetCollection<BoardGame>("Game");
@@ -38,19 +39,23 @@ namespace QuanLyBoardGame
                 this.ttbg = ttbg;
                 HienThiNhap();
             }
+            tbTTBG.ReadOnly = true;
+            tbTenTTBG.ReadOnly = true;
+            tbMaBoardGame.ReadOnly = true;
         }
         internal ThemVaoKho( BoardGame bg)
         {
             InitializeComponent();
             this.bg = bg;
             HienThiKho();
+            tbTTBG.ReadOnly = true;
+            tbTenTTBG.ReadOnly = true;
+            tbMaBoardGame.ReadOnly = true;
         }
 
         public void HienThiKho()
         {
-            tbTTBG.ReadOnly = true;
-            tbTenTTBG.ReadOnly = true;
-            tbMaBoardGame.ReadOnly = true;
+           
 
             tbTTBG.Text =bg.MaTTBG.ToString();
             var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
@@ -60,6 +65,7 @@ namespace QuanLyBoardGame
             tbMaBoardGame.Text = bg.MaBG.ToString();
             cbTinhTrangBG.Text = bg.TinhTrangBG;
             cbTinhTrangMuon.Text = bg.TinhTrangMuon;
+            tbDatHang.Text = bg.DatHang;
             bThemBG.Text = "Sửa";
         }
 
@@ -80,14 +86,21 @@ namespace QuanLyBoardGame
         {
             if (bThemBG.Text == "Sửa")
             {
-                var updateDef = Builders<BoardGame>.Update.Set("TinhTrangBG", cbTinhTrangBG.Text).Set("TinhTrangMuon", cbTinhTrangMuon.Text);
-                collection_G.UpdateOneAsync(bg1 => bg1.MaBG == bg.MaBG, updateDef);
-                MessageBox.Show("Cập nhật thông tin trong kho thành công");
-                this.Hide();
+                if (cbTinhTrangBG.SelectedIndex != -1 && cbTinhTrangMuon.SelectedIndex != -1)
+                {
+                    var updateDef = Builders<BoardGame>.Update.Set("TinhTrangBG", cbTinhTrangBG.Text).Set("TinhTrangMuon", cbTinhTrangMuon.Text).Set("DatHang", tbDatHang.Text);
+                    collection_G.UpdateOneAsync(bg1 => bg1.MaBG == bg.MaBG, updateDef);
+                    MessageBox.Show("Cập nhật thông tin trong kho thành công");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập tình trạng board game!");
+                }
             }
             else
             {
-                if (cbTinhTrangBG.Text!= "")
+                if (cbTinhTrangBG.SelectedIndex != -1)
                 {
                     BoardGame bg = new BoardGame(ObjectId.Parse(tbTTBG.Text), cbTinhTrangBG.Text);
                     collection_G.InsertOneAsync(bg);
@@ -106,11 +119,32 @@ namespace QuanLyBoardGame
 
         private void bMDBG_Click(object sender, EventArgs e)
         {
-            tbTTBG.Text = "";
-            tbTenTTBG.Text = "";
-            tbMaBoardGame.Text = "";
-            cbTinhTrangBG.Text = "";
-            cbTinhTrangMuon.Text = "";
+            if (bThemBG.Text == "Sửa")
+            {
+                tbTTBG.Text = bg.MaTTBG.ToString();
+                var thongTinTTBGquery = Builders<ThongTinBG>.Filter.Eq("MaTTBG", bg.MaTTBG);
+                List<ThongTinBG> filteredTTBGs = collection_BG.Find(thongTinTTBGquery).ToList();
+                ThongTinBG ttbg = filteredTTBGs[0];
+                tbTenTTBG.Text = ttbg.TenBoardGame;
+                tbMaBoardGame.Text = bg.MaBG.ToString();
+                cbTinhTrangBG.Text = bg.TinhTrangBG;
+                cbTinhTrangMuon.Text = bg.TinhTrangMuon;
+                tbDatHang.Text = bg.DatHang;
+            }
+            else
+            {
+                tbMaBoardGame.Text = "";
+                cbTinhTrangBG.Text = "";
+                cbTinhTrangMuon.Text = "";
+            }
+        }
+
+        private void tbDatHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự được hiển thị trong text box
+            }
         }
     }
 }
