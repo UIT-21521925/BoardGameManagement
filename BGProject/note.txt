@@ -1,0 +1,45 @@
+npm init
+npm install express
+
+
+*nodemon (npm nodemon) là công cụ giúp dev trong quá trinh phát triển ứng dụng
+node.js bởi tự động restart ứng dụng nodejs khi phát hiện sự thay đổi file trong source code
+--> npm i nodemon --save-dev
+-> lang nghe su thay doi file
+-> Sử dụng nodemon để không phải chạy lại code mỗi lần thay đổi
+
+
+*morgan: truy cập website, yêu cầu http request
+-> npm i morgan --save-dev
+
+*Handlebars là templating engine không có logic, có nghĩa là có rất ít hoặc không có logic trong các template HTML mà bạn sử dụng. Nó giữ cho các trang HTML của bạn đơn giản, sạch sẽ
+- Handlebars de xay dung nhung thanh phan chung cua trang web - npm install express-handlebars
+
+*basic routing: định nghĩa routing, tạo điểm truy cập
+
+- uri : tồn tại duy nhất, tên miền tồn tại duy nhất 
+mỗi route có một chức năng để xử lý ( handle function) 
+- định nghĩa route app.method(path,handler) (handler ở đây thường là callback)
+ ++ app :íntance of express
+ ++ method : một http request ( get/post/ get) , tất cả đều ở dạng lowcase 
+ ++ path is a path on the server 
+
+
+ *MODEL (MVC)
+ - install mongoose
+ - connect to DB
+ - Create model
+
+ * mongoose giúp mô hình hóa các đối tượng của mongoDB trong môi trường bất đồng bộ, giúp các field của document theo một format, để quản lý chặt chẽ hơn
+ 
+ *query parameter : /search?q=
+
+ *Controllers: noi nhan cac request tuong ung
+ *Router : moi router co 4 request methods: post, get, put, delete
+
+ *params.slug thường được sử dụng để truy cập vào giá trị của tham số slug trong URL. vd : nếu URL của bạn là "/products/apple-iphone-12", thì params.slug sẽ là "apple-iphone-12"
+ -  Truy cập vào giá trị của tham số slug trong URL
+
+
+ *node-sass :
+ - thuc hien lenh npm run watch : input vao app.sass sau do se auto output ra app.css

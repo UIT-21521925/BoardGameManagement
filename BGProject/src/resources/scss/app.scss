@@ -1,0 +1,442 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+.app {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.header {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    background-color: #000;
+    // display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    z-index: 1000;
+
+}
+.logo {
+    width: 70px;
+    height: auto;
+    position: absolute;
+    margin: 7px 80px;
+}
+
+// search 
+.wrap {
+    margin: 5px 0;
+}
+.search {
+  width: 100%;
+  display: flex;
+}
+  
+.searchTerm {
+    width: 100%;
+    // position: relative;
+    border: 3px solid #f1f1f1;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+    background-color: #ccc;
+  }
+  
+  .searchTerm:focus{
+    color: #020203;
+  }
+  
+  .searchButton {
+    width: 40px;
+    // position: absolute;
+    height: 34px;
+    border: 1px solid #000000;
+    background: #f3f3f3;
+    text-align: center;
+    color: #2d2d2d;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+
+.app-body {
+    padding-top: 80px;
+}
+
+
+.body {
+    width: 100%;
+    // margin-top: 60px;
+}
+
+.body-content {
+    margin: 4px 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.boardergames-categories{
+    height: fit-content;
+    background-color:#444242;
+    padding: 10px 10px;
+    color: #fffafa;
+    width: 40%;
+
+}
+
+
+.navbar-list {
+    color: red;
+}
+.categories-title{
+    font-size: 16px;
+    margin-top: 8px;
+    text-align: center;
+    cursor: pointer;
+    width: 200px;
+    
+}
+hr {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+  }
+
+.categories-choice{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.categories-name {
+    padding-left: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 5px;
+}
+
+
+
+.boardgames {
+    width: 70%;
+    margin-left: 9%;
+    height: auto;
+}
+
+.grid {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.grid__col-4 {
+    width: 25%;
+    color: #000;
+    text-decoration: none;
+}
+
+.boardgame {
+    margin-bottom: 12px;
+    width: 220px;
+    box-shadow: rgba(203, 197, 197, 0.2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    background-color: #fff;
+    position: relative;
+}
+
+.boardgame:hover {
+    cursor: pointer;
+}
+
+
+.boardgame-img {
+    width: 100%;
+    height: 150px
+}
+
+.boardgame-info {
+    list-style: none;
+    padding: 5px 10px;
+    height : 130px
+}
+.available {
+    font-weight: bolder;
+    font-size: 15px
+}
+.sold-out {
+    padding-top: 10px;
+    font-weight: bolder;
+    font-size: 15px;
+    color: red;
+}
+.boardgame-info-sold {
+    height: 136px;
+    list-style: none;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.boardgame-info__item{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    padding: 3px 0;
+   
+}
+.boardgame-link__name{
+    font-size: 19px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    color: #000;
+   
+}
+
+.boardgame-link__price {
+    padding-bottom: 7px;
+    text-decoration: none;
+    color: #000;
+}
+
+.boardgame-btn {
+    position: absolute;
+    border: none;
+    padding: 6px 10px;
+    transform: translateX(65px);
+    background-color: crimson;
+    color: #fff;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    bottom: 10px;
+}
+
+.boardgame-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+.site-footer
+{
+  background-color:#26272b;
+  font-size:15px;
+  line-height:24px;
+  color:#f5eeee;
+  margin-top: 30px;
+   padding: 40px 0;
+   bottom: 0;
+}
+.container-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 35px;
+    width: 100%;
+}
+.container-item{
+    width: 50%;
+    padding: 0 20px;
+}
+
+.container-item--header {
+    font-size: 15px;
+    padding-bottom: 5px;
+}
+
+.quicklinks-item {
+    color: #fff;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+.navbar-dropdown {
+    list-style : none;
+    width: 100%;
+    position: relative;
+    display: block;
+    height: 100px;
+    transition: max-height 0.3s ease;
+    color: black;
+}
+.navbar-dropdown:hover {
+    color: white;  
+}
+.nav-dropdown {
+    position: relative;
+    text-align: center;
+}
+
+.navbar-dropdown-item {
+    padding: 10px 10px;
+    cursor: pointer;
+    background: linear-gradient(to right, black 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .5s ease-out;
+    
+}
+
+.navbar-dropdown-item:hover{
+    background-position: left bottom;
+    color: white;  
+}
+.item-transition {
+    text-align: center;
+    font-size: 16px;
+    line-height: 30px; 
+    color: black;
+    transition: all .6s ease-out;
+    display: block;
+    
+}
+.item-transition:hover {
+    color: white;  
+}
+
+.isSelected {
+    margin-top: 20px;
+    padding-left: 115px;
+}
+.has-link {
+    text-decoration: none;
+    color: #000;
+}
+.has-list--item {
+    list-style: none;
+    padding: 15px 5px;
+}
+.has-list--item:hover {
+    background-color: #989696;
+}
+
+// modal
+.modal-add {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(51, 51, 51, 0.302);
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transition: 0.5s all ease-out;
+    transition-delay: 0.2s;
+}
+.modal-add.open {
+    display: flex;
+}
+.modal-container-add {
+    position: relative;
+    background-color: white;
+    width: 600px;
+    z-index: 10;
+    height: auto;
+    opacity: 2;
+    padding-bottom: 10px;
+}
+
+.successmessage.open {
+    display: flex;
+}
+.header-modal-add {
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(228, 72, 72);
+    position: relative;
+
+}
+.body-modal-add{
+    padding: 0 15px;
+
+}
+.body-add-heading {
+    margin-top: 20px;
+    font-weight: 600;
+    letter-spacing: 0.2;
+    font-size: 17px;
+    color: rgb(117, 56, 56);
+    padding-bottom: 10px;
+    margin-bottom: 3px;
+}
+.phone{
+    width: 545px;
+    outline: none;
+    padding: 5px 10px;
+}
+.footer-modal-add {
+    cursor: pointer;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 10px 17px;
+    float: right;
+    margin-right: 40px;
+    color: rgb(117, 56, 56);
+}
+.icon-close-add {
+    position: absolute;
+    top: -15px;
+    right: 0;
+    cursor: pointer;
+}
+
+// successmessage
+.successmessage {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(51, 51, 51, 0.302);
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transition: 0.5s all ease-out;
+    transition-delay: 0.2s;
+}
+
+.modal-container-content {
+    padding: 0 15px;
+
+}
+.modal-container-item {
+    margin-top: 20px;
+    font-weight: 600;
+    letter-spacing: 0.2;
+    font-size: 15px;
+    color: rgb(117, 56, 56);
+    padding-bottom: 10px;
+    margin-bottom: 3px;
+}
+.success {
+    background-color: rgb(17, 206, 92);
+}
+
+.welcome {
+    font-size: 13px;
+    text-align: center;
+}
+.warnning {
+    font-size: 13px;
+}
+.cancle {
+    color: red;
+}

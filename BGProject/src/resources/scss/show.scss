@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin-left: 25px;
+    padding-top: 8px;
+    padding-bottom: 16px;
+    background-color: #fff;
+
+}
+.container-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.boardgame-top {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.boardgame-img-detail {
+    width: 350px;
+    height: 350px;
+}
+
+.boardgame-info-detail {
+    padding-bottom: 35px;
+    padding-left: 44px;
+    
+}
+.boardgame-name {
+    font-size: 30px;
+    padding-bottom: 25px;
+}
+
+.boardgame-info__list {
+    padding: 15px 0;
+}
+
+.date {
+    border: none;
+    padding: 10px 15px;
+    transform: translateX(65px);
+    background-color: crimson;
+    color: #fff;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.available {
+    font-weight: bolder;
+    font-size: 15px
+}
+.sold-out {
+    padding-top: 10px;
+    font-weight: bolder;
+    font-size: 15px;
+    color: red;
+}
+.rule {
+    max-inline-size: 50ch;
+    text-align: justify;
+    line-height: 20px;
+}
+
+.home {
+    color: black;
+    margin-bottom: 15px;
+}
+.text-home {
+    padding-bottom: 15px;
+}
+.home-icon {
+    font-size: 13px;
+}
