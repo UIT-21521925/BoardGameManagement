@@ -167,7 +167,7 @@ phone(req, res) {
         res.status(500).json({ error: 'Không thể cập nhật trạng thái' });
       } else {
         // Lưu thành công, render lại trang home
-        res.redirect('/');
+      //  res.redirect('/');
         setTimeout(() => {
           Game.findOneAndUpdate(
             {

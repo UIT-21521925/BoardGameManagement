@@ -78,10 +78,12 @@
             </form>
         </div>
     </div>
-     <div class="successmessage" id="successMessage" style="display: none;">
+     <div class="successmessage" id="successMessage">
         <div class="modal-container-add">
            <div class="header-modal-add success">
                 Giữ hàng thành công
+                <div class="icon-close-add closeModalsucess"><a href="/" class="has-link"><i class="fa-regular fa-circle-xmark"></i></a></div>
+
             </div>   
            <div class="modal-container-content">
               <p class="modal-container-item welcome" > 3 Board Game xin chân thành cảm ơn! </p>
@@ -110,8 +112,10 @@
     const modalForm = document.getElementById('modalForm');
     const modalSubmitBtn = document.getElementById('modalSubmitBtn');
     const expirationMessage = document.getElementById('expiration-message');
+    const closeModalsucess = $('.closeModalsucess');
+
     
-                var errorMessage = document.getElementById("errorMessage");
+    var errorMessage = document.getElementById("errorMessage");
 
             function validateForm() {
                  var phoneInput = document.getElementById("phoneInput").value;
@@ -147,20 +151,23 @@
                         }
                         else {
                             openModal.classList.remove('open');
-                            successMessage.style.display = 'flex';
+                            successMessage.classList.add('open')
+                           // successMessage.style.display = 'flex';
                             var expirationDate = new Date();
-                            expirationDate.setMinutes(expirationDate.getMinutes() + 2);
-                        
-                            
+                            expirationDate.setMinutes(expirationDate.getMinutes() + 2); 
                             expirationMessage.innerHTML = ' Vui lòng đến cửa hàng trong thời gian hiệu lực : ' + expirationDate.toLocaleString()  ;
                             // Đặt thời gian chờ 5 giây trước khi tắt thông báo thành công và chuyển hướng
-                            setTimeout(function () {
-                                successMessage.style.display = 'none';
-                            }, 6000);
+                            //{{!-- setTimeout(function () {
+                            //    successMessage.style.display = 'none';
+                           // }, 9800000); --}}
                         }
+                         closeModalsucess.addEventListener('click', function() {
+                               successMessage.classList.remove('open');
+                        })
+                    
                     })
 
-                    closeModal.addEventListener('click', function() {
+                closeModal.addEventListener('click', function() {
                    openModal.classList.remove('open');
                 })
                 });

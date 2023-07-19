@@ -54,13 +54,15 @@
             </form>
         </div>
     </div>
-     <div class="successmessage" id="successMessage" style="display: none;">
+      <div class="successmessage" id="successMessage">
         <div class="modal-container-add">
            <div class="header-modal-add success">
                 Giữ hàng thành công
+                <div class="icon-close-add closeModalsucess"><a href="/" class="has-link"><i class="fa-regular fa-circle-xmark"></i></a></div>
+
             </div>   
            <div class="modal-container-content">
-              <p class="modal-container-item welcome" > Board Game Store xin chân thành cảm ơn! </p>
+              <p class="modal-container-item welcome" > 3 Board Game xin chân thành cảm ơn! </p>
               <p class="modal-container-item" id="expiration-message"></p>
               <p class="modal-container-item">  Địa chỉ cửa hàng : Linh Trung, Thủ Đức </p>
               <p class="modal-container-item warnning">  Lưu ý: Việc giữ hàng cho quý khách sẽ bị <span class="cancle">HỦY</span> sau thời gian hiệu lực</p>
@@ -79,6 +81,8 @@
         const modalForm = document.getElementById('modalForm');
         const modalSubmitBtn = document.getElementById('modalSubmitBtn');
         const expirationMessage = document.getElementById('expiration-message');
+        const closeModalsucess = $('.closeModalsucess');
+
   function validateForm() {
                  var phoneInput = document.getElementById("phoneInput").value;
                 var phoneNumber = parseInt(phoneInput);
@@ -112,19 +116,17 @@
                             console.log("Form không hợp lệ");
                             return;
                         }
-                        else {
+                       else {
                             openModal.classList.remove('open');
-                            successMessage.style.display = 'flex';
+                            successMessage.classList.add('open')
+                           // successMessage.style.display = 'flex';
                             var expirationDate = new Date();
-                            expirationDate.setMinutes(expirationDate.getMinutes() + 2);
-                        
-                            
+                            expirationDate.setMinutes(expirationDate.getMinutes() + 2); 
                             expirationMessage.innerHTML = ' Vui lòng đến cửa hàng trong thời gian hiệu lực : ' + expirationDate.toLocaleString()  ;
-                            // Đặt thời gian chờ 5 giây trước khi tắt thông báo thành công và chuyển hướng
-                            setTimeout(function () {
-                                successMessage.style.display = 'none';
-                            }, 4000);
                         }
+                         closeModalsucess.addEventListener('click', function() {
+                               successMessage.classList.remove('open');
+                        })
                     })
 
                     closeModal.addEventListener('click', function() {
