@@ -1176,12 +1176,20 @@ namespace QuanLyBoardGame
 
         private void bSuaThamSo_Click(object sender, EventArgs e)
         {
-            var updateDef = Builders<ThamSo>.Update.Set("SoNgayThueTD", int.Parse(tbSoNgayThueMax.Text)).Set("SoNgayThueTT", int.Parse(tbSoNgayThueMin.Text)).Set("PhanTramCoc", int.Parse(tbPhanTramCoc.Text)).Set("SoDonHangTD", int.Parse(tbSoDonHangMax.Text)).Set("SoBoardGameTD", int.Parse(tbSoBGMax.Text));
-            collection_TS.UpdateOneAsync(ts1 => ts1.MaTS == thamso.MaTS, updateDef);
-            List<ThamSo> listTSs = collection_TS.AsQueryable().ToList<ThamSo>();
-            ThamSo ts = listTSs[0];
-            this.thamso = ts;
-            MessageBox.Show("Cập nhật thông tin tham số thành công");
+            if (tbSoNgayThueMax.Text != "" && tbSoNgayThueMin.Text != "" && tbPhanTramCoc.Text != "" && tbSoBGMax.Text != "" && tbSoDonHangMax.Text != "")
+            {
+                var updateDef = Builders<ThamSo>.Update.Set("SoNgayThueTD", int.Parse(tbSoNgayThueMax.Text)).Set("SoNgayThueTT", int.Parse(tbSoNgayThueMin.Text)).Set("PhanTramCoc", int.Parse(tbPhanTramCoc.Text)).Set("SoDonHangTD", int.Parse(tbSoDonHangMax.Text)).Set("SoBoardGameTD", int.Parse(tbSoBGMax.Text));
+                collection_TS.UpdateOneAsync(ts1 => ts1.MaTS == thamso.MaTS, updateDef);
+                List<ThamSo> listTSs = collection_TS.AsQueryable().ToList<ThamSo>();
+                ThamSo ts = listTSs[0];
+                this.thamso = ts;
+                MessageBox.Show("Cập nhật thông tin tham số thành công");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thông tin không thánh công do nhập thiếu tham số!");
+            }
+            
         }
 
 
